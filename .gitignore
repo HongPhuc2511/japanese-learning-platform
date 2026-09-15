@@ -6,6 +6,20 @@ __pycache__/
 # C extensions
 *.so
 
+# IDE config
+.idea/
+.vscode/
+
+# Virtual Environment
+backend/venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Node modules
+frontend/node_modules/
 # Distribution / packaging
 .Python
 build/
