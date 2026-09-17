@@ -1,8 +1,8 @@
-from backend.api.models.base import BaseModel
+from .base import BaseModel
 from django.db import models
 
-from backend.api.models.choices import JLPT_LEVELS
-from backend.api.models.lesson import Lesson
+from . import JLPTLevel
+from .lesson import Lesson
 
 
 class Vocabulary(BaseModel):
@@ -13,7 +13,7 @@ class Vocabulary(BaseModel):
     example_sentence=models.TextField(blank=True)
     example_meaning=models.TextField(blank=True)
     audio=models.FileField(upload_to='audio/vocab/',blank=True)
-    level=models.CharField(max_length=2,choices=JLPT_LEVELS)
+    level=models.CharField(max_length=2,default=JLPTLevel.N5)
     lesson=models.ForeignKey(Lesson,on_delete=models.SET_NULL,null=True,related_name='vocabularies')
 
 class Kanji(BaseModel):
@@ -22,5 +22,5 @@ class Kanji(BaseModel):
     onyomi=models.CharField(max_length=100,blank=True)
     kunyomi=models.CharField(max_length=100,blank=True)
     stroke_count=models.IntegerField()
-    jlpt_level=models.CharField(max_length=2,choices=JLPT_LEVELS)
+    jlpt_level=models.CharField(max_length=2,default=JLPTLevel.N5)
     radical=models.CharField(max_length=10,blank=True)

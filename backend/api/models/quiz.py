@@ -1,9 +1,9 @@
 from django.db import models
 
-from backend.api.models.base import BaseModel
-from backend.api.models.enums import QuestionType
-from backend.api.models.lesson import Lesson
-from backend.api.models.user import User
+from .base import BaseModel
+from .enums import QuestionType
+from .lesson import Lesson
+from .user import User
 
 
 class Quiz(BaseModel):

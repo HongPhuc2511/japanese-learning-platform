@@ -1,9 +1,9 @@
 from django.db import models
 
-from backend.api.models.base import BaseModel
-from backend.api.models.enums import JLPTLevel
+from .base import BaseModel
+from .enums import JLPTLevel
 
-from backend.api.models.lesson import Lesson
+from .lesson import Lesson
 
 
 class Grammar(BaseModel):

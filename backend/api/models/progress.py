@@ -1,7 +1,7 @@
 from django.db import models
 
-from backend.api.models.lesson import Lesson
-from backend.api.models.user import User
+from .lesson import Lesson
+from .user import User
 
 
 class UserProgress(models.Model):
