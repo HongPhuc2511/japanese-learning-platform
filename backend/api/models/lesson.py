@@ -1,12 +1,12 @@
 from django.db import models
 
 from backend.api.models.base import BaseModel
-from backend.api.models.choices import JLPT_LEVELS
+from backend.api.models.enums import JLPTLevel
 
 
 class Course(BaseModel):
     title=models.CharField(max_length=200)
-    level=models.CharField(max_length=2,choices=JLPT_LEVELS)
+    level=models.CharField(max_length=2,default=JLPTLevel.N5)
     description = models.TextField(blank=True)
     order=models.IntegerField(default=0)
 
