@@ -1,11 +1,11 @@
-from rest_framework import serializers
+from rest_framework import viewsets, permissions, filters
 
-class BaseSerializer(serializers.ModelSerializer):
-    """Base ModelSerializer chuẩn cho toàn bộ dự án.
-    Tự động đọc các trường thời gian created_at, updated_at dưới dạng read-only """
-    created_at = serializers.DateTimeField(read_only=True)
-    updated_at = serializers.DateTimeField(read_only=True)
+class BaseViewSet(viewsets.ModelViewSet):
+    """Base ViewSet chuẩn cung cấp đầy đủ các thao tác CRUD."""
+    permission_classes = [permissions.IsAuthenticated]
 
-    class Meta:
-        fields = []
-        read_only_fields = ['id', 'created_at', 'updated_at']
+    def perform_create(self, serializer):
+        if hasattr(serializer.Meta.model, 'user_id'):
+            serializer.save(user=self.request.user)
+        else:
+            serializer.save()

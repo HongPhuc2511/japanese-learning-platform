@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from serializers.auth import RegisterSerializer, UserSerializer, CustomTokenObtainPairSerializer
+from api.serializers.auth import RegisterSerializer, UserSerializer, CustomTokenObtainPairSerializer
 
 
 class RegisterView(generics.CreateAPIView):
