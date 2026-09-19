@@ -6,7 +6,6 @@ from api.views.auth import RegisterView, LoginView, RefreshTokenView, MeView
 router = DefaultRouter()
 
 urlpatterns = [
-    # Auth Endpoints
     path('auth/register/', RegisterView.as_view(), name='register'),
     path('auth/login/', LoginView.as_view(), name='login'),
     path('auth/refresh/', RefreshTokenView.as_view(), name='token_refresh'),
