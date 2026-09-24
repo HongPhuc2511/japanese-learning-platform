@@ -1,16 +1,13 @@
 from api.models import Course, Lesson
 from api.serializers import CourseSerializer, LessonSerializer
-from .base import BaseViewSet
+from .base import BaseReadOnlyViewSet
 from rest_framework import permissions
 
 
-class CourseViewSet(BaseViewSet):
+class CourseViewSet(BaseReadOnlyViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    permission_classes = [permissions.AllowAny]
 
-
-class LessonViewSet(BaseViewSet):
+class LessonViewSet(BaseReadOnlyViewSet):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
-    permission_classes = [permissions.AllowAny]

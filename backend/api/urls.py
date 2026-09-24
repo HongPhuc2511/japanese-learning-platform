@@ -1,9 +1,11 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from api.views.auth import RegisterView, LoginView, RefreshTokenView, MeView
+from .views import RegisterView, LoginView, RefreshTokenView, MeView,CourseViewSet,LessonViewSet
 
 router = DefaultRouter()
+router.register('courses', CourseViewSet)
+router.register('lessons', LessonViewSet)
 
 urlpatterns = [
     path('auth/register/', RegisterView.as_view(), name='register'),
