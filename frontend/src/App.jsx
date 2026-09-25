@@ -1,29 +1,19 @@
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import Header from './components/Header';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Courses from './pages/Courses';
 import CourseDetail from './pages/CourseDetail';
 
 function Home() {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
-  };
+  const { user } = useAuth();
 
   return (
     <div className="text-center mt-10">
       <h1 className="text-2xl font-bold">Xin chào, {user?.username}!</h1>
-      <button
-        onClick={handleLogout}
-        className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
-      >
-        Đăng xuất
-      </button>
+      <p className="text-gray-500 mt-2">Chào mừng quay lại với việc học tiếng Nhật.</p>
     </div>
   );
 }
@@ -32,6 +22,7 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route
             path="/"
