@@ -7,6 +7,8 @@ export const endpoints = {
     'login': "/api/auth/login/",
     'refresh': "/api/auth/refresh/",
     'current-user': "/api/auth/me/",
+    'courses':"/api/courses/",
+    'lessons':"/api/lessons/",
 }
 
 export const authApis = (token) => {
