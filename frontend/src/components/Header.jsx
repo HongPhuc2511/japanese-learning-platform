@@ -27,6 +27,10 @@ export default function Header() {
             Từ vựng
           </Link>
 
+          <Link to="/kanji" className="text-gray-700 hover:text-blue-600">
+            Kanji
+          </Link>
+
           {user ? (
             <>
               <span className="text-gray-500 text-sm">
