@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Courses from './pages/Courses';
 import CourseDetail from './pages/CourseDetail';
+import Vocabulary from './pages/Vocabulary';
 
 function Home() {
   const { user } = useAuth();
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:id" element={<CourseDetail />} />
+          <Route path="/vocabulary" element={<Vocabulary />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
