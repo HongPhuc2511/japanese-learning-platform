@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+
 export default function Header() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -20,6 +21,14 @@ export default function Header() {
         <nav className="flex items-center gap-4">
           <Link to="/courses" className="text-gray-700 hover:text-blue-600">
             Khoá học
+          </Link>
+  
+          <Link to="/vocabulary" className="text-gray-700 hover:text-blue-600">
+            Từ vựng
+          </Link>
+
+          <Link to="/kanji" className="text-gray-700 hover:text-blue-600">
+            Kanji
           </Link>
 
           {user ? (

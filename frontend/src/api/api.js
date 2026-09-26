@@ -9,6 +9,8 @@ export const endpoints = {
     'current-user': "/api/auth/me/",
     'courses':"/api/courses/",
     'lessons':"/api/lessons/",
+    'vocabulary':"/api/vocabulary/",
+    'kanji':"/api/kanji/",
 }
 
 export const authApis = (token) => {
