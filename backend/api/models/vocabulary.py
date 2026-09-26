@@ -14,7 +14,7 @@ class Vocabulary(BaseModel):
     example_meaning=models.TextField(blank=True)
     audio=models.FileField(upload_to='audio/vocab/',blank=True)
     level=models.CharField(max_length=2,default=JLPTLevel.N5)
-    lesson=models.ForeignKey(Lesson,on_delete=models.SET_NULL,null=True,related_name='vocabularies')
+    lesson=models.ForeignKey(Lesson,on_delete=models.SET_NULL,null=True,related_name='vocabularies',blank=True)
 
 class Kanji(BaseModel):
     character=models.CharField(max_length=5)
