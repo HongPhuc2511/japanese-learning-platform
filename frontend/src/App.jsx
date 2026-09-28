@@ -8,6 +8,7 @@ import Courses from './pages/Courses';
 import CourseDetail from './pages/CourseDetail';
 import Vocabulary from './pages/Vocabulary';
 import Kanji from './pages/Kanji';
+import Grammar from './pages/Grammar';
 
 function Home() {
   const { user } = useAuth();
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/courses/:id" element={<CourseDetail />} />
           <Route path="/vocabulary" element={<Vocabulary />} />
           <Route path="/kanji" element={<Kanji />}/>
+          <Route path="/grammar" element={<Grammar />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
