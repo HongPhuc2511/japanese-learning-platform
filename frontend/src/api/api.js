@@ -11,6 +11,7 @@ export const endpoints = {
     'lessons':"/api/lessons/",
     'vocabulary':"/api/vocabulary/",
     'kanji':"/api/kanji/",
+     'grammar': "/api/grammar/",
 }
 
 export const authApis = (token) => {
