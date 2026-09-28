@@ -9,6 +9,8 @@ import CourseDetail from './pages/CourseDetail';
 import Vocabulary from './pages/Vocabulary';
 import Kanji from './pages/Kanji';
 import Grammar from './pages/Grammar';
+import Quizzes from './pages/Quizzes';
+import QuizDetail from './pages/QuizDetail';
 
 function Home() {
   const { user } = useAuth();
@@ -42,6 +44,8 @@ export default function App() {
           <Route path="/vocabulary" element={<Vocabulary />} />
           <Route path="/kanji" element={<Kanji />}/>
           <Route path="/grammar" element={<Grammar />} />
+          <Route path="/quizzes" element={<Quizzes />} />
+          <Route path="/quizzes/:id" element={<QuizDetail />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

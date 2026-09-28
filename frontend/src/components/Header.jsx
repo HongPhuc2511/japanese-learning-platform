@@ -35,6 +35,9 @@ export default function Header() {
             Ngữ pháp
           </Link>
 
+          <Link to="/quizzes" className="text-gray-700 hover:text-blue-600">
+            Kiểm tra
+          </Link>
           {user ? (
             <>
               <span className="text-gray-500 text-sm">

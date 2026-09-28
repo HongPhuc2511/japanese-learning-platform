@@ -11,3 +11,4 @@ class User(AbstractUser):
     points=models.IntegerField(default=0)
 
 
+
