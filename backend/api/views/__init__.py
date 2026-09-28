@@ -3,3 +3,4 @@ from.auth import LoginView,MeView,RefreshTokenView,RegisterView
 from .lesson import CourseViewSet, LessonViewSet
 from .vocabulary import VocabularyViewSet, KanjiViewSet
 from .grammar import GrammarViewSet
+from .quiz import QuizViewSet

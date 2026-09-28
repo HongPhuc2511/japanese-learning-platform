@@ -13,7 +13,7 @@ class Quiz(BaseModel):
 class Question(BaseModel):
     quiz=models.ForeignKey(Quiz,on_delete=models.CASCADE,related_name='questions')
     question_text=models.CharField(max_length=500)
-    question_Type=models.CharField(max_length=20,default=QuestionType.MULTIPLE_CHOICE)
+    question_type=models.CharField(max_length=20,choices=QuestionType.choices,default=QuestionType.MULTIPLE_CHOICE)
     audio=models.FileField(upload_to='audio/questions',blank=True)
 
 class Answer(models.Model):
