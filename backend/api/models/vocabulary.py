@@ -16,6 +16,9 @@ class Vocabulary(BaseModel):
     level=models.CharField(max_length=2,default=JLPTLevel.N5)
     lesson=models.ForeignKey(Lesson,on_delete=models.SET_NULL,null=True,related_name='vocabularies',blank=True)
 
+    def __str__(self):
+        return self.word
+
 class Kanji(BaseModel):
     character=models.CharField(max_length=5)
     meaning=models.CharField(max_length=200)

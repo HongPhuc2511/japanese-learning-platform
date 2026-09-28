@@ -12,3 +12,6 @@ class Grammar(BaseModel):
     explanation=models.TextField()
     example_sentence=models.TextField()
     lesson=models.ForeignKey(Lesson,on_delete=models.SET_NULL,null=True,related_name='grammars')
+
+    def __str__(self):
+        return self.title

@@ -10,16 +10,25 @@ class Quiz(BaseModel):
     lesson=models.ForeignKey(Lesson,on_delete=models.SET_NULL,null=True,related_name='quizzes')
     title=models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.title
+
 class Question(BaseModel):
     quiz=models.ForeignKey(Quiz,on_delete=models.CASCADE,related_name='questions')
     question_text=models.CharField(max_length=500)
-    question_Type=models.CharField(max_length=20,default=QuestionType.MULTIPLE_CHOICE)
+    question_type=models.CharField(max_length=20,choices=QuestionType.choices,default=QuestionType.MULTIPLE_CHOICE)
     audio=models.FileField(upload_to='audio/questions',blank=True)
+
+    def __str__(self):
+        return self.question_text
 
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answers')
     answer_text = models.CharField(max_length=200)
     is_correct = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.answer_text
 
 class QuizResult(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
