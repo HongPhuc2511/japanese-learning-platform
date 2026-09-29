@@ -3,4 +3,7 @@ from .auth import CustomTokenObtainPairSerializer,RegisterSerializer,UserSeriali
 from .lesson import CourseSerializer, LessonSerializer
 from .vocabulary import VocabularySerializer, KanjiSerializer
 from .grammar import GrammarSerializer
-from .quiz import QuizSerializer, QuizDetailSerializer, QuestionSerializer, AnswerSerializer
+from .quiz import (
+    QuizSerializer, QuizDetailSerializer, QuestionSerializer, AnswerSerializer,
+    QuizSubmitSerializer,
+)
