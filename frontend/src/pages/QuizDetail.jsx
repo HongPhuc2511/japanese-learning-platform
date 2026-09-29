@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import api, { endpoints } from '../api/api';
+import api, { endpoints, authApis } from '../api/api';
 
 export default function QuizDetail() {
   const { id } = useParams();
   const [quiz, setQuiz] = useState(null);
-  const [selected, setSelected] = useState({}); // { questionId: answerId }
+  const [selected, setSelected] = useState({});
+  const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -24,11 +26,41 @@ export default function QuizDetail() {
   }, [id]);
 
   const handleSelect = (questionId, answerId) => {
+    if (result) return; // đã nộp bài rồi thì không cho đổi nữa
     setSelected((prev) => ({ ...prev, [questionId]: answerId }));
+  };
+
+  const handleSubmit = async () => {
+    const token = localStorage.getItem('access');
+    if (!token) {
+      setError('Bạn cần đăng nhập để nộp bài');
+      return;
+    }
+
+    const answers = Object.entries(selected).map(([questionId, answerId]) => ({
+      question: Number(questionId),
+      answer: answerId,
+    }));
+
+    setSubmitting(true);
+    try {
+      const res = await authApis(token).post(
+        `${endpoints['quizzes']}${id}/submit/`,
+        { answers }
+      );
+      setResult(res.data);
+    } catch (err) {
+      setError('Nộp bài thất bại, thử lại sau');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (loading) return <p className="text-center mt-10">Đang tải...</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
+
+  const getResultFor = (questionId) =>
+    result?.results.find((r) => r.question === questionId);
 
   return (
     <div className="max-w-3xl mx-auto mt-10 px-4">
@@ -38,43 +70,67 @@ export default function QuizDetail() {
 
       <h1 className="text-2xl font-bold mt-4 mb-6">{quiz.title}</h1>
 
-      {quiz.questions.length === 0 ? (
-        <p className="text-gray-500">Bài kiểm tra này chưa có câu hỏi.</p>
-      ) : (
-        <div className="space-y-6">
-          {quiz.questions.map((q, index) => (
+      {result && (
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+          <p className="font-semibold">
+            Điểm: {result.score}/10 ({result.correct_count}/{result.total} câu đúng)
+          </p>
+        </div>
+      )}
+
+      <div className="space-y-6">
+        {quiz.questions.map((q, index) => {
+          const questionResult = getResultFor(q.id);
+
+          return (
             <div key={q.id} className="border rounded-lg p-4">
               <p className="font-semibold">
                 Câu {index + 1}: {q.question_text}
               </p>
 
-              {q.audio && (
-                <audio controls src={q.audio} className="mt-2 w-full" />
-              )}
-
               <div className="mt-3 space-y-2">
-                {q.answers.map((a) => (
-                  <label
-                    key={a.id}
-                    className={`flex items-center gap-2 border rounded-md p-2 cursor-pointer ${
-                      selected[q.id] === a.id
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'hover:bg-gray-50'
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name={`question-${q.id}`}
-                      checked={selected[q.id] === a.id}
-                      onChange={() => handleSelect(q.id, a.id)}
-                    />
-                    {a.answer_text}
-                  </label>
-                ))}
+                {q.answers.map((a) => {
+                  const isSelected = selected[q.id] === a.id;
+                  let style = 'hover:bg-gray-50';
+
+                  if (result && isSelected) {
+                    style = questionResult?.is_correct
+                      ? 'border-green-500 bg-green-50'
+                      : 'border-red-500 bg-red-50';
+                  } else if (isSelected) {
+                    style = 'border-blue-500 bg-blue-50';
+                  }
+
+                  return (
+                    <label
+                      key={a.id}
+                      className={`flex items-center gap-2 border rounded-md p-2 cursor-pointer ${style}`}
+                    >
+                      <input
+                        type="radio"
+                        name={`question-${q.id}`}
+                        checked={isSelected}
+                        onChange={() => handleSelect(q.id, a.id)}
+                        disabled={!!result}
+                      />
+                      {a.answer_text}
+                    </label>
+                  );
+                })}
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
+      </div>
+
+      {!result && (
+        <button
+          onClick={handleSubmit}
+          disabled={submitting || Object.keys(selected).length === 0}
+          className="mt-6 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 disabled:opacity-50"
+        >
+          {submitting ? 'Đang nộp...' : 'Nộp bài'}
+        </button>
       )}
     </div>
   );
