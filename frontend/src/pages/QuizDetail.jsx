@@ -26,7 +26,7 @@ export default function QuizDetail() {
   }, [id]);
 
   const handleSelect = (questionId, answerId) => {
-    if (result) return; // đã nộp bài rồi thì không cho đổi nữa
+    if (result) return; 
     setSelected((prev) => ({ ...prev, [questionId]: answerId }));
   };
 
