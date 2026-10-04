@@ -13,6 +13,7 @@ export const endpoints = {
     'kanji':"/api/kanji/",
     'grammar': "/api/grammar/",
     'quizzes': "/api/quizzes/",
+    'progress': "/api/progress/",
 
 }
 

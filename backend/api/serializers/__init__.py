@@ -8,3 +8,4 @@ from .quiz import (
     QuizSubmitSerializer,
 )
 from .progress import UserProgressSerializer
+from .bookmark import BookmarkSerializer

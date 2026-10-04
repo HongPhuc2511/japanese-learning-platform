@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import api, { endpoints } from '../api/api';
+import api, { endpoints, authApis } from '../api/api';
+import { useAuth } from '../context/AuthContext';
 
 export default function CourseDetail() {
   const { id } = useParams();
+  const { user } = useAuth();
   const [course, setCourse] = useState(null);
+  const [progressMap, setProgressMap] = useState({}); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -21,6 +24,42 @@ export default function CourseDetail() {
     };
     fetchCourse();
   }, [id]);
+
+  useEffect(() => {
+    if (!user) return;
+    const fetchProgress = async () => {
+      const token = localStorage.getItem('access');
+      const res = await authApis(token).get(endpoints['progress']);
+      const map = {};
+      res.data.forEach((p) => {
+        if (p.is_completed) map[p.lesson] = p.id;
+      });
+      setProgressMap(map);
+    };
+    fetchProgress();
+  }, [user]);
+
+  const toggleComplete = async (lessonId) => {
+    const token = localStorage.getItem('access');
+    const existingId = progressMap[lessonId];
+
+    if (existingId) {
+      await authApis(token).patch(`${endpoints['progress']}${existingId}/`, {
+        is_completed: false,
+      });
+      setProgressMap((prev) => {
+        const copy = { ...prev };
+        delete copy[lessonId];
+        return copy;
+      });
+    } else {
+      const res = await authApis(token).post(endpoints['progress'], {
+        lesson: lessonId,
+        is_completed: true,
+      });
+      setProgressMap((prev) => ({ ...prev, [lessonId]: res.data.id }));
+    }
+  };
 
   if (loading) return <p className="text-center mt-10">Đang tải...</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
@@ -39,8 +78,23 @@ export default function CourseDetail() {
       {course.lessons && course.lessons.length > 0 ? (
         <ul className="space-y-2">
           {course.lessons.map((lesson) => (
-            <li key={lesson.id} className="border rounded-md p-3">
-              {lesson.title}
+            <li
+              key={lesson.id}
+              className="border rounded-md p-3 flex items-center justify-between"
+            >
+              <span>{lesson.title}</span>
+              {user && (
+                <button
+                  onClick={() => toggleComplete(lesson.id)}
+                  className={`text-sm px-3 py-1 rounded ${
+                    progressMap[lesson.id]
+                      ? 'bg-green-100 text-green-700'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  {progressMap[lesson.id] ? '✓ Đã hoàn thành' : 'Đánh dấu hoàn thành'}
+                </button>
+              )}
             </li>
           ))}
         </ul>
