@@ -7,3 +7,4 @@ from .quiz import (
     QuizSerializer, QuizDetailSerializer, QuestionSerializer, AnswerSerializer,
     QuizSubmitSerializer,
 )
+from .progress import UserProgressSerializer

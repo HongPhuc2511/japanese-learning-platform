@@ -1,14 +1,18 @@
 from django.db import models
 
+from . import BaseModel
 from .lesson import Lesson
 from .user import User
 
 
-class UserProgress(models.Model):
+class UserProgress(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     is_completed = models.BooleanField(default=False)
     completed_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        unique_together = (('user', 'lesson'),)
 
 class FlashcardReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
