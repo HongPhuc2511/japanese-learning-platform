@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
-import api, { endpoints } from '../api/api';
+import api, { endpoints, authApis } from '../api/api';
+import { useAuth } from '../context/AuthContext';
 
 export default function Kanji() {
+  const { user } = useAuth();
   const [kanjiList, setKanjiList] = useState([]);
+  const [bookmarkMap, setBookmarkMap] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -20,6 +23,42 @@ export default function Kanji() {
     fetchKanji();
   }, []);
 
+  useEffect(() => {
+    if (!user) return;
+    const fetchBookmarks = async () => {
+      const token = localStorage.getItem('access');
+      const res = await authApis(token).get(endpoints['bookmarks']);
+      const map = {};
+      res.data
+        .filter((b) => b.content_type === 'kanji')
+        .forEach((b) => {
+          map[b.object_id] = b.id;
+        });
+      setBookmarkMap(map);
+    };
+    fetchBookmarks();
+  }, [user]);
+
+  const toggleBookmark = async (kanjiId) => {
+    const token = localStorage.getItem('access');
+    const existingId = bookmarkMap[kanjiId];
+
+    if (existingId) {
+      await authApis(token).delete(`${endpoints['bookmarks']}${existingId}/`);
+      setBookmarkMap((prev) => {
+        const copy = { ...prev };
+        delete copy[kanjiId];
+        return copy;
+      });
+    } else {
+      const res = await authApis(token).post(endpoints['bookmarks'], {
+        content_type: 'kanji',
+        object_id: kanjiId,
+      });
+      setBookmarkMap((prev) => ({ ...prev, [kanjiId]: res.data.id }));
+    }
+  };
+
   if (loading) return <p className="text-center mt-10">Đang tải...</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
@@ -31,7 +70,15 @@ export default function Kanji() {
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {kanjiList.map((k) => (
-            <div key={k.id} className="border rounded-lg p-4 text-center">
+            <div key={k.id} className="border rounded-lg p-4 text-center relative">
+              {user && (
+                <button
+                  onClick={() => toggleBookmark(k.id)}
+                  className="absolute top-2 right-2 text-lg"
+                >
+                  {bookmarkMap[k.id] ? '★' : '☆'}
+                </button>
+              )}
               <div className="text-4xl font-bold">{k.character}</div>
               <p className="text-gray-700 mt-2">{k.meaning}</p>
               <p className="text-xs text-gray-500 mt-1">

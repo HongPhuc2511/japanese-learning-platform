@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
-import api, { endpoints } from '../api/api';
+import api, { endpoints, authApis } from '../api/api';
+import { useAuth } from '../context/AuthContext';
 
 export default function Vocabulary() {
+  const { user } = useAuth();
   const [words, setWords] = useState([]);
+  const [bookmarkMap, setBookmarkMap] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -20,6 +23,42 @@ export default function Vocabulary() {
     fetchVocabulary();
   }, []);
 
+  useEffect(() => {
+    if (!user) return;
+    const fetchBookmarks = async () => {
+      const token = localStorage.getItem('access');
+      const res = await authApis(token).get(endpoints['bookmarks']);
+      const map = {};
+      res.data
+        .filter((b) => b.content_type === 'vocabulary')
+        .forEach((b) => {
+          map[b.object_id] = b.id;
+        });
+      setBookmarkMap(map);
+    };
+    fetchBookmarks();
+  }, [user]);
+
+  const toggleBookmark = async (wordId) => {
+    const token = localStorage.getItem('access');
+    const existingId = bookmarkMap[wordId];
+
+    if (existingId) {
+      await authApis(token).delete(`${endpoints['bookmarks']}${existingId}/`);
+      setBookmarkMap((prev) => {
+        const copy = { ...prev };
+        delete copy[wordId];
+        return copy;
+      });
+    } else {
+      const res = await authApis(token).post(endpoints['bookmarks'], {
+        content_type: 'vocabulary',
+        object_id: wordId,
+      });
+      setBookmarkMap((prev) => ({ ...prev, [wordId]: res.data.id }));
+    }
+  };
+
   if (loading) return <p className="text-center mt-10">Đang tải...</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
@@ -31,8 +70,16 @@ export default function Vocabulary() {
       ) : (
         <div className="grid gap-3">
           {words.map((word) => (
-            <div key={word.id} className="border rounded-lg p-4">
-              <div className="flex items-baseline gap-3">
+            <div key={word.id} className="border rounded-lg p-4 relative">
+              {user && (
+                <button
+                  onClick={() => toggleBookmark(word.id)}
+                  className="absolute top-3 right-3 text-xl"
+                >
+                  {bookmarkMap[word.id] ? '★' : '☆'}
+                </button>
+              )}
+              <div className="flex items-baseline gap-3 pr-8">
                 <span className="text-xl font-semibold">{word.word}</span>
                 <span className="text-gray-500">{word.kana}</span>
                 {word.romaji && (
