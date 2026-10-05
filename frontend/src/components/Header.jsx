@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-
 export default function Header() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -12,50 +11,48 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white border-b shadow-sm">
-      <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold text-blue-600">
+    <header className="bg-surface border-b border-border">
+      <div className="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
+        <Link to="/" className="font-display font-bold text-lg text-accent">
           日本語 Learning
         </Link>
 
-        <nav className="flex items-center gap-4">
-          <Link to="/courses" className="text-gray-700 hover:text-blue-600">
+        <nav className="flex items-center gap-6 text-sm">
+          <Link to="/courses" className="text-text-muted hover:text-text transition">
             Khoá học
           </Link>
-  
-          <Link to="/vocabulary" className="text-gray-700 hover:text-blue-600">
+          <Link to="/vocabulary" className="text-text-muted hover:text-text transition">
             Từ vựng
           </Link>
-
-          <Link to="/kanji" className="text-gray-700 hover:text-blue-600">
+          <Link to="/kanji" className="text-text-muted hover:text-text transition">
             Kanji
           </Link>
-
-          <Link to="/grammar" className="text-gray-700 hover:text-blue-600">
+          <Link to="/grammar" className="text-text-muted hover:text-text transition">
             Ngữ pháp
           </Link>
-
-          <Link to="/quizzes" className="text-gray-700 hover:text-blue-600">
+          <Link to="/quizzes" className="text-text-muted hover:text-text transition">
             Kiểm tra
           </Link>
+
           {user ? (
             <>
-              <span className="text-gray-500 text-sm">
-                Xin chào, {user.username}
-              </span>
+              <span className="text-text-faint text-xs">{user.username}</span>
               <button
                 onClick={handleLogout}
-                className="text-red-500 hover:underline text-sm"
+                className="text-accent hover:text-accent-hover transition"
               >
                 Đăng xuất
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="text-gray-700 hover:text-blue-600">
+              <Link to="/login" className="text-text-muted hover:text-text transition">
                 Đăng nhập
               </Link>
-              <Link to="/register" className="text-gray-700 hover:text-blue-600">
+              <Link
+                to="/register"
+                className="bg-accent text-white px-3 py-1.5 rounded-button hover:bg-accent-hover transition"
+              >
                 Đăng ký
               </Link>
             </>

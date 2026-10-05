@@ -44,7 +44,6 @@ export default function Kanji() {
 
   const toggleBookmark = async (kanjiId) => {
     const existingId = bookmarkMap[kanjiId];
-
     try {
       if (existingId) {
         await authApi.delete(`${endpoints['bookmarks']}${existingId}/`);
@@ -65,32 +64,32 @@ export default function Kanji() {
     }
   };
 
-  if (loading) return <p className="text-center mt-10">Đang tải...</p>;
-  if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
+  if (loading) return <p className="text-center mt-10 text-text-muted">Đang tải...</p>;
+  if (error) return <p className="text-center mt-10 text-accent">{error}</p>;
 
   return (
     <div className="max-w-3xl mx-auto mt-10 px-4">
-      <h1 className="text-2xl font-bold mb-6">Kanji</h1>
+      <h1 className="font-display text-2xl font-bold mb-6">Kanji</h1>
       {kanjiList.length === 0 ? (
-        <p className="text-gray-500">Chưa có kanji nào.</p>
+        <p className="text-text-muted">Chưa có kanji nào.</p>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {kanjiList.map((k) => (
-            <div key={k.id} className="border rounded-lg p-4 text-center relative">
+            <div key={k.id} className="bg-surface border border-border rounded-card p-4 text-center relative">
               {user && (
                 <button
                   onClick={() => toggleBookmark(k.id)}
-                  className="absolute top-2 right-2 text-lg"
+                  className="absolute top-2 right-2 text-lg text-accent"
                 >
                   {bookmarkMap[k.id] ? '★' : '☆'}
                 </button>
               )}
               <div className="text-4xl font-bold">{k.character}</div>
-              <p className="text-gray-700 mt-2">{k.meaning}</p>
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-text-muted mt-2">{k.meaning}</p>
+              <p className="text-xs text-text-faint mt-1">
                 On: {k.onyomi} | Kun: {k.kunyomi}
               </p>
-              <span className="inline-block mt-2 text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded">
+              <span className="inline-block mt-2 text-xs bg-accent-soft text-accent px-2 py-0.5 rounded-button">
                 {k.jlpt_level}
               </span>
             </div>

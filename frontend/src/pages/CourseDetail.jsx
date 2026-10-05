@@ -44,7 +44,6 @@ export default function CourseDetail() {
 
   const toggleComplete = async (lessonId) => {
     const existingId = progressMap[lessonId];
-
     try {
       if (existingId) {
         await authApi.patch(`${endpoints['progress']}${existingId}/`, {
@@ -67,18 +66,18 @@ export default function CourseDetail() {
     }
   };
 
-  if (loading) return <p className="text-center mt-10">Đang tải...</p>;
-  if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
+  if (loading) return <p className="text-center mt-10 text-text-muted">Đang tải...</p>;
+  if (error) return <p className="text-center mt-10 text-accent">{error}</p>;
 
   return (
     <div className="max-w-3xl mx-auto mt-10 px-4">
-      <Link to="/courses" className="text-blue-600 hover:underline text-sm">
+      <Link to="/courses" className="text-accent hover:underline text-sm">
         ← Quay lại danh sách
       </Link>
 
-      <h1 className="text-2xl font-bold mt-4">{course.title}</h1>
-      <p className="text-sm text-gray-500 mt-1">Cấp độ: {course.level}</p>
-      <p className="text-gray-700 mt-4">{course.description}</p>
+      <h1 className="font-display text-2xl font-bold mt-4">{course.title}</h1>
+      <p className="text-xs text-text-faint mt-1">Cấp độ: {course.level}</p>
+      <p className="text-text-muted mt-4">{course.description}</p>
 
       <h2 className="text-lg font-semibold mt-8 mb-3">Danh sách bài học</h2>
       {course.lessons && course.lessons.length > 0 ? (
@@ -86,16 +85,16 @@ export default function CourseDetail() {
           {course.lessons.map((lesson) => (
             <li
               key={lesson.id}
-              className="border rounded-md p-3 flex items-center justify-between"
+              className="border border-border rounded-card p-3 flex items-center justify-between"
             >
               <span>{lesson.title}</span>
               {user && (
                 <button
                   onClick={() => toggleComplete(lesson.id)}
-                  className={`text-sm px-3 py-1 rounded ${
+                  className={`text-sm px-3 py-1 rounded-button ${
                     progressMap[lesson.id]
-                      ? 'bg-green-100 text-green-700'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      ? 'bg-accent-soft text-accent'
+                      : 'bg-bg text-text-muted hover:text-text'
                   }`}
                 >
                   {progressMap[lesson.id] ? '✓ Đã hoàn thành' : 'Đánh dấu hoàn thành'}
@@ -105,7 +104,7 @@ export default function CourseDetail() {
           ))}
         </ul>
       ) : (
-        <p className="text-gray-500">Chưa có bài học nào.</p>
+        <p className="text-text-muted">Chưa có bài học nào.</p>
       )}
     </div>
   );

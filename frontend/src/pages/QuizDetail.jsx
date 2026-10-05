@@ -50,23 +50,23 @@ export default function QuizDetail() {
     }
   };
 
-  if (loading) return <p className="text-center mt-10">Đang tải...</p>;
-  if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
+  if (loading) return <p className="text-center mt-10 text-text-muted">Đang tải...</p>;
+  if (error) return <p className="text-center mt-10 text-accent">{error}</p>;
 
   const getResultFor = (questionId) =>
     result?.results.find((r) => r.question === questionId);
 
   return (
     <div className="max-w-3xl mx-auto mt-10 px-4">
-      <Link to="/quizzes" className="text-blue-600 hover:underline text-sm">
+      <Link to="/quizzes" className="text-accent hover:underline text-sm">
         ← Quay lại danh sách
       </Link>
 
-      <h1 className="text-2xl font-bold mt-4 mb-6">{quiz.title}</h1>
+      <h1 className="font-display text-2xl font-bold mt-4 mb-6">{quiz.title}</h1>
 
       {result && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-          <p className="font-semibold">
+        <div className="bg-accent-soft border border-accent rounded-card p-4 mb-6">
+          <p className="font-semibold text-accent">
             Điểm: {result.score}/10 ({result.correct_count}/{result.total} câu đúng)
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function QuizDetail() {
           const questionResult = getResultFor(q.id);
 
           return (
-            <div key={q.id} className="border rounded-lg p-4">
+            <div key={q.id} className="bg-surface border border-border rounded-card p-4">
               <p className="font-semibold">
                 Câu {index + 1}: {q.question_text}
               </p>
@@ -85,20 +85,20 @@ export default function QuizDetail() {
               <div className="mt-3 space-y-2">
                 {q.answers.map((a) => {
                   const isSelected = selected[q.id] === a.id;
-                  let style = 'hover:bg-gray-50';
+                  let style = 'border-border hover:border-accent';
 
                   if (result && isSelected) {
                     style = questionResult?.is_correct
-                      ? 'border-green-500 bg-green-50'
-                      : 'border-red-500 bg-red-50';
+                      ? 'border-accent bg-accent-soft'
+                      : 'border-text-faint bg-bg';
                   } else if (isSelected) {
-                    style = 'border-blue-500 bg-blue-50';
+                    style = 'border-accent bg-accent-soft';
                   }
 
                   return (
                     <label
                       key={a.id}
-                      className={`flex items-center gap-2 border rounded-md p-2 cursor-pointer ${style}`}
+                      className={`flex items-center gap-2 border rounded-button p-2 cursor-pointer transition ${style}`}
                     >
                       <input
                         type="radio"
@@ -121,7 +121,7 @@ export default function QuizDetail() {
         <button
           onClick={handleSubmit}
           disabled={submitting || Object.keys(selected).length === 0}
-          className="mt-6 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 disabled:opacity-50"
+          className="mt-6 w-full bg-accent text-white py-2 rounded-button hover:bg-accent-hover transition disabled:opacity-50"
         >
           {submitting ? 'Đang nộp...' : 'Nộp bài'}
         </button>
