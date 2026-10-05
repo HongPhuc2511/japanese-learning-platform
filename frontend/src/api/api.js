@@ -14,6 +14,7 @@ export const endpoints = {
     'grammar': "/api/grammar/",
     'quizzes': "/api/quizzes/",
     'progress': "/api/progress/",
+    'bookmarks': "/api/bookmarks/",
 
 }
 
