@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import api, { endpoints, authApis } from '../api/api';
+import api, { endpoints, authApi } from '../api/api';
 import { useAuth } from '../context/AuthContext';
 
 export default function CourseDetail() {
   const { id } = useParams();
   const { user } = useAuth();
   const [course, setCourse] = useState(null);
-  const [progressMap, setProgressMap] = useState({}); 
+  const [progressMap, setProgressMap] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -28,36 +28,42 @@ export default function CourseDetail() {
   useEffect(() => {
     if (!user) return;
     const fetchProgress = async () => {
-      const token = localStorage.getItem('access');
-      const res = await authApis(token).get(endpoints['progress']);
-      const map = {};
-      res.data.forEach((p) => {
-        if (p.is_completed) map[p.lesson] = p.id;
-      });
-      setProgressMap(map);
+      try {
+        const res = await authApi.get(endpoints['progress']);
+        const map = {};
+        res.data.forEach((p) => {
+          if (p.is_completed) map[p.lesson] = p.id;
+        });
+        setProgressMap(map);
+      } catch (err) {
+        console.error('Không tải được tiến độ', err);
+      }
     };
     fetchProgress();
   }, [user]);
 
   const toggleComplete = async (lessonId) => {
-    const token = localStorage.getItem('access');
     const existingId = progressMap[lessonId];
 
-    if (existingId) {
-      await authApis(token).patch(`${endpoints['progress']}${existingId}/`, {
-        is_completed: false,
-      });
-      setProgressMap((prev) => {
-        const copy = { ...prev };
-        delete copy[lessonId];
-        return copy;
-      });
-    } else {
-      const res = await authApis(token).post(endpoints['progress'], {
-        lesson: lessonId,
-        is_completed: true,
-      });
-      setProgressMap((prev) => ({ ...prev, [lessonId]: res.data.id }));
+    try {
+      if (existingId) {
+        await authApi.patch(`${endpoints['progress']}${existingId}/`, {
+          is_completed: false,
+        });
+        setProgressMap((prev) => {
+          const copy = { ...prev };
+          delete copy[lessonId];
+          return copy;
+        });
+      } else {
+        const res = await authApi.post(endpoints['progress'], {
+          lesson: lessonId,
+          is_completed: true,
+        });
+        setProgressMap((prev) => ({ ...prev, [lessonId]: res.data.id }));
+      }
+    } catch (err) {
+      console.error('Lỗi khi cập nhật tiến độ', err);
     }
   };
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import api, { endpoints, authApis } from '../api/api';
+import api, { endpoints, authApi } from '../api/api';
 
 export default function QuizDetail() {
   const { id } = useParams();
@@ -26,17 +26,11 @@ export default function QuizDetail() {
   }, [id]);
 
   const handleSelect = (questionId, answerId) => {
-    if (result) return; 
+    if (result) return;
     setSelected((prev) => ({ ...prev, [questionId]: answerId }));
   };
 
   const handleSubmit = async () => {
-    const token = localStorage.getItem('access');
-    if (!token) {
-      setError('Bạn cần đăng nhập để nộp bài');
-      return;
-    }
-
     const answers = Object.entries(selected).map(([questionId, answerId]) => ({
       question: Number(questionId),
       answer: answerId,
@@ -44,7 +38,7 @@ export default function QuizDetail() {
 
     setSubmitting(true);
     try {
-      const res = await authApis(token).post(
+      const res = await authApi.post(
         `${endpoints['quizzes']}${id}/submit/`,
         { answers }
       );

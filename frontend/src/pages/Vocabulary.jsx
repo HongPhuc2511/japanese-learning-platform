@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import api, { endpoints, authApis } from '../api/api';
+import api, { endpoints, authApi } from '../api/api';
 import { useAuth } from '../context/AuthContext';
 
 export default function Vocabulary() {
@@ -26,36 +26,42 @@ export default function Vocabulary() {
   useEffect(() => {
     if (!user) return;
     const fetchBookmarks = async () => {
-      const token = localStorage.getItem('access');
-      const res = await authApis(token).get(endpoints['bookmarks']);
-      const map = {};
-      res.data
-        .filter((b) => b.content_type === 'vocabulary')
-        .forEach((b) => {
-          map[b.object_id] = b.id;
-        });
-      setBookmarkMap(map);
+      try {
+        const res = await authApi.get(endpoints['bookmarks']);
+        const map = {};
+        res.data
+          .filter((b) => b.content_type === 'vocabulary')
+          .forEach((b) => {
+            map[b.object_id] = b.id;
+          });
+        setBookmarkMap(map);
+      } catch (err) {
+        console.error('Không tải được bookmark', err);
+      }
     };
     fetchBookmarks();
   }, [user]);
 
   const toggleBookmark = async (wordId) => {
-    const token = localStorage.getItem('access');
     const existingId = bookmarkMap[wordId];
 
-    if (existingId) {
-      await authApis(token).delete(`${endpoints['bookmarks']}${existingId}/`);
-      setBookmarkMap((prev) => {
-        const copy = { ...prev };
-        delete copy[wordId];
-        return copy;
-      });
-    } else {
-      const res = await authApis(token).post(endpoints['bookmarks'], {
-        content_type: 'vocabulary',
-        object_id: wordId,
-      });
-      setBookmarkMap((prev) => ({ ...prev, [wordId]: res.data.id }));
+    try {
+      if (existingId) {
+        await authApi.delete(`${endpoints['bookmarks']}${existingId}/`);
+        setBookmarkMap((prev) => {
+          const copy = { ...prev };
+          delete copy[wordId];
+          return copy;
+        });
+      } else {
+        const res = await authApi.post(endpoints['bookmarks'], {
+          content_type: 'vocabulary',
+          object_id: wordId,
+        });
+        setBookmarkMap((prev) => ({ ...prev, [wordId]: res.data.id }));
+      }
+    } catch (err) {
+      console.error('Lỗi khi đánh dấu bookmark', err);
     }
   };
 
