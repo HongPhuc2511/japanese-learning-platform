@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import api, { endpoints, authApis } from '../api/api';
+import api, { authApi, endpoints } from '../api/api';
 
 const AuthContext = createContext(null);
 
@@ -33,8 +33,7 @@ export function AuthProvider({ children }) {
   };
 
   const getCurrentUser = async () => {
-    const token = localStorage.getItem('access');
-    const res = await authApis(token).get(endpoints['current-user']);
+    const res = await authApi.get(endpoints['current-user']);
     return res.data;
   };
 
