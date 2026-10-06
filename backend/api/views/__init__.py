@@ -6,3 +6,4 @@ from .grammar import GrammarViewSet
 from .quiz import QuizViewSet
 from .progress import UserProgressViewSet
 from .bookmark import BookmarkViewSet
+from .flashcard import FlashcardReviewViewSet

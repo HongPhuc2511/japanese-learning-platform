@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 
 from .views import (RegisterView, LoginView, RefreshTokenView, MeView, CourseViewSet,
                     LessonViewSet, VocabularyViewSet, KanjiViewSet,GrammarViewSet,QuizViewSet,
-                    UserProgressViewSet,BookmarkViewSet)
+                    UserProgressViewSet,BookmarkViewSet, FlashcardReviewViewSet,)
 
 router = DefaultRouter()
 router.register('courses', CourseViewSet)
@@ -14,6 +14,7 @@ router.register('grammar', GrammarViewSet)
 router.register('quizzes', QuizViewSet)
 router.register('progress', UserProgressViewSet,basename='progress')
 router.register('bookmarks', BookmarkViewSet,basename='bookmarks')
+router.register('flashcards', FlashcardReviewViewSet, basename='flashcards')
 
 
 urlpatterns = [
