@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
-import Header from './components/Header';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Courses from './pages/Courses';
-import CourseDetail from './pages/CourseDetail';
-import Vocabulary from './pages/Vocabulary';
-import Kanji from './pages/Kanji';
-import Grammar from './pages/Grammar';
-import Quizzes from './pages/Quizzes';
-import QuizDetail from './pages/QuizDetail';
-import api, { endpoints } from './api/api';
-import Flashcards from './pages/Flashcards';
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import Header from "./components/Header";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Courses from "./pages/Courses";
+import CourseDetail from "./pages/CourseDetail";
+import Vocabulary from "./pages/Vocabulary";
+import Kanji from "./pages/Kanji";
+import Grammar from "./pages/Grammar";
+import Quizzes from "./pages/Quizzes";
+import QuizDetail from "./pages/QuizDetail";
+import api, { endpoints } from "./api/api";
+import Flashcards from "./pages/Flashcards";
 
 function Home() {
   const { user } = useAuth();
@@ -21,10 +21,10 @@ function Home() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await api.get(endpoints['courses']);
+        const res = await api.get(endpoints["courses"]);
         setCourses(res.data.slice(0, 3));
       } catch (err) {
-        console.error('Không tải được khoá học', err);
+        console.error("Không tải được khoá học", err);
       }
     };
     fetchCourses();
@@ -39,7 +39,10 @@ function Home() {
         </span>
         <h1 className="font-display font-bold text-text leading-tight text-5xl">
           {user ? (
-            <>Chào mừng trở lại, <span className="text-accent">{user.username}</span></>
+            <>
+              Chào mừng trở lại,{" "}
+              <span className="text-accent">{user.username}</span>
+            </>
           ) : (
             <>
               Học tiếng Nhật
@@ -49,7 +52,8 @@ function Home() {
           )}
         </h1>
         <p className="text-text-muted text-lg mt-6 max-w-xl mx-auto leading-relaxed">
-          Từ vựng, Kanji, ngữ pháp và bài kiểm tra — mọi thứ bạn cần để chinh phục JLPT, trong một nơi.
+          Từ vựng, Kanji, ngữ pháp và bài kiểm tra — mọi thứ bạn cần để chinh
+          phục JLPT, trong một nơi.
         </p>
         {!user && (
           <div className="flex items-center justify-center gap-4 mt-10">
@@ -80,7 +84,9 @@ function Home() {
           </p>
 
           {courses.length === 0 ? (
-            <p className="text-center text-text-muted">Đang cập nhật khoá học...</p>
+            <p className="text-center text-text-muted">
+              Đang cập nhật khoá học...
+            </p>
           ) : (
             <div className="grid sm:grid-cols-3 gap-6">
               {courses.map((course) => (
@@ -92,14 +98,39 @@ function Home() {
                   <span className="inline-block text-xs font-bold text-white bg-accent px-2.5 py-1 rounded-button mb-4">
                     {course.level}
                   </span>
-                  <h3 className="text-xl font-bold text-text mb-2">{course.title}</h3>
-                  <p className="text-sm text-text-muted leading-relaxed">{course.description}</p>
+                  <h3 className="text-xl font-bold text-text mb-2">
+                    {course.title}
+                  </h3>
+                  <p className="text-sm text-text-muted leading-relaxed">
+                    {course.description}
+                  </p>
                 </Link>
               ))}
             </div>
           )}
         </div>
       </section>
+
+      {user && (
+        <section className="max-w-[1200px] mx-auto px-6 py-16">
+          <div className="bg-accent-soft border border-accent rounded-card p-8 flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <h2 className="text-xl font-bold text-text mb-1">
+                Tới giờ ôn tập rồi!
+              </h2>
+              <p className="text-text-muted text-sm">
+                Ôn lại từ vựng và kanji đã học để không bị quên.
+              </p>
+            </div>
+            <Link
+              to="/flashcards"
+              className="bg-accent text-white font-semibold px-6 py-2.5 rounded-full hover:bg-accent-hover transition whitespace-nowrap"
+            >
+              Bắt đầu ôn tập
+            </Link>
+          </div>
+        </section>
+      )}
 
       {/* Stats strip */}
       <section>
