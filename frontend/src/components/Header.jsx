@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { authApi, endpoints } from '../api/api';
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { authApi, endpoints } from "../api/api";
 
 export default function Header() {
   const { user, logout } = useAuth();
@@ -12,10 +12,10 @@ export default function Header() {
     if (!user) return;
     const fetchDueCount = async () => {
       try {
-        const res = await authApi.get(`${endpoints['flashcards']}due/`);
+        const res = await authApi.get(`${endpoints["flashcards"]}due/`);
         setDueCount(res.data.length);
       } catch (err) {
-        console.error('Không đếm được thẻ cần ôn', err);
+        console.error("Không đếm được thẻ cần ôn", err);
       }
     };
     fetchDueCount();
@@ -23,7 +23,7 @@ export default function Header() {
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -34,33 +34,56 @@ export default function Header() {
         </Link>
 
         <nav className="flex items-center gap-6 text-sm">
-          <Link to="/courses" className="text-text-muted hover:text-text transition">
+          <Link
+            to="/courses"
+            className="text-text-muted hover:text-text transition"
+          >
             Khoá học
           </Link>
-          <Link to="/vocabulary" className="text-text-muted hover:text-text transition">
+          <Link
+            to="/vocabulary"
+            className="text-text-muted hover:text-text transition"
+          >
             Từ vựng
           </Link>
-          <Link to="/kanji" className="text-text-muted hover:text-text transition">
+          <Link
+            to="/kanji"
+            className="text-text-muted hover:text-text transition"
+          >
             Kanji
           </Link>
-          <Link to="/grammar" className="text-text-muted hover:text-text transition">
+          <Link
+            to="/grammar"
+            className="text-text-muted hover:text-text transition"
+          >
             Ngữ pháp
           </Link>
-          <Link to="/quizzes" className="text-text-muted hover:text-text transition">
+          <Link
+            to="/quizzes"
+            className="text-text-muted hover:text-text transition"
+          >
             Kiểm tra
           </Link>
-          <Link to="/flashcards" className="relative text-text-muted hover:text-text transition">
+          <Link
+            to="/flashcards"
+            className="relative text-text-muted hover:text-text transition"
+          >
             Ôn tập
             {dueCount > 0 && (
               <span className="absolute -top-2 -right-3 bg-accent text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                {dueCount > 9 ? '9+' : dueCount}
+                {dueCount > 9 ? "9+" : dueCount}
               </span>
             )}
           </Link>
 
           {user ? (
             <>
-              <span className="text-text-faint text-xs">{user.username}</span>
+              <Link
+                to="/profile"
+                className="text-text-faint text-xs hover:text-text transition"
+              >
+                {user.username}
+              </Link>
               <button
                 onClick={handleLogout}
                 className="text-accent hover:text-accent-hover transition"
@@ -70,7 +93,10 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Link to="/login" className="text-text-muted hover:text-text transition">
+              <Link
+                to="/login"
+                className="text-text-muted hover:text-text transition"
+              >
                 Đăng nhập
               </Link>
               <Link
