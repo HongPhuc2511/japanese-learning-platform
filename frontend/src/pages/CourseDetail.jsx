@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import api, { endpoints, authApi } from '../api/api';
-import { useAuth } from '../context/AuthContext';
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import api, { endpoints, authApi } from "../api/api";
+import { useAuth } from "../context/AuthContext";
 
 export default function CourseDetail() {
   const { id } = useParams();
@@ -9,15 +9,15 @@ export default function CourseDetail() {
   const [course, setCourse] = useState(null);
   const [progressMap, setProgressMap] = useState({});
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const res = await api.get(`${endpoints['courses']}${id}/`);
+        const res = await api.get(`${endpoints["courses"]}${id}/`);
         setCourse(res.data);
       } catch (err) {
-        setError('Không tìm thấy khoá học');
+        setError("Không tìm thấy khoá học");
       } finally {
         setLoading(false);
       }
@@ -29,14 +29,14 @@ export default function CourseDetail() {
     if (!user) return;
     const fetchProgress = async () => {
       try {
-        const res = await authApi.get(endpoints['progress']);
+        const res = await authApi.get(endpoints["progress"]);
         const map = {};
         res.data.forEach((p) => {
           if (p.is_completed) map[p.lesson] = p.id;
         });
         setProgressMap(map);
       } catch (err) {
-        console.error('Không tải được tiến độ', err);
+        console.error("Không tải được tiến độ", err);
       }
     };
     fetchProgress();
@@ -46,7 +46,7 @@ export default function CourseDetail() {
     const existingId = progressMap[lessonId];
     try {
       if (existingId) {
-        await authApi.patch(`${endpoints['progress']}${existingId}/`, {
+        await authApi.patch(`${endpoints["progress"]}${existingId}/`, {
           is_completed: false,
         });
         setProgressMap((prev) => {
@@ -55,18 +55,19 @@ export default function CourseDetail() {
           return copy;
         });
       } else {
-        const res = await authApi.post(endpoints['progress'], {
+        const res = await authApi.post(endpoints["progress"], {
           lesson: lessonId,
           is_completed: true,
         });
         setProgressMap((prev) => ({ ...prev, [lessonId]: res.data.id }));
       }
     } catch (err) {
-      console.error('Lỗi khi cập nhật tiến độ', err);
+      console.error("Lỗi khi cập nhật tiến độ", err);
     }
   };
 
-  if (loading) return <p className="text-center mt-10 text-text-muted">Đang tải...</p>;
+  if (loading)
+    return <p className="text-center mt-10 text-text-muted">Đang tải...</p>;
   if (error) return <p className="text-center mt-10 text-accent">{error}</p>;
 
   return (
@@ -87,17 +88,24 @@ export default function CourseDetail() {
               key={lesson.id}
               className="border border-border rounded-card p-3 flex items-center justify-between"
             >
-              <span>{lesson.title}</span>
+              <Link
+                to={`/lessons/${lesson.id}`}
+                className="hover:text-accent transition"
+              >
+                {lesson.title}
+              </Link>
               {user && (
                 <button
                   onClick={() => toggleComplete(lesson.id)}
                   className={`text-sm px-3 py-1 rounded-button ${
                     progressMap[lesson.id]
-                      ? 'bg-accent-soft text-accent'
-                      : 'bg-bg text-text-muted hover:text-text'
+                      ? "bg-accent-soft text-accent"
+                      : "bg-bg text-text-muted hover:text-text"
                   }`}
                 >
-                  {progressMap[lesson.id] ? '✓ Đã hoàn thành' : 'Đánh dấu hoàn thành'}
+                  {progressMap[lesson.id]
+                    ? "✓ Đã hoàn thành"
+                    : "Đánh dấu hoàn thành"}
                 </button>
               )}
             </li>

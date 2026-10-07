@@ -1,6 +1,6 @@
 from .base import BaseSerializer
 from .auth import CustomTokenObtainPairSerializer,RegisterSerializer,UserSerializer,ChangePasswordSerializer
-from .lesson import CourseSerializer, LessonSerializer
+from .lesson import CourseSerializer, CourseDetailSerializer, LessonSerializer, LessonDetailSerializer
 from .vocabulary import VocabularySerializer, KanjiSerializer
 from .grammar import GrammarSerializer
 from .quiz import (
@@ -10,3 +10,4 @@ from .quiz import (
 from .progress import UserProgressSerializer
 from .bookmark import BookmarkSerializer
 from .flashcard import FlashcardReviewSerializer
+
