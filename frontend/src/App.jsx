@@ -13,6 +13,9 @@ import Quizzes from "./pages/Quizzes";
 import QuizDetail from "./pages/QuizDetail";
 import api, { endpoints } from "./api/api";
 import Flashcards from "./pages/Flashcards";
+import Profile from './pages/Profile';
+import LessonDetail from './pages/LessonDetail';
+
 
 function Home() {
   const { user } = useAuth();
@@ -170,6 +173,8 @@ export default function App() {
           <Route path="/quizzes" element={<Quizzes />} />
           <Route path="/quizzes/:id" element={<QuizDetail />} />
           <Route path="/flashcards" element={<Flashcards />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/lessons/:id" element={<LessonDetail />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

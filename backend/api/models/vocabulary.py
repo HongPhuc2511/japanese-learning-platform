@@ -27,3 +27,6 @@ class Kanji(BaseModel):
     stroke_count=models.IntegerField()
     jlpt_level=models.CharField(max_length=2,default=JLPTLevel.N5)
     radical=models.CharField(max_length=10,blank=True)
+
+    def __str__(self):
+        return self.character

@@ -7,7 +7,6 @@ class VocabularyViewSet(BaseReadOnlyViewSet):
     queryset = Vocabulary.objects.all()
     serializer_class = VocabularySerializer
 
-
 class KanjiViewSet(BaseReadOnlyViewSet):
     queryset = Kanji.objects.all()
     serializer_class = KanjiSerializer
