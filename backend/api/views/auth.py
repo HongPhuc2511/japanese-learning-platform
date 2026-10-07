@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from api.serializers.auth import RegisterSerializer, UserSerializer, CustomTokenObtainPairSerializer
+from api.serializers.auth import RegisterSerializer, UserSerializer, CustomTokenObtainPairSerializer,ChangePasswordSerializer
 
 
 class RegisterView(generics.CreateAPIView):
@@ -33,10 +33,24 @@ class RefreshTokenView(TokenRefreshView):
     pass
 
 
-class MeView(generics.RetrieveAPIView):
-    """Lấy thông tin profile người dùng hiện tại từ JWT Token"""
+class MeView(generics.RetrieveUpdateAPIView):
+    """Lấy và cập nhật thông tin profile người dùng hiện tại"""
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self):
         return self.request.user
+
+class ChangePasswordView(generics.GenericAPIView):
+    serializer_class = ChangePasswordSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+
+        user = request.user
+        user.set_password(serializer.validated_data['new_password'])
+        user.save()
+
+        return Response({'detail': 'Đổi mật khẩu thành công'}, status=status.HTTP_200_OK)

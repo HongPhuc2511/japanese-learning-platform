@@ -1,5 +1,5 @@
 from .base import BaseReadOnlyViewSet
-from.auth import LoginView,MeView,RefreshTokenView,RegisterView
+from.auth import LoginView,MeView,RefreshTokenView,RegisterView,ChangePasswordView
 from .lesson import CourseViewSet, LessonViewSet
 from .vocabulary import VocabularyViewSet, KanjiViewSet
 from .grammar import GrammarViewSet
