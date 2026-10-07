@@ -8,6 +8,8 @@ class CourseViewSet(BaseReadOnlyViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 
+
 class LessonViewSet(BaseReadOnlyViewSet):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
+
