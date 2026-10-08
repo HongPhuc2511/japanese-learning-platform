@@ -1,8 +1,10 @@
+from datetime import date
+
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from api.models import (
     Course, Lesson, Vocabulary, Kanji, Grammar,
-    Quiz, Question, Answer,
+    Quiz, Question, Answer, FlashcardReview
 )
 from api.models.enums import QuestionType
 
@@ -14,6 +16,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         self.stdout.write('Đang xoá dữ liệu cũ...')
+        FlashcardReview.objects.all().delete()
         Answer.objects.all().delete()
         Question.objects.all().delete()
         Quiz.objects.all().delete()
@@ -81,7 +84,8 @@ class Command(BaseCommand):
             ('欲しい', 'ほしい', 'hoshii', 'muốn có', 'N4', 'Bài 2: Diễn đạt mong muốn'),
             ('旅行', 'りょこう', 'ryokou', 'du lịch', 'N4', 'Bài 2: Diễn đạt mong muốn'),
             ('尊敬', 'そんけい', 'sonkei', 'tôn kính', 'N3', 'Bài 1: Kính ngữ cơ bản'),
-            ('申し上げる', 'もうしあげる', 'moushiageru', 'kính thưa (khiêm nhường ngữ)', 'N3', 'Bài 1: Kính ngữ cơ bản'),
+            ('申し上げる', 'もうしあげる', 'moushiageru', 'kính thưa (khiêm nhường ngữ)', 'N3',
+             'Bài 1: Kính ngữ cơ bản'),
         ]
         for word, kana, romaji, meaning, level, lesson_key in vocab_data:
             Vocabulary.objects.create(
@@ -126,13 +130,20 @@ class Command(BaseCommand):
 
         self.stdout.write('Đang tạo Grammar...')
         grammar_data = [
-            ('～は～です', 'N5', 'Cấu trúc câu khẳng định cơ bản: A là B.', '私は学生です。(Tôi là học sinh.)', 'Bài 1: Chào hỏi cơ bản'),
-            ('～ます / ～ません', 'N5', 'Thể lịch sự của động từ ở hiện tại/tương lai, phủ định.', '毎日食べます。(Tôi ăn mỗi ngày.)', 'Bài 1: Chào hỏi cơ bản'),
-            ('～が好きです', 'N5', 'Diễn tả sở thích đối với một sự vật, sự việc.', '日本語が好きです。(Tôi thích tiếng Nhật.)', 'Bài 2: Giới thiệu bản thân'),
-            ('～時に', 'N5', 'Diễn tả thời điểm xảy ra hành động.', '七時に起きます。(Tôi dậy lúc 7 giờ.)', 'Bài 3: Số đếm và thời gian'),
-            ('～ている', 'N4', 'Diễn tả hành động đang diễn ra hoặc trạng thái kéo dài.', '今、食べています。(Tôi đang ăn.)', 'Bài 1: Thể て và ứng dụng'),
-            ('～たい', 'N4', 'Diễn tả mong muốn làm gì đó của người nói.', '日本へ行きたいです。(Tôi muốn đi Nhật Bản.)', 'Bài 2: Diễn đạt mong muốn'),
-            ('尊敬語・謙譲語', 'N3', 'Kính ngữ dùng khi nói về người trên, khiêm nhường ngữ dùng khi nói về bản thân.', '先生がおっしゃいました。(Thầy đã nói.)', 'Bài 1: Kính ngữ cơ bản'),
+            ('～は～です', 'N5', 'Cấu trúc câu khẳng định cơ bản: A là B.', '私は学生です。(Tôi là học sinh.)',
+             'Bài 1: Chào hỏi cơ bản'),
+            ('～ます / ～ません', 'N5', 'Thể lịch sự của động từ ở hiện tại/tương lai, phủ định.',
+             '毎日食べます。(Tôi ăn mỗi ngày.)', 'Bài 1: Chào hỏi cơ bản'),
+            ('～が好きです', 'N5', 'Diễn tả sở thích đối với một sự vật, sự việc.',
+             '日本語が好きです。(Tôi thích tiếng Nhật.)', 'Bài 2: Giới thiệu bản thân'),
+            ('～時に', 'N5', 'Diễn tả thời điểm xảy ra hành động.', '七時に起きます。(Tôi dậy lúc 7 giờ.)',
+             'Bài 3: Số đếm và thời gian'),
+            ('～ている', 'N4', 'Diễn tả hành động đang diễn ra hoặc trạng thái kéo dài.',
+             '今、食べています。(Tôi đang ăn.)', 'Bài 1: Thể て và ứng dụng'),
+            ('～たい', 'N4', 'Diễn tả mong muốn làm gì đó của người nói.', '日本へ行きたいです。(Tôi muốn đi Nhật Bản.)',
+             'Bài 2: Diễn đạt mong muốn'),
+            ('尊敬語・謙譲語', 'N3', 'Kính ngữ dùng khi nói về người trên, khiêm nhường ngữ dùng khi nói về bản thân.',
+             '先生がおっしゃいました。(Thầy đã nói.)', 'Bài 1: Kính ngữ cơ bản'),
         ]
         for title, level, explanation, example, lesson_key in grammar_data:
             Grammar.objects.create(
@@ -175,6 +186,22 @@ class Command(BaseCommand):
         Answer.objects.create(question=q4, answer_text='Rẻ', is_correct=True)
         Answer.objects.create(question=q4, answer_text='Đắt', is_correct=False)
         Answer.objects.create(question=q4, answer_text='Mới', is_correct=False)
+
+        self.stdout.write('Đang tạo FlashcardReview...')
+        user = User.objects.filter(username='phuc1').first()
+        if not user:
+            self.stdout.write(self.style.WARNING('Không tìm thấy user "phuc1", bỏ qua flashcard.'))
+        else:
+            for v in Vocabulary.objects.all():
+                FlashcardReview.objects.create(
+                    user=user, content_type='vocabulary', object_id=v.id,
+                    next_review_date=date.today(),
+                )
+            for k in Kanji.objects.all():
+                FlashcardReview.objects.create(
+                    user=user, content_type='kanji', object_id=k.id,
+                    next_review_date=date.today(),
+                )
 
         self.stdout.write(self.style.SUCCESS(
             f'Hoàn tất: {Course.objects.count()} khoá học, {Lesson.objects.count()} bài học, '

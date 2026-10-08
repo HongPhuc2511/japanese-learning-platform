@@ -9,17 +9,20 @@ export default function Header() {
   const [dueCount, setDueCount] = useState(0);
 
   useEffect(() => {
-    if (!user) return;
-    const fetchDueCount = async () => {
-      try {
-        const res = await authApi.get(`${endpoints["flashcards"]}due/`);
-        setDueCount(res.data.length);
-      } catch (err) {
-        console.error("Không đếm được thẻ cần ôn", err);
-      }
-    };
-    fetchDueCount();
-  }, [user]);
+  if (!user) {
+    setDueCount(0);
+    return;
+  }
+  const fetchDueCount = async () => {
+    try {
+      const res = await authApi.get(`${endpoints["flashcards"]}due/`);
+      setDueCount(res.data.length);
+    } catch (err) {
+      console.error("Không đếm được thẻ cần ôn", err);
+    }
+  };
+  fetchDueCount();
+}, [user]);
 
   const handleLogout = () => {
     logout();
@@ -75,6 +78,15 @@ export default function Header() {
               </span>
             )}
           </Link>
+
+          {user && (
+            <Link
+              to="/saved"
+              className="text-text-muted hover:text-text transition"
+            >
+              Đã lưu
+            </Link>
+          )}
 
           {user ? (
             <>

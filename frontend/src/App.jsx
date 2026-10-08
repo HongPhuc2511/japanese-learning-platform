@@ -15,6 +15,7 @@ import api, { endpoints } from "./api/api";
 import Flashcards from "./pages/Flashcards";
 import Profile from './pages/Profile';
 import LessonDetail from './pages/LessonDetail';
+import SavedItems from './pages/SavedItems';
 
 
 function Home() {
@@ -175,6 +176,7 @@ export default function App() {
           <Route path="/flashcards" element={<Flashcards />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/lessons/:id" element={<LessonDetail />} />
+          <Route path="/saved" element={<SavedItems />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

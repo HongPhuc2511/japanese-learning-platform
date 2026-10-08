@@ -25,6 +25,7 @@ class FlashcardReviewSerializer(BaseSerializer):
                 'front': item.word,
                 'kana': item.kana,
                 'back': item.meaning,
+                'level': item.level,
             }
         elif obj.content_type == 'kanji':
             item = Kanji.objects.filter(id=obj.object_id).first()
@@ -34,5 +35,6 @@ class FlashcardReviewSerializer(BaseSerializer):
                 'front': item.character,
                 'kana': None,
                 'back': item.meaning,
+                'level': item.jlpt_level,
             }
         return None
