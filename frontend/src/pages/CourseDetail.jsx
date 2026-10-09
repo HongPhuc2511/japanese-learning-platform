@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import api, { endpoints, authApi } from "../api/api";
-import { useAuth } from "../context/AuthContext";
+import { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import api, { endpoints, authApi } from '../api/api';
+import { useAuth } from '../context/AuthContext';
 
 export default function CourseDetail() {
   const { id } = useParams();
@@ -9,15 +9,15 @@ export default function CourseDetail() {
   const [course, setCourse] = useState(null);
   const [progressMap, setProgressMap] = useState({});
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const res = await api.get(`${endpoints["courses"]}${id}/`);
+        const res = await api.get(`${endpoints['courses']}${id}/`);
         setCourse(res.data);
       } catch (err) {
-        setError("Không tìm thấy khoá học");
+        setError('Không tìm thấy khoá học');
       } finally {
         setLoading(false);
       }
@@ -26,17 +26,20 @@ export default function CourseDetail() {
   }, [id]);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setProgressMap({});
+      return;
+    }
     const fetchProgress = async () => {
       try {
-        const res = await authApi.get(endpoints["progress"]);
+        const res = await authApi.get(endpoints['progress']);
         const map = {};
         res.data.forEach((p) => {
           if (p.is_completed) map[p.lesson] = p.id;
         });
         setProgressMap(map);
       } catch (err) {
-        console.error("Không tải được tiến độ", err);
+        console.error('Không tải được tiến độ', err);
       }
     };
     fetchProgress();
@@ -46,7 +49,7 @@ export default function CourseDetail() {
     const existingId = progressMap[lessonId];
     try {
       if (existingId) {
-        await authApi.patch(`${endpoints["progress"]}${existingId}/`, {
+        await authApi.patch(`${endpoints['progress']}${existingId}/`, {
           is_completed: false,
         });
         setProgressMap((prev) => {
@@ -55,20 +58,26 @@ export default function CourseDetail() {
           return copy;
         });
       } else {
-        const res = await authApi.post(endpoints["progress"], {
+        const res = await authApi.post(endpoints['progress'], {
           lesson: lessonId,
           is_completed: true,
         });
         setProgressMap((prev) => ({ ...prev, [lessonId]: res.data.id }));
       }
     } catch (err) {
-      console.error("Lỗi khi cập nhật tiến độ", err);
+      console.error('Lỗi khi cập nhật tiến độ', err);
     }
   };
 
-  if (loading)
-    return <p className="text-center mt-10 text-text-muted">Đang tải...</p>;
+  if (loading) return <p className="text-center mt-10 text-text-muted">Đang tải...</p>;
   if (error) return <p className="text-center mt-10 text-accent">{error}</p>;
+
+  const totalLessons = course.lessons ? course.lessons.length : 0;
+  const completedLessons = course.lessons
+    ? course.lessons.filter((l) => progressMap[l.id]).length
+    : 0;
+  const percent =
+    totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
 
   return (
     <div className="max-w-3xl mx-auto mt-10 px-4">
@@ -80,6 +89,23 @@ export default function CourseDetail() {
       <p className="text-xs text-text-faint mt-1">Cấp độ: {course.level}</p>
       <p className="text-text-muted mt-4">{course.description}</p>
 
+      {user && totalLessons > 0 && (
+        <div className="mt-6">
+          <div className="flex items-center justify-between text-xs text-text-muted mb-1">
+            <span>
+              {completedLessons}/{totalLessons} bài học
+            </span>
+            <span>{percent}%</span>
+          </div>
+          <div className="h-1.5 bg-bg rounded-full overflow-hidden">
+            <div
+              className="h-full bg-accent transition-all"
+              style={{ width: `${percent}%` }}
+            />
+          </div>
+        </div>
+      )}
+
       <h2 className="text-lg font-semibold mt-8 mb-3">Danh sách bài học</h2>
       {course.lessons && course.lessons.length > 0 ? (
         <ul className="space-y-2">
@@ -88,10 +114,7 @@ export default function CourseDetail() {
               key={lesson.id}
               className="border border-border rounded-card p-3 flex items-center justify-between"
             >
-              <Link
-                to={`/lessons/${lesson.id}`}
-                className="hover:text-accent transition"
-              >
+              <Link to={`/lessons/${lesson.id}`} className="hover:text-accent transition">
                 {lesson.title}
               </Link>
               {user && (
@@ -99,13 +122,11 @@ export default function CourseDetail() {
                   onClick={() => toggleComplete(lesson.id)}
                   className={`text-sm px-3 py-1 rounded-button ${
                     progressMap[lesson.id]
-                      ? "bg-accent-soft text-accent"
-                      : "bg-bg text-text-muted hover:text-text"
+                      ? 'bg-accent-soft text-accent'
+                      : 'bg-bg text-text-muted hover:text-text'
                   }`}
                 >
-                  {progressMap[lesson.id]
-                    ? "✓ Đã hoàn thành"
-                    : "Đánh dấu hoàn thành"}
+                  {progressMap[lesson.id] ? '✓ Đã hoàn thành' : 'Đánh dấu hoàn thành'}
                 </button>
               )}
             </li>

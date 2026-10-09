@@ -16,6 +16,8 @@ import Flashcards from "./pages/Flashcards";
 import Profile from './pages/Profile';
 import LessonDetail from './pages/LessonDetail';
 import SavedItems from './pages/SavedItems';
+import Footer from './components/Footer';
+
 
 
 function Home() {
@@ -161,23 +163,28 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/:id" element={<CourseDetail />} />
-          <Route path="/vocabulary" element={<Vocabulary />} />
-          <Route path="/kanji" element={<Kanji />} />
-          <Route path="/grammar" element={<Grammar />} />
-          <Route path="/quizzes" element={<Quizzes />} />
-          <Route path="/quizzes/:id" element={<QuizDetail />} />
-          <Route path="/flashcards" element={<Flashcards />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/lessons/:id" element={<LessonDetail />} />
-          <Route path="/saved" element={<SavedItems />} />
-        </Routes>
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/courses/:id" element={<CourseDetail />} />
+              <Route path="/vocabulary" element={<Vocabulary />} />
+              <Route path="/kanji" element={<Kanji />} />
+              <Route path="/grammar" element={<Grammar />} />
+              <Route path="/quizzes" element={<Quizzes />} />
+              <Route path="/quizzes/:id" element={<QuizDetail />} />
+              <Route path="/flashcards" element={<Flashcards />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/lessons/:id" element={<LessonDetail />} />
+              <Route path="/saved" element={<SavedItems />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </BrowserRouter>
     </AuthProvider>
   );
