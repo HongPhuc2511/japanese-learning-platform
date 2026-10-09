@@ -1,8 +1,9 @@
 from rest_framework import permissions, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from api.models import Quiz, Question, Answer, QuizResult
+from api.models import Quiz, QuizResult
 from api.serializers import QuizSerializer, QuizDetailSerializer, QuizSubmitSerializer
+from api.services.gamification import record_activity
 from .base import BaseReadOnlyViewSet
 
 
@@ -50,9 +51,13 @@ class QuizViewSet(BaseReadOnlyViewSet):
 
         QuizResult.objects.create(user=request.user, quiz=quiz, score=score)
 
+        points_earned = correct_count * 5
+        record_activity(request.user, points=points_earned)
+
         return Response({
             'score': score,
             'correct_count': correct_count,
             'total': total,
+            'points_earned': points_earned,
             'results': results,
         }, status=status.HTTP_200_OK)

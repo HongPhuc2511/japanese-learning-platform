@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { authApi, endpoints } from '../api/api';
 
 const LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
 export default function Profile() {
-  const { user, setUser } = useAuth();
+  const { user, setUser, refreshUser } = useAuth();
   const [email, setEmail] = useState(user?.email || '');
   const [level, setLevel] = useState(user?.level || 'N5');
   const [infoMsg, setInfoMsg] = useState('');
@@ -17,6 +17,15 @@ export default function Profile() {
   const [pwMsg, setPwMsg] = useState('');
   const [pwError, setPwError] = useState('');
   const [savingPw, setSavingPw] = useState(false);
+  
+  useEffect(() => {
+    refreshUser();
+  }, []);
+
+  useEffect(() => {
+    setEmail(user?.email || '');
+    setLevel(user?.level || 'N5');
+  }, [user?.email, user?.level]);
 
   const handleUpdateInfo = async (e) => {
     e.preventDefault();
@@ -49,9 +58,10 @@ export default function Profile() {
       setOldPassword('');
       setNewPassword('');
     } catch (err) {
-      const detail = err.response?.data?.old_password?.[0]
-        || err.response?.data?.new_password?.[0]
-        || 'Đổi mật khẩu thất bại';
+      const detail =
+        err.response?.data?.old_password?.[0] ||
+        err.response?.data?.new_password?.[0] ||
+        'Đổi mật khẩu thất bại';
       setPwError(detail);
     } finally {
       setSavingPw(false);
@@ -60,9 +70,23 @@ export default function Profile() {
 
   return (
     <div className="max-w-md mx-auto mt-10 px-4 space-y-8">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="bg-surface border border-border rounded-card p-4 text-center">
+          <p className="text-3xl font-bold text-accent">{user?.streak_count ?? 0}</p>
+          <p className="text-xs text-text-muted mt-1">Ngày liên tiếp</p>
+        </div>
+        <div className="bg-surface border border-border rounded-card p-4 text-center">
+          <p className="text-3xl font-bold text-accent">{user?.points ?? 0}</p>
+          <p className="text-xs text-text-muted mt-1">Điểm tích luỹ</p>
+        </div>
+      </div>
+
       <div>
         <h1 className="font-display text-2xl font-bold mb-6">Thông tin cá nhân</h1>
-        <form onSubmit={handleUpdateInfo} className="bg-surface border border-border rounded-card p-6">
+        <form
+          onSubmit={handleUpdateInfo}
+          className="bg-surface border border-border rounded-card p-6"
+        >
           <div className="mb-4">
             <label className="block text-xs text-text-muted mb-1">Tên đăng nhập</label>
             <input
@@ -91,7 +115,9 @@ export default function Profile() {
               className="w-full border border-border rounded-button px-3 py-2 text-sm focus:outline-none focus:border-accent"
             >
               {LEVELS.map((l) => (
-                <option key={l} value={l}>{l}</option>
+                <option key={l} value={l}>
+                  {l}
+                </option>
               ))}
             </select>
           </div>
@@ -111,7 +137,10 @@ export default function Profile() {
 
       <div>
         <h2 className="font-display text-xl font-bold mb-4">Đổi mật khẩu</h2>
-        <form onSubmit={handleChangePassword} className="bg-surface border border-border rounded-card p-6">
+        <form
+          onSubmit={handleChangePassword}
+          className="bg-surface border border-border rounded-card p-6"
+        >
           <div className="mb-4">
             <label className="block text-xs text-text-muted mb-1">Mật khẩu hiện tại</label>
             <input

@@ -3,7 +3,8 @@ from rest_framework.routers import DefaultRouter
 
 from .views import (RegisterView, LoginView, RefreshTokenView, MeView, CourseViewSet,
                     LessonViewSet, VocabularyViewSet, KanjiViewSet, GrammarViewSet, QuizViewSet,
-                    UserProgressViewSet, BookmarkViewSet, FlashcardReviewViewSet, ChangePasswordView)
+                    UserProgressViewSet, BookmarkViewSet, FlashcardReviewViewSet, ChangePasswordView,
+                    QuizResultViewSet)
 
 router = DefaultRouter()
 router.register('courses', CourseViewSet)
@@ -15,6 +16,7 @@ router.register('quizzes', QuizViewSet)
 router.register('progress', UserProgressViewSet, basename='progress')
 router.register('bookmarks', BookmarkViewSet, basename='bookmarks')
 router.register('flashcards', FlashcardReviewViewSet, basename='flashcards')
+router.register('quiz-results', QuizResultViewSet, basename='quiz-results')
 
 urlpatterns = [
     path('auth/register/', RegisterView.as_view(), name='register'),

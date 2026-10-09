@@ -5,7 +5,7 @@ from .vocabulary import VocabularySerializer, KanjiSerializer
 from .grammar import GrammarSerializer
 from .quiz import (
     QuizSerializer, QuizDetailSerializer, QuestionSerializer, AnswerSerializer,
-    QuizSubmitSerializer,
+    QuizSubmitSerializer, QuizResultSerializer
 )
 from .progress import UserProgressSerializer
 from .bookmark import BookmarkSerializer

@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from api.models import FlashcardReview
 from api.serializers import FlashcardReviewSerializer
 from api.services.srs import calculate_sm2
-
+from api.services.gamification import record_activity
 
 class FlashcardReviewViewSet(viewsets.GenericViewSet,
                               mixins.ListModelMixin,
@@ -53,5 +53,6 @@ class FlashcardReviewViewSet(viewsets.GenericViewSet,
         card.next_review_date = next_review_date
         card.save()
 
+        record_activity(request.user, points=2 if int(quality) >= 3 else 0)
         serializer = self.get_serializer(card)
         return Response(serializer.data)

@@ -1,32 +1,36 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import { authApi, endpoints } from "../api/api";
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { authApi, endpoints } from '../api/api';
 
 export default function Header() {
-  const { user, logout } = useAuth();
+  const { user, logout, refreshUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [dueCount, setDueCount] = useState(0);
 
   useEffect(() => {
-  if (!user) {
-    setDueCount(0);
-    return;
-  }
-  const fetchDueCount = async () => {
-    try {
-      const res = await authApi.get(`${endpoints["flashcards"]}due/`);
-      setDueCount(res.data.length);
-    } catch (err) {
-      console.error("Không đếm được thẻ cần ôn", err);
+    if (!user) {
+      setDueCount(0);
+      return;
     }
-  };
-  fetchDueCount();
-}, [user]);
+
+    refreshUser();
+
+    const fetchDueCount = async () => {
+      try {
+        const res = await authApi.get(`${endpoints['flashcards']}due/`);
+        setDueCount(res.data.length);
+      } catch (err) {
+        console.error('Không đếm được thẻ cần ôn', err);
+      }
+    };
+    fetchDueCount();
+  }, [user?.id, location.pathname]);
 
   const handleLogout = () => {
     logout();
-    navigate("/login");
+    navigate('/login');
   };
 
   return (
@@ -37,63 +41,47 @@ export default function Header() {
         </Link>
 
         <nav className="flex items-center gap-6 text-sm">
-          <Link
-            to="/courses"
-            className="text-text-muted hover:text-text transition"
-          >
+          <Link to="/courses" className="text-text-muted hover:text-text transition">
             Khoá học
           </Link>
-          <Link
-            to="/vocabulary"
-            className="text-text-muted hover:text-text transition"
-          >
+          <Link to="/vocabulary" className="text-text-muted hover:text-text transition">
             Từ vựng
           </Link>
-          <Link
-            to="/kanji"
-            className="text-text-muted hover:text-text transition"
-          >
+          <Link to="/kanji" className="text-text-muted hover:text-text transition">
             Kanji
           </Link>
-          <Link
-            to="/grammar"
-            className="text-text-muted hover:text-text transition"
-          >
+          <Link to="/grammar" className="text-text-muted hover:text-text transition">
             Ngữ pháp
           </Link>
-          <Link
-            to="/quizzes"
-            className="text-text-muted hover:text-text transition"
-          >
+          <Link to="/quizzes" className="text-text-muted hover:text-text transition">
             Kiểm tra
-          </Link>
-          <Link
-            to="/flashcards"
-            className="relative text-text-muted hover:text-text transition"
-          >
-            Ôn tập
-            {dueCount > 0 && (
-              <span className="absolute -top-2 -right-3 bg-accent text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                {dueCount > 9 ? "9+" : dueCount}
-              </span>
-            )}
           </Link>
 
           {user && (
-            <Link
-              to="/saved"
-              className="text-text-muted hover:text-text transition"
-            >
-              Đã lưu
-            </Link>
+            <>
+              <Link to="/flashcards" className="relative text-text-muted hover:text-text transition">
+                Ôn tập
+                {dueCount > 0 && (
+                  <span className="absolute -top-2 -right-3 bg-accent text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                    {dueCount > 9 ? '9+' : dueCount}
+                  </span>
+                )}
+              </Link>
+              <Link to="/saved" className="text-text-muted hover:text-text transition">
+                Đã lưu
+              </Link>
+            </>
           )}
 
           {user ? (
             <>
-              <Link
-                to="/profile"
-                className="text-text-faint text-xs hover:text-text transition"
+              <span
+                className="text-xs text-accent bg-accent-soft px-2.5 py-1 rounded-full"
+                title={`Chuỗi ${user.streak_count} ngày · ${user.points} điểm`}
               >
+                🔥 {user.streak_count} · {user.points}đ
+              </span>
+              <Link to="/profile" className="text-text-faint text-xs hover:text-text transition">
                 {user.username}
               </Link>
               <button
@@ -105,10 +93,7 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Link
-                to="/login"
-                className="text-text-muted hover:text-text transition"
-              >
+              <Link to="/login" className="text-text-muted hover:text-text transition">
                 Đăng nhập
               </Link>
               <Link
