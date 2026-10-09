@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import api, { endpoints, authApi } from '../api/api';
 import { useAuth } from '../context/AuthContext';
+import LevelFilter from '../components/LevelFilter';
 
 export default function Vocabulary() {
   const { user } = useAuth();
   const [words, setWords] = useState([]);
+  const [level, setLevel] = useState('all');
   const [bookmarkMap, setBookmarkMap] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -24,7 +26,10 @@ export default function Vocabulary() {
   }, []);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setBookmarkMap({});
+      return;
+    }
     const fetchBookmarks = async () => {
       try {
         const res = await authApi.get(endpoints['bookmarks']);
@@ -67,15 +72,28 @@ export default function Vocabulary() {
   if (loading) return <p className="text-center mt-10 text-text-muted">Đang tải...</p>;
   if (error) return <p className="text-center mt-10 text-accent">{error}</p>;
 
+  const filteredWords =
+    level === 'all' ? words : words.filter((w) => w.level === level);
+
   return (
     <div className="max-w-3xl mx-auto mt-10 px-4">
       <h1 className="font-display text-2xl font-bold mb-6">Từ vựng</h1>
-      {words.length === 0 ? (
-        <p className="text-text-muted">Chưa có từ vựng nào.</p>
+
+      <LevelFilter value={level} onChange={setLevel} />
+
+      {filteredWords.length === 0 ? (
+        <p className="text-text-muted">
+          {level === 'all'
+            ? 'Chưa có từ vựng nào.'
+            : `Chưa có từ vựng cấp ${level}.`}
+        </p>
       ) : (
         <div className="grid gap-3">
-          {words.map((word) => (
-            <div key={word.id} className="bg-surface border border-border rounded-card p-4 relative">
+          {filteredWords.map((word) => (
+            <div
+              key={word.id}
+              className="bg-surface border border-border rounded-card p-4 relative"
+            >
               {user && (
                 <button
                   onClick={() => toggleBookmark(word.id)}
