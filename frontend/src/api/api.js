@@ -16,6 +16,7 @@ export const endpoints = {
     'progress': "/api/progress/",
     'bookmarks': "/api/bookmarks/",
     'flashcards': "/api/flashcards/",
+    'quiz-results': "/api/quiz-results/",
 }
 
 export const authApi = axios.create({

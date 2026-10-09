@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api, { endpoints } from '../api/api';
+import { useAuth } from '../context/AuthContext';
 
 export default function Quizzes() {
+  const { user } = useAuth();
   const [quizzes, setQuizzes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -26,7 +28,15 @@ export default function Quizzes() {
 
   return (
     <div className="max-w-3xl mx-auto mt-10 px-4">
-      <h1 className="font-display text-2xl font-bold mb-6">Bài kiểm tra</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="font-display text-2xl font-bold">Bài kiểm tra</h1>
+        {user && (
+          <Link to="/quiz-history" className="text-sm text-accent hover:underline">
+            Lịch sử làm bài →
+          </Link>
+        )}
+      </div>
+
       {quizzes.length === 0 ? (
         <p className="text-text-muted">Chưa có bài kiểm tra nào.</p>
       ) : (

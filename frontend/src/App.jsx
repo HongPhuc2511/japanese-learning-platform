@@ -13,12 +13,12 @@ import Quizzes from "./pages/Quizzes";
 import QuizDetail from "./pages/QuizDetail";
 import api, { endpoints } from "./api/api";
 import Flashcards from "./pages/Flashcards";
-import Profile from './pages/Profile';
-import LessonDetail from './pages/LessonDetail';
-import SavedItems from './pages/SavedItems';
-import Footer from './components/Footer';
-
-
+import Profile from "./pages/Profile";
+import LessonDetail from "./pages/LessonDetail";
+import SavedItems from "./pages/SavedItems";
+import Footer from "./components/Footer";
+import QuizHistory from "./pages/QuizHistory";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function Home() {
   const { user } = useAuth();
@@ -181,6 +181,14 @@ export default function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/lessons/:id" element={<LessonDetail />} />
               <Route path="/saved" element={<SavedItems />} />
+              <Route
+                path="/quiz-history"
+                element={
+                  <ProtectedRoute>
+                    <QuizHistory />
+                  </ProtectedRoute>
+                }
+              />
             </Routes>
           </main>
           <Footer />
