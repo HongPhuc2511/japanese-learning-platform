@@ -1,8 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { authApi, endpoints } from '../api/api';
+import { DarumaIcon } from '../components/JapaneseIcons';
+import { Award, CheckCircle2, AlertCircle } from 'lucide-react';
 
-const LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
+const LEVELS = [
+  { value: 'N5', label: 'N5', kanji: '初級' },
+  { value: 'N4', label: 'N4', kanji: '基礎' },
+  { value: 'N3', label: 'N3', kanji: '中級' },
+  { value: 'N2', label: 'N2', kanji: '上級' },
+  { value: 'N1', label: 'N1', kanji: '極' },
+];
 
 export default function Profile() {
   const { user, setUser, refreshUser } = useAuth();
@@ -36,9 +44,9 @@ export default function Profile() {
       const res = await authApi.patch(endpoints['current-user'], { email, level });
       setUser(res.data);
       localStorage.setItem('user', JSON.stringify(res.data));
-      setInfoMsg('Đã cập nhật thông tin');
+      setInfoMsg('Đã cập nhật thông tin thành công');
     } catch (err) {
-      setInfoError('Cập nhật thất bại');
+      setInfoError('Cập nhật thất bại, vui lòng thử lại');
     } finally {
       setSavingInfo(false);
     }
@@ -69,112 +77,223 @@ export default function Profile() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 px-4 space-y-8">
-      <div className="grid grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-card p-4 text-center">
-          <p className="text-3xl font-bold text-accent">{user?.streak_count ?? 0}</p>
-          <p className="text-xs text-text-muted mt-1">Ngày liên tiếp</p>
+    <div className="max-w-2xl mx-auto py-10 px-4 sm:px-6 space-y-8">
+      {/* Student ID Card (学生証) */}
+      <div className="jp-card p-6 sm:p-8 relative overflow-hidden bg-gradient-to-br from-surface via-surface to-accent-soft/30 border-2 border-border">
+        {/* Hanko seal in top corner */}
+        <div className="absolute top-4 right-4">
+          <div
+            className="w-12 h-12 rounded-full border-2 border-accent/70 text-accent flex flex-col items-center justify-center font-serif text-[10px] font-bold leading-none select-none opacity-80 rotate-12"
+            style={{ fontFamily: "'Noto Serif JP', serif" }}
+          >
+            <span>学習</span>
+            <span>之印</span>
+          </div>
         </div>
-        <div className="bg-surface border border-border rounded-card p-4 text-center">
-          <p className="text-3xl font-bold text-accent">{user?.points ?? 0}</p>
-          <p className="text-xs text-text-muted mt-1">Điểm tích luỹ</p>
+
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
+          {/* Avatar with initial */}
+          <div className="w-16 h-16 rounded-full bg-accent text-white flex items-center justify-center text-2xl font-bold font-serif shadow-sm shrink-0">
+            {user?.username?.charAt(0).toUpperCase() || '学'}
+          </div>
+
+          <div className="text-center sm:text-left space-y-1">
+            <span className="text-[11px] font-bold text-accent uppercase tracking-wider bg-accent-soft px-2.5 py-0.5 rounded-full inline-block">
+              Thẻ học viên • 学生証
+            </span>
+            <h1 className="font-display font-extrabold text-2xl text-text">
+              {user?.username}
+            </h1>
+            <p className="text-xs text-text-muted">{user?.email || 'Chưa cập nhật email'}</p>
+          </div>
+        </div>
+
+        {/* Stats Row */}
+        <div className="grid grid-cols-3 gap-3 mt-6 pt-6 border-t border-border/80 text-center">
+          <div className="bg-surface/80 rounded-xl p-3 border border-border/60">
+            <div className="flex items-center justify-center gap-1 text-accent mb-0.5">
+              <DarumaIcon className="w-4 h-4" />
+              <span
+                className="font-serif text-xl font-black"
+                style={{ fontFamily: "'Noto Serif JP', serif" }}
+              >
+                {user?.streak_count ?? 0}
+              </span>
+            </div>
+            <p className="text-[11px] font-medium text-text-muted">Ngày liên tiếp</p>
+          </div>
+
+          <div className="bg-surface/80 rounded-xl p-3 border border-border/60">
+            <div className="flex items-center justify-center gap-1 text-gold mb-0.5">
+              <Award className="w-4 h-4" />
+              <span
+                className="font-serif text-xl font-black"
+                style={{ fontFamily: "'Noto Serif JP', serif" }}
+              >
+                {user?.points ?? 0}
+              </span>
+            </div>
+            <p className="text-[11px] font-medium text-text-muted">Điểm tích luỹ</p>
+          </div>
+
+          <div className="bg-surface/80 rounded-xl p-3 border border-border/60">
+            <div className="flex items-center justify-center gap-1 text-accent mb-0.5">
+              <span
+                className="font-serif text-xl font-black"
+                style={{ fontFamily: "'Noto Serif JP', serif" }}
+              >
+                {user?.level || 'N5'}
+              </span>
+            </div>
+            <p className="text-[11px] font-medium text-text-muted">Mục tiêu JLPT</p>
+          </div>
         </div>
       </div>
 
-      <div>
-        <h1 className="font-display text-2xl font-bold mb-6">Thông tin cá nhân</h1>
-        <form
-          onSubmit={handleUpdateInfo}
-          className="bg-surface border border-border rounded-card p-6"
-        >
-          <div className="mb-4">
-            <label className="block text-xs text-text-muted mb-1">Tên đăng nhập</label>
+      {/* Update Info Form */}
+      <div className="jp-card p-6 sm:p-8">
+        <h2 className="font-display font-bold text-lg text-text mb-1">
+          Thông tin cá nhân
+        </h2>
+        <p className="text-xs text-text-muted mb-6">
+          Cập nhật địa chỉ email và mục tiêu trình độ JLPT của bạn
+        </p>
+
+        <form onSubmit={handleUpdateInfo} className="space-y-4">
+          <div>
+            <label className="block text-xs font-semibold text-text-muted mb-1.5">
+              Tên đăng nhập (Tài khoản)
+            </label>
             <input
               type="text"
               value={user?.username || ''}
               disabled
-              className="w-full border border-border rounded-button px-3 py-2 text-sm bg-bg text-text-faint"
+              className="w-full border border-border rounded-xl px-4 py-2.5 text-sm bg-surface-subtle text-text-faint font-medium"
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block text-xs text-text-muted mb-1">Email</label>
+          <div>
+            <label className="block text-xs font-semibold text-text-muted mb-1.5">
+              Địa chỉ Email
+            </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-border rounded-button px-3 py-2 text-sm focus:outline-none focus:border-accent"
+              className="w-full border border-border rounded-xl px-4 py-2.5 text-sm bg-surface focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition"
+              required
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block text-xs text-text-muted mb-1">Trình độ</label>
-            <select
-              value={level}
-              onChange={(e) => setLevel(e.target.value)}
-              className="w-full border border-border rounded-button px-3 py-2 text-sm focus:outline-none focus:border-accent"
-            >
+          <div>
+            <label className="block text-xs font-semibold text-text-muted mb-1.5">
+              Mục tiêu cấp độ JLPT
+            </label>
+            <div className="grid grid-cols-5 gap-2">
               {LEVELS.map((l) => (
-                <option key={l} value={l}>
-                  {l}
-                </option>
+                <button
+                  type="button"
+                  key={l.value}
+                  onClick={() => setLevel(l.value)}
+                  className={`py-2 px-1 text-center rounded-xl border text-xs font-medium transition cursor-pointer ${
+                    level === l.value
+                      ? 'bg-accent text-white border-accent shadow-xs'
+                      : 'bg-surface text-text-muted border-border hover:border-accent/60'
+                  }`}
+                >
+                  <span className="block font-bold">{l.label}</span>
+                  <span
+                    className={`text-[10px] font-serif ${level === l.value ? 'text-white/80' : 'text-accent'}`}
+                    style={{ fontFamily: "'Noto Serif JP', serif" }}
+                  >
+                    {l.kanji}
+                  </span>
+                </button>
               ))}
-            </select>
+            </div>
           </div>
 
-          {infoMsg && <p className="text-sm text-accent mb-3">{infoMsg}</p>}
-          {infoError && <p className="text-sm text-accent mb-3">{infoError}</p>}
+          {infoMsg && (
+            <p className="text-xs text-matcha font-medium flex items-center gap-1.5 bg-matcha-soft p-2.5 rounded-xl">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              {infoMsg}
+            </p>
+          )}
+          {infoError && (
+            <p className="text-xs text-accent font-medium flex items-center gap-1.5 bg-accent-soft p-2.5 rounded-xl">
+              <AlertCircle className="w-3.5 h-3.5" />
+              {infoError}
+            </p>
+          )}
 
           <button
             type="submit"
             disabled={savingInfo}
-            className="w-full bg-accent text-white py-2 rounded-button hover:bg-accent-hover transition disabled:opacity-50"
+            className="w-full bg-accent text-white py-3 rounded-full text-xs font-semibold hover:bg-accent-hover transition shadow-xs shadow-accent/20 disabled:opacity-50 cursor-pointer"
           >
             {savingInfo ? 'Đang lưu...' : 'Lưu thay đổi'}
           </button>
         </form>
       </div>
 
-      <div>
-        <h2 className="font-display text-xl font-bold mb-4">Đổi mật khẩu</h2>
-        <form
-          onSubmit={handleChangePassword}
-          className="bg-surface border border-border rounded-card p-6"
-        >
-          <div className="mb-4">
-            <label className="block text-xs text-text-muted mb-1">Mật khẩu hiện tại</label>
+      {/* Change Password Form */}
+      <div className="jp-card p-6 sm:p-8">
+        <h2 className="font-display font-bold text-lg text-text mb-1">
+          Bảo mật & Đổi mật khẩu
+        </h2>
+        <p className="text-xs text-text-muted mb-6">
+          Đảm bảo mật khẩu của bạn có độ an toàn cao để bảo vệ tài khoản
+        </p>
+
+        <form onSubmit={handleChangePassword} className="space-y-4">
+          <div>
+            <label className="block text-xs font-semibold text-text-muted mb-1.5">
+              Mật khẩu hiện tại
+            </label>
             <input
               type="password"
               value={oldPassword}
               onChange={(e) => setOldPassword(e.target.value)}
-              className="w-full border border-border rounded-button px-3 py-2 text-sm focus:outline-none focus:border-accent"
+              className="w-full border border-border rounded-xl px-4 py-2.5 text-sm bg-surface focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition"
               required
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block text-xs text-text-muted mb-1">Mật khẩu mới</label>
+          <div>
+            <label className="block text-xs font-semibold text-text-muted mb-1.5">
+              Mật khẩu mới
+            </label>
             <input
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="w-full border border-border rounded-button px-3 py-2 text-sm focus:outline-none focus:border-accent"
+              className="w-full border border-border rounded-xl px-4 py-2.5 text-sm bg-surface focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition"
               required
             />
           </div>
 
-          {pwMsg && <p className="text-sm text-accent mb-3">{pwMsg}</p>}
-          {pwError && <p className="text-sm text-accent mb-3">{pwError}</p>}
+          {pwMsg && (
+            <p className="text-xs text-matcha font-medium flex items-center gap-1.5 bg-matcha-soft p-2.5 rounded-xl">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              {pwMsg}
+            </p>
+          )}
+          {pwError && (
+            <p className="text-xs text-accent font-medium flex items-center gap-1.5 bg-accent-soft p-2.5 rounded-xl">
+              <AlertCircle className="w-3.5 h-3.5" />
+              {pwError}
+            </p>
+          )}
 
           <button
             type="submit"
             disabled={savingPw}
-            className="w-full bg-accent text-white py-2 rounded-button hover:bg-accent-hover transition disabled:opacity-50"
+            className="w-full bg-surface text-text border border-border hover:border-accent hover:text-accent py-3 rounded-full text-xs font-semibold transition disabled:opacity-50 cursor-pointer"
           >
-            {savingPw ? 'Đang đổi...' : 'Đổi mật khẩu'}
+            {savingPw ? 'Đang đổi mật khẩu...' : 'Xác nhận đổi mật khẩu'}
           </button>
         </form>
       </div>
     </div>
   );
-}
+}

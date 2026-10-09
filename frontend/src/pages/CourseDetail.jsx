@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api, { endpoints, authApi } from '../api/api';
 import { useAuth } from '../context/AuthContext';
+import { HankoBadge } from '../components/JapaneseIcons';
+import { ArrowLeft, CheckCircle2, Circle, BookOpen, ChevronRight } from 'lucide-react';
 
 export default function CourseDetail() {
   const { id } = useParams();
@@ -69,8 +71,24 @@ export default function CourseDetail() {
     }
   };
 
-  if (loading) return <p className="text-center mt-10 text-text-muted">Đang tải...</p>;
-  if (error) return <p className="text-center mt-10 text-accent">{error}</p>;
+  if (loading) {
+    return (
+      <div className="max-w-4xl mx-auto py-20 px-4 text-center">
+        <div className="font-serif text-3xl text-accent animate-pulse mb-2" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+          講座詳細
+        </div>
+        <p className="text-text-muted text-sm font-medium">Đang tải thông tin khoá học...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-4xl mx-auto py-20 px-4 text-center">
+        <p className="text-accent text-sm font-medium">{error}</p>
+      </div>
+    );
+  }
 
   const totalLessons = course.lessons ? course.lessons.length : 0;
   const completedLessons = course.lessons
@@ -80,61 +98,142 @@ export default function CourseDetail() {
     totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 px-4">
-      <Link to="/courses" className="text-accent hover:underline text-sm">
-        ← Quay lại danh sách
+    <div className="max-w-4xl mx-auto py-10 px-4 sm:px-6">
+      {/* Back button */}
+      <Link
+        to="/courses"
+        className="inline-flex items-center gap-1.5 text-xs font-semibold text-text-muted hover:text-accent transition mb-6"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        <span>Quay lại danh sách khoá học</span>
       </Link>
 
-      <h1 className="font-display text-2xl font-bold mt-4">{course.title}</h1>
-      <p className="text-xs text-text-faint mt-1">Cấp độ: {course.level}</p>
-      <p className="text-text-muted mt-4">{course.description}</p>
+      {/* Course Hero Card */}
+      <div className="jp-card p-6 sm:p-8 mb-8 relative overflow-hidden">
+        <div className="flex items-center justify-between gap-4 mb-4">
+          <HankoBadge text={course.level} />
+          <span className="text-xs text-text-muted font-medium">
+            {totalLessons} bài học trong lộ trình
+          </span>
+        </div>
 
-      {user && totalLessons > 0 && (
-        <div className="mt-6">
-          <div className="flex items-center justify-between text-xs text-text-muted mb-1">
-            <span>
-              {completedLessons}/{totalLessons} bài học
-            </span>
-            <span>{percent}%</span>
+        <h1 className="font-display font-extrabold text-2xl sm:text-3xl text-text">
+          {course.title}
+        </h1>
+        <p className="text-sm text-text-muted mt-3 leading-relaxed max-w-2xl">
+          {course.description}
+        </p>
+
+        {user && totalLessons > 0 && (
+          <div className="mt-6 pt-6 border-t border-border/80">
+            <div className="flex items-center justify-between text-xs text-text-muted mb-2">
+              <span>
+                Tiến độ hoàn thành: <strong className="text-text">{completedLessons}/{totalLessons}</strong> bài học
+              </span>
+              <span className="font-bold text-accent">{percent}%</span>
+            </div>
+            <div className="h-2.5 bg-surface-subtle border border-border/60 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-accent to-accent-hover transition-all duration-300"
+                style={{ width: `${percent}%` }}
+              />
+            </div>
           </div>
-          <div className="h-1.5 bg-bg rounded-full overflow-hidden">
-            <div
-              className="h-full bg-accent transition-all"
-              style={{ width: `${percent}%` }}
-            />
+        )}
+      </div>
+
+      {/* Syllabus / Lessons Roadmap */}
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <h2 className="font-display font-bold text-lg text-text">
+              Lộ trình bài giảng
+            </h2>
+            <span
+              className="text-xs font-serif text-accent"
+              style={{ fontFamily: "'Noto Serif JP', serif" }}
+            >
+              カリキュラム
+            </span>
           </div>
         </div>
-      )}
 
-      <h2 className="text-lg font-semibold mt-8 mb-3">Danh sách bài học</h2>
-      {course.lessons && course.lessons.length > 0 ? (
-        <ul className="space-y-2">
-          {course.lessons.map((lesson) => (
-            <li
-              key={lesson.id}
-              className="border border-border rounded-card p-3 flex items-center justify-between"
-            >
-              <Link to={`/lessons/${lesson.id}`} className="hover:text-accent transition">
-                {lesson.title}
-              </Link>
-              {user && (
-                <button
-                  onClick={() => toggleComplete(lesson.id)}
-                  className={`text-sm px-3 py-1 rounded-button ${
-                    progressMap[lesson.id]
-                      ? 'bg-accent-soft text-accent'
-                      : 'bg-bg text-text-muted hover:text-text'
+        {course.lessons && course.lessons.length > 0 ? (
+          <div className="space-y-3">
+            {course.lessons.map((lesson, index) => {
+              const isCompleted = !!progressMap[lesson.id];
+              return (
+                <div
+                  key={lesson.id}
+                  className={`jp-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition group ${
+                    isCompleted ? 'bg-surface-subtle/60 border-matcha/40' : ''
                   }`}
                 >
-                  {progressMap[lesson.id] ? '✓ Đã hoàn thành' : 'Đánh dấu hoàn thành'}
-                </button>
-              )}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="text-text-muted">Chưa có bài học nào.</p>
-      )}
+                  <Link
+                    to={`/lessons/${lesson.id}`}
+                    className="flex items-center gap-3.5 flex-1"
+                  >
+                    <div
+                      className={`w-9 h-9 rounded-full flex items-center justify-center font-serif text-xs font-bold shrink-0 transition ${
+                        isCompleted
+                          ? 'bg-matcha text-white'
+                          : 'bg-accent-soft text-accent group-hover:bg-accent group-hover:text-white'
+                      }`}
+                      style={{ fontFamily: "'Noto Serif JP', serif" }}
+                    >
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-sm sm:text-base text-text group-hover:text-accent transition">
+                        {lesson.title}
+                      </h3>
+                      <span className="text-[11px] text-text-muted mt-0.5 block">
+                        Nhấn để xem từ vựng, ngữ pháp & kiểm tra
+                      </span>
+                    </div>
+                  </Link>
+
+                  <div className="flex items-center gap-2 self-end sm:self-center">
+                    {user && (
+                      <button
+                        onClick={() => toggleComplete(lesson.id)}
+                        className={`text-xs px-3.5 py-1.5 rounded-full border transition-all flex items-center gap-1.5 cursor-pointer ${
+                          isCompleted
+                            ? 'bg-matcha-soft text-matcha border-matcha/60 font-semibold'
+                            : 'bg-surface text-text-muted border-border hover:border-text-muted'
+                        }`}
+                      >
+                        {isCompleted ? (
+                          <>
+                            <CheckCircle2 className="w-3.5 h-3.5" />
+                            <span>Đã học xong</span>
+                          </>
+                        ) : (
+                          <>
+                            <Circle className="w-3.5 h-3.5 text-text-faint" />
+                            <span>Đánh dấu xong</span>
+                          </>
+                        )}
+                      </button>
+                    )}
+
+                    <Link
+                      to={`/lessons/${lesson.id}`}
+                      className="p-1.5 rounded-full text-text-muted hover:text-accent hover:bg-surface-subtle transition"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="text-center py-12 bg-surface rounded-2xl border border-border">
+            <p className="text-text-muted text-sm">Khoá học này chưa có bài học nào.</p>
+          </div>
+        )}
+      </div>
     </div>
   );
-}
+}
