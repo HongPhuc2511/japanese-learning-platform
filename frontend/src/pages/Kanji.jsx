@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import api, { endpoints, authApi } from '../api/api';
 import { useAuth } from '../context/AuthContext';
+import LevelFilter from '../components/LevelFilter';
 
 export default function Kanji() {
   const { user } = useAuth();
   const [kanjiList, setKanjiList] = useState([]);
+  const [level, setLevel] = useState('all');
   const [bookmarkMap, setBookmarkMap] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -24,7 +26,10 @@ export default function Kanji() {
   }, []);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setBookmarkMap({});
+      return;
+    }
     const fetchBookmarks = async () => {
       try {
         const res = await authApi.get(endpoints['bookmarks']);
@@ -67,15 +72,26 @@ export default function Kanji() {
   if (loading) return <p className="text-center mt-10 text-text-muted">Đang tải...</p>;
   if (error) return <p className="text-center mt-10 text-accent">{error}</p>;
 
+  const filteredKanji =
+    level === 'all' ? kanjiList : kanjiList.filter((k) => k.jlpt_level === level);
+
   return (
     <div className="max-w-3xl mx-auto mt-10 px-4">
       <h1 className="font-display text-2xl font-bold mb-6">Kanji</h1>
-      {kanjiList.length === 0 ? (
-        <p className="text-text-muted">Chưa có kanji nào.</p>
+
+      <LevelFilter value={level} onChange={setLevel} />
+
+      {filteredKanji.length === 0 ? (
+        <p className="text-text-muted">
+          {level === 'all' ? 'Chưa có kanji nào.' : `Chưa có kanji cấp ${level}.`}
+        </p>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {kanjiList.map((k) => (
-            <div key={k.id} className="bg-surface border border-border rounded-card p-4 text-center relative">
+          {filteredKanji.map((k) => (
+            <div
+              key={k.id}
+              className="bg-surface border border-border rounded-card p-4 text-center relative"
+            >
               {user && (
                 <button
                   onClick={() => toggleBookmark(k.id)}
