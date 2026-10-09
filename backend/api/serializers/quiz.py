@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Quiz, Question, Answer
+from api.models import Quiz, Question, Answer, QuizResult
 from .base import BaseSerializer
 
 
@@ -37,3 +37,10 @@ class SubmitAnswerSerializer(serializers.Serializer):
 
 class QuizSubmitSerializer(serializers.Serializer):
     answers = SubmitAnswerSerializer(many=True)
+
+class QuizResultSerializer(BaseSerializer):
+    quiz_title = serializers.CharField(source='quiz.title', read_only=True)
+
+    class Meta(BaseSerializer.Meta):
+        model = QuizResult
+        fields = ['id', 'quiz', 'quiz_title', 'score', 'completed_at']

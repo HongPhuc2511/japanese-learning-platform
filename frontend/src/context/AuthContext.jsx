@@ -37,8 +37,20 @@ export function AuthProvider({ children }) {
     return res.data;
   };
 
+  const refreshUser = async () => {
+    try {
+      const res = await authApi.get(endpoints['current-user']);
+      setUser(res.data);
+      localStorage.setItem('user', JSON.stringify(res.data));
+    } catch (err) {
+      console.error('Không làm mới được thông tin người dùng', err);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, setUser, login, register, logout, getCurrentUser }}>
+    <AuthContext.Provider
+      value={{ user, setUser, login, register, logout, getCurrentUser, refreshUser }}
+    >
       {children}
     </AuthContext.Provider>
   );
