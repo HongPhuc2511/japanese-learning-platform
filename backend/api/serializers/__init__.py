@@ -10,4 +10,5 @@ from .quiz import (
 from .progress import UserProgressSerializer
 from .bookmark import BookmarkSerializer
 from .flashcard import FlashcardReviewSerializer
+from .assistant import ChatRequestSerializer
 
