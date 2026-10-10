@@ -160,3 +160,5 @@ SIMPLE_JWT = {
 }
 
 ASSISTANT_MODEL = os.environ.get("ASSISTANT_MODEL", "gemini-3-flash-preview")
+
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "")

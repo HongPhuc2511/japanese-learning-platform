@@ -42,3 +42,6 @@ class ChangePasswordSerializer(serializers.Serializer):
         if not user.check_password(value):
             raise serializers.ValidationError('Mật khẩu cũ không đúng')
         return value
+
+class GoogleLoginSerializer(serializers.Serializer):
+    credential = serializers.CharField()

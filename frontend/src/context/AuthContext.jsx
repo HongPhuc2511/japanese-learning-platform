@@ -47,9 +47,17 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const loginWithGoogle = async (credential) => {
+  const res = await api.post(endpoints['google-login'], { credential });
+  localStorage.setItem('access', res.data.access);
+  localStorage.setItem('refresh', res.data.refresh);
+  localStorage.setItem('user', JSON.stringify(res.data.user));
+  setUser(res.data.user);
+};
+
   return (
     <AuthContext.Provider
-      value={{ user, setUser, login, register, logout, getCurrentUser, refreshUser }}
+      value={{ user, setUser, login,loginWithGoogle, register, logout, getCurrentUser, refreshUser }}
     >
       {children}
     </AuthContext.Provider>

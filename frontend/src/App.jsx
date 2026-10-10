@@ -30,6 +30,7 @@ import {
   Brain,
 } from "lucide-react";
 import AssistantWidget from "./components/AssistantWidget";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function Home() {
   const { user } = useAuth();
@@ -599,44 +600,46 @@ function Home() {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+      <AuthProvider>
+        <BrowserRouter>
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-1">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
 
-              <Route path="/courses" element={<Courses />} />
-              <Route path="/courses/:id" element={<CourseDetail />} />
-              <Route path="/lessons/:id" element={<LessonDetail />} />
+                <Route path="/courses" element={<Courses />} />
+                <Route path="/courses/:id" element={<CourseDetail />} />
+                <Route path="/lessons/:id" element={<LessonDetail />} />
 
-              <Route path="/vocabulary" element={<Vocabulary />} />
-              <Route path="/kanji" element={<Kanji />} />
-              <Route path="/grammar" element={<Grammar />} />
+                <Route path="/vocabulary" element={<Vocabulary />} />
+                <Route path="/kanji" element={<Kanji />} />
+                <Route path="/grammar" element={<Grammar />} />
 
-              <Route path="/quizzes" element={<Quizzes />} />
-              <Route path="/quizzes/:id" element={<QuizDetail />} />
-              <Route
-                path="/quiz-history"
-                element={
-                  <ProtectedRoute>
-                    <QuizHistory />
-                  </ProtectedRoute>
-                }
-              />
+                <Route path="/quizzes" element={<Quizzes />} />
+                <Route path="/quizzes/:id" element={<QuizDetail />} />
+                <Route
+                  path="/quiz-history"
+                  element={
+                    <ProtectedRoute>
+                      <QuizHistory />
+                    </ProtectedRoute>
+                  }
+                />
 
-              <Route path="/flashcards" element={<Flashcards />} />
-              <Route path="/saved" element={<SavedItems />} />
-              <Route path="/profile" element={<Profile />} />
-            </Routes>
-          </main>
-          <Footer />
-          <AssistantWidget />
-        </div>
-      </BrowserRouter>
-    </AuthProvider>
+                <Route path="/flashcards" element={<Flashcards />} />
+                <Route path="/saved" element={<SavedItems />} />
+                <Route path="/profile" element={<Profile />} />
+              </Routes>
+            </main>
+            <Footer />
+            <AssistantWidget />
+          </div>
+        </BrowserRouter>
+      </AuthProvider>
+    </GoogleOAuthProvider>
   );
 }
