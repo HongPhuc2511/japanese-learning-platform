@@ -21,7 +21,15 @@ import QuizHistory from "./pages/QuizHistory";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { ToriiIcon, DarumaIcon, HankoBadge } from "./components/JapaneseIcons";
 import { speakJapanese } from "./utils/speak";
-import { BookOpen, Layers, ArrowRight, Volume2, ChevronRight, Brain } from "lucide-react";
+import {
+  BookOpen,
+  Layers,
+  ArrowRight,
+  Volume2,
+  ChevronRight,
+  Brain,
+} from "lucide-react";
+import AssistantWidget from "./components/AssistantWidget";
 
 function Home() {
   const { user } = useAuth();
@@ -43,16 +51,52 @@ function Home() {
     japanese: "七転び八起き",
     kana: "ななころびやおき",
     romaji: "Nana korobi ya oki",
-    vietnamese: "Ngã bảy lần, đứng dậy tám lần — Tinh thần kiên trì, không bao giờ bỏ cuộc.",
+    vietnamese:
+      "Ngã bảy lần, đứng dậy tám lần — Tinh thần kiên trì, không bao giờ bỏ cuộc.",
     kanjiMeaning: "Thất bộc bát khởi",
   };
 
   const jlptLevels = [
-    { level: "N5", kanji: "初級", title: "Nhập môn", words: "~800 từ", kanjis: "100 chữ", desc: "Hiragana, Katakana và hội thoại cơ bản hàng ngày." },
-    { level: "N4", kanji: "基礎", title: "Cơ bản", words: "~1,500 từ", kanjis: "300 chữ", desc: "Đọc hiểu đoạn văn ngắn và giao tiếp quen thuộc." },
-    { level: "N3", kanji: "中級", title: "Trung cấp", words: "~3,750 từ", kanjis: "650 chữ", desc: "Cầu nối chuyển tiếp, giao tiếp tự nhiên trong cuộc sống." },
-    { level: "N2", kanji: "上級", title: "Nâng cao", words: "~6,000 từ", kanjis: "1,000 chữ", desc: "Đọc báo chí, làm việc và sinh hoạt tại Nhật Bản." },
-    { level: "N1", kanji: "極", title: "Chuyên sâu", words: "~10,000+ từ", kanjis: "2,000+ chữ", desc: "Thành thạo chuyên sâu như người bản xứ." },
+    {
+      level: "N5",
+      kanji: "初級",
+      title: "Nhập môn",
+      words: "~800 từ",
+      kanjis: "100 chữ",
+      desc: "Hiragana, Katakana và hội thoại cơ bản hàng ngày.",
+    },
+    {
+      level: "N4",
+      kanji: "基礎",
+      title: "Cơ bản",
+      words: "~1,500 từ",
+      kanjis: "300 chữ",
+      desc: "Đọc hiểu đoạn văn ngắn và giao tiếp quen thuộc.",
+    },
+    {
+      level: "N3",
+      kanji: "中級",
+      title: "Trung cấp",
+      words: "~3,750 từ",
+      kanjis: "650 chữ",
+      desc: "Cầu nối chuyển tiếp, giao tiếp tự nhiên trong cuộc sống.",
+    },
+    {
+      level: "N2",
+      kanji: "上級",
+      title: "Nâng cao",
+      words: "~6,000 từ",
+      kanjis: "1,000 chữ",
+      desc: "Đọc báo chí, làm việc và sinh hoạt tại Nhật Bản.",
+    },
+    {
+      level: "N1",
+      kanji: "極",
+      title: "Chuyên sâu",
+      words: "~10,000+ từ",
+      kanjis: "2,000+ chữ",
+      desc: "Thành thạo chuyên sâu như người bản xứ.",
+    },
   ];
 
   return (
@@ -108,7 +152,12 @@ function Home() {
                       fill="none"
                       preserveAspectRatio="none"
                     >
-                      <path d="M0 7C50 1 150 1 200 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                      <path
+                        d="M0 7C50 1 150 1 200 7"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                      />
                     </svg>
                   </span>
                 </>
@@ -116,10 +165,15 @@ function Home() {
             </h1>
 
             <p className="text-text-muted text-base sm:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-              Lộ trình toàn diện kết hợp <strong className="text-text font-semibold">Từ vựng</strong>,{" "}
+              Lộ trình toàn diện kết hợp{" "}
+              <strong className="text-text font-semibold">Từ vựng</strong>,{" "}
               <strong className="text-text font-semibold">Kanji</strong>,{" "}
-              <strong className="text-text font-semibold">Ngữ pháp</strong> cùng thuật toán lặp lại ngắt quãng{" "}
-              <strong className="text-accent font-semibold">SRS (間隔反復)</strong> giúp ghi nhớ vĩnh viễn.
+              <strong className="text-text font-semibold">Ngữ pháp</strong> cùng
+              thuật toán lặp lại ngắt quãng{" "}
+              <strong className="text-accent font-semibold">
+                SRS (間隔反復)
+              </strong>{" "}
+              giúp ghi nhớ vĩnh viễn.
             </p>
 
             {/* CTA Buttons */}
@@ -184,7 +238,9 @@ function Home() {
                     >
                       {proverb.japanese}
                     </p>
-                    <span className="text-xs text-text-muted">({proverb.kana})</span>
+                    <span className="text-xs text-text-muted">
+                      ({proverb.kana})
+                    </span>
                   </div>
                   <p className="text-xs text-text-muted font-medium mt-1">
                     {proverb.vietnamese}
@@ -236,7 +292,8 @@ function Home() {
                 </span>
               </div>
               <p className="text-xs text-text-muted leading-relaxed mt-2">
-                Hàng ngàn từ vựng JLPT kèm Furigana, giải nghĩa chi tiết, câu ví dụ thực tế và âm thanh phát âm bản ngữ.
+                Hàng ngàn từ vựng JLPT kèm Furigana, giải nghĩa chi tiết, câu ví
+                dụ thực tế và âm thanh phát âm bản ngữ.
               </p>
             </div>
             <div className="mt-5 pt-3 border-t border-border flex items-center justify-between text-xs font-medium text-accent">
@@ -269,7 +326,8 @@ function Home() {
                 </span>
               </div>
               <p className="text-xs text-text-muted leading-relaxed mt-2">
-                Nắm vững âm On, Kun, nghĩa Hán Việt cùng cách viết theo ô ly tập viết chuẩn phong cách Nhật Bản.
+                Nắm vững âm On, Kun, nghĩa Hán Việt cùng cách viết theo ô ly tập
+                viết chuẩn phong cách Nhật Bản.
               </p>
             </div>
             <div className="mt-5 pt-3 border-t border-border flex items-center justify-between text-xs font-medium text-indigo">
@@ -297,7 +355,8 @@ function Home() {
                 </span>
               </div>
               <p className="text-xs text-text-muted leading-relaxed mt-2">
-                Tổng hợp mẫu câu chuẩn kỳ thi JLPT kèm phân tích cấu trúc ngữ pháp và tình huống sử dụng trực quan.
+                Tổng hợp mẫu câu chuẩn kỳ thi JLPT kèm phân tích cấu trúc ngữ
+                pháp và tình huống sử dụng trực quan.
               </p>
             </div>
             <div className="mt-5 pt-3 border-t border-border flex items-center justify-between text-xs font-medium text-matcha">
@@ -325,7 +384,8 @@ function Home() {
                 </span>
               </div>
               <p className="text-xs text-text-muted leading-relaxed mt-2">
-                Hệ thống tự động nhắc nhở ôn lại đúng thời điểm não bộ sắp quên, tối ưu hóa 300% hiệu suất ghi nhớ.
+                Hệ thống tự động nhắc nhở ôn lại đúng thời điểm não bộ sắp quên,
+                tối ưu hóa 300% hiệu suất ghi nhớ.
               </p>
             </div>
             <div className="mt-5 pt-3 border-t border-border flex items-center justify-between text-xs font-medium text-gold">
@@ -347,7 +407,8 @@ function Home() {
               Hành trình 5 bậc thang JLPT
             </h2>
             <p className="text-sm text-text-muted mt-2">
-              Từng bước vững chắc từ con số 0 đến làm chủ ngôn ngữ xứ sở Phù Tang
+              Từng bước vững chắc từ con số 0 đến làm chủ ngôn ngữ xứ sở Phù
+              Tang
             </p>
           </div>
 
@@ -367,8 +428,12 @@ function Home() {
                     </span>
                     <HankoBadge text={lvl.kanji} />
                   </div>
-                  <h3 className="font-bold text-text text-sm mb-1">{lvl.title}</h3>
-                  <p className="text-xs text-text-muted leading-relaxed mb-4">{lvl.desc}</p>
+                  <h3 className="font-bold text-text text-sm mb-1">
+                    {lvl.title}
+                  </h3>
+                  <p className="text-xs text-text-muted leading-relaxed mb-4">
+                    {lvl.desc}
+                  </p>
                 </div>
                 <div className="pt-3 border-t border-border/70 space-y-1 text-[11px] text-text-muted">
                   <div className="flex justify-between">
@@ -412,7 +477,9 @@ function Home() {
         {courses.length === 0 ? (
           <div className="text-center py-12 bg-surface rounded-2xl border border-border">
             <ToriiIcon className="w-8 h-8 text-accent/40 mx-auto mb-3" />
-            <p className="text-text-muted text-sm">Đang cập nhật danh sách khoá học...</p>
+            <p className="text-text-muted text-sm">
+              Đang cập nhật danh sách khoá học...
+            </p>
           </div>
         ) : (
           <div className="grid sm:grid-cols-3 gap-6">
@@ -425,7 +492,9 @@ function Home() {
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <HankoBadge text={course.level} />
-                    <span className="text-[10px] text-text-muted">JLPT Chuẩn</span>
+                    <span className="text-[10px] text-text-muted">
+                      JLPT Chuẩn
+                    </span>
                   </div>
                   <h3 className="text-lg font-bold text-text group-hover:text-accent transition mb-2">
                     {course.title}
@@ -462,7 +531,8 @@ function Home() {
                   </span>
                 </div>
                 <p className="text-text-muted text-xs leading-relaxed max-w-lg">
-                  Thuật toán SRS đã tổng hợp những từ vựng và kanji đến hạn ôn tập hôm nay. Dành 5 phút để củng cố trí nhớ nào!
+                  Thuật toán SRS đã tổng hợp những từ vựng và kanji đến hạn ôn
+                  tập hôm nay. Dành 5 phút để củng cố trí nhớ nào!
                 </p>
               </div>
             </div>
@@ -486,8 +556,12 @@ function Home() {
             >
               N5–N1
             </p>
-            <p className="text-text font-medium text-xs sm:text-sm">Đầy đủ 5 Cấp độ</p>
-            <p className="text-[11px] text-text-muted">Theo chuẩn kỳ thi năng lực</p>
+            <p className="text-text font-medium text-xs sm:text-sm">
+              Đầy đủ 5 Cấp độ
+            </p>
+            <p className="text-[11px] text-text-muted">
+              Theo chuẩn kỳ thi năng lực
+            </p>
           </div>
           <div className="space-y-1 border-x border-border">
             <p
@@ -496,8 +570,12 @@ function Home() {
             >
               SRS
             </p>
-            <p className="text-text font-medium text-xs sm:text-sm">Lặp lại ngắt quãng</p>
-            <p className="text-[11px] text-text-muted">Khoa học trí nhớ tối ưu</p>
+            <p className="text-text font-medium text-xs sm:text-sm">
+              Lặp lại ngắt quãng
+            </p>
+            <p className="text-[11px] text-text-muted">
+              Khoa học trí nhớ tối ưu
+            </p>
           </div>
           <div className="space-y-1">
             <p
@@ -506,15 +584,18 @@ function Home() {
             >
               100%
             </p>
-            <p className="text-text font-medium text-xs sm:text-sm">Miễn phí học tập</p>
-            <p className="text-[11px] text-text-muted">Không giới hạn tính năng</p>
+            <p className="text-text font-medium text-xs sm:text-sm">
+              Miễn phí học tập
+            </p>
+            <p className="text-[11px] text-text-muted">
+              Không giới hạn tính năng
+            </p>
           </div>
         </div>
       </section>
     </div>
   );
 }
-
 
 export default function App() {
   return (
@@ -527,17 +608,17 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+
               <Route path="/courses" element={<Courses />} />
               <Route path="/courses/:id" element={<CourseDetail />} />
+              <Route path="/lessons/:id" element={<LessonDetail />} />
+
               <Route path="/vocabulary" element={<Vocabulary />} />
               <Route path="/kanji" element={<Kanji />} />
               <Route path="/grammar" element={<Grammar />} />
+
               <Route path="/quizzes" element={<Quizzes />} />
               <Route path="/quizzes/:id" element={<QuizDetail />} />
-              <Route path="/flashcards" element={<Flashcards />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/lessons/:id" element={<LessonDetail />} />
-              <Route path="/saved" element={<SavedItems />} />
               <Route
                 path="/quiz-history"
                 element={
@@ -546,9 +627,14 @@ export default function App() {
                   </ProtectedRoute>
                 }
               />
+
+              <Route path="/flashcards" element={<Flashcards />} />
+              <Route path="/saved" element={<SavedItems />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </main>
           <Footer />
+          <AssistantWidget />
         </div>
       </BrowserRouter>
     </AuthProvider>

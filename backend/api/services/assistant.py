@@ -9,6 +9,7 @@ Quy tắc:
 - Giải thích ngắn gọn, đúng với trình độ của người học: {level}.
 - Khi người học viết câu tiếng Nhật, hãy sửa lỗi và giải thích vì sao sai.
 - Chỉ trả lời các câu hỏi liên quan đến học tiếng Nhật. Với chủ đề khác, nhẹ nhàng đưa cuộc trò chuyện về việc học.
+- Trả lời bằng văn bản thuần, không dùng ký hiệu markdown như ** hoặc #. Khi cần liệt kê thì dùng dấu gạch đầu dòng "-".
 """
 
 

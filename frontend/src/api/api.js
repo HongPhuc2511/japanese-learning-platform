@@ -17,6 +17,7 @@ export const endpoints = {
     'bookmarks': "/api/bookmarks/",
     'flashcards': "/api/flashcards/",
     'quiz-results': "/api/quiz-results/",
+    'assistant-chat': "/api/assistant/chat/",
 }
 
 export const authApi = axios.create({

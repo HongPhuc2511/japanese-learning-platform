@@ -156,7 +156,7 @@ AUTH_USER_MODEL = 'api.User'
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'REFRESH_TOKEN_LIFETIME': timedelta(hours=12),
 }
 
 ASSISTANT_MODEL = os.environ.get("ASSISTANT_MODEL", "gemini-3-flash-preview")
