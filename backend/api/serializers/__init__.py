@@ -1,5 +1,5 @@
 from .base import BaseSerializer
-from .auth import CustomTokenObtainPairSerializer,RegisterSerializer,UserSerializer,ChangePasswordSerializer, GoogleLoginSerializer
+from .auth import CustomTokenObtainPairSerializer,RegisterSerializer,UserSerializer,ChangePasswordSerializer, GoogleLoginSerializer,FacebookLoginSerializer
 from .lesson import CourseSerializer, CourseDetailSerializer, LessonSerializer, LessonDetailSerializer
 from .vocabulary import VocabularySerializer, KanjiSerializer
 from .grammar import GrammarSerializer

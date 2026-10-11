@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { ToriiIcon } from '../components/JapaneseIcons';
 import { Lock, User, ArrowRight, AlertCircle } from 'lucide-react';
-import GoogleSignInButton from '../components/GoogleSignInButton';
+import SocialLogin from '../components/SocialLogin';
 
 export default function Login() {
   const [username, setUsername] = useState('');
@@ -106,7 +106,7 @@ export default function Login() {
             )}
           </button>
         </form>
-        <GoogleSignInButton />
+        <SocialLogin />
         <p className="text-xs text-center text-text-muted mt-6 pt-6 border-t border-border/80">
           Chưa có tài khoản học viên?{' '}
           <Link to="/register" className="text-accent font-semibold hover:underline">

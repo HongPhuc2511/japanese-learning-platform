@@ -19,6 +19,7 @@ export const endpoints = {
     'quiz-results': "/api/quiz-results/",
     'assistant-chat': "/api/assistant/chat/",
     'google-login': "/api/auth/google/",
+    'facebook-login': "/api/auth/facebook/",
 }
 
 export const authApi = axios.create({

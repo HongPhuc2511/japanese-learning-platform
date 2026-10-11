@@ -14,27 +14,19 @@ export default function GoogleSignInButton() {
       await loginWithGoogle(credentialResponse.credential);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.error || 'Đăng nhập Google thất bại.');
+      setError(err.response?.data?.error || 'Đăng nhập Google thất bại, bạn thử lại nhé.');
     }
   };
 
   return (
-    <div className="mt-6">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="flex-1 h-px bg-border" />
-        <span className="text-xs text-text-faint">hoặc</span>
-        <div className="flex-1 h-px bg-border" />
-      </div>
-
-      <div className="flex justify-center">
-        <GoogleLogin
-          onSuccess={handleSuccess}
-          onError={() => setError('Không đăng nhập được bằng Google')}
-          text="continue_with"
-        />
-      </div>
-
-      {error && <p className="text-accent text-sm mt-3 text-center">{error}</p>}
+    <div className="flex flex-col items-center gap-2">
+      <GoogleLogin
+        onSuccess={handleSuccess}
+        onError={() => setError('Không đăng nhập được bằng Google')}
+        text="continue_with"
+        width="240"
+      />
+      {error && <p className="text-accent text-sm text-center">{error}</p>}
     </div>
   );
 }

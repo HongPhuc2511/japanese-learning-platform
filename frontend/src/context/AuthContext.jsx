@@ -55,6 +55,14 @@ export function AuthProvider({ children }) {
   setUser(res.data.user);
 };
 
+const loginWithFacebook = async (accessToken) => {
+  const res = await api.post(endpoints['facebook-login'], { access_token: accessToken });
+  localStorage.setItem('access', res.data.access);
+  localStorage.setItem('refresh', res.data.refresh);
+  localStorage.setItem('user', JSON.stringify(res.data.user));
+  setUser(res.data.user);
+};
+
   return (
     <AuthContext.Provider
       value={{ user, setUser, login,loginWithGoogle, register, logout, getCurrentUser, refreshUser }}

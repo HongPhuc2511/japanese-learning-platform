@@ -45,3 +45,6 @@ class ChangePasswordSerializer(serializers.Serializer):
 
 class GoogleLoginSerializer(serializers.Serializer):
     credential = serializers.CharField()
+
+class FacebookLoginSerializer(serializers.Serializer):
+    access_token = serializers.CharField()

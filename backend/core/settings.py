@@ -57,6 +57,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://localhost:5173",
 ]
 ROOT_URLCONF = 'core.urls'
 
@@ -111,6 +112,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+import os
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR / ".env", override=True)
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
@@ -162,3 +172,6 @@ SIMPLE_JWT = {
 ASSISTANT_MODEL = os.environ.get("ASSISTANT_MODEL", "gemini-3-flash-preview")
 
 GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "")
+FACEBOOK_APP_ID = os.environ.get("FACEBOOK_APP_ID", "")
+FACEBOOK_APP_SECRET = os.environ.get("FACEBOOK_APP_SECRET", "")
+
