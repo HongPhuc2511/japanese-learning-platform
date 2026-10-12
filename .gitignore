@@ -10,6 +10,8 @@ __pycache__/
 .idea/
 .vscode/
 
+.env
+*.env
 # Virtual Environment
 backend/venv/
 venv/
