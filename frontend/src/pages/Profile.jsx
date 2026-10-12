@@ -102,7 +102,7 @@ export default function Profile() {
               Thẻ học viên • 学生証
             </span>
             <h1 className="font-display font-extrabold text-2xl text-text">
-              {user?.username}
+              {user?.display_name || user?.username}
             </h1>
             <p className="text-xs text-text-muted">{user?.email || 'Chưa cập nhật email'}</p>
           </div>
@@ -166,7 +166,7 @@ export default function Profile() {
             </label>
             <input
               type="text"
-              value={user?.username || ''}
+              value={user?.display_name || user?.username || ''}
               disabled
               className="w-full border border-border rounded-xl px-4 py-2.5 text-sm bg-surface-subtle text-text-faint font-medium"
             />
@@ -296,4 +296,4 @@ export default function Profile() {
       </div>
     </div>
   );
-}
+}

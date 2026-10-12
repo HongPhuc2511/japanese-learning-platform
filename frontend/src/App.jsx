@@ -132,7 +132,7 @@ function Home() {
                 <>
                   Chào mừng trở lại,{" "}
                   <span className="text-accent underline decoration-accent/30 decoration-wavy underline-offset-8">
-                    {user.username}
+                    {user.display_name || user.username}
                   </span>
                   <div
                     className="text-base sm:text-xl font-normal text-text-muted mt-3 font-serif"

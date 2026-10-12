@@ -9,26 +9,38 @@ export function AuthProvider({ children }) {
     return saved ? JSON.parse(saved) : null;
   });
 
+  const startSession = (data) => {
+    localStorage.setItem('access', data.access);
+    localStorage.setItem('refresh', data.refresh);
+    localStorage.setItem('user', JSON.stringify(data.user));
+    setUser(data.user);
+  };
+
   const login = async (username, password) => {
     const res = await api.post(endpoints['login'], { username, password });
-    localStorage.setItem('access', res.data.access);
-    localStorage.setItem('refresh', res.data.refresh);
-    localStorage.setItem('user', JSON.stringify(res.data.user));
-    setUser(res.data.user);
+    startSession(res.data);
   };
 
   const register = async (username, email, password) => {
     const res = await api.post(endpoints['register'], { username, email, password });
-    localStorage.setItem('access', res.data.access);
-    localStorage.setItem('refresh', res.data.refresh);
-    localStorage.setItem('user', JSON.stringify(res.data.user));
-    setUser(res.data.user);
+    startSession(res.data);
+  };
+
+  const loginWithGoogle = async (credential) => {
+    const res = await api.post(endpoints['google-login'], { credential });
+    startSession(res.data);
+  };
+
+  const loginWithFacebook = async (accessToken) => {
+    const res = await api.post(endpoints['facebook-login'], { access_token: accessToken });
+    startSession(res.data);
   };
 
   const logout = () => {
     localStorage.removeItem('access');
     localStorage.removeItem('refresh');
     localStorage.removeItem('user');
+    localStorage.removeItem('assistant_chat');
     setUser(null);
   };
 
@@ -47,25 +59,19 @@ export function AuthProvider({ children }) {
     }
   };
 
-  const loginWithGoogle = async (credential) => {
-  const res = await api.post(endpoints['google-login'], { credential });
-  localStorage.setItem('access', res.data.access);
-  localStorage.setItem('refresh', res.data.refresh);
-  localStorage.setItem('user', JSON.stringify(res.data.user));
-  setUser(res.data.user);
-};
-
-const loginWithFacebook = async (accessToken) => {
-  const res = await api.post(endpoints['facebook-login'], { access_token: accessToken });
-  localStorage.setItem('access', res.data.access);
-  localStorage.setItem('refresh', res.data.refresh);
-  localStorage.setItem('user', JSON.stringify(res.data.user));
-  setUser(res.data.user);
-};
-
   return (
     <AuthContext.Provider
-      value={{ user, setUser, login,loginWithGoogle, register, logout, getCurrentUser, refreshUser }}
+      value={{
+        user,
+        setUser,
+        login,
+        register,
+        loginWithGoogle,
+        loginWithFacebook,
+        logout,
+        getCurrentUser,
+        refreshUser,
+      }}
     >
       {children}
     </AuthContext.Provider>

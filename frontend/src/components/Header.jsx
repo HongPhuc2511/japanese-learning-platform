@@ -170,7 +170,7 @@ export default function Header() {
                 <div className="w-5 h-5 rounded-full bg-accent text-white text-[10px] font-bold flex items-center justify-center font-serif">
                   {user.username.charAt(0).toUpperCase()}
                 </div>
-                <span className="font-medium max-w-25 truncate">{user.username}</span>
+                <span className="font-medium max-w-25 truncate">{user.display_name || user.username}</span>
               </Link>
 
               <button

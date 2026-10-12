@@ -21,10 +21,16 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
 
 class UserSerializer(serializers.ModelSerializer):
+    display_name = serializers.SerializerMethodField()
+
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'level', 'points', 'streak_count']
-        read_only_fields = ['id', 'username', 'points', 'streak_count']
+        fields = ['id', 'username', 'display_name', 'first_name',
+                  'email', 'level', 'points', 'streak_count']
+        read_only_fields = ['id', 'username', 'display_name', 'points', 'streak_count']
+
+    def get_display_name(self, obj):
+        return obj.first_name.strip() or obj.username
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     """Custom JWT Serializer - Trả về Token + User Profile"""

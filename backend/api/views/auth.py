@@ -112,6 +112,7 @@ class GoogleLoginView(generics.GenericAPIView):
             user = User.objects.create_user(
                 username=self._make_username(email),
                 email=email,
+                first_name=(idinfo.get('name') or '')[:150],
             )
         elif not user.is_active:
             return Response(
