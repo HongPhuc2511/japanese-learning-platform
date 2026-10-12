@@ -1,211 +1,184 @@
+import json
 from datetime import date
+from pathlib import Path
 
-from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
+from django.core.exceptions import MultipleObjectsReturned
+from django.core.management.base import BaseCommand, CommandError
+from django.db import transaction
+
 from api.models import (
     Course, Lesson, Vocabulary, Kanji, Grammar,
-    Quiz, Question, Answer, FlashcardReview
+    Quiz, Question, Answer, FlashcardReview,
 )
 from api.models.enums import QuestionType
 
 User = get_user_model()
+SEED_DIR = Path(__file__).resolve().parents[2] / 'seed'
+LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1']
 
 
 class Command(BaseCommand):
-    help = 'Seed dữ liệu mẫu phong phú cho toàn bộ app'
+    help = 'Nạp dữ liệu học tập từ các file JSON trong api/seed/ (n5.json ... n1.json)'
 
-    def handle(self, *args, **kwargs):
-        self.stdout.write('Đang xoá dữ liệu cũ...')
-        FlashcardReview.objects.all().delete()
-        Answer.objects.all().delete()
-        Question.objects.all().delete()
-        Quiz.objects.all().delete()
-        Grammar.objects.all().delete()
-        Vocabulary.objects.all().delete()
-        Kanji.objects.all().delete()
-        Lesson.objects.all().delete()
-        Course.objects.all().delete()
+    def add_arguments(self, parser):
+        parser.add_argument('--level', nargs='+', choices=LEVELS,
+                            help='Chỉ nạp các cấp độ này (mặc định: tất cả)')
+        parser.add_argument('--reset', action='store_true',
+                            help='Xoá nội dung của các cấp được chọn trước khi nạp '
+                                 '(kéo theo tiến độ học và lịch sử quiz gắn với các bài đó)')
+        parser.add_argument('--flashcards', metavar='USERNAME',
+                            help='Tạo thẻ ôn tập cho user này (mọi từ vựng và kanji của các cấp được chọn)')
 
-        self.stdout.write('Đang tạo Courses...')
-        course_n5 = Course.objects.create(
-            title='Tiếng Nhật N5', level='N5',
-            description='Khoá học dành cho người mới bắt đầu, nắm vững nền tảng cơ bản.',
-            order=1,
-        )
-        course_n4 = Course.objects.create(
-            title='Tiếng Nhật N4', level='N4',
-            description='Khoá học nâng cao, dành cho người đã có nền tảng N5.',
-            order=2,
-        )
-        course_n3 = Course.objects.create(
-            title='Tiếng Nhật N3', level='N3',
-            description='Khoá học trung cấp, hướng tới giao tiếp lưu loát hơn.',
-            order=3,
-        )
+    def handle(self, *args, **options):
+        levels = options['level'] or LEVELS
 
-        self.stdout.write('Đang tạo Lessons...')
-        lesson_data = [
-            (course_n5, 'Bài 1: Chào hỏi cơ bản', 1),
-            (course_n5, 'Bài 2: Giới thiệu bản thân', 2),
-            (course_n5, 'Bài 3: Số đếm và thời gian', 3),
-            (course_n5, 'Bài 4: Mua sắm', 4),
-            (course_n4, 'Bài 1: Thể て và ứng dụng', 1),
-            (course_n4, 'Bài 2: Diễn đạt mong muốn', 2),
-            (course_n3, 'Bài 1: Kính ngữ cơ bản', 1),
-        ]
-        lessons = {}
-        for course, title, order in lesson_data:
-            l = Lesson.objects.create(course=course, title=title, order=order)
-            lessons[title] = l
+        if options['reset']:
+            self._reset(levels)
 
-        self.stdout.write('Đang tạo Vocabulary...')
-        vocab_data = [
-            # (word, kana, romaji, meaning, level, lesson_key)
-            ('食べる', 'たべる', 'taberu', 'ăn', 'N5', 'Bài 1: Chào hỏi cơ bản'),
-            ('飲む', 'のむ', 'nomu', 'uống', 'N5', 'Bài 1: Chào hỏi cơ bản'),
-            ('見る', 'みる', 'miru', 'xem, nhìn', 'N5', 'Bài 1: Chào hỏi cơ bản'),
-            ('行く', 'いく', 'iku', 'đi', 'N5', 'Bài 2: Giới thiệu bản thân'),
-            ('来る', 'くる', 'kuru', 'đến', 'N5', 'Bài 2: Giới thiệu bản thân'),
-            ('する', 'する', 'suru', 'làm', 'N5', 'Bài 2: Giới thiệu bản thân'),
-            ('名前', 'なまえ', 'namae', 'tên', 'N5', 'Bài 2: Giới thiệu bản thân'),
-            ('学生', 'がくせい', 'gakusei', 'học sinh, sinh viên', 'N5', 'Bài 2: Giới thiệu bản thân'),
-            ('先生', 'せんせい', 'sensei', 'giáo viên', 'N5', 'Bài 2: Giới thiệu bản thân'),
-            ('一', 'いち', 'ichi', 'một', 'N5', 'Bài 3: Số đếm và thời gian'),
-            ('二', 'に', 'ni', 'hai', 'N5', 'Bài 3: Số đếm và thời gian'),
-            ('三', 'さん', 'san', 'ba', 'N5', 'Bài 3: Số đếm và thời gian'),
-            ('時間', 'じかん', 'jikan', 'thời gian', 'N5', 'Bài 3: Số đếm và thời gian'),
-            ('今日', 'きょう', 'kyou', 'hôm nay', 'N5', 'Bài 3: Số đếm và thời gian'),
-            ('買う', 'かう', 'kau', 'mua', 'N5', 'Bài 4: Mua sắm'),
-            ('高い', 'たかい', 'takai', 'đắt, cao', 'N5', 'Bài 4: Mua sắm'),
-            ('安い', 'やすい', 'yasui', 'rẻ', 'N5', 'Bài 4: Mua sắm'),
-            ('店', 'みせ', 'mise', 'cửa hàng', 'N5', 'Bài 4: Mua sắm'),
-            ('働く', 'はたらく', 'hataraku', 'làm việc', 'N4', 'Bài 1: Thể て và ứng dụng'),
-            ('待つ', 'まつ', 'matsu', 'chờ đợi', 'N4', 'Bài 1: Thể て và ứng dụng'),
-            ('欲しい', 'ほしい', 'hoshii', 'muốn có', 'N4', 'Bài 2: Diễn đạt mong muốn'),
-            ('旅行', 'りょこう', 'ryokou', 'du lịch', 'N4', 'Bài 2: Diễn đạt mong muốn'),
-            ('尊敬', 'そんけい', 'sonkei', 'tôn kính', 'N3', 'Bài 1: Kính ngữ cơ bản'),
-            ('申し上げる', 'もうしあげる', 'moushiageru', 'kính thưa (khiêm nhường ngữ)', 'N3',
-             'Bài 1: Kính ngữ cơ bản'),
-        ]
-        for word, kana, romaji, meaning, level, lesson_key in vocab_data:
-            Vocabulary.objects.create(
-                word=word, kana=kana, romaji=romaji, meaning=meaning,
-                level=level, lesson=lessons[lesson_key],
+        for level in levels:
+            path = SEED_DIR / f'{level.lower()}.json'
+            if not path.exists():
+                self.stdout.write(self.style.WARNING(f'{level}: chưa có file {path.name}, bỏ qua'))
+                continue
+
+            try:
+                data = json.loads(path.read_text(encoding='utf-8-sig'))
+            except json.JSONDecodeError as e:
+                raise CommandError(f'{path.name}: JSON sai cú pháp ({e})')
+
+            try:
+                with transaction.atomic():
+                    stats = self._load_level(level, data)
+            except KeyError as e:
+                raise CommandError(f'{path.name}: thiếu trường {e}')
+            except MultipleObjectsReturned:
+                raise CommandError(
+                    f'{path.name}: trong DB có nhiều bản ghi trùng nhau, '
+                    'hãy xoá bản sao trong Django Admin rồi chạy lại'
+                )
+
+            summary = ', '.join(f'{count} {name}' for name, count in stats.items())
+            self.stdout.write(self.style.SUCCESS(f'{level}: {summary}'))
+
+        if options['flashcards']:
+            created = self._make_flashcards(options['flashcards'], levels)
+            self.stdout.write(self.style.SUCCESS(f'Đã tạo {created} thẻ ôn tập mới'))
+
+    def _load_level(self, level, data):
+        stats = {'khoá học': 0, 'bài học': 0, 'từ vựng': 0, 'ngữ pháp': 0, 'quiz': 0, 'kanji': 0}
+
+        for c in data.get('courses', []):
+            course, _ = Course.objects.update_or_create(
+                title=c['title'], level=level,
+                defaults={'description': c.get('description', ''), 'order': c.get('order', 0)},
             )
+            stats['khoá học'] += 1
 
-        self.stdout.write('Đang tạo Kanji...')
-        kanji_data = [
-            # (character, meaning, onyomi, kunyomi, strokes, level)
-            ('食', 'ăn, thức ăn', 'ショク', 'た.べる', 9, 'N5'),
-            ('飲', 'uống', 'イン', 'の.む', 12, 'N5'),
-            ('見', 'xem, nhìn', 'ケン', 'み.る', 7, 'N5'),
-            ('行', 'đi', 'コウ', 'い.く', 6, 'N5'),
-            ('来', 'đến', 'ライ', 'く.る', 7, 'N5'),
-            ('名', 'tên', 'メイ', 'な', 6, 'N5'),
-            ('前', 'trước', 'ゼン', 'まえ', 9, 'N5'),
-            ('学', 'học', 'ガク', 'まな.ぶ', 8, 'N5'),
-            ('生', 'sinh, sống', 'セイ', 'い.きる', 5, 'N5'),
-            ('先', 'trước, trước tiên', 'セン', 'さき', 6, 'N5'),
-            ('一', 'một', 'イチ', 'ひと.つ', 1, 'N5'),
-            ('二', 'hai', 'ニ', 'ふた.つ', 2, 'N5'),
-            ('三', 'ba', 'サン', 'みっ.つ', 3, 'N5'),
-            ('時', 'giờ, thời gian', 'ジ', 'とき', 10, 'N5'),
-            ('間', 'khoảng, giữa', 'カン', 'あいだ', 12, 'N5'),
-            ('今', 'bây giờ', 'コン', 'いま', 4, 'N5'),
-            ('日', 'ngày, mặt trời', 'ニチ', 'ひ', 4, 'N5'),
-            ('買', 'mua', 'バイ', 'か.う', 12, 'N5'),
-            ('高', 'cao, đắt', 'コウ', 'たか.い', 10, 'N5'),
-            ('安', 'rẻ, an toàn', 'アン', 'やす.い', 6, 'N5'),
-            ('店', 'cửa hàng', 'テン', 'みせ', 8, 'N5'),
-            ('働', 'làm việc', 'ドウ', 'はたら.く', 13, 'N4'),
-            ('待', 'chờ đợi', 'タイ', 'ま.つ', 9, 'N4'),
-            ('旅', 'du lịch', 'リョ', 'たび', 10, 'N4'),
-            ('尊', 'tôn kính', 'ソン', 'とうと.い', 12, 'N3'),
-        ]
-        for char, meaning, on, kun, strokes, level in kanji_data:
-            Kanji.objects.create(
-                character=char, meaning=meaning, onyomi=on, kunyomi=kun,
-                stroke_count=strokes, jlpt_level=level,
-            )
+            for l in c.get('lessons', []):
+                lesson, _ = Lesson.objects.update_or_create(
+                    course=course, title=l['title'],
+                    defaults={'order': l.get('order', 0), 'content': l.get('content', '')},
+                )
+                stats['bài học'] += 1
 
-        self.stdout.write('Đang tạo Grammar...')
-        grammar_data = [
-            ('～は～です', 'N5', 'Cấu trúc câu khẳng định cơ bản: A là B.', '私は学生です。(Tôi là học sinh.)',
-             'Bài 1: Chào hỏi cơ bản'),
-            ('～ます / ～ません', 'N5', 'Thể lịch sự của động từ ở hiện tại/tương lai, phủ định.',
-             '毎日食べます。(Tôi ăn mỗi ngày.)', 'Bài 1: Chào hỏi cơ bản'),
-            ('～が好きです', 'N5', 'Diễn tả sở thích đối với một sự vật, sự việc.',
-             '日本語が好きです。(Tôi thích tiếng Nhật.)', 'Bài 2: Giới thiệu bản thân'),
-            ('～時に', 'N5', 'Diễn tả thời điểm xảy ra hành động.', '七時に起きます。(Tôi dậy lúc 7 giờ.)',
-             'Bài 3: Số đếm và thời gian'),
-            ('～ている', 'N4', 'Diễn tả hành động đang diễn ra hoặc trạng thái kéo dài.',
-             '今、食べています。(Tôi đang ăn.)', 'Bài 1: Thể て và ứng dụng'),
-            ('～たい', 'N4', 'Diễn tả mong muốn làm gì đó của người nói.', '日本へ行きたいです。(Tôi muốn đi Nhật Bản.)',
-             'Bài 2: Diễn đạt mong muốn'),
-            ('尊敬語・謙譲語', 'N3', 'Kính ngữ dùng khi nói về người trên, khiêm nhường ngữ dùng khi nói về bản thân.',
-             '先生がおっしゃいました。(Thầy đã nói.)', 'Bài 1: Kính ngữ cơ bản'),
-        ]
-        for title, level, explanation, example, lesson_key in grammar_data:
-            Grammar.objects.create(
-                title=title, level=level, explanation=explanation,
-                example_sentence=example, lesson=lessons[lesson_key],
-            )
+                for v in l.get('vocabulary', []):
+                    values = {
+                        'romaji': v.get('romaji', ''),
+                        'meaning': v['meaning'],
+                        'example_sentence': v.get('example_sentence', ''),
+                        'example_meaning': v.get('example_meaning', ''),
+                        'lesson': lesson,
+                    }
+                    self._check(Vocabulary, {'word': v['word'], 'kana': v['kana'], **values}, v['word'])
+                    Vocabulary.objects.update_or_create(
+                        word=v['word'], kana=v['kana'], level=level, defaults=values,
+                    )
+                    stats['từ vựng'] += 1
 
-        self.stdout.write('Đang tạo Quiz + Question + Answer...')
-        quiz1 = Quiz.objects.create(lesson=lessons['Bài 1: Chào hỏi cơ bản'], title='Kiểm tra bài 1: Chào hỏi')
-        q1 = Question.objects.create(
-            quiz=quiz1, question_text='食べる nghĩa là gì?',
-            question_type=QuestionType.MULTIPLE_CHOICE,
-        )
-        Answer.objects.create(question=q1, answer_text='Ăn', is_correct=True)
-        Answer.objects.create(question=q1, answer_text='Uống', is_correct=False)
-        Answer.objects.create(question=q1, answer_text='Ngủ', is_correct=False)
+                for g in l.get('grammar', []):
+                    values = {
+                        'explanation': g['explanation'],
+                        'example_sentence': g.get('example_sentence', ''),
+                        'lesson': lesson,
+                    }
+                    self._check(Grammar, {'title': g['title'], **values}, g['title'])
+                    Grammar.objects.update_or_create(title=g['title'], level=level, defaults=values)
+                    stats['ngữ pháp'] += 1
 
-        q2 = Question.objects.create(
-            quiz=quiz1, question_text='Cách đọc của chữ 見 là gì?',
-            question_type=QuestionType.MULTIPLE_CHOICE,
-        )
-        Answer.objects.create(question=q2, answer_text='みる', is_correct=True)
-        Answer.objects.create(question=q2, answer_text='きく', is_correct=False)
-        Answer.objects.create(question=q2, answer_text='はなす', is_correct=False)
+                for qz in l.get('quizzes', []):
+                    quiz, _ = Quiz.objects.update_or_create(lesson=lesson, title=qz['title'])
+                    quiz.questions.all().delete()  # tạo lại câu hỏi, giữ nguyên id của quiz
+                    for q in qz['questions']:
+                        answers, correct = q['answers'], q['correct']
+                        if len(answers) < 2 or not 0 <= correct < len(answers):
+                            raise CommandError(
+                                f'Quiz "{qz["title"]}", câu "{q["text"]}": '
+                                'cần ít nhất 2 đáp án và "correct" là vị trí hợp lệ (bắt đầu từ 0)'
+                            )
+                        question = Question.objects.create(
+                            quiz=quiz, question_text=q['text'],
+                            question_type=QuestionType.MULTIPLE_CHOICE,
+                        )
+                        Answer.objects.bulk_create([
+                            Answer(question=question, answer_text=a, is_correct=(i == correct))
+                            for i, a in enumerate(answers)
+                        ])
+                    stats['quiz'] += 1
 
-        quiz2 = Quiz.objects.create(lesson=lessons['Bài 2: Giới thiệu bản thân'], title='Kiểm tra bài 2: Giới thiệu')
-        q3 = Question.objects.create(
-            quiz=quiz2, question_text='"学生" nghĩa là gì?',
-            question_type=QuestionType.MULTIPLE_CHOICE,
-        )
-        Answer.objects.create(question=q3, answer_text='Học sinh, sinh viên', is_correct=True)
-        Answer.objects.create(question=q3, answer_text='Giáo viên', is_correct=False)
-        Answer.objects.create(question=q3, answer_text='Bác sĩ', is_correct=False)
+        for k in data.get('kanji', []):
+            values = {
+                'meaning': k['meaning'],
+                'onyomi': k.get('onyomi', ''),
+                'kunyomi': k.get('kunyomi', ''),
+                'stroke_count': k['stroke_count'],
+                'jlpt_level': level,
+                'radical': k.get('radical', ''),
+            }
+            self._check(Kanji, {'character': k['character'], **values}, k['character'])
+            Kanji.objects.update_or_create(character=k['character'], defaults=values)
+            stats['kanji'] += 1
 
-        quiz3 = Quiz.objects.create(lesson=lessons['Bài 4: Mua sắm'], title='Kiểm tra bài 4: Mua sắm')
-        q4 = Question.objects.create(
-            quiz=quiz3, question_text='"安い" nghĩa là gì?',
-            question_type=QuestionType.MULTIPLE_CHOICE,
-        )
-        Answer.objects.create(question=q4, answer_text='Rẻ', is_correct=True)
-        Answer.objects.create(question=q4, answer_text='Đắt', is_correct=False)
-        Answer.objects.create(question=q4, answer_text='Mới', is_correct=False)
+        return stats
 
-        self.stdout.write('Đang tạo FlashcardReview...')
-        user = User.objects.filter(username='phuc1').first()
+    @staticmethod
+    def _check(model, values, label):
+        """Báo lỗi rõ ràng nếu chuỗi dài hơn giới hạn của trường trong model."""
+        for name, value in values.items():
+            max_len = getattr(model._meta.get_field(name), 'max_length', None)
+            if isinstance(value, str) and max_len and len(value) > max_len:
+                raise CommandError(
+                    f'"{label}": trường {name} dài {len(value)} ký tự, tối đa {max_len}'
+                )
+
+    def _reset(self, levels):
+        Quiz.objects.filter(lesson__course__level__in=levels).delete()
+        Grammar.objects.filter(level__in=levels).delete()
+        Vocabulary.objects.filter(level__in=levels).delete()
+        Kanji.objects.filter(jlpt_level__in=levels).delete()
+        Course.objects.filter(level__in=levels).delete()  # xoá luôn các bài học
+        self.stdout.write(self.style.WARNING(f'Đã xoá nội dung cấp {", ".join(levels)}'))
+
+    def _make_flashcards(self, username, levels):
+        user = User.objects.filter(username=username).first()
         if not user:
-            self.stdout.write(self.style.WARNING('Không tìm thấy user "phuc1", bỏ qua flashcard.'))
-        else:
-            for v in Vocabulary.objects.all():
-                FlashcardReview.objects.create(
-                    user=user, content_type='vocabulary', object_id=v.id,
-                    next_review_date=date.today(),
-                )
-            for k in Kanji.objects.all():
-                FlashcardReview.objects.create(
-                    user=user, content_type='kanji', object_id=k.id,
-                    next_review_date=date.today(),
-                )
+            raise CommandError(f'Không tìm thấy user "{username}"')
 
-        self.stdout.write(self.style.SUCCESS(
-            f'Hoàn tất: {Course.objects.count()} khoá học, {Lesson.objects.count()} bài học, '
-            f'{Vocabulary.objects.count()} từ vựng, {Kanji.objects.count()} kanji, '
-            f'{Grammar.objects.count()} ngữ pháp, {Quiz.objects.count()} quiz, '
-            f'{Question.objects.count()} câu hỏi, {Answer.objects.count()} đáp án.'
-        ))
+        existing = set(
+            FlashcardReview.objects.filter(user=user).values_list('content_type', 'object_id')
+        )
+        new_cards = []
+        for pk in Vocabulary.objects.filter(level__in=levels).values_list('id', flat=True):
+            if ('vocabulary', pk) not in existing:
+                new_cards.append(FlashcardReview(
+                    user=user, content_type='vocabulary', object_id=pk,
+                    next_review_date=date.today(),
+                ))
+        for pk in Kanji.objects.filter(jlpt_level__in=levels).values_list('id', flat=True):
+            if ('kanji', pk) not in existing:
+                new_cards.append(FlashcardReview(
+                    user=user, content_type='kanji', object_id=pk,
+                    next_review_date=date.today(),
+                ))
+        FlashcardReview.objects.bulk_create(new_cards)
+        return len(new_cards)
