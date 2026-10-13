@@ -7,6 +7,7 @@ import useDebounce from '../hooks/useDebounce';
 import { HankoBadge } from '../components/JapaneseIcons';
 import { speakJapanese } from '../utils/speak';
 import { Volume2, Star, Search, BookOpen, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const PAGE_SIZE = 24;
 
@@ -152,7 +153,7 @@ export default function Vocabulary() {
           Tra cứu, luyện phát âm chuẩn bản xứ và lưu từ vựng vào kho cá nhân để ôn tập định kỳ theo phương pháp SRS.
         </p>
       </div>
-
+      
       {/* Search and Filters Bar */}
       <div className="space-y-4 mb-8">
         <div className="relative">
