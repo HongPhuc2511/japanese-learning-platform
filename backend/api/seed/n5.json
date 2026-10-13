@@ -1,0 +1,1665 @@
+{
+  "courses": [
+    {
+      "title": "Tiếng Nhật N5",
+      "description": "Khoá học dành cho người mới bắt đầu, nắm vững nền tảng cơ bản.",
+      "order": 1,
+      "lessons": [
+        {
+          "title": "Bài 1: Chào hỏi cơ bản",
+          "order": 1,
+          "content": "Làm quen với các động từ đầu tiên, các câu chào hỏi hằng ngày và cấu trúc câu đơn giản.",
+          "vocabulary": [
+            {"word": "食べる", "kana": "たべる", "romaji": "taberu", "meaning": "ăn", "example_sentence": "朝ご飯を食べる", "example_meaning": "Ăn bữa sáng"},
+            {"word": "飲む", "kana": "のむ", "romaji": "nomu", "meaning": "uống", "example_sentence": "水を飲む", "example_meaning": "Uống nước"},
+            {"word": "見る", "kana": "みる", "romaji": "miru", "meaning": "xem, nhìn", "example_sentence": "テレビを見る", "example_meaning": "Xem tivi"},
+            {"word": "おはよう", "kana": "おはよう", "romaji": "ohayou", "meaning": "chào buổi sáng", "example_sentence": "おはよう、元気ですか", "example_meaning": "Chào buổi sáng, bạn khỏe không?"},
+            {"word": "こんにちは", "kana": "こんにちは", "romaji": "konnichiwa", "meaning": "xin chào (ban ngày)", "example_sentence": "先生、こんにちは", "example_meaning": "Em chào thầy ạ"},
+            {"word": "こんばんは", "kana": "こんばんは", "romaji": "konbanwa", "meaning": "chào buổi tối", "example_sentence": "みなさん、こんばんは", "example_meaning": "Chào buổi tối mọi người"},
+            {"word": "ありがとう", "kana": "ありがとう", "romaji": "arigatou", "meaning": "cảm ơn", "example_sentence": "どうもありがとう", "example_meaning": "Cảm ơn rất nhiều"},
+            {"word": "すみません", "kana": "すみません", "romaji": "sumimasen", "meaning": "xin lỗi, làm phiền", "example_sentence": "すみません、駅はどこですか", "example_meaning": "Xin lỗi, nhà ga ở đâu ạ?"},
+            {"word": "ごめんなさい", "kana": "ごめんなさい", "romaji": "gomennasai", "meaning": "xin lỗi (thân mật)", "example_sentence": "ごめんなさい、わかりません", "example_meaning": "Xin lỗi, tôi không hiểu"},
+            {"word": "さようなら", "kana": "さようなら", "romaji": "sayounara", "meaning": "tạm biệt", "example_sentence": "先生、さようなら", "example_meaning": "Tạm biệt thầy"},
+            {"word": "おやすみなさい", "kana": "おやすみなさい", "romaji": "oyasuminasai", "meaning": "chúc ngủ ngon", "example_sentence": "お母さん、おやすみなさい", "example_meaning": "Mẹ ơi, chúc mẹ ngủ ngon"},
+            {"word": "はい", "kana": "はい", "romaji": "hai", "meaning": "vâng", "example_sentence": "はい、そうです", "example_meaning": "Vâng, đúng vậy"},
+            {"word": "いいえ", "kana": "いいえ", "romaji": "iie", "meaning": "không", "example_sentence": "いいえ、違います", "example_meaning": "Không, không phải"},
+            {"word": "お願いします", "kana": "おねがいします", "romaji": "onegaishimasu", "meaning": "xin hãy giúp, làm ơn", "example_sentence": "よろしくお願いします", "example_meaning": "Mong được giúp đỡ"},
+            {"word": "いただきます", "kana": "いただきます", "romaji": "itadakimasu", "meaning": "xin phép ăn (nói trước bữa ăn)", "example_sentence": "いただきます、おいしそうですね", "example_meaning": "Xin phép ăn, trông ngon quá"},
+            {"word": "ごちそうさま", "kana": "ごちそうさま", "romaji": "gochisousama", "meaning": "cảm ơn bữa ăn (nói sau bữa ăn)", "example_sentence": "ごちそうさまでした", "example_meaning": "Cảm ơn vì bữa ăn"}
+          ],
+          "grammar": [
+            {"title": "～は～です", "explanation": "Cấu trúc câu khẳng định cơ bản: A là B.", "example_sentence": "私は学生です。(Tôi là học sinh.)"},
+            {"title": "～ます / ～ません", "explanation": "Thể lịch sự của động từ ở hiện tại/tương lai, và dạng phủ định.", "example_sentence": "毎日食べます。(Tôi ăn mỗi ngày.)"},
+            {"title": "～ですか", "explanation": "Thêm か vào cuối câu để tạo câu hỏi.", "example_sentence": "お名前は何ですか。(Tên bạn là gì?)"},
+            {"title": "～も", "explanation": "Trợ từ も nghĩa là \"cũng\", thay thế は khi nội dung giống với câu trước.", "example_sentence": "私も学生です。(Tôi cũng là học sinh.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 1: Chào hỏi cơ bản",
+              "questions": [
+                {"text": "「おはよう」 nghĩa là gì?", "answers": ["gọi điện", "trà", "bản đồ", "chào buổi sáng"], "correct": 3},
+                {"text": "「食べる」 nghĩa là gì?", "answers": ["bài tập về nhà", "ăn", "âm nhạc", "rau củ"], "correct": 1},
+                {"text": "「はい」 nghĩa là gì?", "answers": ["kết hôn", "bể bơi", "tôi về rồi", "vâng"], "correct": 3},
+                {"text": "「こんにちは」 nghĩa là gì?", "answers": ["rảnh rỗi", "xin chào (ban ngày)", "xin lỗi, làm phiền", "một mình"], "correct": 1},
+                {"text": "「ごちそうさま」 nghĩa là gì?", "answers": ["thời tiết", "bảy cái", "cảm ơn bữa ăn (nói sau bữa ăn)", "một mình"], "correct": 2},
+                {"text": "Cách đọc của 「お願いします」 là gì?", "answers": ["さかな", "おねがいします", "かみ", "りょうり"], "correct": 1},
+                {"text": "Cách đọc của 「見る」 là gì?", "answers": ["だす", "みる", "おみやげ", "まん"], "correct": 1},
+                {"text": "Cách đọc của 「飲む」 là gì?", "answers": ["こんや", "あつい", "のむ", "ベトナムじん"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 2: Giới thiệu bản thân",
+          "order": 2,
+          "content": "Học cách giới thiệu tên, quốc tịch, nghề nghiệp và nói về sở thích.",
+          "vocabulary": [
+            {"word": "行く", "kana": "いく", "romaji": "iku", "meaning": "đi", "example_sentence": "学校へ行く", "example_meaning": "Đi đến trường"},
+            {"word": "来る", "kana": "くる", "romaji": "kuru", "meaning": "đến", "example_sentence": "友達が来る", "example_meaning": "Bạn bè đến"},
+            {"word": "する", "kana": "する", "romaji": "suru", "meaning": "làm", "example_sentence": "宿題をする", "example_meaning": "Làm bài tập"},
+            {"word": "名前", "kana": "なまえ", "romaji": "namae", "meaning": "tên", "example_sentence": "お名前は何ですか", "example_meaning": "Tên bạn là gì?"},
+            {"word": "学生", "kana": "がくせい", "romaji": "gakusei", "meaning": "học sinh, sinh viên", "example_sentence": "私は学生です", "example_meaning": "Tôi là học sinh"},
+            {"word": "先生", "kana": "せんせい", "romaji": "sensei", "meaning": "giáo viên", "example_sentence": "先生は日本人です", "example_meaning": "Thầy giáo là người Nhật"},
+            {"word": "私", "kana": "わたし", "romaji": "watashi", "meaning": "tôi", "example_sentence": "私はベトナム人です", "example_meaning": "Tôi là người Việt Nam"},
+            {"word": "あなた", "kana": "あなた", "romaji": "anata", "meaning": "bạn", "example_sentence": "あなたの名前は何ですか", "example_meaning": "Tên của bạn là gì?"},
+            {"word": "人", "kana": "ひと", "romaji": "hito", "meaning": "người", "example_sentence": "あの人は先生です", "example_meaning": "Người kia là giáo viên"},
+            {"word": "日本", "kana": "にほん", "romaji": "nihon", "meaning": "Nhật Bản", "example_sentence": "日本の食べ物はおいしいです", "example_meaning": "Đồ ăn Nhật rất ngon"},
+            {"word": "ベトナム", "kana": "ベトナム", "romaji": "betonamu", "meaning": "Việt Nam", "example_sentence": "ベトナムから来ました", "example_meaning": "Tôi đến từ Việt Nam"},
+            {"word": "国", "kana": "くに", "romaji": "kuni", "meaning": "đất nước", "example_sentence": "あなたの国はどこですか", "example_meaning": "Đất nước của bạn ở đâu?"},
+            {"word": "会社員", "kana": "かいしゃいん", "romaji": "kaishain", "meaning": "nhân viên công ty", "example_sentence": "父は会社員です", "example_meaning": "Bố tôi là nhân viên công ty"},
+            {"word": "医者", "kana": "いしゃ", "romaji": "isha", "meaning": "bác sĩ", "example_sentence": "姉は医者です", "example_meaning": "Chị tôi là bác sĩ"},
+            {"word": "友達", "kana": "ともだち", "romaji": "tomodachi", "meaning": "bạn bè", "example_sentence": "友達と映画を見ます", "example_meaning": "Tôi xem phim với bạn"},
+            {"word": "何", "kana": "なに", "romaji": "nani", "meaning": "cái gì", "example_sentence": "これは何ですか", "example_meaning": "Đây là cái gì?"},
+            {"word": "誰", "kana": "だれ", "romaji": "dare", "meaning": "ai", "example_sentence": "あの人は誰ですか", "example_meaning": "Người kia là ai?"}
+          ],
+          "grammar": [
+            {"title": "～の～", "explanation": "Trợ từ の biểu thị sở hữu hoặc quan hệ giữa hai danh từ.", "example_sentence": "これは私の本です。(Đây là sách của tôi.)"},
+            {"title": "～じゃありません", "explanation": "Dạng phủ định của です: \"không phải là\".", "example_sentence": "私は先生じゃありません。(Tôi không phải giáo viên.)"},
+            {"title": "～が好きです", "explanation": "Diễn tả sở thích đối với một sự vật, sự việc.", "example_sentence": "日本語が好きです。(Tôi thích tiếng Nhật.)"},
+            {"title": "これ / それ / あれ", "explanation": "Chỉ định đồ vật: gần người nói / gần người nghe / xa cả hai.", "example_sentence": "これは何ですか。(Đây là cái gì?)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 2: Giới thiệu bản thân",
+              "questions": [
+                {"text": "「する」 nghĩa là gì?", "answers": ["ngân hàng", "giấy", "một mình", "làm"], "correct": 3},
+                {"text": "「来る」 nghĩa là gì?", "answers": ["mùa hè", "đến", "tầng mấy", "giường"], "correct": 1},
+                {"text": "「ベトナム」 nghĩa là gì?", "answers": ["ví dụ", "Việt Nam", "xin phép (vào/ra)", "ngắm hoa"], "correct": 1},
+                {"text": "「名前」 nghĩa là gì?", "answers": ["tắt, xóa", "mùa thu", "ở kia", "tên"], "correct": 3},
+                {"text": "「会社員」 nghĩa là gì?", "answers": ["xin mời", "nhân viên công ty", "nhẹ", "bóng chày"], "correct": 1},
+                {"text": "Cách đọc của 「学生」 là gì?", "answers": ["さいふ", "がくせい", "でんわ", "いち"], "correct": 1},
+                {"text": "Cách đọc của 「何」 là gì?", "answers": ["なに", "あかい", "ぼうし", "おいしい"], "correct": 0},
+                {"text": "Cách đọc của 「医者」 là gì?", "answers": ["プレゼント", "うま", "いしゃ", "よろしく"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 3: Số đếm và thời gian",
+          "order": 3,
+          "content": "Đếm số từ một đến vạn và nói về thời gian trong ngày.",
+          "vocabulary": [
+            {"word": "一", "kana": "いち", "romaji": "ichi", "meaning": "một"},
+            {"word": "二", "kana": "に", "romaji": "ni", "meaning": "hai"},
+            {"word": "三", "kana": "さん", "romaji": "san", "meaning": "ba"},
+            {"word": "四", "kana": "よん", "romaji": "yon", "meaning": "bốn"},
+            {"word": "五", "kana": "ご", "romaji": "go", "meaning": "năm"},
+            {"word": "六", "kana": "ろく", "romaji": "roku", "meaning": "sáu"},
+            {"word": "七", "kana": "なな", "romaji": "nana", "meaning": "bảy"},
+            {"word": "八", "kana": "はち", "romaji": "hachi", "meaning": "tám"},
+            {"word": "九", "kana": "きゅう", "romaji": "kyuu", "meaning": "chín"},
+            {"word": "十", "kana": "じゅう", "romaji": "juu", "meaning": "mười", "example_sentence": "十人の学生がいます", "example_meaning": "Có 10 học sinh"},
+            {"word": "百", "kana": "ひゃく", "romaji": "hyaku", "meaning": "trăm", "example_sentence": "これは百円です", "example_meaning": "Cái này giá 100 yên"},
+            {"word": "千", "kana": "せん", "romaji": "sen", "meaning": "nghìn", "example_sentence": "この本は千円です", "example_meaning": "Quyển sách này giá 1000 yên"},
+            {"word": "万", "kana": "まん", "romaji": "man", "meaning": "mười nghìn", "example_sentence": "一万円です", "example_meaning": "Là 10.000 yên"},
+            {"word": "時間", "kana": "じかん", "romaji": "jikan", "meaning": "thời gian", "example_sentence": "時間がありません", "example_meaning": "Không có thời gian"},
+            {"word": "今日", "kana": "きょう", "romaji": "kyou", "meaning": "hôm nay", "example_sentence": "今日は月曜日です", "example_meaning": "Hôm nay là thứ Hai"},
+            {"word": "今", "kana": "いま", "romaji": "ima", "meaning": "bây giờ", "example_sentence": "今、何時ですか", "example_meaning": "Bây giờ là mấy giờ?"},
+            {"word": "何時", "kana": "なんじ", "romaji": "nanji", "meaning": "mấy giờ", "example_sentence": "学校は何時からですか", "example_meaning": "Trường học bắt đầu từ mấy giờ?"},
+            {"word": "半", "kana": "はん", "romaji": "han", "meaning": "rưỡi, một nửa", "example_sentence": "七時半に起きます", "example_meaning": "Tôi dậy lúc 7 giờ rưỡi"},
+            {"word": "分", "kana": "ふん", "romaji": "fun", "meaning": "phút", "example_sentence": "あと五分です", "example_meaning": "Còn 5 phút nữa"}
+          ],
+          "grammar": [
+            {"title": "～時に", "explanation": "Diễn tả thời điểm xảy ra hành động.", "example_sentence": "七時に起きます。(Tôi dậy lúc 7 giờ.)"},
+            {"title": "～から～まで", "explanation": "Diễn tả khoảng thời gian hoặc khoảng cách: từ ... đến ...", "example_sentence": "九時から五時まで働きます。(Tôi làm việc từ 9 giờ đến 5 giờ.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 3: Số đếm và thời gian",
+              "questions": [
+                {"text": "「八」 nghĩa là gì?", "answers": ["ít", "mượn", "kỳ thi", "tám"], "correct": 3},
+                {"text": "「半」 nghĩa là gì?", "answers": ["dưới", "rưỡi, một nửa", "người Nhật", "ghét"], "correct": 1},
+                {"text": "「九」 nghĩa là gì?", "answers": ["giọng nói", "cái ô, dù", "máy điều hòa", "chín"], "correct": 3},
+                {"text": "「時間」 nghĩa là gì?", "answers": ["thế nào", "thời gian", "lạnh (vật)", "nhớ, học thuộc"], "correct": 1},
+                {"text": "「今日」 nghĩa là gì?", "answers": ["hôm nay", "gửi, lấy ra", "địa chỉ", "toàn bộ"], "correct": 0},
+                {"text": "Cách đọc của 「十」 là gì?", "answers": ["じゅう", "ゆき", "ポケット", "こうちゃ"], "correct": 0},
+                {"text": "Cách đọc của 「七」 là gì?", "answers": ["なな", "ふね", "すう", "あらう"], "correct": 0},
+                {"text": "Cách đọc của 「六」 là gì?", "answers": ["けいさつかん", "ろく", "いらっしゃいませ", "すう"], "correct": 1}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 4: Mua sắm",
+          "order": 4,
+          "content": "Hỏi giá, nói rẻ hoặc đắt và các từ vựng khi đi mua hàng.",
+          "vocabulary": [
+            {"word": "買う", "kana": "かう", "romaji": "kau", "meaning": "mua", "example_sentence": "本を買う", "example_meaning": "Mua sách"},
+            {"word": "高い", "kana": "たかい", "romaji": "takai", "meaning": "đắt, cao", "example_sentence": "この本は高いです", "example_meaning": "Cuốn sách này đắt"},
+            {"word": "安い", "kana": "やすい", "romaji": "yasui", "meaning": "rẻ", "example_sentence": "この店は安いです", "example_meaning": "Cửa hàng này rẻ"},
+            {"word": "店", "kana": "みせ", "romaji": "mise", "meaning": "cửa hàng", "example_sentence": "店は駅の前にあります", "example_meaning": "Cửa hàng ở trước nhà ga"},
+            {"word": "お金", "kana": "おかね", "romaji": "okane", "meaning": "tiền", "example_sentence": "お金がありません", "example_meaning": "Tôi không có tiền"},
+            {"word": "円", "kana": "えん", "romaji": "en", "meaning": "yên (tiền Nhật)", "example_sentence": "これは百円です", "example_meaning": "Cái này giá 100 yên"},
+            {"word": "財布", "kana": "さいふ", "romaji": "saifu", "meaning": "ví tiền", "example_sentence": "新しい財布を買います", "example_meaning": "Tôi mua một chiếc ví mới"},
+            {"word": "値段", "kana": "ねだん", "romaji": "nedan", "meaning": "giá cả", "example_sentence": "値段は高いです", "example_meaning": "Giá cả đắt"},
+            {"word": "売る", "kana": "うる", "romaji": "uru", "meaning": "bán", "example_sentence": "この店は本を売ります", "example_meaning": "Cửa hàng này bán sách"},
+            {"word": "払う", "kana": "はらう", "romaji": "harau", "meaning": "trả tiền", "example_sentence": "お金を払います", "example_meaning": "Tôi trả tiền"},
+            {"word": "本", "kana": "ほん", "romaji": "hon", "meaning": "sách", "example_sentence": "本を読みます", "example_meaning": "Tôi đọc sách"},
+            {"word": "かばん", "kana": "かばん", "romaji": "kaban", "meaning": "cặp, túi xách", "example_sentence": "かばんの中に本があります", "example_meaning": "Trong cặp có quyển sách"},
+            {"word": "靴", "kana": "くつ", "romaji": "kutsu", "meaning": "giày", "example_sentence": "新しい靴を買います", "example_meaning": "Tôi mua đôi giày mới"},
+            {"word": "服", "kana": "ふく", "romaji": "fuku", "meaning": "quần áo", "example_sentence": "服を買います", "example_meaning": "Tôi mua quần áo"},
+            {"word": "傘", "kana": "かさ", "romaji": "kasa", "meaning": "cái ô, dù", "example_sentence": "傘がありません", "example_meaning": "Tôi không có ô"},
+            {"word": "時計", "kana": "とけい", "romaji": "tokei", "meaning": "đồng hồ", "example_sentence": "時計は机の上にあります", "example_meaning": "Đồng hồ ở trên bàn"},
+            {"word": "帽子", "kana": "ぼうし", "romaji": "boushi", "meaning": "mũ", "example_sentence": "新しい帽子を買います", "example_meaning": "Tôi mua chiếc mũ mới"}
+          ],
+          "grammar": [
+            {"title": "～をください", "explanation": "Dùng khi muốn xin hoặc yêu cầu một thứ gì đó.", "example_sentence": "この本をください。(Cho tôi quyển sách này.)"},
+            {"title": "～はいくらですか", "explanation": "Hỏi giá tiền của một món đồ.", "example_sentence": "これはいくらですか。(Cái này giá bao nhiêu?)"},
+            {"title": "～と～", "explanation": "Trợ từ と dùng để liệt kê danh từ: \"và\".", "example_sentence": "パンと卵を買います。(Tôi mua bánh mì và trứng.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 4: Mua sắm",
+              "questions": [
+                {"text": "「円」 nghĩa là gì?", "answers": ["yên (tiền Nhật)", "tháng 1", "bán", "... đó"], "correct": 0},
+                {"text": "「買う」 nghĩa là gì?", "answers": ["mẹ (của mình)", "mua", "bữa tối", "phía tây"], "correct": 1},
+                {"text": "「払う」 nghĩa là gì?", "answers": ["bầu trời", "một chút, ít", "mua sắm", "trả tiền"], "correct": 3},
+                {"text": "「帽子」 nghĩa là gì?", "answers": ["tháng 6", "mũ", "côn trùng", "phát âm"], "correct": 1},
+                {"text": "「値段」 nghĩa là gì?", "answers": ["tiếng Nhật", "giá cả", "phía đó", "về nhà"], "correct": 1},
+                {"text": "Cách đọc của 「時計」 là gì?", "answers": ["とけい", "てがみ", "にぎやか", "あたたかい"], "correct": 0},
+                {"text": "Cách đọc của 「高い」 là gì?", "answers": ["でんわ", "はらう", "たかい", "ちゅうごく"], "correct": 2},
+                {"text": "Cách đọc của 「服」 là gì?", "answers": ["おかあさん", "おもう", "ふく", "どれ"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 5: Gia đình",
+          "order": 5,
+          "content": "Gọi tên các thành viên trong gia đình mình và gia đình người khác.",
+          "vocabulary": [
+            {"word": "家族", "kana": "かぞく", "romaji": "kazoku", "meaning": "gia đình", "example_sentence": "私の家族は四人です", "example_meaning": "Gia đình tôi có 4 người"},
+            {"word": "父", "kana": "ちち", "romaji": "chichi", "meaning": "bố (của mình)", "example_sentence": "父は会社員です", "example_meaning": "Bố tôi là nhân viên công ty"},
+            {"word": "母", "kana": "はは", "romaji": "haha", "meaning": "mẹ (của mình)", "example_sentence": "母は先生です", "example_meaning": "Mẹ tôi là giáo viên"},
+            {"word": "お父さん", "kana": "おとうさん", "romaji": "otousan", "meaning": "bố (của người khác)", "example_sentence": "あなたのお父さんは元気ですか", "example_meaning": "Bố bạn có khỏe không?"},
+            {"word": "お母さん", "kana": "おかあさん", "romaji": "okaasan", "meaning": "mẹ (của người khác)", "example_sentence": "お母さんはどこですか", "example_meaning": "Mẹ ở đâu?"},
+            {"word": "兄", "kana": "あに", "romaji": "ani", "meaning": "anh trai (của mình)", "example_sentence": "兄は大学生です", "example_meaning": "Anh trai tôi là sinh viên đại học"},
+            {"word": "姉", "kana": "あね", "romaji": "ane", "meaning": "chị gái (của mình)", "example_sentence": "姉は先生です", "example_meaning": "Chị gái tôi là giáo viên"},
+            {"word": "弟", "kana": "おとうと", "romaji": "otouto", "meaning": "em trai", "example_sentence": "弟は小学生です", "example_meaning": "Em trai tôi là học sinh tiểu học"},
+            {"word": "妹", "kana": "いもうと", "romaji": "imouto", "meaning": "em gái", "example_sentence": "妹は十歳です", "example_meaning": "Em gái tôi 10 tuổi"},
+            {"word": "兄弟", "kana": "きょうだい", "romaji": "kyoudai", "meaning": "anh chị em", "example_sentence": "兄弟がいますか", "example_meaning": "Bạn có anh chị em không?"},
+            {"word": "両親", "kana": "りょうしん", "romaji": "ryoushin", "meaning": "bố mẹ", "example_sentence": "両親は元気です", "example_meaning": "Bố mẹ tôi khỏe"},
+            {"word": "子供", "kana": "こども", "romaji": "kodomo", "meaning": "trẻ em, con cái", "example_sentence": "子供が二人います", "example_meaning": "Tôi có hai đứa con"},
+            {"word": "祖父", "kana": "そふ", "romaji": "sofu", "meaning": "ông", "example_sentence": "祖父は八十歳です", "example_meaning": "Ông tôi 80 tuổi"},
+            {"word": "祖母", "kana": "そぼ", "romaji": "sobo", "meaning": "bà", "example_sentence": "祖母は元気です", "example_meaning": "Bà tôi khỏe"},
+            {"word": "夫", "kana": "おっと", "romaji": "otto", "meaning": "chồng (của mình)", "example_sentence": "夫は会社員です", "example_meaning": "Chồng tôi là nhân viên công ty"},
+            {"word": "妻", "kana": "つま", "romaji": "tsuma", "meaning": "vợ (của mình)", "example_sentence": "妻は料理が上手です", "example_meaning": "Vợ tôi nấu ăn giỏi"}
+          ],
+          "grammar": [
+            {"title": "～がいます / ～があります", "explanation": "Diễn tả sự tồn tại: います dùng cho người/động vật, あります dùng cho đồ vật.", "example_sentence": "家族がいます。(Tôi có gia đình.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 5: Gia đình",
+              "questions": [
+                {"text": "「姉」 nghĩa là gì?", "answers": ["Chủ nhật", "mây", "chị gái (của mình)", "tiệm bánh mì"], "correct": 2},
+                {"text": "「妹」 nghĩa là gì?", "answers": ["chuối", "tầng một", "bánh kẹo", "em gái"], "correct": 3},
+                {"text": "「母」 nghĩa là gì?", "answers": ["chúc mừng", "không hiểu", "mẹ (của mình)", "nghỉ hè"], "correct": 2},
+                {"text": "「子供」 nghĩa là gì?", "answers": ["phía kia", "trẻ em, con cái", "sáu cái", "trên"], "correct": 1},
+                {"text": "「兄弟」 nghĩa là gì?", "answers": ["anh chị em", "xấu, tệ", "quýt", "xuống (xe)"], "correct": 0},
+                {"text": "Cách đọc của 「祖父」 là gì?", "answers": ["セーター", "うんてんする", "そふ", "いもうと"], "correct": 2},
+                {"text": "Cách đọc của 「弟」 là gì?", "answers": ["やさい", "やま", "あれ", "おとうと"], "correct": 3},
+                {"text": "Cách đọc của 「お父さん」 là gì?", "answers": ["うる", "しろい", "おとうさん", "ひき"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 6: Ăn uống",
+          "order": 6,
+          "content": "Từ vựng về bữa ăn, đồ ăn thức uống và cách gọi món cơ bản.",
+          "vocabulary": [
+            {"word": "ご飯", "kana": "ごはん", "romaji": "gohan", "meaning": "cơm, bữa ăn", "example_sentence": "ご飯を食べます", "example_meaning": "Tôi ăn cơm"},
+            {"word": "朝ご飯", "kana": "あさごはん", "romaji": "asagohan", "meaning": "bữa sáng", "example_sentence": "朝ご飯はパンです", "example_meaning": "Bữa sáng là bánh mì"},
+            {"word": "昼ご飯", "kana": "ひるごはん", "romaji": "hirugohan", "meaning": "bữa trưa", "example_sentence": "昼ご飯は十二時です", "example_meaning": "Bữa trưa lúc 12 giờ"},
+            {"word": "晩ご飯", "kana": "ばんごはん", "romaji": "bangohan", "meaning": "bữa tối", "example_sentence": "晩ご飯は何ですか", "example_meaning": "Bữa tối là món gì?"},
+            {"word": "水", "kana": "みず", "romaji": "mizu", "meaning": "nước", "example_sentence": "水をください", "example_meaning": "Cho tôi nước"},
+            {"word": "お茶", "kana": "おちゃ", "romaji": "ocha", "meaning": "trà", "example_sentence": "お茶を飲みませんか", "example_meaning": "Bạn uống trà không?"},
+            {"word": "牛乳", "kana": "ぎゅうにゅう", "romaji": "gyuunyuu", "meaning": "sữa bò", "example_sentence": "毎朝、牛乳を飲みます", "example_meaning": "Mỗi sáng tôi uống sữa"},
+            {"word": "コーヒー", "kana": "コーヒー", "romaji": "koohii", "meaning": "cà phê", "example_sentence": "コーヒーが好きです", "example_meaning": "Tôi thích cà phê"},
+            {"word": "ビール", "kana": "ビール", "romaji": "biiru", "meaning": "bia", "example_sentence": "ビールをください", "example_meaning": "Cho tôi bia"},
+            {"word": "肉", "kana": "にく", "romaji": "niku", "meaning": "thịt", "example_sentence": "肉は高いです", "example_meaning": "Thịt đắt"},
+            {"word": "魚", "kana": "さかな", "romaji": "sakana", "meaning": "cá", "example_sentence": "魚が好きです", "example_meaning": "Tôi thích cá"},
+            {"word": "野菜", "kana": "やさい", "romaji": "yasai", "meaning": "rau củ", "example_sentence": "野菜を食べます", "example_meaning": "Tôi ăn rau"},
+            {"word": "果物", "kana": "くだもの", "romaji": "kudamono", "meaning": "trái cây", "example_sentence": "果物は安いです", "example_meaning": "Trái cây rẻ"},
+            {"word": "卵", "kana": "たまご", "romaji": "tamago", "meaning": "trứng", "example_sentence": "卵を二つください", "example_meaning": "Cho tôi hai quả trứng"},
+            {"word": "パン", "kana": "パン", "romaji": "pan", "meaning": "bánh mì", "example_sentence": "朝はパンを食べます", "example_meaning": "Buổi sáng tôi ăn bánh mì"},
+            {"word": "料理", "kana": "りょうり", "romaji": "ryouri", "meaning": "món ăn, nấu ăn", "example_sentence": "母の料理はおいしいです", "example_meaning": "Món ăn mẹ nấu rất ngon"}
+          ],
+          "grammar": [
+            {"title": "～を食べます / ～を飲みます", "explanation": "Trợ từ を đánh dấu tân ngữ trực tiếp của động từ.", "example_sentence": "水を飲みます。(Tôi uống nước.)"},
+            {"title": "～で～ます", "explanation": "Trợ từ で chỉ nơi xảy ra hành động hoặc phương tiện, cách thức.", "example_sentence": "学校で勉強します。(Tôi học ở trường.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 6: Ăn uống",
+              "questions": [
+                {"text": "「果物」 nghĩa là gì?", "answers": ["kém, dở", "trường cấp hai", "trái cây", "phía nam"], "correct": 2},
+                {"text": "「水」 nghĩa là gì?", "answers": ["nước", "vui mừng", "giặt đồ", "giá cả"], "correct": 0},
+                {"text": "「料理」 nghĩa là gì?", "answers": ["phút", "ví tiền", "quan trọng", "món ăn, nấu ăn"], "correct": 3},
+                {"text": "「卵」 nghĩa là gì?", "answers": ["trứng", "bà", "ví tiền", "cho mượn"], "correct": 0},
+                {"text": "「コーヒー」 nghĩa là gì?", "answers": ["cái này", "cà phê", "hòn đá", "nghỉ xuân"], "correct": 1},
+                {"text": "Cách đọc của 「牛乳」 là gì?", "answers": ["ぎゅうにゅう", "はち", "こたえ", "やさしい"], "correct": 0}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 7: Địa điểm và phương hướng",
+          "order": 7,
+          "content": "Nói về địa điểm quen thuộc, hỏi đường và diễn đạt vị trí của đồ vật.",
+          "vocabulary": [
+            {"word": "学校", "kana": "がっこう", "romaji": "gakkou", "meaning": "trường học", "example_sentence": "学校の前に公園があります", "example_meaning": "Trước trường có công viên"},
+            {"word": "駅", "kana": "えき", "romaji": "eki", "meaning": "nhà ga", "example_sentence": "駅の前に店があります", "example_meaning": "Trước nhà ga có cửa hàng"},
+            {"word": "病院", "kana": "びょういん", "romaji": "byouin", "meaning": "bệnh viện", "example_sentence": "病院は駅の隣です", "example_meaning": "Bệnh viện ở cạnh nhà ga"},
+            {"word": "銀行", "kana": "ぎんこう", "romaji": "ginkou", "meaning": "ngân hàng", "example_sentence": "銀行は九時から三時までです", "example_meaning": "Ngân hàng mở từ 9 đến 3 giờ"},
+            {"word": "郵便局", "kana": "ゆうびんきょく", "romaji": "yuubinkyoku", "meaning": "bưu điện", "example_sentence": "郵便局はどこですか", "example_meaning": "Bưu điện ở đâu?"},
+            {"word": "図書館", "kana": "としょかん", "romaji": "toshokan", "meaning": "thư viện", "example_sentence": "図書館で本を読みます", "example_meaning": "Tôi đọc sách ở thư viện"},
+            {"word": "公園", "kana": "こうえん", "romaji": "kouen", "meaning": "công viên", "example_sentence": "公園は大きいです", "example_meaning": "Công viên rất rộng"},
+            {"word": "家", "kana": "いえ", "romaji": "ie", "meaning": "nhà", "example_sentence": "家へ帰ります", "example_meaning": "Tôi về nhà"},
+            {"word": "部屋", "kana": "へや", "romaji": "heya", "meaning": "căn phòng", "example_sentence": "私の部屋は小さいです", "example_meaning": "Phòng của tôi nhỏ"},
+            {"word": "右", "kana": "みぎ", "romaji": "migi", "meaning": "bên phải", "example_sentence": "右に銀行があります", "example_meaning": "Bên phải có ngân hàng"},
+            {"word": "左", "kana": "ひだり", "romaji": "hidari", "meaning": "bên trái", "example_sentence": "左に郵便局があります", "example_meaning": "Bên trái có bưu điện"},
+            {"word": "上", "kana": "うえ", "romaji": "ue", "meaning": "trên", "example_sentence": "机の上に本があります", "example_meaning": "Trên bàn có quyển sách"},
+            {"word": "下", "kana": "した", "romaji": "shita", "meaning": "dưới", "example_sentence": "椅子の下に猫がいます", "example_meaning": "Dưới ghế có con mèo"},
+            {"word": "中", "kana": "なか", "romaji": "naka", "meaning": "trong", "example_sentence": "かばんの中に財布があります", "example_meaning": "Trong cặp có cái ví"},
+            {"word": "前", "kana": "まえ", "romaji": "mae", "meaning": "trước", "example_sentence": "駅の前で会います", "example_meaning": "Gặp nhau trước nhà ga"},
+            {"word": "後ろ", "kana": "うしろ", "romaji": "ushiro", "meaning": "phía sau", "example_sentence": "私の後ろに先生がいます", "example_meaning": "Phía sau tôi có thầy giáo"},
+            {"word": "隣", "kana": "となり", "romaji": "tonari", "meaning": "bên cạnh", "example_sentence": "銀行の隣に店があります", "example_meaning": "Cạnh ngân hàng có cửa hàng"}
+          ],
+          "grammar": [
+            {"title": "～に～があります", "explanation": "Diễn tả vị trí tồn tại của đồ vật: ở (địa điểm) có (đồ vật).", "example_sentence": "机の上に本があります。(Trên bàn có quyển sách.)"},
+            {"title": "～へ行きます", "explanation": "Trợ từ へ chỉ hướng di chuyển: đi đến đâu.", "example_sentence": "駅へ行きます。(Tôi đi đến nhà ga.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 7: Địa điểm và phương hướng",
+              "questions": [
+                {"text": "「部屋」 nghĩa là gì?", "answers": ["to, lớn", "căn phòng", "phát âm", "lâu rồi không gặp"], "correct": 1},
+                {"text": "「公園」 nghĩa là gì?", "answers": ["tạm biệt", "quà tặng", "công viên", "anh trai (của mình)"], "correct": 2},
+                {"text": "「左」 nghĩa là gì?", "answers": ["một chút, ít", "bên trái", "chụp (ảnh)", "nhỏ"], "correct": 1},
+                {"text": "「上」 nghĩa là gì?", "answers": ["tủ lạnh", "vâng", "tuyết", "trên"], "correct": 3},
+                {"text": "「図書館」 nghĩa là gì?", "answers": ["thư viện", "không hiểu", "nhớ, học thuộc", "y tá"], "correct": 0},
+                {"text": "Cách đọc của 「銀行」 là gì?", "answers": ["こうえん", "ぎんこう", "きょうかしょ", "ふるい"], "correct": 1},
+                {"text": "Cách đọc của 「郵便局」 là gì?", "answers": ["てんき", "つめたい", "ゆうびんきょく", "いっしょに"], "correct": 2},
+                {"text": "Cách đọc của 「後ろ」 là gì?", "answers": ["ひとり", "かお", "うしろ", "テニス"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 8: Động từ hằng ngày",
+          "order": 8,
+          "content": "Các động từ thường dùng trong sinh hoạt hằng ngày và cách rủ rê, nhờ vả.",
+          "vocabulary": [
+            {"word": "起きる", "kana": "おきる", "romaji": "okiru", "meaning": "thức dậy", "example_sentence": "六時に起きます", "example_meaning": "Tôi thức dậy lúc 6 giờ"},
+            {"word": "寝る", "kana": "ねる", "romaji": "neru", "meaning": "ngủ", "example_sentence": "十一時に寝ます", "example_meaning": "Tôi đi ngủ lúc 11 giờ"},
+            {"word": "読む", "kana": "よむ", "romaji": "yomu", "meaning": "đọc", "example_sentence": "新聞を読みます", "example_meaning": "Tôi đọc báo"},
+            {"word": "書く", "kana": "かく", "romaji": "kaku", "meaning": "viết", "example_sentence": "手紙を書きます", "example_meaning": "Tôi viết thư"},
+            {"word": "聞く", "kana": "きく", "romaji": "kiku", "meaning": "nghe, hỏi", "example_sentence": "先生の話を聞きます", "example_meaning": "Tôi nghe thầy giáo nói"},
+            {"word": "話す", "kana": "はなす", "romaji": "hanasu", "meaning": "nói chuyện", "example_sentence": "日本語を話します", "example_meaning": "Tôi nói tiếng Nhật"},
+            {"word": "帰る", "kana": "かえる", "romaji": "kaeru", "meaning": "về nhà", "example_sentence": "五時に家へ帰ります", "example_meaning": "Tôi về nhà lúc 5 giờ"},
+            {"word": "入る", "kana": "はいる", "romaji": "hairu", "meaning": "vào", "example_sentence": "部屋に入ります", "example_meaning": "Tôi vào phòng"},
+            {"word": "出る", "kana": "でる", "romaji": "deru", "meaning": "ra, đi ra", "example_sentence": "九時に家を出ます", "example_meaning": "Tôi ra khỏi nhà lúc 9 giờ"},
+            {"word": "会う", "kana": "あう", "romaji": "au", "meaning": "gặp", "example_sentence": "先生に会います", "example_meaning": "Tôi gặp thầy giáo"},
+            {"word": "歩く", "kana": "あるく", "romaji": "aruku", "meaning": "đi bộ", "example_sentence": "駅まで歩きます", "example_meaning": "Tôi đi bộ đến nhà ga"},
+            {"word": "走る", "kana": "はしる", "romaji": "hashiru", "meaning": "chạy", "example_sentence": "公園を走ります", "example_meaning": "Tôi chạy trong công viên"},
+            {"word": "休む", "kana": "やすむ", "romaji": "yasumu", "meaning": "nghỉ ngơi", "example_sentence": "日曜日は休みます", "example_meaning": "Chủ nhật tôi nghỉ"},
+            {"word": "教える", "kana": "おしえる", "romaji": "oshieru", "meaning": "dạy, chỉ bảo", "example_sentence": "先生は日本語を教えます", "example_meaning": "Thầy giáo dạy tiếng Nhật"},
+            {"word": "習う", "kana": "ならう", "romaji": "narau", "meaning": "học (từ ai đó)", "example_sentence": "母に料理を習います", "example_meaning": "Tôi học nấu ăn từ mẹ"},
+            {"word": "使う", "kana": "つかう", "romaji": "tsukau", "meaning": "sử dụng", "example_sentence": "電話を使います", "example_meaning": "Tôi dùng điện thoại"},
+            {"word": "作る", "kana": "つくる", "romaji": "tsukuru", "meaning": "làm, chế tạo", "example_sentence": "晩ご飯を作ります", "example_meaning": "Tôi nấu bữa tối"}
+          ],
+          "grammar": [
+            {"title": "～ましょう / ～ませんか", "explanation": "Dùng để rủ rê, mời ai đó cùng làm gì.", "example_sentence": "一緒に食べませんか。(Cùng ăn nhé?)"},
+            {"title": "～ました / ～ませんでした", "explanation": "Thể quá khứ lịch sự của động từ: đã / đã không.", "example_sentence": "昨日、映画を見ました。(Hôm qua tôi đã xem phim.)"},
+            {"title": "～てください", "explanation": "Thể て + ください dùng để nhờ vả hoặc yêu cầu lịch sự.", "example_sentence": "ここに名前を書いてください。(Hãy viết tên vào đây.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 8: Động từ hằng ngày",
+              "questions": [
+                {"text": "「出る」 nghĩa là gì?", "answers": ["ra, đi ra", "làm, chế tạo", "ngày mấy", "nước Đức"], "correct": 0},
+                {"text": "「寝る」 nghĩa là gì?", "answers": ["sa lát", "tối", "ngủ", "photo, sao chép"], "correct": 2},
+                {"text": "「使う」 nghĩa là gì?", "answers": ["gọi điện", "sử dụng", "khỏe mạnh", "đàn guitar"], "correct": 1},
+                {"text": "「歩く」 nghĩa là gì?", "answers": ["đi bộ", "mì ramen", "dạy, chỉ bảo", "mười"], "correct": 0},
+                {"text": "「帰る」 nghĩa là gì?", "answers": ["về nhà", "20 tuổi", "địa chỉ", "màu sắc"], "correct": 0},
+                {"text": "Cách đọc của 「聞く」 là gì?", "answers": ["きく", "くも", "いっかい", "あかるい"], "correct": 0},
+                {"text": "Cách đọc của 「起きる」 là gì?", "answers": ["タクシー", "おきる", "にほん", "アイスクリーム"], "correct": 1},
+                {"text": "Cách đọc của 「教える」 là gì?", "answers": ["もじ", "おしえる", "ケーキ", "あちら"], "correct": 1}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 9: Tính từ miêu tả",
+          "order": 9,
+          "content": "Tính từ đuôi い và đuôi な dùng để miêu tả người, vật và cảm xúc.",
+          "vocabulary": [
+            {"word": "大きい", "kana": "おおきい", "romaji": "ookii", "meaning": "to, lớn", "example_sentence": "この部屋は大きいです", "example_meaning": "Căn phòng này rộng"},
+            {"word": "小さい", "kana": "ちいさい", "romaji": "chiisai", "meaning": "nhỏ", "example_sentence": "小さい犬です", "example_meaning": "Là một chú chó nhỏ"},
+            {"word": "新しい", "kana": "あたらしい", "romaji": "atarashii", "meaning": "mới", "example_sentence": "新しい車です", "example_meaning": "Là chiếc xe hơi mới"},
+            {"word": "古い", "kana": "ふるい", "romaji": "furui", "meaning": "cũ", "example_sentence": "この本は古いです", "example_meaning": "Cuốn sách này cũ"},
+            {"word": "長い", "kana": "ながい", "romaji": "nagai", "meaning": "dài", "example_sentence": "この道は長いです", "example_meaning": "Con đường này dài"},
+            {"word": "短い", "kana": "みじかい", "romaji": "mijikai", "meaning": "ngắn", "example_sentence": "短い手紙です", "example_meaning": "Là một bức thư ngắn"},
+            {"word": "多い", "kana": "おおい", "romaji": "ooi", "meaning": "nhiều", "example_sentence": "人が多いです", "example_meaning": "Có nhiều người"},
+            {"word": "少ない", "kana": "すくない", "romaji": "sukunai", "meaning": "ít", "example_sentence": "お金が少ないです", "example_meaning": "Tiền ít"},
+            {"word": "良い", "kana": "いい", "romaji": "ii", "meaning": "tốt", "example_sentence": "天気がいいです", "example_meaning": "Thời tiết đẹp"},
+            {"word": "悪い", "kana": "わるい", "romaji": "warui", "meaning": "xấu, tệ", "example_sentence": "天気が悪いです", "example_meaning": "Thời tiết xấu"},
+            {"word": "暑い", "kana": "あつい", "romaji": "atsui", "meaning": "nóng (thời tiết)", "example_sentence": "今日は暑いです", "example_meaning": "Hôm nay nóng"},
+            {"word": "寒い", "kana": "さむい", "romaji": "samui", "meaning": "lạnh (thời tiết)", "example_sentence": "今日は寒いです", "example_meaning": "Hôm nay lạnh"},
+            {"word": "難しい", "kana": "むずかしい", "romaji": "muzukashii", "meaning": "khó", "example_sentence": "日本語は難しいです", "example_meaning": "Tiếng Nhật khó"},
+            {"word": "易しい", "kana": "やさしい", "romaji": "yasashii", "meaning": "dễ", "example_sentence": "この問題は易しいです", "example_meaning": "Câu hỏi này dễ"},
+            {"word": "楽しい", "kana": "たのしい", "romaji": "tanoshii", "meaning": "vui vẻ", "example_sentence": "学校は楽しいです", "example_meaning": "Trường học rất vui"},
+            {"word": "忙しい", "kana": "いそがしい", "romaji": "isogashii", "meaning": "bận rộn", "example_sentence": "今日は忙しいです", "example_meaning": "Hôm nay tôi bận"},
+            {"word": "きれい", "kana": "きれい", "romaji": "kirei", "meaning": "đẹp, sạch sẽ", "example_sentence": "この花はきれいです", "example_meaning": "Bông hoa này đẹp"},
+            {"word": "静か", "kana": "しずか", "romaji": "shizuka", "meaning": "yên tĩnh", "example_sentence": "図書館は静かです", "example_meaning": "Thư viện yên tĩnh"},
+            {"word": "元気", "kana": "げんき", "romaji": "genki", "meaning": "khỏe mạnh", "example_sentence": "私は元気です", "example_meaning": "Tôi khỏe"},
+            {"word": "有名", "kana": "ゆうめい", "romaji": "yuumei", "meaning": "nổi tiếng", "example_sentence": "富士山は有名です", "example_meaning": "Núi Phú Sĩ nổi tiếng"},
+            {"word": "便利", "kana": "べんり", "romaji": "benri", "meaning": "tiện lợi", "example_sentence": "電車は便利です", "example_meaning": "Tàu điện tiện lợi"},
+            {"word": "好き", "kana": "すき", "romaji": "suki", "meaning": "thích", "example_sentence": "音楽が好きです", "example_meaning": "Tôi thích âm nhạc"},
+            {"word": "嫌い", "kana": "きらい", "romaji": "kirai", "meaning": "ghét", "example_sentence": "野菜が嫌いです", "example_meaning": "Tôi ghét rau"},
+            {"word": "上手", "kana": "じょうず", "romaji": "jouzu", "meaning": "giỏi", "example_sentence": "母は歌が上手です", "example_meaning": "Mẹ tôi hát hay"},
+            {"word": "下手", "kana": "へた", "romaji": "heta", "meaning": "kém, dở", "example_sentence": "私は料理が下手です", "example_meaning": "Tôi nấu ăn dở"}
+          ],
+          "grammar": [
+            {"title": "い形容詞 / な形容詞", "explanation": "Hai loại tính từ: tính từ đuôi い và tính từ đuôi な, chia khác nhau.", "example_sentence": "この花はきれいです。(Bông hoa này đẹp.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 9: Tính từ miêu tả",
+              "questions": [
+                {"text": "「難しい」 nghĩa là gì?", "answers": ["công việc", "người", "khó", "vở"], "correct": 2},
+                {"text": "「小さい」 nghĩa là gì?", "answers": ["lại, nữa", "mẹ (của mình)", "một cốc, một ly", "nhỏ"], "correct": 3},
+                {"text": "「忙しい」 nghĩa là gì?", "answers": ["nhân viên công ty", "bận rộn", "thỉnh thoảng", "thức dậy"], "correct": 1},
+                {"text": "「少ない」 nghĩa là gì?", "answers": ["bảy", "giọng nói", "bên trái", "ít"], "correct": 3},
+                {"text": "「多い」 nghĩa là gì?", "answers": ["gửi", "nhiều", "nơi, chỗ", "quán cà phê"], "correct": 1},
+                {"text": "Cách đọc của 「楽しい」 là gì?", "answers": ["まん", "たのしい", "しょくどう", "なぜ"], "correct": 1},
+                {"text": "Cách đọc của 「寒い」 là gì?", "answers": ["つくえ", "すし", "さむい", "はは"], "correct": 2},
+                {"text": "Cách đọc của 「悪い」 là gì?", "answers": ["きょうかしょ", "あう", "わるい", "こんげつ"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 10: Thời tiết và thiên nhiên",
+          "order": 10,
+          "content": "Nói về thời tiết, bốn mùa và các cảnh vật thiên nhiên.",
+          "vocabulary": [
+            {"word": "天気", "kana": "てんき", "romaji": "tenki", "meaning": "thời tiết", "example_sentence": "今日は天気がいいです", "example_meaning": "Hôm nay thời tiết đẹp"},
+            {"word": "雨", "kana": "あめ", "romaji": "ame", "meaning": "mưa", "example_sentence": "雨が降ります", "example_meaning": "Trời mưa"},
+            {"word": "雪", "kana": "ゆき", "romaji": "yuki", "meaning": "tuyết", "example_sentence": "冬は雪が降ります", "example_meaning": "Mùa đông tuyết rơi"},
+            {"word": "風", "kana": "かぜ", "romaji": "kaze", "meaning": "gió", "example_sentence": "風が強いです", "example_meaning": "Gió mạnh"},
+            {"word": "晴れ", "kana": "はれ", "romaji": "hare", "meaning": "trời nắng", "example_sentence": "明日は晴れです", "example_meaning": "Ngày mai trời nắng"},
+            {"word": "曇り", "kana": "くもり", "romaji": "kumori", "meaning": "trời nhiều mây", "example_sentence": "今日は曇りです", "example_meaning": "Hôm nay trời nhiều mây"},
+            {"word": "春", "kana": "はる", "romaji": "haru", "meaning": "mùa xuân", "example_sentence": "春は暖かいです", "example_meaning": "Mùa xuân ấm áp"},
+            {"word": "夏", "kana": "なつ", "romaji": "natsu", "meaning": "mùa hè", "example_sentence": "夏は海へ行きます", "example_meaning": "Mùa hè tôi đi biển"},
+            {"word": "秋", "kana": "あき", "romaji": "aki", "meaning": "mùa thu", "example_sentence": "秋は涼しいです", "example_meaning": "Mùa thu mát mẻ"},
+            {"word": "冬", "kana": "ふゆ", "romaji": "fuyu", "meaning": "mùa đông", "example_sentence": "冬は寒いです", "example_meaning": "Mùa đông lạnh"},
+            {"word": "空", "kana": "そら", "romaji": "sora", "meaning": "bầu trời", "example_sentence": "きれいな空です", "example_meaning": "Bầu trời thật đẹp"},
+            {"word": "山", "kana": "やま", "romaji": "yama", "meaning": "núi", "example_sentence": "山は高いです", "example_meaning": "Núi cao"},
+            {"word": "川", "kana": "かわ", "romaji": "kawa", "meaning": "sông", "example_sentence": "川で魚を見ます", "example_meaning": "Tôi nhìn cá ở sông"},
+            {"word": "海", "kana": "うみ", "romaji": "umi", "meaning": "biển", "example_sentence": "海は大きいです", "example_meaning": "Biển rộng lớn"},
+            {"word": "花", "kana": "はな", "romaji": "hana", "meaning": "hoa", "example_sentence": "赤い花を買います", "example_meaning": "Tôi mua hoa đỏ"},
+            {"word": "木", "kana": "き", "romaji": "ki", "meaning": "cây", "example_sentence": "公園に木があります", "example_meaning": "Ở công viên có cây"}
+          ],
+          "grammar": [
+            {"title": "～より～のほうが", "explanation": "Cấu trúc so sánh hơn: B hơn A.", "example_sentence": "夏より冬のほうが好きです。(Tôi thích mùa đông hơn mùa hè.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 10: Thời tiết và thiên nhiên",
+              "questions": [
+                {"text": "「空」 nghĩa là gì?", "answers": ["bảng đen", "bầu trời", "báo", "cái hộp"], "correct": 1},
+                {"text": "「春」 nghĩa là gì?", "answers": ["mùa xuân", "mặt trăng", "luyện tập", "ăn"], "correct": 0},
+                {"text": "「山」 nghĩa là gì?", "answers": ["mì ramen", "núi", "vui mừng", "nơi, chỗ"], "correct": 1},
+                {"text": "「晴れ」 nghĩa là gì?", "answers": ["nghỉ xuân", "váy", "màu trắng", "trời nắng"], "correct": 3},
+                {"text": "「秋」 nghĩa là gì?", "answers": ["bữa sáng", "mùa thu", "đúng vậy", "vậy thì"], "correct": 1},
+                {"text": "Cách đọc của 「雪」 là gì?", "answers": ["ゆき", "にほんご", "かいわ", "しがつ"], "correct": 0},
+                {"text": "Cách đọc của 「風」 là gì?", "answers": ["かぜ", "はし", "あそこ", "きょう"], "correct": 0},
+                {"text": "Cách đọc của 「花」 là gì?", "answers": ["アメリカ", "こんしゅう", "つよい", "はな"], "correct": 3}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 11: Phương tiện giao thông",
+          "order": 11,
+          "content": "Từ vựng về phương tiện giao thông và cách nói đi lại bằng phương tiện nào.",
+          "vocabulary": [
+            {"word": "電車", "kana": "でんしゃ", "romaji": "densha", "meaning": "tàu điện", "example_sentence": "電車で行きます", "example_meaning": "Tôi đi bằng tàu điện"},
+            {"word": "車", "kana": "くるま", "romaji": "kuruma", "meaning": "xe hơi", "example_sentence": "父は車を買います", "example_meaning": "Bố tôi mua xe hơi"},
+            {"word": "バス", "kana": "バス", "romaji": "basu", "meaning": "xe buýt", "example_sentence": "バスに乗ります", "example_meaning": "Tôi đi xe buýt"},
+            {"word": "自転車", "kana": "じてんしゃ", "romaji": "jitensha", "meaning": "xe đạp", "example_sentence": "自転車で学校へ行きます", "example_meaning": "Tôi đi học bằng xe đạp"},
+            {"word": "飛行機", "kana": "ひこうき", "romaji": "hikouki", "meaning": "máy bay", "example_sentence": "飛行機で日本へ行きます", "example_meaning": "Tôi đi Nhật bằng máy bay"},
+            {"word": "地下鉄", "kana": "ちかてつ", "romaji": "chikatetsu", "meaning": "tàu điện ngầm", "example_sentence": "地下鉄で会社へ行きます", "example_meaning": "Tôi đi làm bằng tàu điện ngầm"},
+            {"word": "タクシー", "kana": "タクシー", "romaji": "takushii", "meaning": "taxi", "example_sentence": "タクシーは高いです", "example_meaning": "Taxi đắt"},
+            {"word": "船", "kana": "ふね", "romaji": "fune", "meaning": "tàu thuyền", "example_sentence": "船は大きいです", "example_meaning": "Con tàu rất to"},
+            {"word": "道", "kana": "みち", "romaji": "michi", "meaning": "con đường", "example_sentence": "道を歩きます", "example_meaning": "Tôi đi bộ trên đường"},
+            {"word": "切符", "kana": "きっぷ", "romaji": "kippu", "meaning": "vé", "example_sentence": "切符を買います", "example_meaning": "Tôi mua vé"},
+            {"word": "空港", "kana": "くうこう", "romaji": "kuukou", "meaning": "sân bay", "example_sentence": "空港へ行きます", "example_meaning": "Tôi đi đến sân bay"},
+            {"word": "乗る", "kana": "のる", "romaji": "noru", "meaning": "lên (xe), đi (xe)", "example_sentence": "電車に乗ります", "example_meaning": "Tôi lên tàu điện"},
+            {"word": "降りる", "kana": "おりる", "romaji": "oriru", "meaning": "xuống (xe)", "example_sentence": "駅で降ります", "example_meaning": "Tôi xuống ở nhà ga"}
+          ],
+          "grammar": [
+            {"title": "～で行きます", "explanation": "Trợ từ で chỉ phương tiện di chuyển.", "example_sentence": "電車で学校へ行きます。(Tôi đi đến trường bằng tàu điện.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 11: Phương tiện giao thông",
+              "questions": [
+                {"text": "「自転車」 nghĩa là gì?", "answers": ["rơi (mưa, tuyết)", "xe đạp", "ngôi làng", "bụng"], "correct": 1},
+                {"text": "「バス」 nghĩa là gì?", "answers": ["về nhà", "khăn tay", "nhỏ", "xe buýt"], "correct": 3},
+                {"text": "「空港」 nghĩa là gì?", "answers": ["áo len", "ca sĩ", "gọi (ai đó)", "sân bay"], "correct": 3},
+                {"text": "「電車」 nghĩa là gì?", "answers": ["tàu điện", "cây cầu", "tuyết", "cởi"], "correct": 0},
+                {"text": "「車」 nghĩa là gì?", "answers": ["băng qua", "người nước ngoài", "xe hơi", "phía đông"], "correct": 2},
+                {"text": "Cách đọc của 「道」 là gì?", "answers": ["りょうしん", "みち", "ほんとうに", "これ"], "correct": 1},
+                {"text": "Cách đọc của 「船」 là gì?", "answers": ["おおい", "ふね", "とぶ", "そぼ"], "correct": 1}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 12: Thứ, ngày, tháng",
+          "order": 12,
+          "content": "Các thứ trong tuần, cách nói về quá khứ, hiện tại, tương lai và sinh nhật.",
+          "vocabulary": [
+            {"word": "月曜日", "kana": "げつようび", "romaji": "getsuyoubi", "meaning": "thứ Hai", "example_sentence": "月曜日は忙しいです", "example_meaning": "Thứ Hai tôi bận"},
+            {"word": "火曜日", "kana": "かようび", "romaji": "kayoubi", "meaning": "thứ Ba", "example_sentence": "火曜日に会います", "example_meaning": "Tôi gặp vào thứ Ba"},
+            {"word": "水曜日", "kana": "すいようび", "romaji": "suiyoubi", "meaning": "thứ Tư", "example_sentence": "水曜日は休みです", "example_meaning": "Thứ Tư là ngày nghỉ"},
+            {"word": "木曜日", "kana": "もくようび", "romaji": "mokuyoubi", "meaning": "thứ Năm", "example_sentence": "木曜日に勉強します", "example_meaning": "Tôi học vào thứ Năm"},
+            {"word": "金曜日", "kana": "きんようび", "romaji": "kinyoubi", "meaning": "thứ Sáu", "example_sentence": "金曜日に映画を見ます", "example_meaning": "Tôi xem phim vào thứ Sáu"},
+            {"word": "土曜日", "kana": "どようび", "romaji": "doyoubi", "meaning": "thứ Bảy", "example_sentence": "土曜日に公園へ行きます", "example_meaning": "Tôi đi công viên vào thứ Bảy"},
+            {"word": "日曜日", "kana": "にちようび", "romaji": "nichiyoubi", "meaning": "Chủ nhật", "example_sentence": "日曜日は家にいます", "example_meaning": "Chủ nhật tôi ở nhà"},
+            {"word": "毎日", "kana": "まいにち", "romaji": "mainichi", "meaning": "mỗi ngày", "example_sentence": "毎日日本語を勉強します", "example_meaning": "Mỗi ngày tôi học tiếng Nhật"},
+            {"word": "毎朝", "kana": "まいあさ", "romaji": "maiasa", "meaning": "mỗi sáng", "example_sentence": "毎朝コーヒーを飲みます", "example_meaning": "Mỗi sáng tôi uống cà phê"},
+            {"word": "昨日", "kana": "きのう", "romaji": "kinou", "meaning": "hôm qua", "example_sentence": "昨日、映画を見ました", "example_meaning": "Hôm qua tôi đã xem phim"},
+            {"word": "明日", "kana": "あした", "romaji": "ashita", "meaning": "ngày mai", "example_sentence": "明日、学校へ行きます", "example_meaning": "Ngày mai tôi đi học"},
+            {"word": "今週", "kana": "こんしゅう", "romaji": "konshuu", "meaning": "tuần này", "example_sentence": "今週は忙しいです", "example_meaning": "Tuần này tôi bận"},
+            {"word": "来週", "kana": "らいしゅう", "romaji": "raishuu", "meaning": "tuần sau", "example_sentence": "来週、試験があります", "example_meaning": "Tuần sau có kỳ thi"},
+            {"word": "先週", "kana": "せんしゅう", "romaji": "senshuu", "meaning": "tuần trước", "example_sentence": "先週、友達に会いました", "example_meaning": "Tuần trước tôi đã gặp bạn"},
+            {"word": "今年", "kana": "ことし", "romaji": "kotoshi", "meaning": "năm nay", "example_sentence": "今年は二十歳です", "example_meaning": "Năm nay tôi 20 tuổi"},
+            {"word": "来年", "kana": "らいねん", "romaji": "rainen", "meaning": "năm sau", "example_sentence": "来年は二十一歳です", "example_meaning": "Năm sau tôi 21 tuổi"},
+            {"word": "去年", "kana": "きょねん", "romaji": "kyonen", "meaning": "năm ngoái", "example_sentence": "去年、日本へ行きました", "example_meaning": "Năm ngoái tôi đã đến Nhật"},
+            {"word": "誕生日", "kana": "たんじょうび", "romaji": "tanjoubi", "meaning": "sinh nhật", "example_sentence": "今日は私の誕生日です", "example_meaning": "Hôm nay là sinh nhật của tôi"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 12: Thứ, ngày, tháng",
+              "questions": [
+                {"text": "「金曜日」 nghĩa là gì?", "answers": ["miệng", "muối", "cặp, túi xách", "thứ Sáu"], "correct": 3},
+                {"text": "「日曜日」 nghĩa là gì?", "answers": ["Chủ nhật", "góc đường", "giấy", "mạnh"], "correct": 0},
+                {"text": "「水曜日」 nghĩa là gì?", "answers": ["hát", "lịch", "thứ Tư", "thịt bò"], "correct": 2},
+                {"text": "「去年」 nghĩa là gì?", "answers": ["năm ngoái", "phía tây", "nhà ăn", "chậm rãi"], "correct": 0},
+                {"text": "「今年」 nghĩa là gì?", "answers": ["ngôi sao", "chữ Katakana", "năm nay", "bài kiểm tra"], "correct": 2},
+                {"text": "Cách đọc của 「土曜日」 là gì?", "answers": ["けす", "おとこのこ", "くに", "どようび"], "correct": 3},
+                {"text": "Cách đọc của 「毎朝」 là gì?", "answers": ["スープ", "ごはん", "まいあさ", "よろしく"], "correct": 2},
+                {"text": "Cách đọc của 「毎日」 là gì?", "answers": ["まいにち", "よく", "ふん", "はこ"], "correct": 0}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 13: Cơ thể và màu sắc",
+          "order": 13,
+          "content": "Gọi tên các bộ phận cơ thể và các màu sắc cơ bản.",
+          "vocabulary": [
+            {"word": "体", "kana": "からだ", "romaji": "karada", "meaning": "cơ thể", "example_sentence": "体が大きいです", "example_meaning": "Cơ thể to lớn"},
+            {"word": "頭", "kana": "あたま", "romaji": "atama", "meaning": "đầu", "example_sentence": "頭が痛いです", "example_meaning": "Tôi đau đầu"},
+            {"word": "顔", "kana": "かお", "romaji": "kao", "meaning": "khuôn mặt", "example_sentence": "顔が赤いです", "example_meaning": "Mặt đỏ"},
+            {"word": "目", "kana": "め", "romaji": "me", "meaning": "mắt", "example_sentence": "目が大きいです", "example_meaning": "Mắt to"},
+            {"word": "耳", "kana": "みみ", "romaji": "mimi", "meaning": "tai", "example_sentence": "耳が小さいです", "example_meaning": "Tai nhỏ"},
+            {"word": "口", "kana": "くち", "romaji": "kuchi", "meaning": "miệng", "example_sentence": "口が大きいです", "example_meaning": "Miệng to"},
+            {"word": "歯", "kana": "は", "romaji": "ha", "meaning": "răng", "example_sentence": "歯が痛いです", "example_meaning": "Tôi đau răng"},
+            {"word": "手", "kana": "て", "romaji": "te", "meaning": "bàn tay", "example_sentence": "手を洗います", "example_meaning": "Tôi rửa tay"},
+            {"word": "足", "kana": "あし", "romaji": "ashi", "meaning": "bàn chân, chân", "example_sentence": "足が長いです", "example_meaning": "Chân dài"},
+            {"word": "色", "kana": "いろ", "romaji": "iro", "meaning": "màu sắc", "example_sentence": "好きな色は何ですか", "example_meaning": "Bạn thích màu gì?"},
+            {"word": "赤い", "kana": "あかい", "romaji": "akai", "meaning": "màu đỏ", "example_sentence": "赤いかばんです", "example_meaning": "Là chiếc cặp màu đỏ"},
+            {"word": "青い", "kana": "あおい", "romaji": "aoi", "meaning": "màu xanh dương", "example_sentence": "空は青いです", "example_meaning": "Bầu trời màu xanh"},
+            {"word": "白い", "kana": "しろい", "romaji": "shiroi", "meaning": "màu trắng", "example_sentence": "雪は白いです", "example_meaning": "Tuyết màu trắng"},
+            {"word": "黒い", "kana": "くろい", "romaji": "kuroi", "meaning": "màu đen", "example_sentence": "黒い靴です", "example_meaning": "Là đôi giày màu đen"},
+            {"word": "黄色", "kana": "きいろ", "romaji": "kiiro", "meaning": "màu vàng", "example_sentence": "黄色のかばんです", "example_meaning": "Là chiếc cặp màu vàng"},
+            {"word": "緑", "kana": "みどり", "romaji": "midori", "meaning": "màu xanh lá", "example_sentence": "緑の山です", "example_meaning": "Là ngọn núi màu xanh lá"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 13: Cơ thể và màu sắc",
+              "questions": [
+                {"text": "「赤い」 nghĩa là gì?", "answers": ["chơi (đàn)", "màu đỏ", "tên", "siêu thị"], "correct": 1},
+                {"text": "「口」 nghĩa là gì?", "answers": ["bố (của mình)", "chào mừng về nhà", "miệng", "đi nhé"], "correct": 2},
+                {"text": "「白い」 nghĩa là gì?", "answers": ["màu trắng", "người phụ nữ", "năm sau", "học sinh, sinh viên"], "correct": 0},
+                {"text": "「歯」 nghĩa là gì?", "answers": ["tiệm bánh mì", "bên cạnh", "răng", "chữ cái, ký tự"], "correct": 2},
+                {"text": "「耳」 nghĩa là gì?", "answers": ["địa điểm", "núi", "tai", "tivi"], "correct": 2},
+                {"text": "Cách đọc của 「黒い」 là gì?", "answers": ["みぎ", "やさしい", "くろい", "ベトナム"], "correct": 2},
+                {"text": "Cách đọc của 「青い」 là gì?", "answers": ["いもうと", "あおい", "うし", "ことし"], "correct": 1},
+                {"text": "Cách đọc của 「頭」 là gì?", "answers": ["あたま", "はなす", "かいもの", "うんどう"], "correct": 0}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 14: Trường học và công việc",
+          "order": 14,
+          "content": "Từ vựng về trường học, công việc và sở thích, cùng cách xin phép làm gì đó.",
+          "vocabulary": [
+            {"word": "勉強", "kana": "べんきょう", "romaji": "benkyou", "meaning": "việc học", "example_sentence": "毎日勉強します", "example_meaning": "Mỗi ngày tôi học bài"},
+            {"word": "宿題", "kana": "しゅくだい", "romaji": "shukudai", "meaning": "bài tập về nhà", "example_sentence": "宿題があります", "example_meaning": "Tôi có bài tập về nhà"},
+            {"word": "試験", "kana": "しけん", "romaji": "shiken", "meaning": "kỳ thi", "example_sentence": "来週、試験があります", "example_meaning": "Tuần sau có kỳ thi"},
+            {"word": "教室", "kana": "きょうしつ", "romaji": "kyoushitsu", "meaning": "lớp học", "example_sentence": "教室に学生がいます", "example_meaning": "Trong lớp học có học sinh"},
+            {"word": "辞書", "kana": "じしょ", "romaji": "jisho", "meaning": "từ điển", "example_sentence": "辞書は机の上にあります", "example_meaning": "Từ điển ở trên bàn"},
+            {"word": "鉛筆", "kana": "えんぴつ", "romaji": "enpitsu", "meaning": "bút chì", "example_sentence": "鉛筆で書きます", "example_meaning": "Tôi viết bằng bút chì"},
+            {"word": "ノート", "kana": "ノート", "romaji": "nooto", "meaning": "vở", "example_sentence": "ノートを買います", "example_meaning": "Tôi mua vở"},
+            {"word": "質問", "kana": "しつもん", "romaji": "shitsumon", "meaning": "câu hỏi", "example_sentence": "質問があります", "example_meaning": "Tôi có câu hỏi"},
+            {"word": "日本語", "kana": "にほんご", "romaji": "nihongo", "meaning": "tiếng Nhật", "example_sentence": "日本語を勉強します", "example_meaning": "Tôi học tiếng Nhật"},
+            {"word": "英語", "kana": "えいご", "romaji": "eigo", "meaning": "tiếng Anh", "example_sentence": "英語は難しいです", "example_meaning": "Tiếng Anh khó"},
+            {"word": "会社", "kana": "かいしゃ", "romaji": "kaisha", "meaning": "công ty", "example_sentence": "会社は駅の前です", "example_meaning": "Công ty ở trước nhà ga"},
+            {"word": "仕事", "kana": "しごと", "romaji": "shigoto", "meaning": "công việc", "example_sentence": "仕事は九時からです", "example_meaning": "Công việc bắt đầu từ 9 giờ"},
+            {"word": "電話", "kana": "でんわ", "romaji": "denwa", "meaning": "điện thoại", "example_sentence": "友達に電話します", "example_meaning": "Tôi gọi điện cho bạn"},
+            {"word": "手紙", "kana": "てがみ", "romaji": "tegami", "meaning": "bức thư", "example_sentence": "母に手紙を書きます", "example_meaning": "Tôi viết thư cho mẹ"},
+            {"word": "写真", "kana": "しゃしん", "romaji": "shashin", "meaning": "bức ảnh", "example_sentence": "写真を見ます", "example_meaning": "Tôi xem ảnh"},
+            {"word": "映画", "kana": "えいが", "romaji": "eiga", "meaning": "phim", "example_sentence": "映画が好きです", "example_meaning": "Tôi thích phim"},
+            {"word": "音楽", "kana": "おんがく", "romaji": "ongaku", "meaning": "âm nhạc", "example_sentence": "音楽を聞きます", "example_meaning": "Tôi nghe nhạc"},
+            {"word": "趣味", "kana": "しゅみ", "romaji": "shumi", "meaning": "sở thích", "example_sentence": "趣味は音楽です", "example_meaning": "Sở thích của tôi là âm nhạc"}
+          ],
+          "grammar": [
+            {"title": "～てもいいです", "explanation": "Diễn tả sự cho phép: \"được phép làm ...\".", "example_sentence": "ここで写真を撮ってもいいです。(Bạn có thể chụp ảnh ở đây.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 14: Trường học và công việc",
+              "questions": [
+                {"text": "「仕事」 nghĩa là gì?", "answers": ["mấy lần", "nước ép", "nước Anh", "công việc"], "correct": 3},
+                {"text": "「試験」 nghĩa là gì?", "answers": ["hồng trà", "máy bay", "kỳ thi", "vội, nhanh lên"], "correct": 2},
+                {"text": "「会社」 nghĩa là gì?", "answers": ["công ty", "đại học", "nhà ăn", "ý nghĩa"], "correct": 0},
+                {"text": "「勉強」 nghĩa là gì?", "answers": ["bữa tối", "đi (giày, quần)", "việc học", "lại, nữa"], "correct": 2},
+                {"text": "「手紙」 nghĩa là gì?", "answers": ["bức thư", "bác sĩ", "ba cái", "mở (tự mở)"], "correct": 0},
+                {"text": "Cách đọc của 「質問」 là gì?", "answers": ["あかい", "しつもん", "なんがい", "とても"], "correct": 1},
+                {"text": "Cách đọc của 「宿題」 là gì?", "answers": ["しゅくだい", "いる", "おもい", "おやすみなさい"], "correct": 0}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 15: Từ chỉ thị và từ nghi vấn",
+          "order": 15,
+          "content": "Các từ chỉ thị (これ, ここ, こちら...) và từ để hỏi (どこ, いつ, どうして...).",
+          "vocabulary": [
+            {"word": "これ", "kana": "これ", "romaji": "kore", "meaning": "cái này", "example_sentence": "これは本です", "example_meaning": "Đây là quyển sách"},
+            {"word": "それ", "kana": "それ", "romaji": "sore", "meaning": "cái đó", "example_sentence": "それは何ですか", "example_meaning": "Cái đó là gì?"},
+            {"word": "あれ", "kana": "あれ", "romaji": "are", "meaning": "cái kia", "example_sentence": "あれは駅です", "example_meaning": "Kia là nhà ga"},
+            {"word": "どれ", "kana": "どれ", "romaji": "dore", "meaning": "cái nào", "example_sentence": "どれがいいですか", "example_meaning": "Cái nào tốt?"},
+            {"word": "この", "kana": "この", "romaji": "kono", "meaning": "... này", "example_sentence": "この傘は私のです", "example_meaning": "Cái ô này là của tôi"},
+            {"word": "その", "kana": "その", "romaji": "sono", "meaning": "... đó", "example_sentence": "その本を見せてください", "example_meaning": "Hãy cho tôi xem quyển sách đó"},
+            {"word": "あの", "kana": "あの", "romaji": "ano", "meaning": "... kia", "example_sentence": "あの店は安いです", "example_meaning": "Cửa hàng kia rẻ"},
+            {"word": "どの", "kana": "どの", "romaji": "dono", "meaning": "... nào", "example_sentence": "どの本ですか", "example_meaning": "Quyển sách nào?"},
+            {"word": "ここ", "kana": "ここ", "romaji": "koko", "meaning": "ở đây", "example_sentence": "ここは学校です", "example_meaning": "Đây là trường học"},
+            {"word": "そこ", "kana": "そこ", "romaji": "soko", "meaning": "ở đó", "example_sentence": "そこに座ってください", "example_meaning": "Hãy ngồi ở đó"},
+            {"word": "あそこ", "kana": "あそこ", "romaji": "asoko", "meaning": "ở kia", "example_sentence": "あそこに駅があります", "example_meaning": "Ở kia có nhà ga"},
+            {"word": "どこ", "kana": "どこ", "romaji": "doko", "meaning": "ở đâu", "example_sentence": "トイレはどこですか", "example_meaning": "Nhà vệ sinh ở đâu?"},
+            {"word": "こちら", "kana": "こちら", "romaji": "kochira", "meaning": "phía này, vị này", "example_sentence": "こちらは田中さんです", "example_meaning": "Đây là anh Tanaka"},
+            {"word": "そちら", "kana": "そちら", "romaji": "sochira", "meaning": "phía đó", "example_sentence": "そちらは寒いですか", "example_meaning": "Phía đó có lạnh không?"},
+            {"word": "あちら", "kana": "あちら", "romaji": "achira", "meaning": "phía kia", "example_sentence": "あちらは図書館です", "example_meaning": "Phía kia là thư viện"},
+            {"word": "どちら", "kana": "どちら", "romaji": "dochira", "meaning": "phía nào, nước nào", "example_sentence": "お国はどちらですか", "example_meaning": "Bạn đến từ nước nào?"},
+            {"word": "いつ", "kana": "いつ", "romaji": "itsu", "meaning": "khi nào", "example_sentence": "いつ日本へ行きますか", "example_meaning": "Khi nào bạn đi Nhật?"},
+            {"word": "どう", "kana": "どう", "romaji": "dou", "meaning": "thế nào", "example_sentence": "日本はどうですか", "example_meaning": "Nhật Bản thế nào?"},
+            {"word": "どんな", "kana": "どんな", "romaji": "donna", "meaning": "như thế nào, loại nào", "example_sentence": "どんな料理が好きですか", "example_meaning": "Bạn thích món ăn như thế nào?"},
+            {"word": "どうして", "kana": "どうして", "romaji": "doushite", "meaning": "tại sao", "example_sentence": "どうして学校を休みましたか", "example_meaning": "Tại sao bạn nghỉ học?"},
+            {"word": "なぜ", "kana": "なぜ", "romaji": "naze", "meaning": "tại sao", "example_sentence": "なぜ寝ませんか", "example_meaning": "Tại sao bạn không ngủ?"},
+            {"word": "いくら", "kana": "いくら", "romaji": "ikura", "meaning": "bao nhiêu tiền", "example_sentence": "これはいくらですか", "example_meaning": "Cái này bao nhiêu tiền?"},
+            {"word": "いくつ", "kana": "いくつ", "romaji": "ikutsu", "meaning": "bao nhiêu cái, mấy tuổi", "example_sentence": "りんごはいくつありますか", "example_meaning": "Có mấy quả táo?"},
+            {"word": "どなた", "kana": "どなた", "romaji": "donata", "meaning": "ai (lịch sự)", "example_sentence": "どなたですか", "example_meaning": "Xin hỏi là ai ạ?"}
+          ],
+          "grammar": [
+            {"title": "この / その / あの ＋ 名詞", "explanation": "Từ chỉ thị đứng trước danh từ: この (gần người nói), その (gần người nghe), あの (xa cả hai).", "example_sentence": "この本は私のです。(Quyển sách này là của tôi.)"},
+            {"title": "～はどこですか", "explanation": "Hỏi vị trí hoặc địa điểm của người, vật.", "example_sentence": "駅はどこですか。(Nhà ga ở đâu?)"},
+            {"title": "どんな＋名詞", "explanation": "Hỏi về tính chất, loại của sự vật.", "example_sentence": "どんな料理が好きですか。(Bạn thích món ăn như thế nào?)"},
+            {"title": "どうして～ですか", "explanation": "Hỏi lý do: tại sao. Trả lời bằng ～から.", "example_sentence": "どうして学校を休みましたか。(Tại sao bạn nghỉ học?)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 15: Từ chỉ thị và từ nghi vấn",
+              "questions": [
+                {"text": "「どなた」 nghĩa là gì?", "answers": ["mỗi tối", "đến", "ai (lịch sự)", "cá"], "correct": 2},
+                {"text": "「そちら」 nghĩa là gì?", "answers": ["ngày nghỉ, kỳ nghỉ", "phía đó", "sách giáo khoa", "nguy hiểm"], "correct": 1},
+                {"text": "「どちら」 nghĩa là gì?", "answers": ["khoai tây", "lái xe", "phía nào, nước nào", "ngày 15"], "correct": 2},
+                {"text": "「どう」 nghĩa là gì?", "answers": ["thế nào", "khi nào", "nhất, số một", "ngày nghỉ, kỳ nghỉ"], "correct": 0},
+                {"text": "「どの」 nghĩa là gì?", "answers": ["... nào", "tắm (vòi sen)", "tháng 10", "nghe, hỏi"], "correct": 0}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 16: Phó từ và liên từ",
+          "order": 16,
+          "content": "Phó từ chỉ mức độ, tần suất và các liên từ nối câu thường dùng.",
+          "vocabulary": [
+            {"word": "とても", "kana": "とても", "romaji": "totemo", "meaning": "rất", "example_sentence": "この料理はとてもおいしいです", "example_meaning": "Món này rất ngon"},
+            {"word": "あまり", "kana": "あまり", "romaji": "amari", "meaning": "không ... lắm", "example_sentence": "あまり高くないです", "example_meaning": "Không đắt lắm"},
+            {"word": "よく", "kana": "よく", "romaji": "yoku", "meaning": "thường, kỹ", "example_sentence": "よく映画を見ます", "example_meaning": "Tôi hay xem phim"},
+            {"word": "ときどき", "kana": "ときどき", "romaji": "tokidoki", "meaning": "thỉnh thoảng", "example_sentence": "ときどき図書館へ行きます", "example_meaning": "Thỉnh thoảng tôi đến thư viện"},
+            {"word": "いつも", "kana": "いつも", "romaji": "itsumo", "meaning": "luôn luôn", "example_sentence": "いつも六時に起きます", "example_meaning": "Tôi luôn dậy lúc 6 giờ"},
+            {"word": "全然", "kana": "ぜんぜん", "romaji": "zenzen", "meaning": "hoàn toàn không", "example_sentence": "全然わかりません", "example_meaning": "Tôi hoàn toàn không hiểu"},
+            {"word": "ちょっと", "kana": "ちょっと", "romaji": "chotto", "meaning": "một chút", "example_sentence": "ちょっと待ってください", "example_meaning": "Hãy đợi một chút"},
+            {"word": "少し", "kana": "すこし", "romaji": "sukoshi", "meaning": "một chút, ít", "example_sentence": "少し休みます", "example_meaning": "Tôi nghỉ một chút"},
+            {"word": "たくさん", "kana": "たくさん", "romaji": "takusan", "meaning": "nhiều", "example_sentence": "たくさん食べます", "example_meaning": "Tôi ăn nhiều"},
+            {"word": "全部", "kana": "ぜんぶ", "romaji": "zenbu", "meaning": "toàn bộ", "example_sentence": "全部で千円です", "example_meaning": "Tổng cộng 1000 yên"},
+            {"word": "もう", "kana": "もう", "romaji": "mou", "meaning": "đã, nữa", "example_sentence": "もう食べました", "example_meaning": "Tôi đã ăn rồi"},
+            {"word": "まだ", "kana": "まだ", "romaji": "mada", "meaning": "vẫn chưa, vẫn còn", "example_sentence": "まだ食べていません", "example_meaning": "Tôi vẫn chưa ăn"},
+            {"word": "すぐ", "kana": "すぐ", "romaji": "sugu", "meaning": "ngay lập tức", "example_sentence": "すぐ行きます", "example_meaning": "Tôi đi ngay"},
+            {"word": "一番", "kana": "いちばん", "romaji": "ichiban", "meaning": "nhất, số một", "example_sentence": "夏が一番好きです", "example_meaning": "Tôi thích mùa hè nhất"},
+            {"word": "一緒に", "kana": "いっしょに", "romaji": "isshoni", "meaning": "cùng nhau", "example_sentence": "一緒に行きましょう", "example_meaning": "Cùng đi nhé"},
+            {"word": "ゆっくり", "kana": "ゆっくり", "romaji": "yukkuri", "meaning": "chậm rãi", "example_sentence": "ゆっくり話してください", "example_meaning": "Hãy nói chậm thôi"},
+            {"word": "早く", "kana": "はやく", "romaji": "hayaku", "meaning": "sớm, nhanh", "example_sentence": "早く寝ます", "example_meaning": "Tôi đi ngủ sớm"},
+            {"word": "だんだん", "kana": "だんだん", "romaji": "dandan", "meaning": "dần dần", "example_sentence": "だんだん寒くなります", "example_meaning": "Trời dần trở lạnh"},
+            {"word": "いろいろ", "kana": "いろいろ", "romaji": "iroiro", "meaning": "nhiều loại", "example_sentence": "いろいろな店があります", "example_meaning": "Có nhiều loại cửa hàng"},
+            {"word": "みんな", "kana": "みんな", "romaji": "minna", "meaning": "mọi người", "example_sentence": "みんな元気です", "example_meaning": "Mọi người đều khỏe"},
+            {"word": "一人で", "kana": "ひとりで", "romaji": "hitoride", "meaning": "một mình", "example_sentence": "一人で行きます", "example_meaning": "Tôi đi một mình"},
+            {"word": "また", "kana": "また", "romaji": "mata", "meaning": "lại, nữa", "example_sentence": "また来ます", "example_meaning": "Tôi sẽ lại đến"},
+            {"word": "そして", "kana": "そして", "romaji": "soshite", "meaning": "và rồi", "example_sentence": "朝起きます。そして、ご飯を食べます", "example_meaning": "Buổi sáng tôi thức dậy. Rồi tôi ăn cơm"},
+            {"word": "それから", "kana": "それから", "romaji": "sorekara", "meaning": "sau đó", "example_sentence": "ご飯を食べます。それから、学校へ行きます", "example_meaning": "Tôi ăn cơm. Sau đó đi học"},
+            {"word": "でも", "kana": "でも", "romaji": "demo", "meaning": "nhưng", "example_sentence": "高いです。でも、おいしいです", "example_meaning": "Đắt. Nhưng ngon"},
+            {"word": "だから", "kana": "だから", "romaji": "dakara", "meaning": "vì vậy", "example_sentence": "雨です。だから、行きません", "example_meaning": "Trời mưa. Vì vậy tôi không đi"},
+            {"word": "では", "kana": "では", "romaji": "dewa", "meaning": "vậy thì", "example_sentence": "では、始めましょう", "example_meaning": "Vậy thì, bắt đầu nào"},
+            {"word": "ええ", "kana": "ええ", "romaji": "ee", "meaning": "vâng", "example_sentence": "ええ、そうです", "example_meaning": "Vâng, đúng thế"},
+            {"word": "本当に", "kana": "ほんとうに", "romaji": "hontouni", "meaning": "thật sự", "example_sentence": "本当にありがとう", "example_meaning": "Thật sự cảm ơn"}
+          ],
+          "grammar": [
+            {"title": "あまり～ません", "explanation": "Phủ định mức độ: không ... lắm. Luôn đi với dạng phủ định.", "example_sentence": "この店はあまり高くないです。(Cửa hàng này không đắt lắm.)"},
+            {"title": "とても / ちょっと ＋ 形容詞", "explanation": "Phó từ chỉ mức độ đứng trước tính từ: rất / hơi, một chút.", "example_sentence": "この料理はとてもおいしいです。(Món này rất ngon.)"},
+            {"title": "よく / ときどき / いつも", "explanation": "Phó từ chỉ tần suất: thường / thỉnh thoảng / luôn luôn.", "example_sentence": "いつも六時に起きます。(Tôi luôn dậy lúc 6 giờ.)"},
+            {"title": "もう～ました / まだ～ていません", "explanation": "Diễn tả hành động đã xong (もう) hoặc chưa xong (まだ).", "example_sentence": "もう昼ご飯を食べました。(Tôi đã ăn trưa rồi.)"},
+            {"title": "～から (lý do)", "explanation": "Đặt sau câu chỉ lý do: vì ... nên.", "example_sentence": "雨ですから、行きません。(Vì trời mưa nên tôi không đi.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 16: Phó từ và liên từ",
+              "questions": [
+                {"text": "「それから」 nghĩa là gì?", "answers": ["cuối tuần", "nhà ga", "sau đó", "hôm qua"], "correct": 2},
+                {"text": "「ゆっくり」 nghĩa là gì?", "answers": ["tắt, xóa", "tháng trước", "chậm rãi", "xin phép ăn (nói trước bữa ăn)"], "correct": 2},
+                {"text": "「たくさん」 nghĩa là gì?", "answers": ["cửa hàng", "nhiều", "đêm nay", "ấm áp"], "correct": 1},
+                {"text": "「本当に」 nghĩa là gì?", "answers": ["bưu điện", "thật sự", "không", "xa"], "correct": 1},
+                {"text": "「いろいろ」 nghĩa là gì?", "answers": ["nhiều loại", "xuống (xe)", "bảy cái", "quần dài"], "correct": 0},
+                {"text": "Cách đọc của 「早く」 là gì?", "answers": ["かさ", "ひき", "うしろ", "はやく"], "correct": 3},
+                {"text": "Cách đọc của 「全部」 là gì?", "answers": ["しずか", "ぜんぶ", "べんり", "おそい"], "correct": 1}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 17: Buổi, tuần, tháng",
+          "order": 17,
+          "content": "Các từ chỉ buổi trong ngày, cuối tuần, tháng này, tháng sau, năm nay.",
+          "vocabulary": [
+            {"word": "朝", "kana": "あさ", "romaji": "asa", "meaning": "buổi sáng", "example_sentence": "朝は六時に起きます", "example_meaning": "Buổi sáng tôi dậy lúc 6 giờ"},
+            {"word": "昼", "kana": "ひる", "romaji": "hiru", "meaning": "buổi trưa", "example_sentence": "昼は学校にいます", "example_meaning": "Buổi trưa tôi ở trường"},
+            {"word": "夜", "kana": "よる", "romaji": "yoru", "meaning": "buổi tối, đêm", "example_sentence": "夜は十一時に寝ます", "example_meaning": "Buổi tối tôi ngủ lúc 11 giờ"},
+            {"word": "午前", "kana": "ごぜん", "romaji": "gozen", "meaning": "buổi sáng (AM)", "example_sentence": "午前九時に会います", "example_meaning": "Gặp lúc 9 giờ sáng"},
+            {"word": "午後", "kana": "ごご", "romaji": "gogo", "meaning": "buổi chiều (PM)", "example_sentence": "午後三時に帰ります", "example_meaning": "Tôi về lúc 3 giờ chiều"},
+            {"word": "今朝", "kana": "けさ", "romaji": "kesa", "meaning": "sáng nay", "example_sentence": "今朝、パンを食べました", "example_meaning": "Sáng nay tôi đã ăn bánh mì"},
+            {"word": "今晩", "kana": "こんばん", "romaji": "konban", "meaning": "tối nay", "example_sentence": "今晩、映画を見ます", "example_meaning": "Tối nay tôi xem phim"},
+            {"word": "今夜", "kana": "こんや", "romaji": "konya", "meaning": "đêm nay", "example_sentence": "今夜は寒いです", "example_meaning": "Đêm nay lạnh"},
+            {"word": "毎晩", "kana": "まいばん", "romaji": "maiban", "meaning": "mỗi tối", "example_sentence": "毎晩、本を読みます", "example_meaning": "Mỗi tối tôi đọc sách"},
+            {"word": "夕方", "kana": "ゆうがた", "romaji": "yuugata", "meaning": "chiều tối", "example_sentence": "夕方、公園を歩きます", "example_meaning": "Chiều tối tôi đi bộ ở công viên"},
+            {"word": "週末", "kana": "しゅうまつ", "romaji": "shuumatsu", "meaning": "cuối tuần", "example_sentence": "週末は何をしますか", "example_meaning": "Cuối tuần bạn làm gì?"},
+            {"word": "毎週", "kana": "まいしゅう", "romaji": "maishuu", "meaning": "mỗi tuần", "example_sentence": "毎週、日曜日に会います", "example_meaning": "Mỗi tuần chúng tôi gặp vào Chủ nhật"},
+            {"word": "毎月", "kana": "まいつき", "romaji": "maitsuki", "meaning": "mỗi tháng", "example_sentence": "毎月、本を買います", "example_meaning": "Mỗi tháng tôi mua sách"},
+            {"word": "毎年", "kana": "まいとし", "romaji": "maitoshi", "meaning": "mỗi năm", "example_sentence": "毎年、日本へ行きます", "example_meaning": "Mỗi năm tôi đi Nhật"},
+            {"word": "今月", "kana": "こんげつ", "romaji": "kongetsu", "meaning": "tháng này", "example_sentence": "今月は忙しいです", "example_meaning": "Tháng này tôi bận"},
+            {"word": "来月", "kana": "らいげつ", "romaji": "raigetsu", "meaning": "tháng sau", "example_sentence": "来月、試験があります", "example_meaning": "Tháng sau có kỳ thi"},
+            {"word": "先月", "kana": "せんげつ", "romaji": "sengetsu", "meaning": "tháng trước", "example_sentence": "先月、東京へ行きました", "example_meaning": "Tháng trước tôi đã đến Tokyo"},
+            {"word": "一昨日", "kana": "おととい", "romaji": "ototoi", "meaning": "hôm kia", "example_sentence": "一昨日、友達に会いました", "example_meaning": "Hôm kia tôi đã gặp bạn"},
+            {"word": "明後日", "kana": "あさって", "romaji": "asatte", "meaning": "ngày kia", "example_sentence": "明後日、休みです", "example_meaning": "Ngày kia là ngày nghỉ"},
+            {"word": "何曜日", "kana": "なんようび", "romaji": "nanyoubi", "meaning": "thứ mấy", "example_sentence": "今日は何曜日ですか", "example_meaning": "Hôm nay là thứ mấy?"},
+            {"word": "休み", "kana": "やすみ", "romaji": "yasumi", "meaning": "ngày nghỉ, kỳ nghỉ", "example_sentence": "明日は休みです", "example_meaning": "Ngày mai là ngày nghỉ"}
+          ],
+          "grammar": [
+            {"title": "～に (thời điểm)", "explanation": "Trợ từ に đứng sau thời gian cụ thể để chỉ lúc hành động xảy ra.", "example_sentence": "午後三時に帰ります。(Tôi về lúc 3 giờ chiều.)"},
+            {"title": "～ごろ", "explanation": "Đứng sau thời gian để chỉ khoảng chừng, vào khoảng.", "example_sentence": "七時ごろ起きます。(Tôi dậy vào khoảng 7 giờ.)"},
+            {"title": "毎～ (mỗi ...)", "explanation": "Tiền tố 毎 + thời gian: mỗi ngày, mỗi tuần... không cần trợ từ に.", "example_sentence": "毎朝、コーヒーを飲みます。(Mỗi sáng tôi uống cà phê.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 17: Buổi, tuần, tháng",
+              "questions": [
+                {"text": "「午前」 nghĩa là gì?", "answers": ["náo nhiệt", "mỗi tuần", "buổi sáng (AM)", "cà ri"], "correct": 2},
+                {"text": "「一昨日」 nghĩa là gì?", "answers": ["miệng", "tài xế", "hôm kia", "trường học"], "correct": 2},
+                {"text": "「毎年」 nghĩa là gì?", "answers": ["... này", "xe hơi", "mỗi năm", "thời tiết"], "correct": 2},
+                {"text": "「今夜」 nghĩa là gì?", "answers": ["bơi lội", "gạo", "đi (giày, quần)", "đêm nay"], "correct": 3},
+                {"text": "「先月」 nghĩa là gì?", "answers": ["buổi trưa", "nhưng", "bức ảnh", "tháng trước"], "correct": 3},
+                {"text": "Cách đọc của 「毎月」 là gì?", "answers": ["ひま", "ぜんぜん", "まいつき", "がいこく"], "correct": 2},
+                {"text": "Cách đọc của 「何曜日」 là gì?", "answers": ["しつれいします", "べんきょうする", "なんようび", "しつもん"], "correct": 2},
+                {"text": "Cách đọc của 「今月」 là gì?", "answers": ["おかあさん", "はらう", "こんげつ", "ふゆ"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 18: Tháng và ngày trong tháng",
+          "order": 18,
+          "content": "12 tháng và cách đọc ngày trong tháng (có nhiều cách đọc đặc biệt).",
+          "vocabulary": [
+            {"word": "一月", "kana": "いちがつ", "romaji": "ichigatsu", "meaning": "tháng 1", "example_sentence": "一月は寒いです", "example_meaning": "Tháng 1 lạnh"},
+            {"word": "二月", "kana": "にがつ", "romaji": "nigatsu", "meaning": "tháng 2", "example_sentence": "二月は短いです", "example_meaning": "Tháng 2 ngắn"},
+            {"word": "三月", "kana": "さんがつ", "romaji": "sangatsu", "meaning": "tháng 3", "example_sentence": "三月に春が来ます", "example_meaning": "Mùa xuân đến vào tháng 3"},
+            {"word": "四月", "kana": "しがつ", "romaji": "shigatsu", "meaning": "tháng 4", "example_sentence": "四月に学校が始まります", "example_meaning": "Trường học bắt đầu vào tháng 4"},
+            {"word": "五月", "kana": "ごがつ", "romaji": "gogatsu", "meaning": "tháng 5", "example_sentence": "五月は天気がいいです", "example_meaning": "Tháng 5 thời tiết đẹp"},
+            {"word": "六月", "kana": "ろくがつ", "romaji": "rokugatsu", "meaning": "tháng 6", "example_sentence": "六月は雨が多いです", "example_meaning": "Tháng 6 mưa nhiều"},
+            {"word": "七月", "kana": "しちがつ", "romaji": "shichigatsu", "meaning": "tháng 7", "example_sentence": "七月は暑いです", "example_meaning": "Tháng 7 nóng"},
+            {"word": "八月", "kana": "はちがつ", "romaji": "hachigatsu", "meaning": "tháng 8", "example_sentence": "八月に海へ行きます", "example_meaning": "Tháng 8 tôi đi biển"},
+            {"word": "九月", "kana": "くがつ", "romaji": "kugatsu", "meaning": "tháng 9", "example_sentence": "九月は涼しいです", "example_meaning": "Tháng 9 mát mẻ"},
+            {"word": "十月", "kana": "じゅうがつ", "romaji": "juugatsu", "meaning": "tháng 10", "example_sentence": "十月は秋です", "example_meaning": "Tháng 10 là mùa thu"},
+            {"word": "十一月", "kana": "じゅういちがつ", "romaji": "juuichigatsu", "meaning": "tháng 11", "example_sentence": "十一月は寒いです", "example_meaning": "Tháng 11 lạnh"},
+            {"word": "十二月", "kana": "じゅうにがつ", "romaji": "juunigatsu", "meaning": "tháng 12", "example_sentence": "十二月は冬です", "example_meaning": "Tháng 12 là mùa đông"},
+            {"word": "何月", "kana": "なんがつ", "romaji": "nangatsu", "meaning": "tháng mấy", "example_sentence": "今は何月ですか", "example_meaning": "Bây giờ là tháng mấy?"},
+            {"word": "一日", "kana": "ついたち", "romaji": "tsuitachi", "meaning": "mùng 1", "example_sentence": "一日は休みです", "example_meaning": "Mùng 1 là ngày nghỉ"},
+            {"word": "二日", "kana": "ふつか", "romaji": "futsuka", "meaning": "mùng 2 (hai ngày)", "example_sentence": "二日に会います", "example_meaning": "Mùng 2 gặp nhau"},
+            {"word": "三日", "kana": "みっか", "romaji": "mikka", "meaning": "mùng 3 (ba ngày)", "example_sentence": "三日は日曜日です", "example_meaning": "Mùng 3 là Chủ nhật"},
+            {"word": "四日", "kana": "よっか", "romaji": "yokka", "meaning": "mùng 4 (bốn ngày)", "example_sentence": "四日に学校へ行きます", "example_meaning": "Mùng 4 tôi đi học"},
+            {"word": "五日", "kana": "いつか", "romaji": "itsuka", "meaning": "mùng 5 (năm ngày)", "example_sentence": "五日は子供の日です", "example_meaning": "Mùng 5 là ngày thiếu nhi"},
+            {"word": "六日", "kana": "むいか", "romaji": "muika", "meaning": "mùng 6 (sáu ngày)", "example_sentence": "六日に帰ります", "example_meaning": "Mùng 6 tôi về"},
+            {"word": "七日", "kana": "なのか", "romaji": "nanoka", "meaning": "mùng 7 (bảy ngày)", "example_sentence": "七日は土曜日です", "example_meaning": "Mùng 7 là thứ Bảy"},
+            {"word": "八日", "kana": "ようか", "romaji": "youka", "meaning": "mùng 8 (tám ngày)", "example_sentence": "八日に会いましょう", "example_meaning": "Mùng 8 gặp nhau nhé"},
+            {"word": "九日", "kana": "ここのか", "romaji": "kokonoka", "meaning": "mùng 9 (chín ngày)", "example_sentence": "九日は何をしますか", "example_meaning": "Mùng 9 bạn làm gì?"},
+            {"word": "十日", "kana": "とおか", "romaji": "tooka", "meaning": "mùng 10 (mười ngày)", "example_sentence": "十日は私の誕生日です", "example_meaning": "Mùng 10 là sinh nhật tôi"},
+            {"word": "十四日", "kana": "じゅうよっか", "romaji": "juuyokka", "meaning": "ngày 14", "example_sentence": "十四日は休みです", "example_meaning": "Ngày 14 là ngày nghỉ"},
+            {"word": "十五日", "kana": "じゅうごにち", "romaji": "juugonichi", "meaning": "ngày 15", "example_sentence": "十五日は日曜日です", "example_meaning": "Ngày 15 là Chủ nhật"},
+            {"word": "二十日", "kana": "はつか", "romaji": "hatsuka", "meaning": "ngày 20", "example_sentence": "二十日は金曜日です", "example_meaning": "Ngày 20 là thứ Sáu"},
+            {"word": "二十四日", "kana": "にじゅうよっか", "romaji": "nijuuyokka", "meaning": "ngày 24", "example_sentence": "二十四日は月曜日です", "example_meaning": "Ngày 24 là thứ Hai"},
+            {"word": "何日", "kana": "なんにち", "romaji": "nannichi", "meaning": "ngày mấy", "example_sentence": "今日は何日ですか", "example_meaning": "Hôm nay là ngày mấy?"}
+          ],
+          "grammar": [
+            {"title": "～月～日です", "explanation": "Cách nói ngày tháng: tháng + 月, ngày + 日 (có cách đọc đặc biệt cho ngày 1 đến 10, 14, 20, 24).", "example_sentence": "今日は四月十日です。(Hôm nay là ngày 10 tháng 4.)"},
+            {"title": "～は何日ですか", "explanation": "Hỏi ngày trong tháng.", "example_sentence": "誕生日は何日ですか。(Sinh nhật bạn là ngày mấy?)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 18: Tháng và ngày trong tháng",
+              "questions": [
+                {"text": "「二日」 nghĩa là gì?", "answers": ["chơi (đàn)", "đóng (cái gì)", "rửa", "mùng 2 (hai ngày)"], "correct": 3},
+                {"text": "「四月」 nghĩa là gì?", "answers": ["mùng 4 (bốn ngày)", "tháng 4", "mì udon", "lời hẹn"], "correct": 1},
+                {"text": "「何日」 nghĩa là gì?", "answers": ["ngày mấy", "nghỉ đông", "mạnh", "công việc"], "correct": 0},
+                {"text": "「十日」 nghĩa là gì?", "answers": ["mảnh, hẹp", "chín", "xe đạp", "mùng 10 (mười ngày)"], "correct": 3},
+                {"text": "「十月」 nghĩa là gì?", "answers": ["mọi người", "vé", "ổn, không sao", "tháng 10"], "correct": 3},
+                {"text": "Cách đọc của 「十五日」 là gì?", "answers": ["ビール", "いちだい", "スーパー", "じゅうごにち"], "correct": 3},
+                {"text": "Cách đọc của 「何月」 là gì?", "answers": ["じ", "なんがつ", "こうえん", "はれ"], "correct": 1},
+                {"text": "Cách đọc của 「九月」 là gì?", "answers": ["ひき", "くがつ", "じゅぎょう", "ひる"], "correct": 1}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 19: Lượng từ và cách đếm",
+          "order": 19,
+          "content": "Cách đếm đồ vật, người, tuổi, tầng, số lần và khoảng thời gian.",
+          "vocabulary": [
+            {"word": "一つ", "kana": "ひとつ", "romaji": "hitotsu", "meaning": "một cái", "example_sentence": "りんごを一つください", "example_meaning": "Cho tôi một quả táo"},
+            {"word": "二つ", "kana": "ふたつ", "romaji": "futatsu", "meaning": "hai cái", "example_sentence": "卵を二つください", "example_meaning": "Cho tôi hai quả trứng"},
+            {"word": "三つ", "kana": "みっつ", "romaji": "mittsu", "meaning": "ba cái", "example_sentence": "みかんを三つ買います", "example_meaning": "Tôi mua ba quả quýt"},
+            {"word": "四つ", "kana": "よっつ", "romaji": "yottsu", "meaning": "bốn cái", "example_sentence": "ケーキを四つ食べます", "example_meaning": "Tôi ăn bốn cái bánh"},
+            {"word": "五つ", "kana": "いつつ", "romaji": "itsutsu", "meaning": "năm cái", "example_sentence": "パンを五つ買います", "example_meaning": "Tôi mua năm cái bánh mì"},
+            {"word": "六つ", "kana": "むっつ", "romaji": "muttsu", "meaning": "sáu cái", "example_sentence": "六つ目の箱です", "example_meaning": "Là cái hộp thứ sáu"},
+            {"word": "七つ", "kana": "ななつ", "romaji": "nanatsu", "meaning": "bảy cái", "example_sentence": "七つあります", "example_meaning": "Có bảy cái"},
+            {"word": "八つ", "kana": "やっつ", "romaji": "yattsu", "meaning": "tám cái", "example_sentence": "八つ食べます", "example_meaning": "Tôi ăn tám cái"},
+            {"word": "九つ", "kana": "ここのつ", "romaji": "kokonotsu", "meaning": "chín cái", "example_sentence": "九つ買いました", "example_meaning": "Tôi đã mua chín cái"},
+            {"word": "一人", "kana": "ひとり", "romaji": "hitori", "meaning": "một người", "example_sentence": "学生が一人います", "example_meaning": "Có một học sinh"},
+            {"word": "二人", "kana": "ふたり", "romaji": "futari", "meaning": "hai người", "example_sentence": "友達と二人で行きます", "example_meaning": "Tôi đi cùng bạn, hai người"},
+            {"word": "三人", "kana": "さんにん", "romaji": "sannin", "meaning": "ba người", "example_sentence": "家族は三人です", "example_meaning": "Gia đình tôi có 3 người"},
+            {"word": "何人", "kana": "なんにん", "romaji": "nannin", "meaning": "mấy người", "example_sentence": "家族は何人ですか", "example_meaning": "Gia đình bạn có mấy người?"},
+            {"word": "一枚", "kana": "いちまい", "romaji": "ichimai", "meaning": "một tờ, một tấm", "example_sentence": "切符を一枚ください", "example_meaning": "Cho tôi một vé"},
+            {"word": "一台", "kana": "いちだい", "romaji": "ichidai", "meaning": "một chiếc (máy, xe)", "example_sentence": "車が一台あります", "example_meaning": "Có một chiếc xe hơi"},
+            {"word": "一冊", "kana": "いっさつ", "romaji": "issatsu", "meaning": "một quyển", "example_sentence": "本を一冊買います", "example_meaning": "Tôi mua một quyển sách"},
+            {"word": "一本", "kana": "いっぽん", "romaji": "ippon", "meaning": "một cây, chai (vật dài)", "example_sentence": "ビールを一本ください", "example_meaning": "Cho tôi một chai bia"},
+            {"word": "一杯", "kana": "いっぱい", "romaji": "ippai", "meaning": "một cốc, một ly", "example_sentence": "水を一杯飲みます", "example_meaning": "Tôi uống một cốc nước"},
+            {"word": "一個", "kana": "いっこ", "romaji": "ikko", "meaning": "một cái (vật nhỏ)", "example_sentence": "卵を一個食べます", "example_meaning": "Tôi ăn một quả trứng"},
+            {"word": "一回", "kana": "いっかい", "romaji": "ikkai", "meaning": "một lần", "example_sentence": "一回会いました", "example_meaning": "Tôi đã gặp một lần"},
+            {"word": "一階", "kana": "いっかい", "romaji": "ikkai", "meaning": "tầng một", "example_sentence": "銀行は一階です", "example_meaning": "Ngân hàng ở tầng 1"},
+            {"word": "何階", "kana": "なんがい", "romaji": "nangai", "meaning": "tầng mấy", "example_sentence": "トイレは何階ですか", "example_meaning": "Nhà vệ sinh ở tầng mấy?"},
+            {"word": "歳", "kana": "さい", "romaji": "sai", "meaning": "tuổi", "example_sentence": "私は十八歳です", "example_meaning": "Tôi 18 tuổi"},
+            {"word": "何歳", "kana": "なんさい", "romaji": "nansai", "meaning": "bao nhiêu tuổi", "example_sentence": "あなたは何歳ですか", "example_meaning": "Bạn bao nhiêu tuổi?"},
+            {"word": "二十歳", "kana": "はたち", "romaji": "hatachi", "meaning": "20 tuổi", "example_sentence": "私は二十歳です", "example_meaning": "Tôi 20 tuổi"},
+            {"word": "一時間", "kana": "いちじかん", "romaji": "ichijikan", "meaning": "một tiếng", "example_sentence": "一時間待ちます", "example_meaning": "Tôi chờ một tiếng"},
+            {"word": "一週間", "kana": "いっしゅうかん", "romaji": "isshuukan", "meaning": "một tuần", "example_sentence": "一週間休みます", "example_meaning": "Tôi nghỉ một tuần"},
+            {"word": "一年", "kana": "いちねん", "romaji": "ichinen", "meaning": "một năm", "example_sentence": "一年勉強しました", "example_meaning": "Tôi đã học một năm"},
+            {"word": "何回", "kana": "なんかい", "romaji": "nankai", "meaning": "mấy lần", "example_sentence": "何回行きましたか", "example_meaning": "Bạn đã đi mấy lần?"},
+            {"word": "何番", "kana": "なんばん", "romaji": "nanban", "meaning": "số mấy", "example_sentence": "電話は何番ですか", "example_meaning": "Số điện thoại là số mấy?"}
+          ],
+          "grammar": [
+            {"title": "～を＋数量＋ください", "explanation": "Xin bao nhiêu cái: vật + を + số lượng + ください.", "example_sentence": "卵を二つください。(Cho tôi hai quả trứng.)"},
+            {"title": "～人 / ～枚 / ～台 / ～冊", "explanation": "Lượng từ đi sau số đếm, tùy loại vật: người, vật mỏng, máy móc xe cộ, sách vở.", "example_sentence": "本を三冊買いました。(Tôi đã mua ba quyển sách.)"},
+            {"title": "～ぐらい / ～だけ", "explanation": "ぐらい: khoảng chừng; だけ: chỉ, duy nhất.", "example_sentence": "一時間ぐらい待ちます。(Tôi đợi khoảng một tiếng.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 19: Lượng từ và cách đếm",
+              "questions": [
+                {"text": "「二人」 nghĩa là gì?", "answers": ["giặt đồ", "phong bì", "thế nào ạ?", "hai người"], "correct": 3},
+                {"text": "「九つ」 nghĩa là gì?", "answers": ["rơi (mưa, tuyết)", "mấy lần", "bé trai", "chín cái"], "correct": 3},
+                {"text": "「何番」 nghĩa là gì?", "answers": ["mua", "nhiều", "số mấy", "đầu"], "correct": 2},
+                {"text": "「四つ」 nghĩa là gì?", "answers": ["phía đông", "bốn cái", "về nhà", "tóc"], "correct": 1},
+                {"text": "「二十歳」 nghĩa là gì?", "answers": ["20 tuổi", "tháng 4", "photo, sao chép", "tuyết"], "correct": 0},
+                {"text": "Cách đọc của 「何人」 là gì?", "answers": ["しつもん", "うしろ", "さかな", "なんにん"], "correct": 3},
+                {"text": "Cách đọc của 「一本」 là gì?", "answers": ["あそぶ", "いっぽん", "ごご", "かりる"], "correct": 1},
+                {"text": "Cách đọc của 「一つ」 là gì?", "answers": ["ハンカチ", "はなや", "ひとつ", "ここ"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 20: Đồ vật trong nhà",
+          "order": 20,
+          "content": "Tên gọi các đồ vật, nội thất và thiết bị quen thuộc trong nhà.",
+          "vocabulary": [
+            {"word": "机", "kana": "つくえ", "romaji": "tsukue", "meaning": "bàn học", "example_sentence": "新しい机を買います", "example_meaning": "Tôi mua bàn học mới"},
+            {"word": "椅子", "kana": "いす", "romaji": "isu", "meaning": "ghế", "example_sentence": "椅子は窓の隣にあります", "example_meaning": "Cái ghế ở cạnh cửa sổ"},
+            {"word": "窓", "kana": "まど", "romaji": "mado", "meaning": "cửa sổ", "example_sentence": "窓を開けてください", "example_meaning": "Hãy mở cửa sổ"},
+            {"word": "ドア", "kana": "ドア", "romaji": "doa", "meaning": "cửa ra vào", "example_sentence": "ドアを閉めます", "example_meaning": "Tôi đóng cửa"},
+            {"word": "電気", "kana": "でんき", "romaji": "denki", "meaning": "điện, đèn điện", "example_sentence": "電気をつけます", "example_meaning": "Tôi bật đèn"},
+            {"word": "テレビ", "kana": "テレビ", "romaji": "terebi", "meaning": "tivi", "example_sentence": "テレビは部屋にあります", "example_meaning": "Tivi ở trong phòng"},
+            {"word": "冷蔵庫", "kana": "れいぞうこ", "romaji": "reizouko", "meaning": "tủ lạnh", "example_sentence": "冷蔵庫に牛乳があります", "example_meaning": "Trong tủ lạnh có sữa"},
+            {"word": "ベッド", "kana": "ベッド", "romaji": "beddo", "meaning": "giường", "example_sentence": "ベッドで寝ます", "example_meaning": "Tôi ngủ trên giường"},
+            {"word": "台所", "kana": "だいどころ", "romaji": "daidokoro", "meaning": "nhà bếp", "example_sentence": "母は台所にいます", "example_meaning": "Mẹ đang ở trong bếp"},
+            {"word": "トイレ", "kana": "トイレ", "romaji": "toire", "meaning": "nhà vệ sinh", "example_sentence": "トイレは二階です", "example_meaning": "Nhà vệ sinh ở tầng 2"},
+            {"word": "お風呂", "kana": "おふろ", "romaji": "ofuro", "meaning": "bồn tắm, việc tắm", "example_sentence": "お風呂に入ります", "example_meaning": "Tôi đi tắm"},
+            {"word": "庭", "kana": "にわ", "romaji": "niwa", "meaning": "vườn", "example_sentence": "庭に花があります", "example_meaning": "Trong vườn có hoa"},
+            {"word": "玄関", "kana": "げんかん", "romaji": "genkan", "meaning": "cửa chính, tiền sảnh", "example_sentence": "玄関で靴を脱ぎます", "example_meaning": "Tôi cởi giày ở lối vào"},
+            {"word": "階段", "kana": "かいだん", "romaji": "kaidan", "meaning": "cầu thang", "example_sentence": "階段は右です", "example_meaning": "Cầu thang ở bên phải"},
+            {"word": "壁", "kana": "かべ", "romaji": "kabe", "meaning": "bức tường", "example_sentence": "壁に絵があります", "example_meaning": "Trên tường có bức tranh"},
+            {"word": "鍵", "kana": "かぎ", "romaji": "kagi", "meaning": "chìa khóa", "example_sentence": "鍵がありません", "example_meaning": "Tôi không có chìa khóa"},
+            {"word": "箱", "kana": "はこ", "romaji": "hako", "meaning": "cái hộp", "example_sentence": "箱の中に何がありますか", "example_meaning": "Trong hộp có gì?"},
+            {"word": "紙", "kana": "かみ", "romaji": "kami", "meaning": "giấy", "example_sentence": "紙に名前を書きます", "example_meaning": "Tôi viết tên lên giấy"},
+            {"word": "ペン", "kana": "ペン", "romaji": "pen", "meaning": "bút", "example_sentence": "ペンを貸してください", "example_meaning": "Hãy cho tôi mượn bút"},
+            {"word": "ボールペン", "kana": "ボールペン", "romaji": "boorupen", "meaning": "bút bi", "example_sentence": "ボールペンで書きます", "example_meaning": "Tôi viết bằng bút bi"},
+            {"word": "はさみ", "kana": "はさみ", "romaji": "hasami", "meaning": "cái kéo", "example_sentence": "はさみで紙を切ります", "example_meaning": "Tôi cắt giấy bằng kéo"},
+            {"word": "ストーブ", "kana": "ストーブ", "romaji": "sutoobu", "meaning": "lò sưởi", "example_sentence": "ストーブをつけます", "example_meaning": "Tôi bật lò sưởi"},
+            {"word": "エアコン", "kana": "エアコン", "romaji": "eakon", "meaning": "máy điều hòa", "example_sentence": "エアコンをつけてください", "example_meaning": "Hãy bật điều hòa"},
+            {"word": "洗濯機", "kana": "せんたくき", "romaji": "sentakuki", "meaning": "máy giặt", "example_sentence": "洗濯機は台所の隣です", "example_meaning": "Máy giặt ở cạnh bếp"},
+            {"word": "カメラ", "kana": "カメラ", "romaji": "kamera", "meaning": "máy ảnh", "example_sentence": "カメラを買いたいです", "example_meaning": "Tôi muốn mua máy ảnh"},
+            {"word": "パソコン", "kana": "パソコン", "romaji": "pasokon", "meaning": "máy tính", "example_sentence": "パソコンを使います", "example_meaning": "Tôi dùng máy tính"},
+            {"word": "ラジオ", "kana": "ラジオ", "romaji": "rajio", "meaning": "radio", "example_sentence": "ラジオを聞きます", "example_meaning": "Tôi nghe radio"},
+            {"word": "カレンダー", "kana": "カレンダー", "romaji": "karendaa", "meaning": "lịch", "example_sentence": "カレンダーは壁にあります", "example_meaning": "Lịch ở trên tường"},
+            {"word": "石けん", "kana": "せっけん", "romaji": "sekken", "meaning": "xà phòng", "example_sentence": "石けんで手を洗います", "example_meaning": "Tôi rửa tay bằng xà phòng"},
+            {"word": "タオル", "kana": "タオル", "romaji": "taoru", "meaning": "khăn", "example_sentence": "タオルを使います", "example_meaning": "Tôi dùng khăn"}
+          ],
+          "grammar": [
+            {"title": "～は～にあります", "explanation": "Chủ đề là đồ vật, nói vị trí của nó: ... ở ...", "example_sentence": "鍵は机の上にあります。(Chìa khóa ở trên bàn.)"},
+            {"title": "～や～(など)", "explanation": "Liệt kê không đầy đủ: ... và ... (và nhiều thứ khác).", "example_sentence": "机の上に本やペンがあります。(Trên bàn có sách, bút...)"},
+            {"title": "～の中に / ～の上に", "explanation": "Danh từ chỉ vị trí + に: trong, trên, dưới, trước, sau, cạnh...", "example_sentence": "箱の中に何がありますか。(Trong hộp có gì?)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 20: Đồ vật trong nhà",
+              "questions": [
+                {"text": "「タオル」 nghĩa là gì?", "answers": ["khăn", "nhiều", "hút (thuốc)", "sáu cái"], "correct": 0},
+                {"text": "「ボールペン」 nghĩa là gì?", "answers": ["vậy à", "vui mừng", "tốt bụng", "bút bi"], "correct": 3},
+                {"text": "「箱」 nghĩa là gì?", "answers": ["hát", "bên ngoài", "cái hộp", "hai người"], "correct": 2},
+                {"text": "「洗濯機」 nghĩa là gì?", "answers": ["thuốc", "máy giặt", "thứ Sáu", "mùng 2 (hai ngày)"], "correct": 1},
+                {"text": "「電気」 nghĩa là gì?", "answers": ["âm nhạc", "bánh kẹo", "điện, đèn điện", "nghìn"], "correct": 2},
+                {"text": "Cách đọc của 「窓」 là gì?", "answers": ["きょうかしょ", "ペン", "まど", "せんたくき"], "correct": 2},
+                {"text": "Cách đọc của 「台所」 là gì?", "answers": ["だいどころ", "たつ", "はしる", "おなじ"], "correct": 0},
+                {"text": "Cách đọc của 「階段」 là gì?", "answers": ["あげる", "かいだん", "ハンカチ", "えき"], "correct": 1}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 21: Động vật và thiên nhiên",
+          "order": 21,
+          "content": "Các loài động vật quen thuộc và cảnh vật thiên nhiên.",
+          "vocabulary": [
+            {"word": "犬", "kana": "いぬ", "romaji": "inu", "meaning": "con chó", "example_sentence": "犬が好きです", "example_meaning": "Tôi thích chó"},
+            {"word": "猫", "kana": "ねこ", "romaji": "neko", "meaning": "con mèo", "example_sentence": "猫は魚が好きです", "example_meaning": "Mèo thích cá"},
+            {"word": "鳥", "kana": "とり", "romaji": "tori", "meaning": "con chim", "example_sentence": "木の上に鳥がいます", "example_meaning": "Trên cây có con chim"},
+            {"word": "馬", "kana": "うま", "romaji": "uma", "meaning": "con ngựa", "example_sentence": "馬は大きいです", "example_meaning": "Ngựa to"},
+            {"word": "牛", "kana": "うし", "romaji": "ushi", "meaning": "con bò", "example_sentence": "牛が三匹います", "example_meaning": "Có 3 con bò"},
+            {"word": "豚", "kana": "ぶた", "romaji": "buta", "meaning": "con lợn", "example_sentence": "豚が二匹います", "example_meaning": "Có hai con lợn"},
+            {"word": "虫", "kana": "むし", "romaji": "mushi", "meaning": "côn trùng", "example_sentence": "夏は虫が多いです", "example_meaning": "Mùa hè có nhiều côn trùng"},
+            {"word": "動物", "kana": "どうぶつ", "romaji": "doubutsu", "meaning": "động vật", "example_sentence": "動物が好きです", "example_meaning": "Tôi thích động vật"},
+            {"word": "匹", "kana": "ひき", "romaji": "hiki", "meaning": "(đếm động vật nhỏ)", "example_sentence": "犬が二匹います", "example_meaning": "Có hai con chó"},
+            {"word": "森", "kana": "もり", "romaji": "mori", "meaning": "rừng", "example_sentence": "森は静かです", "example_meaning": "Khu rừng yên tĩnh"},
+            {"word": "池", "kana": "いけ", "romaji": "ike", "meaning": "cái ao", "example_sentence": "池に魚がいます", "example_meaning": "Trong ao có cá"},
+            {"word": "石", "kana": "いし", "romaji": "ishi", "meaning": "hòn đá", "example_sentence": "道に石があります", "example_meaning": "Trên đường có hòn đá"},
+            {"word": "星", "kana": "ほし", "romaji": "hoshi", "meaning": "ngôi sao", "example_sentence": "星がきれいです", "example_meaning": "Những vì sao thật đẹp"},
+            {"word": "月", "kana": "つき", "romaji": "tsuki", "meaning": "mặt trăng", "example_sentence": "今日は月がきれいです", "example_meaning": "Hôm nay trăng đẹp"},
+            {"word": "雲", "kana": "くも", "romaji": "kumo", "meaning": "mây", "example_sentence": "空に雲があります", "example_meaning": "Trên trời có mây"},
+            {"word": "湖", "kana": "みずうみ", "romaji": "mizuumi", "meaning": "hồ", "example_sentence": "湖は大きいです", "example_meaning": "Cái hồ rất lớn"}
+          ],
+          "grammar": [
+            {"title": "～がいます (động vật)", "explanation": "います dùng cho người và động vật, あります dùng cho đồ vật, cây cối.", "example_sentence": "庭に猫がいます。(Trong vườn có con mèo.)"},
+            {"title": "～は～が～です", "explanation": "Chủ đề + chủ ngữ + vị ngữ: miêu tả đặc điểm của chủ đề.", "example_sentence": "象は鼻が長いです。(Con voi thì vòi dài.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 21: Động vật và thiên nhiên",
+              "questions": [
+                {"text": "「月」 nghĩa là gì?", "answers": ["mặt trăng", "con bò", "trò chơi", "bé gái"], "correct": 0},
+                {"text": "「湖」 nghĩa là gì?", "answers": ["người nước ngoài", "hồ", "phía bắc", "tháng 10"], "correct": 1},
+                {"text": "「池」 nghĩa là gì?", "answers": ["Trung Quốc", "cái ao", "sở thích", "vận động"], "correct": 1},
+                {"text": "「鳥」 nghĩa là gì?", "answers": ["Hàn Quốc", "con chim", "món ăn, nấu ăn", "rượu"], "correct": 1},
+                {"text": "「猫」 nghĩa là gì?", "answers": ["bác sĩ", "con mèo", "mỗi tháng", "internet"], "correct": 1},
+                {"text": "Cách đọc của 「動物」 là gì?", "answers": ["はたち", "おふろ", "こんばん", "どうぶつ"], "correct": 3},
+                {"text": "Cách đọc của 「牛」 là gì?", "answers": ["うし", "からい", "こたえる", "ケーキ"], "correct": 0},
+                {"text": "Cách đọc của 「豚」 là gì?", "answers": ["ペン", "こども", "ぶた", "うんてんしゅ"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 22: Ẩm thực mở rộng",
+          "order": 22,
+          "content": "Món ăn, nguyên liệu, trái cây và các loại quán ăn.",
+          "vocabulary": [
+            {"word": "米", "kana": "こめ", "romaji": "kome", "meaning": "gạo", "example_sentence": "米を買います", "example_meaning": "Tôi mua gạo"},
+            {"word": "弁当", "kana": "べんとう", "romaji": "bentou", "meaning": "cơm hộp", "example_sentence": "弁当を食べます", "example_meaning": "Tôi ăn cơm hộp"},
+            {"word": "お菓子", "kana": "おかし", "romaji": "okashi", "meaning": "bánh kẹo", "example_sentence": "お菓子が好きです", "example_meaning": "Tôi thích bánh kẹo"},
+            {"word": "ケーキ", "kana": "ケーキ", "romaji": "keeki", "meaning": "bánh ngọt", "example_sentence": "ケーキを食べます", "example_meaning": "Tôi ăn bánh ngọt"},
+            {"word": "アイスクリーム", "kana": "アイスクリーム", "romaji": "aisukuriimu", "meaning": "kem", "example_sentence": "アイスクリームは冷たいです", "example_meaning": "Kem thì lạnh"},
+            {"word": "チョコレート", "kana": "チョコレート", "romaji": "chokoreeto", "meaning": "sô cô la", "example_sentence": "チョコレートが好きです", "example_meaning": "Tôi thích sô cô la"},
+            {"word": "砂糖", "kana": "さとう", "romaji": "satou", "meaning": "đường", "example_sentence": "砂糖は甘いです", "example_meaning": "Đường thì ngọt"},
+            {"word": "塩", "kana": "しお", "romaji": "shio", "meaning": "muối", "example_sentence": "塩をください", "example_meaning": "Cho tôi muối"},
+            {"word": "醤油", "kana": "しょうゆ", "romaji": "shouyu", "meaning": "nước tương", "example_sentence": "醤油は黒いです", "example_meaning": "Nước tương màu đen"},
+            {"word": "バター", "kana": "バター", "romaji": "bataa", "meaning": "bơ", "example_sentence": "バターとパンを買います", "example_meaning": "Tôi mua bơ và bánh mì"},
+            {"word": "豚肉", "kana": "ぶたにく", "romaji": "butaniku", "meaning": "thịt lợn", "example_sentence": "豚肉を食べます", "example_meaning": "Tôi ăn thịt lợn"},
+            {"word": "牛肉", "kana": "ぎゅうにく", "romaji": "gyuuniku", "meaning": "thịt bò", "example_sentence": "牛肉は高いです", "example_meaning": "Thịt bò đắt"},
+            {"word": "鶏肉", "kana": "とりにく", "romaji": "toriniku", "meaning": "thịt gà", "example_sentence": "鶏肉が好きです", "example_meaning": "Tôi thích thịt gà"},
+            {"word": "りんご", "kana": "りんご", "romaji": "ringo", "meaning": "táo", "example_sentence": "りんごは百円です", "example_meaning": "Táo giá 100 yên"},
+            {"word": "みかん", "kana": "みかん", "romaji": "mikan", "meaning": "quýt", "example_sentence": "みかんを食べます", "example_meaning": "Tôi ăn quýt"},
+            {"word": "バナナ", "kana": "バナナ", "romaji": "banana", "meaning": "chuối", "example_sentence": "バナナは安いです", "example_meaning": "Chuối rẻ"},
+            {"word": "トマト", "kana": "トマト", "romaji": "tomato", "meaning": "cà chua", "example_sentence": "トマトは赤いです", "example_meaning": "Cà chua màu đỏ"},
+            {"word": "じゃがいも", "kana": "じゃがいも", "romaji": "jagaimo", "meaning": "khoai tây", "example_sentence": "じゃがいもを買います", "example_meaning": "Tôi mua khoai tây"},
+            {"word": "玉ねぎ", "kana": "たまねぎ", "romaji": "tamanegi", "meaning": "hành tây", "example_sentence": "玉ねぎを切ります", "example_meaning": "Tôi cắt hành tây"},
+            {"word": "サラダ", "kana": "サラダ", "romaji": "sarada", "meaning": "sa lát", "example_sentence": "サラダを食べます", "example_meaning": "Tôi ăn sa lát"},
+            {"word": "スープ", "kana": "スープ", "romaji": "suupu", "meaning": "súp", "example_sentence": "スープは熱いです", "example_meaning": "Súp nóng"},
+            {"word": "カレー", "kana": "カレー", "romaji": "karee", "meaning": "cà ri", "example_sentence": "カレーが好きです", "example_meaning": "Tôi thích cà ri"},
+            {"word": "ラーメン", "kana": "ラーメン", "romaji": "raamen", "meaning": "mì ramen", "example_sentence": "ラーメンを食べに行きます", "example_meaning": "Tôi đi ăn ramen"},
+            {"word": "寿司", "kana": "すし", "romaji": "sushi", "meaning": "sushi", "example_sentence": "寿司はおいしいです", "example_meaning": "Sushi ngon"},
+            {"word": "うどん", "kana": "うどん", "romaji": "udon", "meaning": "mì udon", "example_sentence": "うどんを食べます", "example_meaning": "Tôi ăn udon"},
+            {"word": "ジュース", "kana": "ジュース", "romaji": "juusu", "meaning": "nước ép", "example_sentence": "ジュースを飲みます", "example_meaning": "Tôi uống nước ép"},
+            {"word": "お酒", "kana": "おさけ", "romaji": "osake", "meaning": "rượu", "example_sentence": "お酒は飲みません", "example_meaning": "Tôi không uống rượu"},
+            {"word": "紅茶", "kana": "こうちゃ", "romaji": "koucha", "meaning": "hồng trà", "example_sentence": "紅茶をください", "example_meaning": "Cho tôi hồng trà"},
+            {"word": "食堂", "kana": "しょくどう", "romaji": "shokudou", "meaning": "nhà ăn", "example_sentence": "食堂で昼ご飯を食べます", "example_meaning": "Tôi ăn trưa ở nhà ăn"},
+            {"word": "喫茶店", "kana": "きっさてん", "romaji": "kissaten", "meaning": "quán cà phê", "example_sentence": "喫茶店でコーヒーを飲みます", "example_meaning": "Tôi uống cà phê ở quán"},
+            {"word": "レストラン", "kana": "レストラン", "romaji": "resutoran", "meaning": "nhà hàng", "example_sentence": "レストランへ行きます", "example_meaning": "Tôi đi nhà hàng"},
+            {"word": "メニュー", "kana": "メニュー", "romaji": "menyuu", "meaning": "thực đơn", "example_sentence": "メニューを見せてください", "example_meaning": "Cho tôi xem thực đơn"}
+          ],
+          "grammar": [
+            {"title": "～はどうですか", "explanation": "Hỏi ý kiến hoặc đề nghị: ... thì thế nào?", "example_sentence": "コーヒーはどうですか。(Cà phê thì sao?)"},
+            {"title": "～に行きます (mục đích)", "explanation": "Động từ thể ます (bỏ ます) + に行きます: đi để làm gì.", "example_sentence": "ラーメンを食べに行きます。(Tôi đi ăn ramen.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 22: Ẩm thực mở rộng",
+              "questions": [
+                {"text": "「みかん」 nghĩa là gì?", "answers": ["báo", "quýt", "đại học", "buổi sáng"], "correct": 1},
+                {"text": "「メニュー」 nghĩa là gì?", "answers": ["hai người", "tốt bụng", "mỗi tháng", "thực đơn"], "correct": 3},
+                {"text": "「スープ」 nghĩa là gì?", "answers": ["năm nay", "khăn tay", "tháng sau", "súp"], "correct": 3},
+                {"text": "「醤油」 nghĩa là gì?", "answers": ["cái đó", "giấy", "nước tương", "trẻ"], "correct": 2},
+                {"text": "「レストラン」 nghĩa là gì?", "answers": ["tôi", "lễ hội", "mỗi tối", "nhà hàng"], "correct": 3},
+                {"text": "Cách đọc của 「食堂」 là gì?", "answers": ["はん", "からい", "サッカー", "しょくどう"], "correct": 3},
+                {"text": "Cách đọc của 「米」 là gì?", "answers": ["ところ", "こめ", "しゅくだい", "いっぱい"], "correct": 1}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 23: Quần áo và đồ dùng",
+          "order": 23,
+          "content": "Quần áo, phụ kiện, và các động từ mặc, mang, đội, đeo.",
+          "vocabulary": [
+            {"word": "シャツ", "kana": "シャツ", "romaji": "shatsu", "meaning": "áo sơ mi", "example_sentence": "白いシャツです", "example_meaning": "Là chiếc áo sơ mi trắng"},
+            {"word": "ズボン", "kana": "ズボン", "romaji": "zubon", "meaning": "quần dài", "example_sentence": "ズボンを買います", "example_meaning": "Tôi mua quần dài"},
+            {"word": "スカート", "kana": "スカート", "romaji": "sukaato", "meaning": "váy", "example_sentence": "赤いスカートです", "example_meaning": "Là chiếc váy đỏ"},
+            {"word": "セーター", "kana": "セーター", "romaji": "seetaa", "meaning": "áo len", "example_sentence": "セーターは暖かいです", "example_meaning": "Áo len ấm"},
+            {"word": "コート", "kana": "コート", "romaji": "kooto", "meaning": "áo khoác dài", "example_sentence": "冬はコートを着ます", "example_meaning": "Mùa đông tôi mặc áo khoác"},
+            {"word": "靴下", "kana": "くつした", "romaji": "kutsushita", "meaning": "tất, vớ", "example_sentence": "靴下は黒いです", "example_meaning": "Tất màu đen"},
+            {"word": "眼鏡", "kana": "めがね", "romaji": "megane", "meaning": "kính mắt", "example_sentence": "眼鏡をかけます", "example_meaning": "Tôi đeo kính"},
+            {"word": "ネクタイ", "kana": "ネクタイ", "romaji": "nekutai", "meaning": "cà vạt", "example_sentence": "ネクタイを買います", "example_meaning": "Tôi mua cà vạt"},
+            {"word": "洋服", "kana": "ようふく", "romaji": "youfuku", "meaning": "quần áo kiểu Tây", "example_sentence": "洋服を着ます", "example_meaning": "Tôi mặc quần áo kiểu Tây"},
+            {"word": "着る", "kana": "きる", "romaji": "kiru", "meaning": "mặc (áo)", "example_sentence": "シャツを着ます", "example_meaning": "Tôi mặc áo sơ mi"},
+            {"word": "脱ぐ", "kana": "ぬぐ", "romaji": "nugu", "meaning": "cởi", "example_sentence": "靴を脱ぎます", "example_meaning": "Tôi cởi giày"},
+            {"word": "履く", "kana": "はく", "romaji": "haku", "meaning": "đi (giày, quần)", "example_sentence": "靴を履きます", "example_meaning": "Tôi đi giày"},
+            {"word": "かぶる", "kana": "かぶる", "romaji": "kaburu", "meaning": "đội (mũ)", "example_sentence": "帽子をかぶります", "example_meaning": "Tôi đội mũ"},
+            {"word": "かける", "kana": "かける", "romaji": "kakeru", "meaning": "đeo (kính), gọi (điện thoại)", "example_sentence": "電話をかけます", "example_meaning": "Tôi gọi điện thoại"},
+            {"word": "ポケット", "kana": "ポケット", "romaji": "poketto", "meaning": "túi áo", "example_sentence": "ポケットに財布があります", "example_meaning": "Trong túi có ví"},
+            {"word": "荷物", "kana": "にもつ", "romaji": "nimotsu", "meaning": "hành lý", "example_sentence": "荷物が多いです", "example_meaning": "Hành lý nhiều"},
+            {"word": "薬", "kana": "くすり", "romaji": "kusuri", "meaning": "thuốc", "example_sentence": "薬を飲みます", "example_meaning": "Tôi uống thuốc"},
+            {"word": "ハンカチ", "kana": "ハンカチ", "romaji": "hankachi", "meaning": "khăn tay", "example_sentence": "ハンカチを使います", "example_meaning": "Tôi dùng khăn tay"},
+            {"word": "手袋", "kana": "てぶくろ", "romaji": "tebukuro", "meaning": "găng tay", "example_sentence": "手袋は冬に使います", "example_meaning": "Găng tay dùng vào mùa đông"},
+            {"word": "プレゼント", "kana": "プレゼント", "romaji": "purezento", "meaning": "quà tặng", "example_sentence": "誕生日のプレゼントを買います", "example_meaning": "Tôi mua quà sinh nhật"},
+            {"word": "お土産", "kana": "おみやげ", "romaji": "omiyage", "meaning": "quà lưu niệm", "example_sentence": "日本のお土産を買います", "example_meaning": "Tôi mua quà lưu niệm Nhật"},
+            {"word": "切手", "kana": "きって", "romaji": "kitte", "meaning": "tem", "example_sentence": "切手を買います", "example_meaning": "Tôi mua tem"},
+            {"word": "葉書", "kana": "はがき", "romaji": "hagaki", "meaning": "bưu thiếp", "example_sentence": "葉書を書きます", "example_meaning": "Tôi viết bưu thiếp"},
+            {"word": "封筒", "kana": "ふうとう", "romaji": "fuutou", "meaning": "phong bì", "example_sentence": "封筒を買います", "example_meaning": "Tôi mua phong bì"}
+          ],
+          "grammar": [
+            {"title": "～を着ます / はきます / かぶります / かけます", "explanation": "Mỗi loại đồ mặc dùng một động từ riêng: 着る (áo), はく (quần, giày), かぶる (mũ), かける (kính).", "example_sentence": "帽子をかぶります。(Tôi đội mũ.)"},
+            {"title": "～は～のです", "explanation": "Dùng の thay cho danh từ đã nhắc trước: của ...", "example_sentence": "この傘は私のです。(Cái ô này là của tôi.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 23: Quần áo và đồ dùng",
+              "questions": [
+                {"text": "「切手」 nghĩa là gì?", "answers": ["bàn học", "tem", "hai", "vui mừng"], "correct": 1},
+                {"text": "「封筒」 nghĩa là gì?", "answers": ["xe đạp", "phong bì", "mùng 7 (bảy ngày)", "đường"], "correct": 1},
+                {"text": "「葉書」 nghĩa là gì?", "answers": ["trả lời", "cùng nhau", "bưu thiếp", "cầm, mang"], "correct": 2},
+                {"text": "「コート」 nghĩa là gì?", "answers": ["bốn cái", "bên cạnh", "mỗi tối", "áo khoác dài"], "correct": 3},
+                {"text": "「セーター」 nghĩa là gì?", "answers": ["tiếng Nhật", "bản đồ", "nghỉ đông", "áo len"], "correct": 3},
+                {"text": "Cách đọc của 「着る」 là gì?", "answers": ["ねこ", "コーヒー", "きる", "いただきます"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 24: Thành phố và phương hướng",
+          "order": 24,
+          "content": "Địa điểm trong thành phố, chỉ đường và các thành phố nổi tiếng ở Nhật.",
+          "vocabulary": [
+            {"word": "町", "kana": "まち", "romaji": "machi", "meaning": "thị trấn, thành phố nhỏ", "example_sentence": "この町は静かです", "example_meaning": "Thị trấn này yên tĩnh"},
+            {"word": "村", "kana": "むら", "romaji": "mura", "meaning": "ngôi làng", "example_sentence": "村は山の中にあります", "example_meaning": "Ngôi làng ở trong núi"},
+            {"word": "大学", "kana": "だいがく", "romaji": "daigaku", "meaning": "đại học", "example_sentence": "兄は大学へ行きます", "example_meaning": "Anh tôi đi học đại học"},
+            {"word": "高校", "kana": "こうこう", "romaji": "koukou", "meaning": "trường cấp ba", "example_sentence": "高校は駅の隣です", "example_meaning": "Trường cấp ba cạnh nhà ga"},
+            {"word": "映画館", "kana": "えいがかん", "romaji": "eigakan", "meaning": "rạp chiếu phim", "example_sentence": "映画館で映画を見ます", "example_meaning": "Tôi xem phim ở rạp"},
+            {"word": "ホテル", "kana": "ホテル", "romaji": "hoteru", "meaning": "khách sạn", "example_sentence": "ホテルは駅の前です", "example_meaning": "Khách sạn ở trước nhà ga"},
+            {"word": "デパート", "kana": "デパート", "romaji": "depaato", "meaning": "cửa hàng bách hóa", "example_sentence": "デパートで服を買います", "example_meaning": "Tôi mua quần áo ở bách hóa"},
+            {"word": "スーパー", "kana": "スーパー", "romaji": "suupaa", "meaning": "siêu thị", "example_sentence": "スーパーは安いです", "example_meaning": "Siêu thị rẻ"},
+            {"word": "本屋", "kana": "ほんや", "romaji": "honya", "meaning": "hiệu sách", "example_sentence": "本屋で本を買います", "example_meaning": "Tôi mua sách ở hiệu sách"},
+            {"word": "花屋", "kana": "はなや", "romaji": "hanaya", "meaning": "cửa hàng hoa", "example_sentence": "花屋は銀行の隣です", "example_meaning": "Cửa hàng hoa cạnh ngân hàng"},
+            {"word": "パン屋", "kana": "パンや", "romaji": "panya", "meaning": "tiệm bánh mì", "example_sentence": "パン屋でパンを買います", "example_meaning": "Tôi mua bánh mì ở tiệm bánh"},
+            {"word": "交番", "kana": "こうばん", "romaji": "kouban", "meaning": "đồn cảnh sát nhỏ", "example_sentence": "交番はあそこです", "example_meaning": "Đồn cảnh sát ở kia"},
+            {"word": "橋", "kana": "はし", "romaji": "hashi", "meaning": "cây cầu", "example_sentence": "橋は長いです", "example_meaning": "Cây cầu dài"},
+            {"word": "信号", "kana": "しんごう", "romaji": "shingou", "meaning": "đèn giao thông", "example_sentence": "信号は赤です", "example_meaning": "Đèn giao thông đang đỏ"},
+            {"word": "角", "kana": "かど", "romaji": "kado", "meaning": "góc đường", "example_sentence": "角に店があります", "example_meaning": "Ở góc đường có cửa hàng"},
+            {"word": "交差点", "kana": "こうさてん", "romaji": "kousaten", "meaning": "ngã tư", "example_sentence": "交差点に銀行があります", "example_meaning": "Ở ngã tư có ngân hàng"},
+            {"word": "近く", "kana": "ちかく", "romaji": "chikaku", "meaning": "gần", "example_sentence": "家の近くに公園があります", "example_meaning": "Gần nhà có công viên"},
+            {"word": "遠く", "kana": "とおく", "romaji": "tooku", "meaning": "xa", "example_sentence": "遠くに山があります", "example_meaning": "Ở xa có ngọn núi"},
+            {"word": "向こう", "kana": "むこう", "romaji": "mukou", "meaning": "phía bên kia", "example_sentence": "川の向こうに学校があります", "example_meaning": "Bên kia sông có trường học"},
+            {"word": "横", "kana": "よこ", "romaji": "yoko", "meaning": "bên cạnh, chiều ngang", "example_sentence": "机の横に椅子があります", "example_meaning": "Cạnh bàn có ghế"},
+            {"word": "間", "kana": "あいだ", "romaji": "aida", "meaning": "ở giữa, khoảng", "example_sentence": "銀行と駅の間に店があります", "example_meaning": "Giữa ngân hàng và nhà ga có cửa hàng"},
+            {"word": "外", "kana": "そと", "romaji": "soto", "meaning": "bên ngoài", "example_sentence": "外は寒いです", "example_meaning": "Bên ngoài lạnh"},
+            {"word": "東", "kana": "ひがし", "romaji": "higashi", "meaning": "phía đông", "example_sentence": "駅は東にあります", "example_meaning": "Nhà ga ở phía đông"},
+            {"word": "西", "kana": "にし", "romaji": "nishi", "meaning": "phía tây", "example_sentence": "学校は西にあります", "example_meaning": "Trường ở phía tây"},
+            {"word": "南", "kana": "みなみ", "romaji": "minami", "meaning": "phía nam", "example_sentence": "南は暑いです", "example_meaning": "Phía nam nóng"},
+            {"word": "北", "kana": "きた", "romaji": "kita", "meaning": "phía bắc", "example_sentence": "北は寒いです", "example_meaning": "Phía bắc lạnh"},
+            {"word": "東京", "kana": "とうきょう", "romaji": "toukyou", "meaning": "Tokyo", "example_sentence": "東京は大きい町です", "example_meaning": "Tokyo là thành phố lớn"},
+            {"word": "大阪", "kana": "おおさか", "romaji": "oosaka", "meaning": "Osaka", "example_sentence": "大阪は食べ物がおいしいです", "example_meaning": "Osaka đồ ăn ngon"},
+            {"word": "京都", "kana": "きょうと", "romaji": "kyouto", "meaning": "Kyoto", "example_sentence": "京都はきれいです", "example_meaning": "Kyoto đẹp"},
+            {"word": "富士山", "kana": "ふじさん", "romaji": "fujisan", "meaning": "núi Phú Sĩ", "example_sentence": "富士山は日本で一番高い山です", "example_meaning": "Núi Phú Sĩ là ngọn núi cao nhất Nhật Bản"}
+          ],
+          "grammar": [
+            {"title": "～の隣 / ～の横 / ～の間", "explanation": "Danh từ chỉ vị trí: bên cạnh, bên hông, ở giữa.", "example_sentence": "銀行と駅の間に店があります。(Giữa ngân hàng và nhà ga có cửa hàng.)"},
+            {"title": "～を右 / 左へ曲がります", "explanation": "Chỉ đường: rẽ phải / rẽ trái.", "example_sentence": "あの信号を右へ曲がります。(Rẽ phải ở đèn tín hiệu kia.)"},
+            {"title": "～は～で一番～です", "explanation": "So sánh nhất: trong phạm vi ... thì ... nhất.", "example_sentence": "富士山は日本で一番高いです。(Núi Phú Sĩ cao nhất Nhật Bản.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 24: Thành phố và phương hướng",
+              "questions": [
+                {"text": "「角」 nghĩa là gì?", "answers": ["bên phải", "thế giới", "góc đường", "giường"], "correct": 2},
+                {"text": "「交番」 nghĩa là gì?", "answers": ["đồn cảnh sát nhỏ", "du học sinh", "mùng 8 (tám ngày)", "tối"], "correct": 0},
+                {"text": "「外」 nghĩa là gì?", "answers": ["nước Anh", "thị trấn, thành phố nhỏ", "bên ngoài", "suối nước nóng"], "correct": 2},
+                {"text": "「西」 nghĩa là gì?", "answers": ["phía tây", "thời gian", "tốt", "ngủ"], "correct": 0},
+                {"text": "「大阪」 nghĩa là gì?", "answers": ["thức dậy", "sở thích", "Osaka", "bánh mì"], "correct": 2},
+                {"text": "Cách đọc của 「本屋」 là gì?", "answers": ["じ", "れいぞうこ", "のど", "ほんや"], "correct": 3},
+                {"text": "Cách đọc của 「向こう」 là gì?", "answers": ["チョコレート", "もういちど", "がっこう", "むこう"], "correct": 3},
+                {"text": "Cách đọc của 「橋」 là gì?", "answers": ["はし", "いち", "また", "スキー"], "correct": 0}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 25: Động từ thông dụng (1)",
+          "order": 25,
+          "content": "Nhóm động từ hay gặp: mở, đóng, mượn, trả, ngồi, đứng, hiểu, biết...",
+          "vocabulary": [
+            {"word": "開ける", "kana": "あける", "romaji": "akeru", "meaning": "mở (cái gì)", "example_sentence": "窓を開けます", "example_meaning": "Tôi mở cửa sổ"},
+            {"word": "閉める", "kana": "しめる", "romaji": "shimeru", "meaning": "đóng (cái gì)", "example_sentence": "ドアを閉めます", "example_meaning": "Tôi đóng cửa"},
+            {"word": "開く", "kana": "あく", "romaji": "aku", "meaning": "mở (tự mở)", "example_sentence": "店は九時に開きます", "example_meaning": "Cửa hàng mở lúc 9 giờ"},
+            {"word": "閉まる", "kana": "しまる", "romaji": "shimaru", "meaning": "đóng (tự đóng)", "example_sentence": "店は六時に閉まります", "example_meaning": "Cửa hàng đóng lúc 6 giờ"},
+            {"word": "着く", "kana": "つく", "romaji": "tsuku", "meaning": "đến nơi", "example_sentence": "五時に駅に着きます", "example_meaning": "Tôi đến ga lúc 5 giờ"},
+            {"word": "住む", "kana": "すむ", "romaji": "sumu", "meaning": "sống, ở", "example_sentence": "東京に住んでいます", "example_meaning": "Tôi đang sống ở Tokyo"},
+            {"word": "遊ぶ", "kana": "あそぶ", "romaji": "asobu", "meaning": "chơi", "example_sentence": "公園で遊びます", "example_meaning": "Tôi chơi ở công viên"},
+            {"word": "泳ぐ", "kana": "およぐ", "romaji": "oyogu", "meaning": "bơi", "example_sentence": "海で泳ぎます", "example_meaning": "Tôi bơi ở biển"},
+            {"word": "洗う", "kana": "あらう", "romaji": "arau", "meaning": "rửa", "example_sentence": "顔を洗います", "example_meaning": "Tôi rửa mặt"},
+            {"word": "持つ", "kana": "もつ", "romaji": "motsu", "meaning": "cầm, mang", "example_sentence": "かばんを持ちます", "example_meaning": "Tôi xách cặp"},
+            {"word": "立つ", "kana": "たつ", "romaji": "tatsu", "meaning": "đứng", "example_sentence": "ここに立ってください", "example_meaning": "Hãy đứng ở đây"},
+            {"word": "座る", "kana": "すわる", "romaji": "suwaru", "meaning": "ngồi", "example_sentence": "ここに座ってください", "example_meaning": "Hãy ngồi ở đây"},
+            {"word": "呼ぶ", "kana": "よぶ", "romaji": "yobu", "meaning": "gọi (ai đó)", "example_sentence": "友達を呼びます", "example_meaning": "Tôi gọi bạn"},
+            {"word": "取る", "kana": "とる", "romaji": "toru", "meaning": "lấy", "example_sentence": "塩を取ってください", "example_meaning": "Hãy lấy giúp tôi muối"},
+            {"word": "撮る", "kana": "とる", "romaji": "toru", "meaning": "chụp (ảnh)", "example_sentence": "写真を撮ります", "example_meaning": "Tôi chụp ảnh"},
+            {"word": "吸う", "kana": "すう", "romaji": "suu", "meaning": "hút (thuốc)", "example_sentence": "ここでたばこを吸ってはいけません", "example_meaning": "Không được hút thuốc ở đây"},
+            {"word": "貸す", "kana": "かす", "romaji": "kasu", "meaning": "cho mượn", "example_sentence": "ペンを貸します", "example_meaning": "Tôi cho mượn bút"},
+            {"word": "借りる", "kana": "かりる", "romaji": "kariru", "meaning": "mượn", "example_sentence": "本を借ります", "example_meaning": "Tôi mượn sách"},
+            {"word": "返す", "kana": "かえす", "romaji": "kaesu", "meaning": "trả lại", "example_sentence": "本を返します", "example_meaning": "Tôi trả sách"},
+            {"word": "切る", "kana": "きる", "romaji": "kiru", "meaning": "cắt", "example_sentence": "紙を切ります", "example_meaning": "Tôi cắt giấy"},
+            {"word": "送る", "kana": "おくる", "romaji": "okuru", "meaning": "gửi", "example_sentence": "手紙を送ります", "example_meaning": "Tôi gửi thư"},
+            {"word": "手伝う", "kana": "てつだう", "romaji": "tetsudau", "meaning": "giúp đỡ", "example_sentence": "母を手伝います", "example_meaning": "Tôi giúp mẹ"},
+            {"word": "思う", "kana": "おもう", "romaji": "omou", "meaning": "nghĩ", "example_sentence": "日本語は難しいと思います", "example_meaning": "Tôi nghĩ tiếng Nhật khó"},
+            {"word": "知る", "kana": "しる", "romaji": "shiru", "meaning": "biết", "example_sentence": "その人を知っています", "example_meaning": "Tôi biết người đó"},
+            {"word": "分かる", "kana": "わかる", "romaji": "wakaru", "meaning": "hiểu", "example_sentence": "日本語が分かります", "example_meaning": "Tôi hiểu tiếng Nhật"},
+            {"word": "要る", "kana": "いる", "romaji": "iru", "meaning": "cần", "example_sentence": "お金が要ります", "example_meaning": "Tôi cần tiền"},
+            {"word": "降る", "kana": "ふる", "romaji": "furu", "meaning": "rơi (mưa, tuyết)", "example_sentence": "雨が降っています", "example_meaning": "Trời đang mưa"},
+            {"word": "上がる", "kana": "あがる", "romaji": "agaru", "meaning": "đi lên, tăng lên", "example_sentence": "階段を上がります", "example_meaning": "Tôi đi lên cầu thang"},
+            {"word": "曲がる", "kana": "まがる", "romaji": "magaru", "meaning": "rẽ, cong", "example_sentence": "右に曲がります", "example_meaning": "Tôi rẽ phải"},
+            {"word": "渡る", "kana": "わたる", "romaji": "wataru", "meaning": "băng qua", "example_sentence": "橋を渡ります", "example_meaning": "Tôi đi qua cầu"},
+            {"word": "急ぐ", "kana": "いそぐ", "romaji": "isogu", "meaning": "vội, nhanh lên", "example_sentence": "急いでください", "example_meaning": "Hãy nhanh lên"},
+            {"word": "始まる", "kana": "はじまる", "romaji": "hajimaru", "meaning": "bắt đầu", "example_sentence": "授業は九時に始まります", "example_meaning": "Tiết học bắt đầu lúc 9 giờ"},
+            {"word": "終わる", "kana": "おわる", "romaji": "owaru", "meaning": "kết thúc", "example_sentence": "仕事は五時に終わります", "example_meaning": "Công việc kết thúc lúc 5 giờ"}
+          ],
+          "grammar": [
+            {"title": "～ています (đang làm)", "explanation": "Thể て + います: hành động đang diễn ra hoặc trạng thái kéo dài.", "example_sentence": "今、勉強しています。(Bây giờ tôi đang học.)"},
+            {"title": "～てから", "explanation": "Sau khi làm xong A thì làm B.", "example_sentence": "ご飯を食べてから、勉強します。(Sau khi ăn cơm, tôi học bài.)"},
+            {"title": "～てはいけません", "explanation": "Cấm đoán: không được làm ...", "example_sentence": "ここで写真を撮ってはいけません。(Không được chụp ảnh ở đây.)"},
+            {"title": "～ないでください", "explanation": "Yêu cầu ai đó không làm gì.", "example_sentence": "ここで食べないでください。(Xin đừng ăn ở đây.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 25: Động từ thông dụng (1)",
+              "questions": [
+                {"text": "「曲がる」 nghĩa là gì?", "answers": ["sách", "lâu rồi không gặp", "20 tuổi", "rẽ, cong"], "correct": 3},
+                {"text": "「吸う」 nghĩa là gì?", "answers": ["hút (thuốc)", "vào", "bia", "túi áo"], "correct": 0},
+                {"text": "「上がる」 nghĩa là gì?", "answers": ["đi lên, tăng lên", "phút", "ở đây", "ngày 24"], "correct": 0},
+                {"text": "「座る」 nghĩa là gì?", "answers": ["miệng", "ngồi", "bố (của mình)", "ấm áp"], "correct": 1},
+                {"text": "「閉まる」 nghĩa là gì?", "answers": ["giọng nói", "đóng (tự đóng)", "đẹp, sạch sẽ", "xem, nhìn"], "correct": 1},
+                {"text": "Cách đọc của 「手伝う」 là gì?", "answers": ["どちら", "てつだう", "バス", "とぶ"], "correct": 1},
+                {"text": "Cách đọc của 「渡る」 là gì?", "answers": ["つくる", "わたる", "なんさい", "ごちそうさま"], "correct": 1},
+                {"text": "Cách đọc của 「借りる」 là gì?", "answers": ["ちょっと", "バス", "かりる", "いく"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 26: Động từ thông dụng (2)",
+          "order": 26,
+          "content": "Thêm động từ về việc cho, nhận, nhớ, quên và các động từ ghép với する.",
+          "vocabulary": [
+            {"word": "見せる", "kana": "みせる", "romaji": "miseru", "meaning": "cho xem", "example_sentence": "写真を見せます", "example_meaning": "Tôi cho xem ảnh"},
+            {"word": "あげる", "kana": "あげる", "romaji": "ageru", "meaning": "cho, tặng", "example_sentence": "友達に本をあげます", "example_meaning": "Tôi tặng sách cho bạn"},
+            {"word": "もらう", "kana": "もらう", "romaji": "morau", "meaning": "nhận", "example_sentence": "母に本をもらいます", "example_meaning": "Tôi nhận sách từ mẹ"},
+            {"word": "忘れる", "kana": "わすれる", "romaji": "wasureru", "meaning": "quên", "example_sentence": "宿題を忘れました", "example_meaning": "Tôi đã quên bài tập"},
+            {"word": "覚える", "kana": "おぼえる", "romaji": "oboeru", "meaning": "nhớ, học thuộc", "example_sentence": "漢字を覚えます", "example_meaning": "Tôi học thuộc kanji"},
+            {"word": "考える", "kana": "かんがえる", "romaji": "kangaeru", "meaning": "suy nghĩ", "example_sentence": "よく考えます", "example_meaning": "Tôi suy nghĩ kỹ"},
+            {"word": "答える", "kana": "こたえる", "romaji": "kotaeru", "meaning": "trả lời", "example_sentence": "質問に答えます", "example_meaning": "Tôi trả lời câu hỏi"},
+            {"word": "疲れる", "kana": "つかれる", "romaji": "tsukareru", "meaning": "mệt", "example_sentence": "今日は疲れました", "example_meaning": "Hôm nay tôi mệt"},
+            {"word": "つける", "kana": "つける", "romaji": "tsukeru", "meaning": "bật, gắn", "example_sentence": "テレビをつけます", "example_meaning": "Tôi bật tivi"},
+            {"word": "消す", "kana": "けす", "romaji": "kesu", "meaning": "tắt, xóa", "example_sentence": "電気を消します", "example_meaning": "Tôi tắt đèn"},
+            {"word": "出かける", "kana": "でかける", "romaji": "dekakeru", "meaning": "ra ngoài", "example_sentence": "九時に出かけます", "example_meaning": "Tôi ra ngoài lúc 9 giờ"},
+            {"word": "浴びる", "kana": "あびる", "romaji": "abiru", "meaning": "tắm (vòi sen)", "example_sentence": "シャワーを浴びます", "example_meaning": "Tôi tắm vòi sen"},
+            {"word": "出す", "kana": "だす", "romaji": "dasu", "meaning": "gửi, lấy ra", "example_sentence": "手紙を出します", "example_meaning": "Tôi gửi thư"},
+            {"word": "入れる", "kana": "いれる", "romaji": "ireru", "meaning": "cho vào", "example_sentence": "かばんに本を入れます", "example_meaning": "Tôi cho sách vào cặp"},
+            {"word": "歌う", "kana": "うたう", "romaji": "utau", "meaning": "hát", "example_sentence": "歌を歌います", "example_meaning": "Tôi hát"},
+            {"word": "弾く", "kana": "ひく", "romaji": "hiku", "meaning": "chơi (đàn)", "example_sentence": "ピアノを弾きます", "example_meaning": "Tôi chơi piano"},
+            {"word": "飛ぶ", "kana": "とぶ", "romaji": "tobu", "meaning": "bay", "example_sentence": "飛行機が飛びます", "example_meaning": "Máy bay bay"},
+            {"word": "掃除する", "kana": "そうじする", "romaji": "soujisuru", "meaning": "dọn dẹp", "example_sentence": "部屋を掃除します", "example_meaning": "Tôi dọn dẹp phòng"},
+            {"word": "洗濯する", "kana": "せんたくする", "romaji": "sentakusuru", "meaning": "giặt đồ", "example_sentence": "日曜日に洗濯します", "example_meaning": "Tôi giặt đồ vào Chủ nhật"},
+            {"word": "散歩する", "kana": "さんぽする", "romaji": "sanposuru", "meaning": "đi dạo", "example_sentence": "公園を散歩します", "example_meaning": "Tôi đi dạo ở công viên"},
+            {"word": "勉強する", "kana": "べんきょうする", "romaji": "benkyousuru", "meaning": "học", "example_sentence": "図書館で勉強します", "example_meaning": "Tôi học ở thư viện"},
+            {"word": "電話する", "kana": "でんわする", "romaji": "denwasuru", "meaning": "gọi điện", "example_sentence": "家に電話します", "example_meaning": "Tôi gọi điện về nhà"},
+            {"word": "結婚する", "kana": "けっこんする", "romaji": "kekkonsuru", "meaning": "kết hôn", "example_sentence": "姉は結婚しました", "example_meaning": "Chị tôi đã kết hôn"},
+            {"word": "食事する", "kana": "しょくじする", "romaji": "shokujisuru", "meaning": "dùng bữa", "example_sentence": "友達と食事します", "example_meaning": "Tôi dùng bữa với bạn"},
+            {"word": "練習する", "kana": "れんしゅうする", "romaji": "renshuusuru", "meaning": "luyện tập", "example_sentence": "毎日練習します", "example_meaning": "Mỗi ngày tôi luyện tập"},
+            {"word": "買い物する", "kana": "かいものする", "romaji": "kaimonosuru", "meaning": "mua sắm", "example_sentence": "デパートで買い物します", "example_meaning": "Tôi mua sắm ở bách hóa"},
+            {"word": "運転する", "kana": "うんてんする", "romaji": "untensuru", "meaning": "lái xe", "example_sentence": "父は車を運転します", "example_meaning": "Bố tôi lái xe"},
+            {"word": "コピーする", "kana": "コピーする", "romaji": "kopiisuru", "meaning": "photo, sao chép", "example_sentence": "紙をコピーします", "example_meaning": "Tôi photo giấy"}
+          ],
+          "grammar": [
+            {"title": "～ない (thể ない)", "explanation": "Thể thông thường phủ định của động từ.", "example_sentence": "私は肉を食べない。(Tôi không ăn thịt.)"},
+            {"title": "～た (thể た)", "explanation": "Thể thông thường quá khứ của động từ.", "example_sentence": "昨日、映画を見た。(Hôm qua tôi đã xem phim.)"},
+            {"title": "～ましょうか", "explanation": "Đề nghị giúp đỡ hoặc rủ làm gì: để tôi ... nhé?", "example_sentence": "荷物を持ちましょうか。(Để tôi xách hành lý giúp bạn nhé?)"},
+            {"title": "～と思います", "explanation": "Diễn tả ý kiến, suy nghĩ của người nói.", "example_sentence": "日本語は面白いと思います。(Tôi nghĩ tiếng Nhật thú vị.)"},
+            {"title": "～をあげます / ～をもらいます", "explanation": "Cho tặng và nhận: (người cho) は (người nhận) に (vật) を あげます; (người nhận) は (người cho) に (vật) を もらいます.", "example_sentence": "友達に本をあげました。(Tôi đã tặng sách cho bạn.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 26: Động từ thông dụng (2)",
+              "questions": [
+                {"text": "「飛ぶ」 nghĩa là gì?", "answers": ["bay", "vấn đề, câu hỏi", "đi (giày, quần)", "bên trái"], "correct": 0},
+                {"text": "「忘れる」 nghĩa là gì?", "answers": ["rẽ, cong", "đúng vậy", "tháng này", "quên"], "correct": 3},
+                {"text": "「食事する」 nghĩa là gì?", "answers": ["ngã tư", "sách", "(đếm động vật nhỏ)", "dùng bữa"], "correct": 3},
+                {"text": "「もらう」 nghĩa là gì?", "answers": ["chị gái (của mình)", "nhận", "áo len", "Osaka"], "correct": 1},
+                {"text": "「弾く」 nghĩa là gì?", "answers": ["đồng hồ", "chơi (đàn)", "chạy", "sớm, nhanh"], "correct": 1},
+                {"text": "Cách đọc của 「歌う」 là gì?", "answers": ["よぶ", "ようじ", "かける", "うたう"], "correct": 3},
+                {"text": "Cách đọc của 「浴びる」 là gì?", "answers": ["もういちど", "コピーする", "あびる", "ただいま"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 27: Tính từ い mở rộng",
+          "order": 27,
+          "content": "Tính từ い diễn tả nhiệt độ, vị giác, kích thước, cảm xúc.",
+          "vocabulary": [
+            {"word": "熱い", "kana": "あつい", "romaji": "atsui", "meaning": "nóng (vật)", "example_sentence": "お茶は熱いです", "example_meaning": "Trà nóng"},
+            {"word": "冷たい", "kana": "つめたい", "romaji": "tsumetai", "meaning": "lạnh (vật)", "example_sentence": "水は冷たいです", "example_meaning": "Nước lạnh"},
+            {"word": "暖かい", "kana": "あたたかい", "romaji": "atatakai", "meaning": "ấm áp", "example_sentence": "部屋は暖かいです", "example_meaning": "Phòng ấm"},
+            {"word": "涼しい", "kana": "すずしい", "romaji": "suzushii", "meaning": "mát mẻ", "example_sentence": "今日は涼しいです", "example_meaning": "Hôm nay mát"},
+            {"word": "重い", "kana": "おもい", "romaji": "omoi", "meaning": "nặng", "example_sentence": "このかばんは重いです", "example_meaning": "Cái cặp này nặng"},
+            {"word": "軽い", "kana": "かるい", "romaji": "karui", "meaning": "nhẹ", "example_sentence": "この本は軽いです", "example_meaning": "Quyển sách này nhẹ"},
+            {"word": "広い", "kana": "ひろい", "romaji": "hiroi", "meaning": "rộng", "example_sentence": "この部屋は広いです", "example_meaning": "Phòng này rộng"},
+            {"word": "狭い", "kana": "せまい", "romaji": "semai", "meaning": "chật, hẹp", "example_sentence": "私の部屋は狭いです", "example_meaning": "Phòng tôi chật"},
+            {"word": "明るい", "kana": "あかるい", "romaji": "akarui", "meaning": "sáng sủa", "example_sentence": "この部屋は明るいです", "example_meaning": "Phòng này sáng"},
+            {"word": "暗い", "kana": "くらい", "romaji": "kurai", "meaning": "tối", "example_sentence": "夜は暗いです", "example_meaning": "Ban đêm tối"},
+            {"word": "早い", "kana": "はやい", "romaji": "hayai", "meaning": "sớm", "example_sentence": "朝はまだ早いです", "example_meaning": "Buổi sáng còn sớm"},
+            {"word": "遅い", "kana": "おそい", "romaji": "osoi", "meaning": "muộn, chậm", "example_sentence": "バスは遅いです", "example_meaning": "Xe buýt chậm"},
+            {"word": "速い", "kana": "はやい", "romaji": "hayai", "meaning": "nhanh", "example_sentence": "電車は速いです", "example_meaning": "Tàu điện nhanh"},
+            {"word": "甘い", "kana": "あまい", "romaji": "amai", "meaning": "ngọt", "example_sentence": "ケーキは甘いです", "example_meaning": "Bánh ngọt"},
+            {"word": "辛い", "kana": "からい", "romaji": "karai", "meaning": "cay", "example_sentence": "カレーは辛いです", "example_meaning": "Cà ri cay"},
+            {"word": "おいしい", "kana": "おいしい", "romaji": "oishii", "meaning": "ngon", "example_sentence": "このラーメンはおいしいです", "example_meaning": "Món ramen này ngon"},
+            {"word": "まずい", "kana": "まずい", "romaji": "mazui", "meaning": "dở", "example_sentence": "この料理はまずいです", "example_meaning": "Món này dở"},
+            {"word": "面白い", "kana": "おもしろい", "romaji": "omoshiroi", "meaning": "thú vị", "example_sentence": "この映画は面白いです", "example_meaning": "Bộ phim này thú vị"},
+            {"word": "つまらない", "kana": "つまらない", "romaji": "tsumaranai", "meaning": "chán", "example_sentence": "この本はつまらないです", "example_meaning": "Quyển sách này chán"},
+            {"word": "痛い", "kana": "いたい", "romaji": "itai", "meaning": "đau", "example_sentence": "お腹が痛いです", "example_meaning": "Tôi đau bụng"},
+            {"word": "若い", "kana": "わかい", "romaji": "wakai", "meaning": "trẻ", "example_sentence": "姉は若いです", "example_meaning": "Chị tôi trẻ"},
+            {"word": "近い", "kana": "ちかい", "romaji": "chikai", "meaning": "gần", "example_sentence": "駅は近いです", "example_meaning": "Nhà ga gần"},
+            {"word": "遠い", "kana": "とおい", "romaji": "tooi", "meaning": "xa", "example_sentence": "学校は遠いです", "example_meaning": "Trường xa"},
+            {"word": "低い", "kana": "ひくい", "romaji": "hikui", "meaning": "thấp", "example_sentence": "この山は低いです", "example_meaning": "Ngọn núi này thấp"},
+            {"word": "強い", "kana": "つよい", "romaji": "tsuyoi", "meaning": "mạnh", "example_sentence": "父は強いです", "example_meaning": "Bố tôi mạnh"},
+            {"word": "細い", "kana": "ほそい", "romaji": "hosoi", "meaning": "mảnh, hẹp", "example_sentence": "この道は細いです", "example_meaning": "Con đường này hẹp"},
+            {"word": "かわいい", "kana": "かわいい", "romaji": "kawaii", "meaning": "dễ thương", "example_sentence": "猫はかわいいです", "example_meaning": "Mèo dễ thương"},
+            {"word": "優しい", "kana": "やさしい", "romaji": "yasashii", "meaning": "hiền, tốt bụng", "example_sentence": "先生は優しいです", "example_meaning": "Thầy giáo hiền"},
+            {"word": "嬉しい", "kana": "うれしい", "romaji": "ureshii", "meaning": "vui mừng", "example_sentence": "プレゼントをもらって嬉しいです", "example_meaning": "Nhận được quà tôi rất vui"},
+            {"word": "悲しい", "kana": "かなしい", "romaji": "kanashii", "meaning": "buồn", "example_sentence": "悲しい映画です", "example_meaning": "Là bộ phim buồn"},
+            {"word": "危ない", "kana": "あぶない", "romaji": "abunai", "meaning": "nguy hiểm", "example_sentence": "この道は危ないです", "example_meaning": "Con đường này nguy hiểm"},
+            {"word": "すごい", "kana": "すごい", "romaji": "sugoi", "meaning": "tuyệt vời, kinh khủng", "example_sentence": "すごいですね", "example_meaning": "Tuyệt quá nhỉ"}
+          ],
+          "grammar": [
+            {"title": "～くないです", "explanation": "Phủ định của tính từ い: bỏ い thêm くないです.", "example_sentence": "この本は高くないです。(Quyển sách này không đắt.)"},
+            {"title": "～かったです / ～くなかったです", "explanation": "Quá khứ của tính từ い: bỏ い thêm かったです; phủ định quá khứ là くなかったです.", "example_sentence": "昨日は暑かったです。(Hôm qua đã nóng.)"},
+            {"title": "～くて、～ (nối tính từ)", "explanation": "Nối hai tính từ い: bỏ い thêm くて.", "example_sentence": "この部屋は広くて、明るいです。(Phòng này rộng và sáng.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 27: Tính từ い mở rộng",
+              "questions": [
+                {"text": "「辛い」 nghĩa là gì?", "answers": ["trái cây", "tháng 6", "cay", "hành tây"], "correct": 2},
+                {"text": "「甘い」 nghĩa là gì?", "answers": ["thích", "quần vợt", "bồn tắm, việc tắm", "ngọt"], "correct": 3},
+                {"text": "「早い」 nghĩa là gì?", "answers": ["sớm", "cá", "sushi", "bữa trưa"], "correct": 0},
+                {"text": "「かわいい」 nghĩa là gì?", "answers": ["mát mẻ", "sử dụng", "dễ thương", "trả tiền"], "correct": 2},
+                {"text": "「すごい」 nghĩa là gì?", "answers": ["một lần", "cơm hộp", "bài văn", "tuyệt vời, kinh khủng"], "correct": 3},
+                {"text": "Cách đọc của 「速い」 là gì?", "answers": ["びょうき", "はやい", "あさ", "ごがつ"], "correct": 1},
+                {"text": "Cách đọc của 「危ない」 là gì?", "answers": ["むこう", "あぶない", "じょうず", "おさきに"], "correct": 1},
+                {"text": "Cách đọc của 「低い」 là gì?", "answers": ["ドア", "すずしい", "ひくい", "となり"], "correct": 2}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 28: Tính từ な và danh từ trừu tượng",
+          "order": 28,
+          "content": "Tính từ な thường gặp, cùng danh từ về sức khỏe, ngôn ngữ, sự việc.",
+          "vocabulary": [
+            {"word": "大変", "kana": "たいへん", "romaji": "taihen", "meaning": "vất vả, nghiêm trọng", "example_sentence": "仕事は大変です", "example_meaning": "Công việc vất vả"},
+            {"word": "大切", "kana": "たいせつ", "romaji": "taisetsu", "meaning": "quan trọng", "example_sentence": "家族は大切です", "example_meaning": "Gia đình quan trọng"},
+            {"word": "大丈夫", "kana": "だいじょうぶ", "romaji": "daijoubu", "meaning": "ổn, không sao", "example_sentence": "大丈夫ですか", "example_meaning": "Bạn có ổn không?"},
+            {"word": "簡単", "kana": "かんたん", "romaji": "kantan", "meaning": "đơn giản", "example_sentence": "この問題は簡単です", "example_meaning": "Câu hỏi này đơn giản"},
+            {"word": "親切", "kana": "しんせつ", "romaji": "shinsetsu", "meaning": "tốt bụng", "example_sentence": "先生は親切です", "example_meaning": "Thầy giáo tốt bụng"},
+            {"word": "賑やか", "kana": "にぎやか", "romaji": "nigiyaka", "meaning": "náo nhiệt", "example_sentence": "この町は賑やかです", "example_meaning": "Thị trấn này náo nhiệt"},
+            {"word": "暇", "kana": "ひま", "romaji": "hima", "meaning": "rảnh rỗi", "example_sentence": "今日は暇です", "example_meaning": "Hôm nay tôi rảnh"},
+            {"word": "同じ", "kana": "おなじ", "romaji": "onaji", "meaning": "giống nhau", "example_sentence": "私と同じです", "example_meaning": "Giống tôi"},
+            {"word": "自由", "kana": "じゆう", "romaji": "jiyuu", "meaning": "tự do", "example_sentence": "週末は自由です", "example_meaning": "Cuối tuần tôi tự do"},
+            {"word": "意味", "kana": "いみ", "romaji": "imi", "meaning": "ý nghĩa", "example_sentence": "この言葉の意味は何ですか", "example_meaning": "Ý nghĩa của từ này là gì?"},
+            {"word": "問題", "kana": "もんだい", "romaji": "mondai", "meaning": "vấn đề, câu hỏi", "example_sentence": "問題が難しいです", "example_meaning": "Câu hỏi khó"},
+            {"word": "答え", "kana": "こたえ", "romaji": "kotae", "meaning": "đáp án", "example_sentence": "答えは三番です", "example_meaning": "Đáp án là số 3"},
+            {"word": "言葉", "kana": "ことば", "romaji": "kotoba", "meaning": "từ, ngôn ngữ", "example_sentence": "日本の言葉を習います", "example_meaning": "Tôi học tiếng Nhật"},
+            {"word": "声", "kana": "こえ", "romaji": "koe", "meaning": "giọng nói", "example_sentence": "大きい声で話します", "example_meaning": "Tôi nói bằng giọng lớn"},
+            {"word": "音", "kana": "おと", "romaji": "oto", "meaning": "âm thanh", "example_sentence": "音が大きいです", "example_meaning": "Tiếng ồn lớn"},
+            {"word": "歌", "kana": "うた", "romaji": "uta", "meaning": "bài hát", "example_sentence": "この歌が好きです", "example_meaning": "Tôi thích bài hát này"},
+            {"word": "絵", "kana": "え", "romaji": "e", "meaning": "bức tranh", "example_sentence": "絵を見ます", "example_meaning": "Tôi xem tranh"},
+            {"word": "買い物", "kana": "かいもの", "romaji": "kaimono", "meaning": "việc mua sắm", "example_sentence": "買い物が好きです", "example_meaning": "Tôi thích mua sắm"},
+            {"word": "病気", "kana": "びょうき", "romaji": "byouki", "meaning": "bệnh", "example_sentence": "姉は病気です", "example_meaning": "Chị tôi bị bệnh"},
+            {"word": "風邪", "kana": "かぜ", "romaji": "kaze", "meaning": "cảm lạnh", "example_sentence": "風邪を引きました", "example_meaning": "Tôi bị cảm"},
+            {"word": "熱", "kana": "ねつ", "romaji": "netsu", "meaning": "sốt, nhiệt", "example_sentence": "熱があります", "example_meaning": "Tôi bị sốt"},
+            {"word": "約束", "kana": "やくそく", "romaji": "yakusoku", "meaning": "lời hẹn", "example_sentence": "友達と約束があります", "example_meaning": "Tôi có hẹn với bạn"},
+            {"word": "用事", "kana": "ようじ", "romaji": "youji", "meaning": "việc bận", "example_sentence": "今日は用事があります", "example_meaning": "Hôm nay tôi có việc bận"},
+            {"word": "場所", "kana": "ばしょ", "romaji": "basho", "meaning": "địa điểm", "example_sentence": "いい場所です", "example_meaning": "Là địa điểm tốt"},
+            {"word": "ところ", "kana": "ところ", "romaji": "tokoro", "meaning": "nơi, chỗ", "example_sentence": "静かなところです", "example_meaning": "Là nơi yên tĩnh"},
+            {"word": "物", "kana": "もの", "romaji": "mono", "meaning": "đồ vật", "example_sentence": "大切な物です", "example_meaning": "Là món đồ quan trọng"}
+          ],
+          "grammar": [
+            {"title": "～な＋名詞", "explanation": "Tính từ な đứng trước danh từ thì thêm な.", "example_sentence": "静かな町です。(Là thị trấn yên tĩnh.)"},
+            {"title": "～でした / ～じゃありませんでした", "explanation": "Quá khứ của danh từ và tính từ な.", "example_sentence": "昨日は暇でした。(Hôm qua tôi rảnh.)"},
+            {"title": "～が、～ (nhưng)", "explanation": "Trợ từ nối が nghĩa là \"nhưng\", đặt giữa hai mệnh đề trái ngược.", "example_sentence": "日本語は難しいですが、面白いです。(Tiếng Nhật khó nhưng thú vị.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 28: Tính từ な và danh từ trừu tượng",
+              "questions": [
+                {"text": "「物」 nghĩa là gì?", "answers": ["thế nào ạ?", "đồ vật", "cảnh sát", "internet"], "correct": 1},
+                {"text": "「声」 nghĩa là gì?", "answers": ["giọng nói", "cùng nhau", "bể bơi", "tháng 2"], "correct": 0},
+                {"text": "「買い物」 nghĩa là gì?", "answers": ["lạnh (thời tiết)", "ngọt", "vé", "việc mua sắm"], "correct": 3},
+                {"text": "「風邪」 nghĩa là gì?", "answers": ["Hàn Quốc", "bia", "cảm lạnh", "cái gì"], "correct": 2},
+                {"text": "「用事」 nghĩa là gì?", "answers": ["đeo (kính), gọi (điện thoại)", "việc bận", "bảy cái", "mưa"], "correct": 1},
+                {"text": "Cách đọc của 「熱」 là gì?", "answers": ["ことば", "あさごはん", "ねつ", "おいしい"], "correct": 2},
+                {"text": "Cách đọc của 「場所」 là gì?", "answers": ["ばしょ", "ふゆやすみ", "はん", "ちゅうがくせい"], "correct": 0},
+                {"text": "Cách đọc của 「大変」 là gì?", "answers": ["ちゅうがっこう", "ひがし", "バナナ", "たいへん"], "correct": 3}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 29: Nghề nghiệp và quốc gia",
+          "order": 29,
+          "content": "Nghề nghiệp, cấp học, quốc gia và quốc tịch.",
+          "vocabulary": [
+            {"word": "警察官", "kana": "けいさつかん", "romaji": "keisatsukan", "meaning": "cảnh sát", "example_sentence": "兄は警察官です", "example_meaning": "Anh tôi là cảnh sát"},
+            {"word": "運転手", "kana": "うんてんしゅ", "romaji": "untenshu", "meaning": "tài xế", "example_sentence": "父はタクシーの運転手です", "example_meaning": "Bố tôi là tài xế taxi"},
+            {"word": "店員", "kana": "てんいん", "romaji": "tenin", "meaning": "nhân viên cửa hàng", "example_sentence": "店員は親切です", "example_meaning": "Nhân viên cửa hàng tốt bụng"},
+            {"word": "看護師", "kana": "かんごし", "romaji": "kangoshi", "meaning": "y tá", "example_sentence": "姉は看護師です", "example_meaning": "Chị tôi là y tá"},
+            {"word": "歌手", "kana": "かしゅ", "romaji": "kashu", "meaning": "ca sĩ", "example_sentence": "あの人は歌手です", "example_meaning": "Người kia là ca sĩ"},
+            {"word": "社長", "kana": "しゃちょう", "romaji": "shachou", "meaning": "giám đốc", "example_sentence": "社長は忙しいです", "example_meaning": "Giám đốc bận"},
+            {"word": "主婦", "kana": "しゅふ", "romaji": "shufu", "meaning": "nội trợ", "example_sentence": "母は主婦です", "example_meaning": "Mẹ tôi là nội trợ"},
+            {"word": "大学生", "kana": "だいがくせい", "romaji": "daigakusei", "meaning": "sinh viên đại học", "example_sentence": "私は大学生です", "example_meaning": "Tôi là sinh viên đại học"},
+            {"word": "高校生", "kana": "こうこうせい", "romaji": "koukousei", "meaning": "học sinh cấp ba", "example_sentence": "妹は高校生です", "example_meaning": "Em gái tôi là học sinh cấp ba"},
+            {"word": "中学生", "kana": "ちゅうがくせい", "romaji": "chuugakusei", "meaning": "học sinh cấp hai", "example_sentence": "弟は中学生です", "example_meaning": "Em trai tôi là học sinh cấp hai"},
+            {"word": "小学生", "kana": "しょうがくせい", "romaji": "shougakusei", "meaning": "học sinh tiểu học", "example_sentence": "妹は小学生です", "example_meaning": "Em gái tôi là học sinh tiểu học"},
+            {"word": "留学生", "kana": "りゅうがくせい", "romaji": "ryuugakusei", "meaning": "du học sinh", "example_sentence": "私は留学生です", "example_meaning": "Tôi là du học sinh"},
+            {"word": "男の人", "kana": "おとこのひと", "romaji": "otokonohito", "meaning": "người đàn ông", "example_sentence": "あの男の人は誰ですか", "example_meaning": "Người đàn ông kia là ai?"},
+            {"word": "女の人", "kana": "おんなのひと", "romaji": "onnanohito", "meaning": "người phụ nữ", "example_sentence": "あの女の人は先生です", "example_meaning": "Người phụ nữ kia là giáo viên"},
+            {"word": "男の子", "kana": "おとこのこ", "romaji": "otokonoko", "meaning": "bé trai", "example_sentence": "男の子が三人います", "example_meaning": "Có ba bé trai"},
+            {"word": "女の子", "kana": "おんなのこ", "romaji": "onnanoko", "meaning": "bé gái", "example_sentence": "女の子は元気です", "example_meaning": "Bé gái khỏe mạnh"},
+            {"word": "赤ちゃん", "kana": "あかちゃん", "romaji": "akachan", "meaning": "em bé", "example_sentence": "赤ちゃんは小さいです", "example_meaning": "Em bé nhỏ"},
+            {"word": "外国", "kana": "がいこく", "romaji": "gaikoku", "meaning": "nước ngoài", "example_sentence": "外国へ行きたいです", "example_meaning": "Tôi muốn ra nước ngoài"},
+            {"word": "外国人", "kana": "がいこくじん", "romaji": "gaikokujin", "meaning": "người nước ngoài", "example_sentence": "外国人が多いです", "example_meaning": "Có nhiều người nước ngoài"},
+            {"word": "日本人", "kana": "にほんじん", "romaji": "nihonjin", "meaning": "người Nhật", "example_sentence": "田中さんは日本人です", "example_meaning": "Anh Tanaka là người Nhật"},
+            {"word": "ベトナム人", "kana": "ベトナムじん", "romaji": "betonamujin", "meaning": "người Việt Nam", "example_sentence": "友達はベトナム人です", "example_meaning": "Bạn tôi là người Việt Nam"},
+            {"word": "アメリカ", "kana": "アメリカ", "romaji": "amerika", "meaning": "Mỹ", "example_sentence": "アメリカへ行きます", "example_meaning": "Tôi đi Mỹ"},
+            {"word": "アメリカ人", "kana": "アメリカじん", "romaji": "amerikajin", "meaning": "người Mỹ", "example_sentence": "あの人はアメリカ人です", "example_meaning": "Người kia là người Mỹ"},
+            {"word": "中国", "kana": "ちゅうごく", "romaji": "chuugoku", "meaning": "Trung Quốc", "example_sentence": "中国は大きい国です", "example_meaning": "Trung Quốc là nước lớn"},
+            {"word": "中国人", "kana": "ちゅうごくじん", "romaji": "chuugokujin", "meaning": "người Trung Quốc", "example_sentence": "先生は中国人です", "example_meaning": "Thầy giáo là người Trung Quốc"},
+            {"word": "韓国", "kana": "かんこく", "romaji": "kankoku", "meaning": "Hàn Quốc", "example_sentence": "韓国へ行きます", "example_meaning": "Tôi đi Hàn Quốc"},
+            {"word": "韓国人", "kana": "かんこくじん", "romaji": "kankokujin", "meaning": "người Hàn Quốc", "example_sentence": "歌手は韓国人です", "example_meaning": "Ca sĩ là người Hàn Quốc"},
+            {"word": "イギリス", "kana": "イギリス", "romaji": "igirisu", "meaning": "nước Anh", "example_sentence": "イギリスは寒いです", "example_meaning": "Nước Anh lạnh"},
+            {"word": "フランス", "kana": "フランス", "romaji": "furansu", "meaning": "nước Pháp", "example_sentence": "フランスの料理が好きです", "example_meaning": "Tôi thích món ăn Pháp"},
+            {"word": "ドイツ", "kana": "ドイツ", "romaji": "doitsu", "meaning": "nước Đức", "example_sentence": "ドイツのビールは有名です", "example_meaning": "Bia Đức nổi tiếng"},
+            {"word": "世界", "kana": "せかい", "romaji": "sekai", "meaning": "thế giới", "example_sentence": "世界は広いです", "example_meaning": "Thế giới rộng lớn"}
+          ],
+          "grammar": [
+            {"title": "～人 (quốc tịch)", "explanation": "Tên nước + 人 chỉ người của nước đó.", "example_sentence": "私はベトナム人です。(Tôi là người Việt Nam.)"},
+            {"title": "～から来ました", "explanation": "Giới thiệu mình đến từ đâu.", "example_sentence": "ベトナムから来ました。(Tôi đến từ Việt Nam.)"},
+            {"title": "～は～で働いています", "explanation": "Nói nơi làm việc: làm việc ở ...", "example_sentence": "父は会社で働いています。(Bố tôi làm việc ở công ty.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 29: Nghề nghiệp và quốc gia",
+              "questions": [
+                {"text": "「主婦」 nghĩa là gì?", "answers": ["ý nghĩa", "nội trợ", "tạp chí", "phía tây"], "correct": 1},
+                {"text": "「中国人」 nghĩa là gì?", "answers": ["tiền", "bài hát", "người Trung Quốc", "con mèo"], "correct": 2},
+                {"text": "「赤ちゃん」 nghĩa là gì?", "answers": ["em bé", "màu sắc", "ngắn", "tại sao"], "correct": 0},
+                {"text": "「看護師」 nghĩa là gì?", "answers": ["cà ri", "y tá", "xin lỗi, làm phiền", "đến nơi"], "correct": 1},
+                {"text": "「留学生」 nghĩa là gì?", "answers": ["du học sinh", "karaoke", "mệt", "điện thoại"], "correct": 0},
+                {"text": "Cách đọc của 「女の人」 là gì?", "answers": ["なまえ", "こうちゃ", "ひゃく", "おんなのひと"], "correct": 3},
+                {"text": "Cách đọc của 「中学生」 là gì?", "answers": ["ひくい", "スープ", "ちかい", "ちゅうがくせい"], "correct": 3}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 30: Giao tiếp hằng ngày",
+          "order": 30,
+          "content": "Các câu chào hỏi, đáp lời và mẫu câu giao tiếp thông dụng.",
+          "vocabulary": [
+            {"word": "いらっしゃいませ", "kana": "いらっしゃいませ", "romaji": "irasshaimase", "meaning": "xin chào quý khách", "example_sentence": "いらっしゃいませ。何にしますか", "example_meaning": "Xin chào quý khách. Ngài dùng gì ạ?"},
+            {"word": "どうぞ", "kana": "どうぞ", "romaji": "douzo", "meaning": "xin mời", "example_sentence": "どうぞ、座ってください", "example_meaning": "Xin mời ngồi"},
+            {"word": "どうも", "kana": "どうも", "romaji": "doumo", "meaning": "cảm ơn (ngắn gọn)", "example_sentence": "どうも、すみません", "example_meaning": "Cảm ơn, xin lỗi vì đã làm phiền"},
+            {"word": "はじめまして", "kana": "はじめまして", "romaji": "hajimemashite", "meaning": "rất vui được gặp lần đầu", "example_sentence": "はじめまして、田中です", "example_meaning": "Rất vui được gặp, tôi là Tanaka"},
+            {"word": "よろしく", "kana": "よろしく", "romaji": "yoroshiku", "meaning": "mong được giúp đỡ", "example_sentence": "どうぞよろしく", "example_meaning": "Rất mong được giúp đỡ"},
+            {"word": "お元気ですか", "kana": "おげんきですか", "romaji": "ogenkidesuka", "meaning": "bạn khỏe không?", "example_sentence": "お元気ですか。はい、元気です", "example_meaning": "Bạn khỏe không? Vâng, tôi khỏe"},
+            {"word": "お久しぶりです", "kana": "おひさしぶりです", "romaji": "ohisashiburidesu", "meaning": "lâu rồi không gặp", "example_sentence": "先生、お久しぶりです", "example_meaning": "Thầy ơi, lâu rồi không gặp"},
+            {"word": "おめでとう", "kana": "おめでとう", "romaji": "omedetou", "meaning": "chúc mừng", "example_sentence": "誕生日おめでとう", "example_meaning": "Chúc mừng sinh nhật"},
+            {"word": "お大事に", "kana": "おだいじに", "romaji": "odaijini", "meaning": "chúc mau khỏe", "example_sentence": "風邪ですか。お大事に", "example_meaning": "Bạn bị cảm à? Chúc mau khỏe"},
+            {"word": "失礼します", "kana": "しつれいします", "romaji": "shitsureishimasu", "meaning": "xin phép (vào/ra)", "example_sentence": "先に失礼します", "example_meaning": "Xin phép tôi về trước"},
+            {"word": "行ってきます", "kana": "いってきます", "romaji": "ittekimasu", "meaning": "tôi đi đây", "example_sentence": "行ってきます。", "example_meaning": "Con đi đây"},
+            {"word": "行ってらっしゃい", "kana": "いってらっしゃい", "romaji": "itterasshai", "meaning": "đi nhé", "example_sentence": "行ってらっしゃい、気をつけて", "example_meaning": "Đi nhé, cẩn thận nhé"},
+            {"word": "ただいま", "kana": "ただいま", "romaji": "tadaima", "meaning": "tôi về rồi", "example_sentence": "ただいま。おかえりなさい", "example_meaning": "Con về rồi. Con về đấy à"},
+            {"word": "お帰りなさい", "kana": "おかえりなさい", "romaji": "okaerinasai", "meaning": "chào mừng về nhà", "example_sentence": "お帰りなさい、疲れましたか", "example_meaning": "Con về rồi à, có mệt không?"},
+            {"word": "分かりました", "kana": "わかりました", "romaji": "wakarimashita", "meaning": "đã hiểu", "example_sentence": "はい、分かりました", "example_meaning": "Vâng, tôi hiểu rồi"},
+            {"word": "分かりません", "kana": "わかりません", "romaji": "wakarimasen", "meaning": "không hiểu", "example_sentence": "すみません、分かりません", "example_meaning": "Xin lỗi, tôi không hiểu"},
+            {"word": "もう一度", "kana": "もういちど", "romaji": "mouichido", "meaning": "một lần nữa", "example_sentence": "もう一度お願いします", "example_meaning": "Xin hãy nói lại lần nữa"},
+            {"word": "少々", "kana": "しょうしょう", "romaji": "shoushou", "meaning": "một chút (lịch sự)", "example_sentence": "少々お待ちください", "example_meaning": "Xin vui lòng đợi một chút"},
+            {"word": "お先に", "kana": "おさきに", "romaji": "osakini", "meaning": "xin phép đi trước", "example_sentence": "お先に失礼します", "example_meaning": "Xin phép tôi về trước"},
+            {"word": "いかがですか", "kana": "いかがですか", "romaji": "ikagadesuka", "meaning": "thế nào ạ?", "example_sentence": "お茶はいかがですか", "example_meaning": "Bạn dùng trà nhé?"},
+            {"word": "そうです", "kana": "そうです", "romaji": "soudesu", "meaning": "đúng vậy", "example_sentence": "あれは駅ですか。はい、そうです", "example_meaning": "Kia là nhà ga phải không? Vâng, đúng vậy"},
+            {"word": "そうですか", "kana": "そうですか", "romaji": "soudesuka", "meaning": "vậy à", "example_sentence": "そうですか。分かりました", "example_meaning": "Vậy à. Tôi hiểu rồi"}
+          ],
+          "grammar": [
+            {"title": "～ね / ～よ", "explanation": "Trợ từ cuối câu: ね (đồng tình, xác nhận), よ (thông báo điều người nghe chưa biết).", "example_sentence": "いい天気ですね。(Thời tiết đẹp nhỉ.)"},
+            {"title": "どうぞ ～てください", "explanation": "Mời ai đó làm gì một cách lịch sự.", "example_sentence": "どうぞ、入ってください。(Xin mời vào.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 30: Giao tiếp hằng ngày",
+              "questions": [
+                {"text": "「失礼します」 nghĩa là gì?", "answers": ["một năm", "trà", "trượt tuyết", "xin phép (vào/ra)"], "correct": 3},
+                {"text": "「はじめまして」 nghĩa là gì?", "answers": ["rất vui được gặp lần đầu", "động vật", "náo nhiệt", "hồng trà"], "correct": 0},
+                {"text": "「ただいま」 nghĩa là gì?", "answers": ["tôi về rồi", "ngày 24", "năm cái", "lớp học"], "correct": 0},
+                {"text": "「いらっしゃいませ」 nghĩa là gì?", "answers": ["xin chào quý khách", "suy nghĩ", "mượn", "hôm qua"], "correct": 0},
+                {"text": "「行ってきます」 nghĩa là gì?", "answers": ["bưu điện", "tôi đi đây", "cái này", "vui vẻ"], "correct": 1},
+                {"text": "Cách đọc của 「お元気ですか」 là gì?", "answers": ["しょうしょう", "すき", "おげんきですか", "びょうき"], "correct": 2},
+                {"text": "Cách đọc của 「分かりました」 là gì?", "answers": ["まち", "おそい", "やさしい", "わかりました"], "correct": 3},
+                {"text": "Cách đọc của 「お帰りなさい」 là gì?", "answers": ["ゆうめい", "くがつ", "がいこくじん", "おかえりなさい"], "correct": 3}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 31: Học tập mở rộng",
+          "order": 31,
+          "content": "Từ vựng về trường lớp, chữ viết, kỳ nghỉ và đồ dùng học tập.",
+          "vocabulary": [
+            {"word": "小学校", "kana": "しょうがっこう", "romaji": "shougakkou", "meaning": "trường tiểu học", "example_sentence": "小学校は近いです", "example_meaning": "Trường tiểu học gần"},
+            {"word": "中学校", "kana": "ちゅうがっこう", "romaji": "chuugakkou", "meaning": "trường cấp hai", "example_sentence": "中学校は駅の前です", "example_meaning": "Trường cấp hai ở trước ga"},
+            {"word": "授業", "kana": "じゅぎょう", "romaji": "jugyou", "meaning": "tiết học", "example_sentence": "授業は面白いです", "example_meaning": "Tiết học thú vị"},
+            {"word": "教科書", "kana": "きょうかしょ", "romaji": "kyoukasho", "meaning": "sách giáo khoa", "example_sentence": "教科書を開けてください", "example_meaning": "Hãy mở sách giáo khoa"},
+            {"word": "黒板", "kana": "こくばん", "romaji": "kokuban", "meaning": "bảng đen", "example_sentence": "黒板に名前を書きます", "example_meaning": "Tôi viết tên lên bảng"},
+            {"word": "作文", "kana": "さくぶん", "romaji": "sakubun", "meaning": "bài văn", "example_sentence": "作文を書きます", "example_meaning": "Tôi viết bài văn"},
+            {"word": "漢字", "kana": "かんじ", "romaji": "kanji", "meaning": "chữ Hán", "example_sentence": "漢字は難しいです", "example_meaning": "Chữ Hán khó"},
+            {"word": "平仮名", "kana": "ひらがな", "romaji": "hiragana", "meaning": "chữ Hiragana", "example_sentence": "平仮名を書きます", "example_meaning": "Tôi viết chữ Hiragana"},
+            {"word": "片仮名", "kana": "かたかな", "romaji": "katakana", "meaning": "chữ Katakana", "example_sentence": "片仮名を覚えます", "example_meaning": "Tôi học chữ Katakana"},
+            {"word": "文字", "kana": "もじ", "romaji": "moji", "meaning": "chữ cái, ký tự", "example_sentence": "この文字は何ですか", "example_meaning": "Chữ này là chữ gì?"},
+            {"word": "字", "kana": "じ", "romaji": "ji", "meaning": "chữ viết", "example_sentence": "きれいな字です", "example_meaning": "Chữ viết đẹp"},
+            {"word": "発音", "kana": "はつおん", "romaji": "hatsuon", "meaning": "phát âm", "example_sentence": "日本語の発音は難しいです", "example_meaning": "Phát âm tiếng Nhật khó"},
+            {"word": "会話", "kana": "かいわ", "romaji": "kaiwa", "meaning": "hội thoại", "example_sentence": "日本語で会話します", "example_meaning": "Tôi hội thoại bằng tiếng Nhật"},
+            {"word": "夏休み", "kana": "なつやすみ", "romaji": "natsuyasumi", "meaning": "nghỉ hè", "example_sentence": "夏休みは海へ行きます", "example_meaning": "Kỳ nghỉ hè tôi đi biển"},
+            {"word": "冬休み", "kana": "ふゆやすみ", "romaji": "fuyuyasumi", "meaning": "nghỉ đông", "example_sentence": "冬休みは国へ帰ります", "example_meaning": "Kỳ nghỉ đông tôi về nước"},
+            {"word": "春休み", "kana": "はるやすみ", "romaji": "haruyasumi", "meaning": "nghỉ xuân", "example_sentence": "春休みは短いです", "example_meaning": "Kỳ nghỉ xuân ngắn"},
+            {"word": "地図", "kana": "ちず", "romaji": "chizu", "meaning": "bản đồ", "example_sentence": "地図を見ます", "example_meaning": "Tôi xem bản đồ"},
+            {"word": "新聞", "kana": "しんぶん", "romaji": "shinbun", "meaning": "báo", "example_sentence": "新聞は机の上にあります", "example_meaning": "Tờ báo ở trên bàn"},
+            {"word": "雑誌", "kana": "ざっし", "romaji": "zasshi", "meaning": "tạp chí", "example_sentence": "雑誌を買います", "example_meaning": "Tôi mua tạp chí"},
+            {"word": "テスト", "kana": "テスト", "romaji": "tesuto", "meaning": "bài kiểm tra", "example_sentence": "テストは難しいです", "example_meaning": "Bài kiểm tra khó"},
+            {"word": "クラス", "kana": "クラス", "romaji": "kurasu", "meaning": "lớp học", "example_sentence": "私のクラスは二十人です", "example_meaning": "Lớp tôi có 20 người"},
+            {"word": "番号", "kana": "ばんごう", "romaji": "bangou", "meaning": "số, mã số", "example_sentence": "番号を書きます", "example_meaning": "Tôi viết số"},
+            {"word": "住所", "kana": "じゅうしょ", "romaji": "juusho", "meaning": "địa chỉ", "example_sentence": "住所を書いてください", "example_meaning": "Hãy viết địa chỉ"},
+            {"word": "例", "kana": "れい", "romaji": "rei", "meaning": "ví dụ", "example_sentence": "例を見てください", "example_meaning": "Hãy xem ví dụ"}
+          ],
+          "grammar": [
+            {"title": "～が、～ (mở lời lịch sự)", "explanation": "Dùng が để mở đầu câu hỏi hoặc lời nhờ vả lịch sự.", "example_sentence": "すみませんが、質問があります。(Xin lỗi, tôi có câu hỏi.)"},
+            {"title": "～に～を書きます / ～に～を入れます", "explanation": "Trợ từ に chỉ nơi hành động hướng tới: viết lên, cho vào.", "example_sentence": "紙に名前を書きます。(Tôi viết tên lên giấy.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 31: Học tập mở rộng",
+              "questions": [
+                {"text": "「冬休み」 nghĩa là gì?", "answers": ["tháng 3", "tem", "chị gái (của mình)", "nghỉ đông"], "correct": 3},
+                {"text": "「クラス」 nghĩa là gì?", "answers": ["lớp học", "buổi sáng", "anh chị em", "tivi"], "correct": 0},
+                {"text": "「文字」 nghĩa là gì?", "answers": ["lạnh (vật)", "chữ cái, ký tự", "vui mừng", "bưu thiếp"], "correct": 1},
+                {"text": "「片仮名」 nghĩa là gì?", "answers": ["cây cầu", "chữ Katakana", "mùng 2 (hai ngày)", "lời hẹn"], "correct": 1},
+                {"text": "「雑誌」 nghĩa là gì?", "answers": ["tạp chí", "bữa sáng", "bưu điện", "chín cái"], "correct": 0},
+                {"text": "Cách đọc của 「中学校」 là gì?", "answers": ["きっさてん", "はじまる", "ちゅうがっこう", "レストラン"], "correct": 2},
+                {"text": "Cách đọc của 「発音」 là gì?", "answers": ["せんたくき", "でも", "はつおん", "みずうみ"], "correct": 2},
+                {"text": "Cách đọc của 「地図」 là gì?", "answers": ["なんにち", "ちず", "おめでとう", "アメリカじん"], "correct": 1}
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bài 32: Sức khỏe, thể thao và sở thích",
+          "order": 32,
+          "content": "Thể thao, nhạc cụ, giải trí và các bộ phận cơ thể mở rộng.",
+          "vocabulary": [
+            {"word": "運動", "kana": "うんどう", "romaji": "undou", "meaning": "vận động", "example_sentence": "毎日運動します", "example_meaning": "Mỗi ngày tôi vận động"},
+            {"word": "スポーツ", "kana": "スポーツ", "romaji": "supootsu", "meaning": "thể thao", "example_sentence": "スポーツが好きです", "example_meaning": "Tôi thích thể thao"},
+            {"word": "サッカー", "kana": "サッカー", "romaji": "sakkaa", "meaning": "bóng đá", "example_sentence": "サッカーをします", "example_meaning": "Tôi chơi bóng đá"},
+            {"word": "テニス", "kana": "テニス", "romaji": "tenisu", "meaning": "quần vợt", "example_sentence": "日曜日にテニスをします", "example_meaning": "Chủ nhật tôi chơi tennis"},
+            {"word": "野球", "kana": "やきゅう", "romaji": "yakyuu", "meaning": "bóng chày", "example_sentence": "野球を見ます", "example_meaning": "Tôi xem bóng chày"},
+            {"word": "水泳", "kana": "すいえい", "romaji": "suiei", "meaning": "bơi lội", "example_sentence": "水泳が上手です", "example_meaning": "Tôi bơi giỏi"},
+            {"word": "スキー", "kana": "スキー", "romaji": "sukii", "meaning": "trượt tuyết", "example_sentence": "冬はスキーをします", "example_meaning": "Mùa đông tôi trượt tuyết"},
+            {"word": "ギター", "kana": "ギター", "romaji": "gitaa", "meaning": "đàn guitar", "example_sentence": "ギターを弾きます", "example_meaning": "Tôi chơi guitar"},
+            {"word": "ピアノ", "kana": "ピアノ", "romaji": "piano", "meaning": "đàn piano", "example_sentence": "妹はピアノを弾きます", "example_meaning": "Em gái tôi chơi piano"},
+            {"word": "ゲーム", "kana": "ゲーム", "romaji": "geemu", "meaning": "trò chơi", "example_sentence": "ゲームをします", "example_meaning": "Tôi chơi game"},
+            {"word": "インターネット", "kana": "インターネット", "romaji": "intaanetto", "meaning": "internet", "example_sentence": "インターネットを使います", "example_meaning": "Tôi dùng internet"},
+            {"word": "メール", "kana": "メール", "romaji": "meeru", "meaning": "email", "example_sentence": "友達にメールを書きます", "example_meaning": "Tôi viết email cho bạn"},
+            {"word": "お腹", "kana": "おなか", "romaji": "onaka", "meaning": "bụng", "example_sentence": "お腹がすきました", "example_meaning": "Tôi đói bụng"},
+            {"word": "喉", "kana": "のど", "romaji": "nodo", "meaning": "họng", "example_sentence": "喉が痛いです", "example_meaning": "Tôi đau họng"},
+            {"word": "背", "kana": "せ", "romaji": "se", "meaning": "lưng, chiều cao", "example_sentence": "背が高いです", "example_meaning": "Tôi cao"},
+            {"word": "髪", "kana": "かみ", "romaji": "kami", "meaning": "tóc", "example_sentence": "髪が長いです", "example_meaning": "Tóc dài"},
+            {"word": "お祭り", "kana": "おまつり", "romaji": "omatsuri", "meaning": "lễ hội", "example_sentence": "夏はお祭りがあります", "example_meaning": "Mùa hè có lễ hội"},
+            {"word": "温泉", "kana": "おんせん", "romaji": "onsen", "meaning": "suối nước nóng", "example_sentence": "温泉へ行きたいです", "example_meaning": "Tôi muốn đi suối nước nóng"},
+            {"word": "花見", "kana": "はなみ", "romaji": "hanami", "meaning": "ngắm hoa", "example_sentence": "春は花見をします", "example_meaning": "Mùa xuân tôi đi ngắm hoa"},
+            {"word": "プール", "kana": "プール", "romaji": "puuru", "meaning": "bể bơi", "example_sentence": "プールで泳ぎます", "example_meaning": "Tôi bơi ở bể bơi"},
+            {"word": "カラオケ", "kana": "カラオケ", "romaji": "karaoke", "meaning": "karaoke", "example_sentence": "友達とカラオケへ行きます", "example_meaning": "Tôi đi karaoke với bạn"},
+            {"word": "パーティー", "kana": "パーティー", "romaji": "paatii", "meaning": "bữa tiệc", "example_sentence": "誕生日のパーティーをします", "example_meaning": "Tôi tổ chức tiệc sinh nhật"}
+          ],
+          "grammar": [
+            {"title": "～が痛いです", "explanation": "Diễn tả đau ở bộ phận cơ thể.", "example_sentence": "頭が痛いです。(Tôi đau đầu.)"},
+            {"title": "～をします (thể thao, trò chơi)", "explanation": "Chơi thể thao, trò chơi dùng する.", "example_sentence": "日曜日にテニスをします。(Chủ nhật tôi chơi tennis.)"},
+            {"title": "～にします", "explanation": "Quyết định chọn ...: tôi chọn ...", "example_sentence": "コーヒーにします。(Tôi chọn cà phê.)"}
+          ],
+          "quizzes": [
+            {
+              "title": "Kiểm tra bài 32: Sức khỏe, thể thao và sở thích",
+              "questions": [
+                {"text": "「温泉」 nghĩa là gì?", "answers": ["tiết học", "xấu, tệ", "suối nước nóng", "một quyển"], "correct": 2},
+                {"text": "「お腹」 nghĩa là gì?", "answers": ["học (từ ai đó)", "đáp án", "bụng", "bữa sáng"], "correct": 2},
+                {"text": "「ゲーム」 nghĩa là gì?", "answers": ["trò chơi", "mùng 9 (chín ngày)", "nghỉ ngơi", "rất vui được gặp lần đầu"], "correct": 0},
+                {"text": "「ピアノ」 nghĩa là gì?", "answers": ["đàn piano", "hút (thuốc)", "một năm", "làm"], "correct": 0},
+                {"text": "「野球」 nghĩa là gì?", "answers": ["bóng chày", "phía đông", "màu trắng", "bảy cái"], "correct": 0}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "kanji": [
+    {"character": "日", "meaning": "ngày, mặt trời", "onyomi": "ニチ・ジツ", "kunyomi": "ひ・か", "stroke_count": 4},
+    {"character": "一", "meaning": "một", "onyomi": "イチ", "kunyomi": "ひと.つ", "stroke_count": 1},
+    {"character": "国", "meaning": "quốc gia", "onyomi": "コク", "kunyomi": "くに", "stroke_count": 8},
+    {"character": "人", "meaning": "người", "onyomi": "ジン・ニン", "kunyomi": "ひと", "stroke_count": 2},
+    {"character": "年", "meaning": "năm", "onyomi": "ネン", "kunyomi": "とし", "stroke_count": 6},
+    {"character": "大", "meaning": "to, lớn", "onyomi": "ダイ・タイ", "kunyomi": "おお.きい", "stroke_count": 3},
+    {"character": "十", "meaning": "mười", "onyomi": "ジュウ", "kunyomi": "とお", "stroke_count": 2},
+    {"character": "二", "meaning": "hai", "onyomi": "ニ", "kunyomi": "ふた.つ", "stroke_count": 2},
+    {"character": "本", "meaning": "sách, gốc", "onyomi": "ホン", "kunyomi": "もと", "stroke_count": 5},
+    {"character": "中", "meaning": "trong, giữa", "onyomi": "チュウ", "kunyomi": "なか", "stroke_count": 4},
+    {"character": "長", "meaning": "dài, trưởng", "onyomi": "チョウ", "kunyomi": "なが.い", "stroke_count": 8},
+    {"character": "出", "meaning": "ra, xuất", "onyomi": "シュツ", "kunyomi": "で.る", "stroke_count": 5},
+    {"character": "三", "meaning": "ba", "onyomi": "サン", "kunyomi": "みっ.つ", "stroke_count": 3},
+    {"character": "時", "meaning": "giờ, thời gian", "onyomi": "ジ", "kunyomi": "とき", "stroke_count": 10},
+    {"character": "行", "meaning": "đi", "onyomi": "コウ", "kunyomi": "い.く", "stroke_count": 6},
+    {"character": "見", "meaning": "xem, nhìn", "onyomi": "ケン", "kunyomi": "み.る", "stroke_count": 7},
+    {"character": "月", "meaning": "tháng, mặt trăng", "onyomi": "ゲツ・ガツ", "kunyomi": "つき", "stroke_count": 4},
+    {"character": "分", "meaning": "phút, phần", "onyomi": "ブン・フン", "kunyomi": "わ.ける", "stroke_count": 4},
+    {"character": "後", "meaning": "sau", "onyomi": "ゴ・コウ", "kunyomi": "のち・うし.ろ", "stroke_count": 9},
+    {"character": "前", "meaning": "trước", "onyomi": "ゼン", "kunyomi": "まえ", "stroke_count": 9},
+    {"character": "生", "meaning": "sinh, sống", "onyomi": "セイ・ショウ", "kunyomi": "い.きる・う.まれる", "stroke_count": 5},
+    {"character": "五", "meaning": "năm", "onyomi": "ゴ", "kunyomi": "いつ.つ", "stroke_count": 4},
+    {"character": "間", "meaning": "khoảng, giữa", "onyomi": "カン", "kunyomi": "あいだ", "stroke_count": 12},
+    {"character": "上", "meaning": "trên", "onyomi": "ジョウ", "kunyomi": "うえ", "stroke_count": 3},
+    {"character": "東", "meaning": "đông", "onyomi": "トウ", "kunyomi": "ひがし", "stroke_count": 8},
+    {"character": "四", "meaning": "bốn", "onyomi": "シ", "kunyomi": "よっ.つ", "stroke_count": 5},
+    {"character": "今", "meaning": "bây giờ", "onyomi": "コン", "kunyomi": "いま", "stroke_count": 4},
+    {"character": "金", "meaning": "vàng, tiền", "onyomi": "キン", "kunyomi": "かね", "stroke_count": 8},
+    {"character": "九", "meaning": "chín", "onyomi": "キュウ・ク", "kunyomi": "ここの.つ", "stroke_count": 2},
+    {"character": "入", "meaning": "vào, nhập", "onyomi": "ニュウ", "kunyomi": "い.る・はい.る", "stroke_count": 2},
+    {"character": "学", "meaning": "học", "onyomi": "ガク", "kunyomi": "まな.ぶ", "stroke_count": 8},
+    {"character": "高", "meaning": "cao, đắt", "onyomi": "コウ", "kunyomi": "たか.い", "stroke_count": 10},
+    {"character": "円", "meaning": "yên, hình tròn", "onyomi": "エン", "kunyomi": "まる.い", "stroke_count": 4},
+    {"character": "子", "meaning": "con, đứa trẻ", "onyomi": "シ", "kunyomi": "こ", "stroke_count": 3},
+    {"character": "外", "meaning": "ngoài", "onyomi": "ガイ", "kunyomi": "そと", "stroke_count": 5},
+    {"character": "八", "meaning": "tám", "onyomi": "ハチ", "kunyomi": "やっ.つ", "stroke_count": 2},
+    {"character": "六", "meaning": "sáu", "onyomi": "ロク", "kunyomi": "むっ.つ", "stroke_count": 4},
+    {"character": "下", "meaning": "dưới", "onyomi": "カ・ゲ", "kunyomi": "した", "stroke_count": 3},
+    {"character": "来", "meaning": "đến", "onyomi": "ライ", "kunyomi": "く.る", "stroke_count": 7},
+    {"character": "気", "meaning": "khí, tinh thần", "onyomi": "キ", "kunyomi": "-", "stroke_count": 6},
+    {"character": "小", "meaning": "nhỏ", "onyomi": "ショウ", "kunyomi": "ちい.さい", "stroke_count": 3},
+    {"character": "七", "meaning": "bảy", "onyomi": "シチ", "kunyomi": "なな.つ", "stroke_count": 2},
+    {"character": "山", "meaning": "núi", "onyomi": "サン", "kunyomi": "やま", "stroke_count": 3},
+    {"character": "話", "meaning": "nói chuyện", "onyomi": "ワ", "kunyomi": "はな.す", "stroke_count": 13},
+    {"character": "女", "meaning": "phụ nữ", "onyomi": "ジョ", "kunyomi": "おんな", "stroke_count": 3},
+    {"character": "北", "meaning": "bắc", "onyomi": "ホク", "kunyomi": "きた", "stroke_count": 5},
+    {"character": "午", "meaning": "trưa", "onyomi": "ゴ", "kunyomi": "-", "stroke_count": 4},
+    {"character": "百", "meaning": "trăm", "onyomi": "ヒャク", "kunyomi": "-", "stroke_count": 6},
+    {"character": "書", "meaning": "viết", "onyomi": "ショ", "kunyomi": "か.く", "stroke_count": 10},
+    {"character": "先", "meaning": "trước, trước tiên", "onyomi": "セン", "kunyomi": "さき", "stroke_count": 6},
+    {"character": "名", "meaning": "tên", "onyomi": "メイ", "kunyomi": "な", "stroke_count": 6},
+    {"character": "川", "meaning": "sông", "onyomi": "セン", "kunyomi": "かわ", "stroke_count": 3},
+    {"character": "千", "meaning": "nghìn", "onyomi": "セン", "kunyomi": "ち", "stroke_count": 3},
+    {"character": "水", "meaning": "nước", "onyomi": "スイ", "kunyomi": "みず", "stroke_count": 4},
+    {"character": "半", "meaning": "một nửa", "onyomi": "ハン", "kunyomi": "なか.ば", "stroke_count": 5},
+    {"character": "男", "meaning": "đàn ông", "onyomi": "ダン", "kunyomi": "おとこ", "stroke_count": 7},
+    {"character": "西", "meaning": "tây", "onyomi": "セイ", "kunyomi": "にし", "stroke_count": 6},
+    {"character": "電", "meaning": "điện", "onyomi": "デン", "kunyomi": "-", "stroke_count": 13},
+    {"character": "校", "meaning": "trường", "onyomi": "コウ", "kunyomi": "-", "stroke_count": 10},
+    {"character": "語", "meaning": "ngôn ngữ, từ", "onyomi": "ゴ", "kunyomi": "かた.る", "stroke_count": 14},
+    {"character": "土", "meaning": "đất", "onyomi": "ド", "kunyomi": "つち", "stroke_count": 3},
+    {"character": "木", "meaning": "cây, gỗ", "onyomi": "モク", "kunyomi": "き", "stroke_count": 4},
+    {"character": "聞", "meaning": "nghe, hỏi", "onyomi": "ブン", "kunyomi": "き.く", "stroke_count": 14},
+    {"character": "食", "meaning": "ăn, thức ăn", "onyomi": "ショク", "kunyomi": "た.べる", "stroke_count": 9},
+    {"character": "車", "meaning": "xe", "onyomi": "シャ", "kunyomi": "くるま", "stroke_count": 7},
+    {"character": "何", "meaning": "cái gì", "onyomi": "カ", "kunyomi": "なに", "stroke_count": 7},
+    {"character": "南", "meaning": "nam", "onyomi": "ナン", "kunyomi": "みなみ", "stroke_count": 9},
+    {"character": "万", "meaning": "vạn, mười nghìn", "onyomi": "マン", "kunyomi": "-", "stroke_count": 3},
+    {"character": "毎", "meaning": "mỗi", "onyomi": "マイ", "kunyomi": "-", "stroke_count": 6},
+    {"character": "白", "meaning": "trắng", "onyomi": "ハク", "kunyomi": "しろ.い", "stroke_count": 5},
+    {"character": "天", "meaning": "trời", "onyomi": "テン", "kunyomi": "あめ", "stroke_count": 4},
+    {"character": "母", "meaning": "mẹ", "onyomi": "ボ", "kunyomi": "はは", "stroke_count": 5},
+    {"character": "火", "meaning": "lửa", "onyomi": "カ", "kunyomi": "ひ", "stroke_count": 4},
+    {"character": "右", "meaning": "phải", "onyomi": "ウ・ユウ", "kunyomi": "みぎ", "stroke_count": 5},
+    {"character": "読", "meaning": "đọc", "onyomi": "ドク", "kunyomi": "よ.む", "stroke_count": 14},
+    {"character": "友", "meaning": "bạn", "onyomi": "ユウ", "kunyomi": "とも", "stroke_count": 4},
+    {"character": "左", "meaning": "trái", "onyomi": "サ", "kunyomi": "ひだり", "stroke_count": 5},
+    {"character": "休", "meaning": "nghỉ", "onyomi": "キュウ", "kunyomi": "やす.む", "stroke_count": 6},
+    {"character": "父", "meaning": "bố", "onyomi": "フ", "kunyomi": "ちち", "stroke_count": 4},
+    {"character": "雨", "meaning": "mưa", "onyomi": "ウ", "kunyomi": "あめ", "stroke_count": 8},
+    {"character": "会", "meaning": "gặp, hội", "onyomi": "カイ", "kunyomi": "あ.う", "stroke_count": 6},
+    {"character": "社", "meaning": "công ty, đền thờ", "onyomi": "シャ", "kunyomi": "やしろ", "stroke_count": 7},
+    {"character": "新", "meaning": "mới", "onyomi": "シン", "kunyomi": "あたら.しい", "stroke_count": 13},
+    {"character": "同", "meaning": "giống nhau", "onyomi": "ドウ", "kunyomi": "おな.じ", "stroke_count": 6},
+    {"character": "自", "meaning": "tự, bản thân", "onyomi": "ジ・シ", "kunyomi": "みずか.ら", "stroke_count": 6},
+    {"character": "事", "meaning": "việc, sự việc", "onyomi": "ジ", "kunyomi": "こと", "stroke_count": 8},
+    {"character": "内", "meaning": "bên trong", "onyomi": "ナイ", "kunyomi": "うち", "stroke_count": 4},
+    {"character": "方", "meaning": "phương hướng, người", "onyomi": "ホウ", "kunyomi": "かた", "stroke_count": 4},
+    {"character": "市", "meaning": "thành phố, chợ", "onyomi": "シ", "kunyomi": "いち", "stroke_count": 5},
+    {"character": "地", "meaning": "đất, địa", "onyomi": "チ・ジ", "kunyomi": "-", "stroke_count": 6},
+    {"character": "合", "meaning": "hợp, khớp", "onyomi": "ゴウ", "kunyomi": "あ.う", "stroke_count": 6},
+    {"character": "回", "meaning": "lần, quay", "onyomi": "カイ", "kunyomi": "まわ.る", "stroke_count": 6},
+    {"character": "場", "meaning": "địa điểm, nơi", "onyomi": "ジョウ", "kunyomi": "ば", "stroke_count": 12},
+    {"character": "員", "meaning": "thành viên, nhân viên", "onyomi": "イン", "kunyomi": "-", "stroke_count": 10},
+    {"character": "部", "meaning": "bộ phận, phần", "onyomi": "ブ", "kunyomi": "-", "stroke_count": 11},
+    {"character": "者", "meaning": "người, kẻ", "onyomi": "シャ", "kunyomi": "もの", "stroke_count": 8},
+    {"character": "発", "meaning": "phát, xuất phát", "onyomi": "ハツ", "kunyomi": "-", "stroke_count": 9},
+    {"character": "業", "meaning": "nghề, công việc", "onyomi": "ギョウ", "kunyomi": "わざ", "stroke_count": 13},
+    {"character": "定", "meaning": "định, quyết định", "onyomi": "テイ", "kunyomi": "さだ.める", "stroke_count": 8},
+    {"character": "相", "meaning": "lẫn nhau, tướng", "onyomi": "ソウ", "kunyomi": "あい", "stroke_count": 9},
+    {"character": "対", "meaning": "đối, đối diện", "onyomi": "タイ", "kunyomi": "-", "stroke_count": 7},
+    {"character": "連", "meaning": "liên, nối, dẫn theo", "onyomi": "レン", "kunyomi": "つ.れる", "stroke_count": 10}
+  ]
+}

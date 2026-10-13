@@ -1,30 +1,75 @@
 import { useEffect, useState } from 'react';
 import api, { endpoints } from '../api/api';
 import LevelFilter from '../components/LevelFilter';
+import Pagination from '../components/Pagination';
+import useDebounce from '../hooks/useDebounce';
 import { HankoBadge } from '../components/JapaneseIcons';
 import { speakJapanese } from '../utils/speak';
-import { Search, Volume2, BookOpen, Layers } from 'lucide-react';
+import { Search, Volume2 } from 'lucide-react';
+
+const PAGE_SIZE = 10;
 
 export default function Grammar() {
   const [grammars, setGrammars] = useState([]);
-  const [level, setLevel] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [count, setCount] = useState(0);
+  const [filters, setFilters] = useState({ level: 'all', query: '', page: 1 });
+  const [searchInput, setSearchInput] = useState('');
+  const debouncedSearch = useDebounce(searchInput, 400);
+  const [loading, setLoading] = useState(true); // chỉ cho lần tải đầu tiên
+  const [fetching, setFetching] = useState(false);
   const [error, setError] = useState('');
 
+  // Ô tìm kiếm ngừng thay đổi thì áp dụng từ khoá và về trang 1
   useEffect(() => {
+    setFilters((f) => {
+      const query = debouncedSearch.trim();
+      return f.query === query ? f : { ...f, query, page: 1 };
+    });
+  }, [debouncedSearch]);
+
+  useEffect(() => {
+    let ignore = false; // bỏ qua kết quả cũ nếu bộ lọc đã đổi trong lúc chờ
+
     const fetchGrammar = async () => {
+      setFetching(true);
+      setError('');
       try {
-        const res = await api.get(endpoints['grammar']);
-        setGrammars(res.data);
+        const params = { page: filters.page, page_size: PAGE_SIZE };
+        if (filters.level !== 'all') params.level = filters.level;
+        if (filters.query) params.search = filters.query;
+
+        const res = await api.get(endpoints['grammar'], { params });
+        if (ignore) return;
+        setGrammars(res.data.results);
+        setCount(res.data.count);
       } catch (err) {
+        if (ignore) return;
+        if (err.response?.status === 404 && filters.page > 1) {
+          setFilters((f) => ({ ...f, page: 1 })); // trang không còn tồn tại, quay về trang 1
+          return;
+        }
         setError('Không tải được danh sách ngữ pháp');
       } finally {
-        setLoading(false);
+        if (!ignore) {
+          setLoading(false);
+          setFetching(false);
+        }
       }
     };
+
     fetchGrammar();
-  }, []);
+    return () => {
+      ignore = true;
+    };
+  }, [filters]);
+
+  const handleLevelChange = (value) =>
+    setFilters((f) => (f.level === value ? f : { ...f, level: value, page: 1 }));
+
+  const goToPage = (page) => {
+    setFilters((f) => ({ ...f, page }));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   if (loading) {
     return (
@@ -37,24 +82,7 @@ export default function Grammar() {
     );
   }
 
-  if (error) {
-    return (
-      <div className="max-w-4xl mx-auto py-20 px-4 text-center">
-        <p className="text-accent text-sm font-medium">{error}</p>
-      </div>
-    );
-  }
-
-  const filteredGrammars = grammars.filter((g) => {
-    const matchesLevel = level === 'all' || g.level === level;
-    const query = searchQuery.trim().toLowerCase();
-    if (!query) return matchesLevel;
-    const matchesQuery =
-      (g.title && g.title.toLowerCase().includes(query)) ||
-      (g.explanation && g.explanation.toLowerCase().includes(query)) ||
-      (g.example_sentence && g.example_sentence.toLowerCase().includes(query));
-    return matchesLevel && matchesQuery;
-  });
+  const totalPages = Math.max(1, Math.ceil(count / PAGE_SIZE));
 
   return (
     <div className="max-w-4xl mx-auto py-10 px-4 sm:px-6">
@@ -65,7 +93,9 @@ export default function Grammar() {
             文法体系 • BUNPO TAIKEI
           </span>
           <span className="text-text-faint">•</span>
-          <span className="text-xs text-text-muted">Tổng cộng {grammars.length} điểm ngữ pháp</span>
+          <span className="text-xs text-text-muted">
+            {filters.level === 'all' && !filters.query ? 'Tổng cộng' : 'Tìm thấy'} {count} điểm ngữ pháp
+          </span>
         </div>
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-text tracking-tight">
           Hệ thống Ngữ pháp JLPT
@@ -81,14 +111,14 @@ export default function Grammar() {
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
           <input
             type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
             placeholder="Tìm theo mẫu câu (~てください), cách dùng, hoặc từ khóa ví dụ..."
             className="w-full bg-surface border border-border rounded-full pl-11 pr-4 py-3 text-sm text-text placeholder:text-text-faint focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition shadow-xs"
           />
-          {searchQuery && (
+          {searchInput && (
             <button
-              onClick={() => setSearchQuery('')}
+              onClick={() => setSearchInput('')}
               className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-text-muted hover:text-text"
             >
               Xoá
@@ -96,74 +126,84 @@ export default function Grammar() {
           )}
         </div>
 
-        <LevelFilter value={level} onChange={setLevel} />
+        <LevelFilter value={filters.level} onChange={handleLevelChange} />
       </div>
 
-      {filteredGrammars.length === 0 ? (
+      {error ? (
+        <div className="text-center py-16 bg-surface rounded-2xl border border-border">
+          <p className="text-accent text-sm font-medium">{error}</p>
+        </div>
+      ) : grammars.length === 0 ? (
         <div className="text-center py-16 bg-surface rounded-2xl border border-border">
           <p className="font-serif text-2xl text-text-faint mb-2" style={{ fontFamily: "'Noto Serif JP', serif" }}>
             該当なし
           </p>
           <p className="text-text-muted text-sm">
-            {searchQuery
-              ? `Không tìm thấy ngữ pháp nào khớp với từ khóa "${searchQuery}".`
-              : `Chưa có điểm ngữ pháp nào ở cấp độ ${level}.`}
+            {filters.query
+              ? `Không tìm thấy ngữ pháp nào khớp với từ khóa "${filters.query}".`
+              : filters.level === 'all'
+                ? 'Chưa có điểm ngữ pháp nào.'
+                : `Chưa có điểm ngữ pháp nào ở cấp độ ${filters.level}.`}
           </p>
         </div>
       ) : (
-        <div className="grid gap-4">
-          {filteredGrammars.map((g) => (
-            <div
-              key={g.id}
-              className="jp-card p-6 relative group hover:border-accent/80"
-            >
-              <div className="flex items-start justify-between gap-4 mb-3">
-                <div className="flex items-center gap-3 flex-wrap">
-                  <h2
-                    className="text-xl font-bold text-text group-hover:text-accent transition font-serif"
-                    style={{ fontFamily: "'Noto Serif JP', serif" }}
-                  >
-                    {g.title}
-                  </h2>
-                </div>
-                <HankoBadge text={g.level} />
-              </div>
-
-              <div className="bg-surface-subtle border border-border/80 rounded-xl p-3.5 mb-3">
-                <p className="text-xs text-text-muted font-semibold uppercase tracking-wider mb-1">
-                  Ý nghĩa & Giải thích
-                </p>
-                <p className="text-sm text-text leading-relaxed whitespace-pre-line">
-                  {g.explanation}
-                </p>
-              </div>
-
-              {g.example_sentence && (
-                <div className="mt-3 bg-accent-soft/30 border border-accent/20 rounded-xl p-3.5 flex items-start justify-between gap-3">
-                  <div className="space-y-1">
-                    <span className="text-[10px] font-bold text-accent uppercase tracking-wider">
-                      Ví dụ minh hoạ • 例文
-                    </span>
-                    <p
-                      className="font-serif text-sm font-medium text-text leading-relaxed"
+        <>
+          <div className={`grid gap-4 transition-opacity ${fetching ? 'opacity-60' : ''}`}>
+            {grammars.map((g) => (
+              <div
+                key={g.id}
+                className="jp-card p-6 relative group hover:border-accent/80"
+              >
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <h2
+                      className="text-xl font-bold text-text group-hover:text-accent transition font-serif"
                       style={{ fontFamily: "'Noto Serif JP', serif" }}
                     >
-                      「{g.example_sentence}」
-                    </p>
+                      {g.title}
+                    </h2>
                   </div>
-                  <button
-                    onClick={() => speakJapanese(g.example_sentence)}
-                    className="p-1.5 rounded-full text-accent hover:bg-accent-soft transition cursor-pointer shrink-0 mt-2"
-                    title="Nghe câu ví dụ"
-                  >
-                    <Volume2 className="w-4 h-4" />
-                  </button>
+                  <HankoBadge text={g.level} />
                 </div>
-              )}
-            </div>
-          ))}
-        </div>
+
+                <div className="bg-surface-subtle border border-border/80 rounded-xl p-3.5 mb-3">
+                  <p className="text-xs text-text-muted font-semibold uppercase tracking-wider mb-1">
+                    Ý nghĩa & Giải thích
+                  </p>
+                  <p className="text-sm text-text leading-relaxed whitespace-pre-line">
+                    {g.explanation}
+                  </p>
+                </div>
+
+                {g.example_sentence && (
+                  <div className="mt-3 bg-accent-soft/30 border border-accent/20 rounded-xl p-3.5 flex items-start justify-between gap-3">
+                    <div className="space-y-1">
+                      <span className="text-[10px] font-bold text-accent uppercase tracking-wider">
+                        Ví dụ minh hoạ • 例文
+                      </span>
+                      <p
+                        className="font-serif text-sm font-medium text-text leading-relaxed"
+                        style={{ fontFamily: "'Noto Serif JP', serif" }}
+                      >
+                        「{g.example_sentence}」
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => speakJapanese(g.example_sentence)}
+                      className="p-1.5 rounded-full text-accent hover:bg-accent-soft transition cursor-pointer shrink-0 mt-2"
+                      title="Nghe câu ví dụ"
+                    >
+                      <Volume2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <Pagination page={filters.page} totalPages={totalPages} onChange={goToPage} />
+        </>
       )}
     </div>
   );
-}
+}

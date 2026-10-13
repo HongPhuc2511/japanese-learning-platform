@@ -174,7 +174,7 @@ function Home() {
               <strong className="text-accent font-semibold">
                 SRS (間隔反復)
               </strong>{" "}
-              giúp ghi nhớ vĩnh viễn.
+              giúp ghi nhớ lâu dài.
             </p>
 
             {/* CTA Buttons */}
