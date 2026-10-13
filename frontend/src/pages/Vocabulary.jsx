@@ -7,7 +7,7 @@ import useDebounce from '../hooks/useDebounce';
 import { HankoBadge } from '../components/JapaneseIcons';
 import { speakJapanese } from '../utils/speak';
 import { Volume2, Star, Search, BookOpen, Sparkles } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import KanaTables from '../components/KanaTables';
 
 const PAGE_SIZE = 24;
 
@@ -154,6 +154,10 @@ export default function Vocabulary() {
         </p>
       </div>
       
+      <div className="mb-8">
+        <KanaTables collapsible defaultOpen={false} />
+      </div>
+
       {/* Search and Filters Bar */}
       <div className="space-y-4 mb-8">
         <div className="relative">
