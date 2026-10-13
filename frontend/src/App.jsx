@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 import AssistantWidget from "./components/AssistantWidget";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import KanaTables from "./components/KanaTables";
 
 function Home() {
   const { user } = useAuth();
@@ -512,12 +513,17 @@ function Home() {
             ))}
           </div>
         )}
+        <div className="mt-12">
+          <KanaTables collapsible defaultOpen={false} />
+        </div>
       </section>
+
+      
 
       {/* Review reminder for logged in user */}
       {user && (
         <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
-          <div className="bg-gradient-to-r from-accent-soft via-surface to-accent-soft border border-accent/30 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs relative overflow-hidden">
+          <div className="bg-linear-to-r from-accent-soft via-surface to-accent-soft border border-accent/30 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs relative overflow-hidden">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-2xl bg-accent text-white flex items-center justify-center shadow-sm shrink-0">
                 <DarumaIcon className="w-8 h-8" />
