@@ -144,15 +144,16 @@ def build_queue(user, level=None, limit=20):
     return {'items': items, 'due_count': len(due_pairs), 'new_count': new_count}
 
 
-def build_reviewed(user, level=None, limit=200):
-    """Các từ đã ôn xong: lịch ôn lại nằm ở tương lai."""
+def reviewed_pairs(user, level=None):
+    """Các thẻ đã ôn xong (lịch ôn lại nằm ở tương lai), xếp từ cấp thấp đến cao."""
     levels = [level] if level in LEVEL_ORDER else LEVEL_ORDER
     cards = FlashcardReview.objects.filter(
         user=user, next_review_date__gt=date.today()
     ).order_by('id')
-    pairs = _usable_cards(list(cards), levels)
+    return _usable_cards(list(cards), levels)
+
+
+def reviewed_items(pairs):
+    """Dựng dữ liệu đầy đủ (kèm đáp án nhiễu) chỉ cho các thẻ của trang hiện tại."""
     picker = DistractorPicker()
-    return {
-        'count': len(pairs),
-        'items': [_item(card.content_type, obj, picker, card) for card, obj in pairs[:limit]],
-    }
+    return [_item(card.content_type, obj, picker, card) for card, obj in pairs]

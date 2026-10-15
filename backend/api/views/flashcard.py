@@ -6,9 +6,11 @@ from rest_framework.response import Response
 
 from api.models import FlashcardReview
 from api.serializers import FlashcardReviewSerializer
-from api.services.flashcards import CARD_SOURCES, build_queue, build_reviewed
+from api.services.flashcards import CARD_SOURCES, build_queue,reviewed_pairs, reviewed_items
 from api.services.gamification import record_activity
 from api.services.srs import calculate_sm2
+from api.pagination import StandardPagination
+
 
 
 def parse_int(value):
@@ -56,7 +58,10 @@ class FlashcardReviewViewSet(viewsets.GenericViewSet,
 
     @action(methods=['get'], detail=False, url_path='reviewed')
     def reviewed(self, request):
-        return Response(build_reviewed(request.user, request.query_params.get('level')))
+        pairs = reviewed_pairs(request.user, request.query_params.get('level'))
+        paginator = StandardPagination()
+        page = paginator.paginate_queryset(pairs, request, view=self)
+        return paginator.get_paginated_response(reviewed_items(page))
 
     @action(methods=['post'], detail=False, url_path='answer')
     def answer(self, request):
