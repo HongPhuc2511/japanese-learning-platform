@@ -208,7 +208,7 @@ export default function KanaTables({ collapsible = false, defaultOpen = true }) 
               </Section>
 
               <Section
-                title="Âm đục & bán đục"
+                title="Âm đục và bán đục"
                 jp="濁音・半濁音"
                 note="Thêm dấu ゛ (đục) hoặc ゜ (bán đục) vào chữ gốc. ぢ và づ đọc giống じ và ず, rất ít dùng."
               >

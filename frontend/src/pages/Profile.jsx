@@ -239,7 +239,7 @@ export default function Profile() {
       {/* Change Password Form */}
       <div className="jp-card p-6 sm:p-8">
         <h2 className="font-display font-bold text-lg text-text mb-1">
-          Bảo mật & Đổi mật khẩu
+          Bảo mật và đổi mật khẩu
         </h2>
         <p className="text-xs text-text-muted mb-6">
           Đảm bảo mật khẩu của bạn có độ an toàn cao để bảo vệ tài khoản
