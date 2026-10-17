@@ -73,7 +73,7 @@ export default function Header() {
               </span>
             </div>
             <span className="text-[10px] text-text-muted tracking-wider uppercase font-medium">
-              JLPT Học tập & Ôn luyện
+              JLPT Học tập và Ôn luyện
             </span>
           </div>
         </Link>

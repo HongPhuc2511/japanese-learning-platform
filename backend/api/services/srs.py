@@ -2,12 +2,7 @@ from datetime import date, timedelta
 
 
 def calculate_sm2(quality, ease_factor, interval_days, review_count):
-    """
-    quality: điểm đánh giá từ 0-5 (0 = quên hẳn, 5 = nhớ hoàn hảo)
-    Trả về: (ease_factor mới, interval_days mới, review_count mới, next_review_date)
-    """
     if quality < 3:
-        # Trả lời sai/khó -> reset về ôn lại sớm
         interval_days = 1
         review_count = 0
     else:
@@ -20,8 +15,9 @@ def calculate_sm2(quality, ease_factor, interval_days, review_count):
         review_count += 1
 
     ease_factor = ease_factor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
-    ease_factor = max(1.3, ease_factor)  # không cho ease_factor xuống quá thấp
+    ease_factor = max(1.3, ease_factor)
 
-    next_review_date = date.today() + timedelta(days=interval_days)
+    # Trả lời sai thì học lại ngay hôm nay, đúng thì hẹn ôn theo khoảng cách mới
+    next_review_date = date.today() if quality < 3 else date.today() + timedelta(days=interval_days)
 
     return ease_factor, interval_days, review_count, next_review_date
