@@ -32,6 +32,7 @@ import {
 import AssistantWidget from "./components/AssistantWidget";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import KanaTables from "./components/KanaTables";
+import Dashboard from "./pages/Dashboard";
 
 function Home() {
   const { user } = useAuth();
@@ -518,8 +519,6 @@ function Home() {
         </div>
       </section>
 
-      
-
       {/* Review reminder for logged in user */}
       {user && (
         <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
@@ -638,7 +637,22 @@ export default function App() {
 
                 <Route path="/flashcards" element={<Flashcards />} />
                 <Route path="/saved" element={<SavedItems />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route
+                  path="/profile"
+                  element={
+                    <ProtectedRoute>
+                      <Dashboard />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/profile/account"
+                  element={
+                    <ProtectedRoute>
+                      <Profile />
+                    </ProtectedRoute>
+                  }
+                />
               </Routes>
             </main>
             <Footer />
