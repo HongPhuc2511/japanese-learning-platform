@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import Header from "./components/Header";
@@ -27,6 +27,7 @@ import {
   ArrowRight,
   Volume2,
   ChevronRight,
+  ChevronLeft,
   Brain,
 } from "lucide-react";
 import AssistantWidget from "./components/AssistantWidget";
@@ -37,18 +38,53 @@ import Dashboard from "./pages/Dashboard";
 function Home() {
   const { user } = useAuth();
   const [courses, setCourses] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const statsRef = useRef(null);
+  const [statsVisible, setStatsVisible] = useState(false);
 
   useEffect(() => {
     const fetchCourses = async () => {
       try {
         const res = await api.get(endpoints["courses"]);
-        setCourses(res.data.slice(0, 3));
+        setCourses(res.data.slice(0, 5));
       } catch (err) {
         console.error("Không tải được khoá học", err);
       }
     };
     fetchCourses();
   }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsVisible(true);
+          observer.disconnect(); // Chỉ chạy hiệu ứng 1 lần
+        }
+      },
+      { threshold: 0.2 } // Kích hoạt khi cuộn thấy 20% khối này
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  const nextCourses = () => {
+    if (courses.length > 3) {
+      // Nếu đã trượt đến kịch kim (còn 3 cái cuối), vòng lại cái đầu tiên
+      setCurrentIndex((prev) => (prev >= courses.length - 3 ? 0 : prev + 1));
+    }
+  };
+
+  // Bấm qua trái (Lùi)
+  const prevCourses = () => {
+    if (courses.length > 3) {
+      // Nếu đang ở cái đầu tiên, vòng vọt xuống cuối
+      setCurrentIndex((prev) => (prev <= 0 ? courses.length - 3 : prev - 1));
+    }
+  };
 
   const proverb = {
     japanese: "七転び八起き",
@@ -417,21 +453,22 @@ function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {jlptLevels.map((lvl, index) => (
-              <div
+              <Link // <-- Đổi div thành Link
                 key={lvl.level}
-                className="bg-surface border border-border rounded-2xl p-5 flex flex-col justify-between hover:border-accent hover:shadow-sm transition"
+                to={`/courses?level=${lvl.level}`} // <-- Đường dẫn khi ấn vào
+                className="bg-surface border border-border rounded-2xl p-5 flex flex-col justify-between hover:border-accent hover:shadow-sm transition group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span
-                      className="font-serif text-2xl font-black text-accent"
+                      className="font-serif text-2xl font-black text-accent group-hover:scale-110 transition-transform origin-left"
                       style={{ fontFamily: "'Noto Serif JP', serif" }}
                     >
                       {lvl.level}
                     </span>
                     <HankoBadge text={lvl.kanji} />
                   </div>
-                  <h3 className="font-bold text-text text-sm mb-1">
+                  <h3 className="font-bold text-text text-sm mb-1 group-hover:text-accent transition-colors">
                     {lvl.title}
                   </h3>
                   <p className="text-xs text-text-muted leading-relaxed mb-4">
@@ -448,7 +485,7 @@ function Home() {
                     <strong className="text-text">{lvl.kanjis}</strong>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -485,33 +522,77 @@ function Home() {
             </p>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-3 gap-6">
-            {courses.map((course) => (
-              <Link
-                key={course.id}
-                to={`/courses/${course.id}`}
-                className="jp-card p-6 flex flex-col justify-between group"
+          <div className="relative group px-0 sm:px-12">
+            {/* CSS điều khiển thanh trượt dựa trên biến --slide-step */}
+            <style>{`
+              .slider-track {
+                display: flex;
+                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                transform: translateX(calc(var(--slide-step, 0) * -100%));
+              }
+              @media (min-width: 640px) {
+                .slider-track {
+                  transform: translateX(calc(var(--slide-step, 0) * -33.333333%));
+                }
+              }
+            `}</style>
+
+            {/* Nút Lùi */}
+            {courses.length > 3 && (
+              <button 
+                onClick={prevCourses} 
+                className="absolute left-0 sm:-left-3 top-1/2 -translate-y-1/2 z-20 bg-surface border border-border rounded-full p-3 shadow-sm text-text-muted hover:text-accent hover:border-accent transition hidden sm:flex opacity-0 group-hover:opacity-100"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <HankoBadge text={course.level} />
-                    <span className="text-[10px] text-text-muted">
-                      JLPT Chuẩn
-                    </span>
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+            )}
+
+            {/* Khung cửa sổ hiển thị (Chỉ cho phép nhìn thấy 3 ô) */}
+            <div className="overflow-hidden -mx-3 py-2">
+              {/* Thanh ray dài chứa CẢ 5 KHÓA HỌC */}
+              <div 
+                className="slider-track" 
+                style={{ '--slide-step': currentIndex }}
+              >
+                {courses.map((course) => (
+                  <div key={course.id} className="w-full sm:w-1/3 shrink-0 px-3">
+                    <Link
+                      to={`/courses/${course.id}`}
+                      className="jp-card p-6 flex flex-col justify-between group h-full bg-surface border border-border rounded-2xl hover:border-accent hover:shadow-sm transition-all"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-4">
+                          <HankoBadge text={course.level} />
+                          <span className="text-[10px] text-text-muted uppercase tracking-wider font-semibold">
+                            JLPT Chuẩn
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold text-text group-hover:text-accent transition mb-2 line-clamp-2">
+                          {course.title}
+                        </h3>
+                        <p className="text-sm text-text-muted leading-relaxed line-clamp-3">
+                          {course.description}
+                        </p>
+                      </div>
+                      <div className="mt-6 pt-4 border-t border-border/70 flex items-center justify-between text-xs font-medium text-text-muted group-hover:text-accent transition">
+                        <span>Khám phá bài học</span>
+                        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </Link>
                   </div>
-                  <h3 className="text-lg font-bold text-text group-hover:text-accent transition mb-2">
-                    {course.title}
-                  </h3>
-                  <p className="text-xs text-text-muted leading-relaxed line-clamp-3">
-                    {course.description}
-                  </p>
-                </div>
-                <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs font-medium text-text-muted group-hover:text-accent">
-                  <span>Khám phá bài học</span>
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Nút Tiến */}
+            {courses.length > 3 && (
+              <button 
+                onClick={nextCourses} 
+                className="absolute right-0 sm:-right-3 top-1/2 -translate-y-1/2 z-20 bg-surface border border-border rounded-full p-3 shadow-sm text-text-muted hover:text-accent hover:border-accent transition hidden sm:flex opacity-0 group-hover:opacity-100"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            )}
           </div>
         )}
         <div className="mt-12">
@@ -553,52 +634,86 @@ function Home() {
       )}
 
       {/* Stats strip */}
-      <section className="border-t border-border bg-surface">
-        <div className="max-w-5xl mx-auto px-6 py-14 grid grid-cols-3 gap-6 text-center">
-          <div className="space-y-1">
+      <div className="bg-bg relative">
+      {/* ... Các section Hero, 4 Pillars, Roadmap, Courses ... */}
+
+      {/* Stats strip - Đã được nâng cấp */}
+      <section ref={statsRef} className="border-t border-border bg-surface overflow-hidden">
+        <style>{`
+          @keyframes slideInFromLeft {
+            0% { opacity: 0; transform: translateX(-40px); }
+            100% { opacity: 1; transform: translateX(0); }
+          }
+          .stat-item {
+            opacity: 0; /* Ẩn đi trước khi cuộn tới */
+          }
+          .stat-item.is-visible {
+            animation: slideInFromLeft 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+          }
+        `}</style>
+
+        <div className="max-w-5xl mx-auto px-6 py-10 sm:py-14 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 text-center">
+          
+          {/* Cột 1 */}
+          <div 
+            className={`space-y-1.5 flex flex-col justify-center stat-item ${statsVisible ? 'is-visible' : ''}`}
+            style={{ animationDelay: '100ms' }}
+          >
             <p
               className="font-serif text-3xl sm:text-4xl font-extrabold text-accent"
               style={{ fontFamily: "'Noto Serif JP', serif" }}
             >
               N5–N1
             </p>
-            <p className="text-text font-medium text-xs sm:text-sm">
+            <p className="text-text font-medium text-sm">
               Đầy đủ 5 Cấp độ
             </p>
-            <p className="text-[11px] text-text-muted">
+            <p className="text-xs text-text-muted">
               Theo chuẩn kỳ thi năng lực
             </p>
           </div>
-          <div className="space-y-1 border-x border-border">
+
+          {/* Cột 2 */}
+          <div 
+            className={`space-y-1.5 flex flex-col justify-center py-6 sm:py-0 border-y sm:border-y-0 sm:border-x border-border stat-item ${statsVisible ? 'is-visible' : ''}`}
+            style={{ animationDelay: '250ms' }}
+          >
             <p
               className="font-serif text-3xl sm:text-4xl font-extrabold text-matcha"
               style={{ fontFamily: "'Noto Serif JP', serif" }}
             >
               SRS
             </p>
-            <p className="text-text font-medium text-xs sm:text-sm">
+            <p className="text-text font-medium text-sm">
               Lặp lại ngắt quãng
             </p>
-            <p className="text-[11px] text-text-muted">
+            <p className="text-xs text-text-muted">
               Khoa học trí nhớ tối ưu
             </p>
           </div>
-          <div className="space-y-1">
+
+          {/* Cột 3 */}
+          <div 
+            className={`space-y-1.5 flex flex-col justify-center stat-item ${statsVisible ? 'is-visible' : ''}`}
+            style={{ animationDelay: '400ms' }}
+          >
             <p
               className="font-serif text-3xl sm:text-4xl font-extrabold text-gold"
               style={{ fontFamily: "'Noto Serif JP', serif" }}
             >
               100%
             </p>
-            <p className="text-text font-medium text-xs sm:text-sm">
+            <p className="text-text font-medium text-sm">
               Miễn phí học tập
             </p>
-            <p className="text-[11px] text-text-muted">
+            <p className="text-xs text-text-muted">
               Không giới hạn tính năng
             </p>
           </div>
+
         </div>
       </section>
+    </div>
     </div>
   );
 }
