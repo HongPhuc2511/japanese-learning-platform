@@ -115,13 +115,13 @@ export default function Dashboard() {
           <p className="text-sm font-bold text-accent" style={SERIF}>
             {hello.jp} • {hello.vi}
           </p>
-          <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-text tracking-tight wrap-break-word">
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-text tracking-tight break-words">
             {name}
           </h1>
         </div>
         <Link
           to="/profile/account"
-          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted transition hover:border-accent hover:text-accent"
+          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-accent/90"
         >
           <UserIcon className="h-4 w-4" />
           <span className="hidden sm:inline">Thông tin tài khoản</span>
