@@ -4,7 +4,8 @@ from rest_framework.routers import DefaultRouter
 from .views import (RegisterView, LoginView, RefreshTokenView, MeView, CourseViewSet,
                     LessonViewSet, VocabularyViewSet, KanjiViewSet, GrammarViewSet, QuizViewSet,
                     UserProgressViewSet, BookmarkViewSet, FlashcardReviewViewSet, ChangePasswordView,
-                    QuizResultViewSet, AssistantChatView, GoogleLoginView, FacebookLoginView,DashboardView)
+                    QuizResultViewSet, AssistantChatView, GoogleLoginView, FacebookLoginView,
+                    DashboardView, LeaderboardView)
 
 router = DefaultRouter()
 router.register('courses', CourseViewSet)
@@ -29,4 +30,5 @@ urlpatterns = [
     path('auth/google/', GoogleLoginView.as_view(), name='google-login'),
     path('auth/facebook/', FacebookLoginView.as_view(), name='facebook-login'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
+    path('leaderboard/', LeaderboardView.as_view(), name='leaderboard'),
 ]

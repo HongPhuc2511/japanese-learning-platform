@@ -10,3 +10,4 @@ from .flashcard import FlashcardReviewViewSet
 from .quiz_result import QuizResultViewSet
 from .assistant import AssistantChatView
 from .dashboard import DashboardView
+from .leaderboard import LeaderboardView
