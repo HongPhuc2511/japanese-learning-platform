@@ -30,6 +30,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'unfold',
+    'unfold.contrib.filters',
+    'unfold.contrib.forms',
+    'unfold.contrib.inlines',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -174,4 +178,168 @@ ASSISTANT_MODEL = os.environ.get("ASSISTANT_MODEL", "gemini-3-flash-preview")
 GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "")
 FACEBOOK_APP_ID = os.environ.get("FACEBOOK_APP_ID", "")
 FACEBOOK_APP_SECRET = os.environ.get("FACEBOOK_APP_SECRET", "")
+
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+from django.templatetags.static import static
+
+UNFOLD = {
+    "SITE_TITLE": "Hikari 日本語 Admin",
+    "SITE_HEADER": "Hikari 日本語",
+    "SITE_SUBHEADER": "Hệ thống quản trị nền tảng học tiếng Nhật JLPT",
+    "SITE_SYMBOL": "translate",
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": False,
+    "STYLES": [
+        lambda request: static("api/admin_custom.css"),
+    ],
+    "COLORS": {
+        "primary": {
+            "50": "#fef2f2",
+            "100": "#fee2e2",
+            "200": "#fecaca",
+            "300": "#fca5a5",
+            "400": "#f87171",
+            "500": "#ef4444",
+            "600": "#dc2626",
+            "700": "#b91c1c",
+            "800": "#991b1b",
+            "900": "#7f1d1d",
+            "950": "#450a0a",
+        },
+        "base": {
+            "50": "#f8fafc",   # Nền trang chính Light: Slate-50 sáng, sạch sẽ
+            "100": "#f1f5f9",  # Nền hover & header bảng Light: Slate-100
+            "200": "#e2e8f0",  # Viền nhẹ nhàng Light: Slate-200
+            "300": "#cbd5e1",  # Đường viền phân cách: Slate-300
+            "400": "#94a3b8",  # Icon và placeholder: Slate-400
+            "500": "#64748b",  # Chữ phụ: Slate-500
+            "600": "#475569",  # Chữ nội dung: Slate-600
+            "700": "#334155",  # Viền Dark mode: Slate-700
+            "800": "#1e293b",  # Nền Card Dark mode: Slate-800 sang trọng (không đen kịt)
+            "900": "#0f172a",  # Nền trang Dark mode: Slate-900
+            "950": "#020617",  # Nền sâu nhất: Slate-950
+        },
+        "font": {
+            "subtle-light": "#64748b",     # Chữ phụ Light: xám đậm dễ đọc
+            "subtle-dark": "#94a3b8",      # Chữ phụ Dark: xám sáng rõ ràng
+            "default-light": "#1e293b",    # Chữ mặc định Light: đen slate sắc nét
+            "default-dark": "#f8fafc",     # Chữ mặc định Dark: trắng sáng Slate-50
+            "important-light": "#0f172a",  # Tiêu đề Light: đen tuyền
+            "important-dark": "#ffffff",   # Tiêu đề Dark: trắng tinh 100%
+        },
+    },
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": False,
+        "navigation": [
+            {
+                "title": _("Học tập & Giáo trình"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Khóa học"),
+                        "icon": "school",
+                        "link": reverse_lazy("admin:api_course_changelist"),
+                    },
+                    {
+                        "title": _("Bài học"),
+                        "icon": "menu_book",
+                        "link": reverse_lazy("admin:api_lesson_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Kho Tri thức Tiếng Nhật"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Từ vựng"),
+                        "icon": "translate",
+                        "link": reverse_lazy("admin:api_vocabulary_changelist"),
+                    },
+                    {
+                        "title": _("Hán tự (Kanji)"),
+                        "icon": "draw",
+                        "link": reverse_lazy("admin:api_kanji_changelist"),
+                    },
+                    {
+                        "title": _("Ngữ pháp"),
+                        "icon": "spellcheck",
+                        "link": reverse_lazy("admin:api_grammar_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Luyện thi & Đánh giá"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Bộ đề kiểm tra"),
+                        "icon": "quiz",
+                        "link": reverse_lazy("admin:api_quiz_changelist"),
+                    },
+                    {
+                        "title": _("Ngân hàng câu hỏi"),
+                        "icon": "help_center",
+                        "link": reverse_lazy("admin:api_question_changelist"),
+                    },
+                    {
+                        "title": _("Đáp án"),
+                        "icon": "checklist",
+                        "link": reverse_lazy("admin:api_answer_changelist"),
+                    },
+                    {
+                        "title": _("Kết quả thi"),
+                        "icon": "analytics",
+                        "link": reverse_lazy("admin:api_quizresult_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Tiến độ & Ghi nhớ SRS"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Ôn tập Flashcard (SRS)"),
+                        "icon": "style",
+                        "link": reverse_lazy("admin:api_flashcardreview_changelist"),
+                    },
+                    {
+                        "title": _("Tiến độ học viên"),
+                        "icon": "trending_up",
+                        "link": reverse_lazy("admin:api_userprogress_changelist"),
+                    },
+                    {
+                        "title": _("Đánh dấu lưu trữ"),
+                        "icon": "bookmark",
+                        "link": reverse_lazy("admin:api_bookmark_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Tài khoản & Quyền hạn"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Học viên & Quản trị"),
+                        "icon": "group",
+                        "link": reverse_lazy("admin:api_user_changelist"),
+                    },
+                    {
+                        "title": _("Nhóm quyền"),
+                        "icon": "shield_person",
+                        "link": reverse_lazy("admin:auth_group_changelist"),
+                    },
+                ],
+            },
+        ],
+    },
+}
+
 

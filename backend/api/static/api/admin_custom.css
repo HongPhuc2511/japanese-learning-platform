@@ -1,0 +1,703 @@
+/* ==========================================================================
+   Hikari Japanese Learning Platform - Complete Unfold Theme Enhancements
+   Support for both Light Mode and Dark Mode with Perfect Contrast
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL TYPOGRAPHY & LAYOUT
+   -------------------------------------------------------------------------- */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+}
+
+/* Light Mode Global Background & Text */
+html:not(.dark) body {
+  background-color: #f8fafc !important; /* Clean bright Slate-50 */
+  color: #1e293b !important;            /* Slate-800: sharp readable text */
+}
+
+html:not(.dark) #main {
+  background-color: #ffffff !important;
+}
+
+/* Dark Mode Global Background & Text */
+html.dark body {
+  background-color: #0f172a !important; /* Slate-900 */
+  color: #f8fafc !important;            /* Crisp white text */
+}
+
+html.dark #main {
+  background-color: #0f172a !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. DASHBOARD (SITE ADMINISTRATION) - PERFECT CONTRAST IN DARK MODE
+   -------------------------------------------------------------------------- */
+
+/* App Module Cards (e.g. app Api, Authentication) */
+html.dark .module,
+html.dark [class*="app-"] > div {
+  background-color: #1e293b !important; /* Slate-800 - elegant medium dark card */
+  border: 1px solid #334155 !important;
+}
+
+/* App Titles (e.g. "Api", "Authentication and Authorization") */
+html.dark caption a.section,
+html.dark caption,
+html.dark .module h2 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* Model Rows Table inside Dashboard */
+html.dark .module table {
+  border-color: #334155 !important;
+}
+
+html.dark .module table tr,
+html.dark [class*="app-"] table tr {
+  background-color: #0f172a !important; /* Slate-900 rows */
+}
+
+html.dark .module table tr:hover,
+html.dark [class*="app-"] table tr:hover {
+  background-color: #1e293b !important; /* Slate-800 hover */
+}
+
+/* Model Names (Links: Answers, Bookmarks, Courses, Kanjis, Users...) -> PURE WHITE */
+html.dark .module table th a,
+html.dark [class*="app-"] table th a,
+html.dark tr[class*="model-"] th a,
+html.dark .module a:not(.addlink):not(.changelink):not(.viewlink) {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+html.dark .module table th a:hover,
+html.dark [class*="app-"] table th a:hover,
+html.dark tr[class*="model-"] th a:hover {
+  color: #f87171 !important; /* Bright coral red hover */
+  text-decoration: underline !important;
+}
+
+/* Add (+) Icon Link: VIBRANT SKY BLUE & HIGH VISIBILITY */
+html.dark a.addlink,
+html.dark a.addlink span,
+html.dark .module a.addlink span,
+html.dark [class*="app-"] a.addlink span {
+  color: #38bdf8 !important; /* Sky Blue - cực kỳ nổi bật trên nền tối */
+  font-weight: 700 !important;
+}
+
+html.dark a.addlink:hover span {
+  color: #7dd3fc !important;
+  transform: scale(1.15);
+}
+
+/* Change (Edit) Icon Link: WARM AMBER */
+html.dark a.changelink,
+html.dark a.changelink span,
+html.dark .module a.changelink span {
+  color: #fbbf24 !important; /* Amber */
+}
+
+html.dark a.changelink:hover span {
+  color: #fde047 !important;
+  transform: scale(1.15);
+}
+
+/* View (Eye) Icon Link */
+html.dark a.viewlink,
+html.dark a.viewlink span {
+  color: #34d399 !important; /* Emerald */
+}
+
+/* Recent Actions Module in Dark Mode */
+html.dark #recent-actions-module {
+  background-color: #1e293b !important; /* Slate-800 */
+  border: 1px solid #334155 !important;
+}
+
+html.dark #recent-actions-module h2 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+html.dark #recent-actions-module ul.actionlist li {
+  background-color: #0f172a !important; /* Slate-900 */
+  border: 1px solid #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+html.dark #recent-actions-module ul.actionlist li a {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+html.dark #recent-actions-module ul.actionlist li a:hover {
+  color: #f87171 !important;
+}
+
+html.dark #recent-actions-module ul.actionlist li div {
+  color: #94a3b8 !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. SEARCH BAR ("TYPE TO SEARCH") - LIGHT & DARK MODE
+   -------------------------------------------------------------------------- */
+
+/* Light Mode: Nền xám nhạt (Slate-100), chữ đen sắc nét */
+html:not(.dark) form[role="search"] > div,
+html:not(.dark) #changelist-search > div,
+html:not(.dark) div:has(> input#searchbar),
+html:not(.dark) #nav-sidebar div:has(> input#nav-filter) {
+  background-color: #f1f5f9 !important; /* Xám nhạt Slate-100 */
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+}
+
+html:not(.dark) input#searchbar,
+html:not(.dark) input#nav-filter,
+html:not(.dark) form[role="search"] input[type="text"] {
+  background-color: transparent !important;
+  color: #0f172a !important; /* Chữ đen đậm rõ ràng */
+  font-weight: 500 !important;
+}
+
+html:not(.dark) form[role="search"] input::placeholder,
+html:not(.dark) #changelist-search input::placeholder,
+html:not(.dark) #nav-sidebar input#nav-filter::placeholder {
+  color: #64748b !important;
+}
+
+html:not(.dark) button#searchbar-submit span,
+html:not(.dark) form[role="search"] span.material-symbols-outlined,
+html:not(.dark) #nav-sidebar span.material-symbols-outlined {
+  color: #64748b !important;
+}
+
+/* Dark Mode: Nền xám vừa (Slate-800 - KHÔNG đen kịt), chữ trắng sáng */
+html.dark form[role="search"] > div,
+html.dark #changelist-search > div,
+html.dark div:has(> input#searchbar),
+html.dark #nav-sidebar div:has(> input#nav-filter) {
+  background-color: #1e293b !important; /* Xám vừa Slate-800 hài hòa */
+  border: 1px solid #334155 !important;
+  border-radius: 8px !important;
+}
+
+html.dark input#searchbar,
+html.dark input#nav-filter,
+html.dark form[role="search"] input[type="text"] {
+  background-color: transparent !important;
+  color: #ffffff !important; /* Chữ trắng sáng nổi bật */
+  font-weight: 500 !important;
+}
+
+html.dark form[role="search"] input::placeholder,
+html.dark #changelist-search input::placeholder,
+html.dark #nav-sidebar input#nav-filter::placeholder {
+  color: #94a3b8 !important; /* Placeholder xám sáng */
+}
+
+html.dark button#searchbar-submit span,
+html.dark form[role="search"] span.material-symbols-outlined,
+html.dark #nav-sidebar div:has(> input#nav-filter) span.material-symbols-outlined {
+  color: #94a3b8 !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. LEFT SIDEBAR ENHANCEMENTS (All Modes)
+   -------------------------------------------------------------------------- */
+#nav-sidebar,
+#nav-sidebar-inner,
+.navigation {
+  background-color: #0f172a !important; /* Sleek Slate-900 background */
+  border-right: 1px solid #1e293b !important;
+}
+
+#nav-sidebar header,
+#nav-sidebar-inner header {
+  background-color: #0f172a !important;
+  border-bottom: 1px solid #1e293b !important;
+}
+
+#nav-sidebar header a,
+#nav-sidebar header span {
+  color: #ffffff !important;
+}
+
+/* Sidebar Section Headers */
+#nav-sidebar h2,
+#nav-sidebar-apps h2 {
+  color: #94a3b8 !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: 8px 12px !important;
+  margin-top: 10px !important;
+  margin-bottom: 4px !important;
+}
+
+#nav-sidebar h2 span.material-symbols-outlined {
+  color: #64748b !important;
+}
+
+#nav-sidebar hr {
+  border-color: #1e293b !important;
+  margin: 10px 16px !important;
+}
+
+/* Sidebar Menu Items */
+#nav-sidebar-apps ol li a {
+  color: #f1f5f9 !important; /* Bright white/light text */
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  margin-bottom: 3px !important;
+  transition: all 0.15s ease !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+#nav-sidebar-apps ol li a:hover {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+
+/* Active Menu Item Highlight */
+#nav-sidebar-apps ol li a.active,
+#nav-sidebar-apps ol li a[class*="active"],
+#nav-sidebar-apps ol li a[class*="text-primary-600"] {
+  background-color: rgba(220, 38, 38, 0.22) !important;
+  border-left: 3.5px solid #ef4444 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Sidebar Category Icons */
+#nav-sidebar-apps ol li a span.material-symbols-outlined {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 22px !important;
+  height: 22px !important;
+  margin-right: 12px !important;
+  font-size: 20px !important;
+}
+
+#nav-sidebar-apps a[href*="/course/"] span.material-symbols-outlined,
+#nav-sidebar-apps a[href*="/lesson/"] span.material-symbols-outlined {
+  color: #34d399 !important; /* Emerald */
+}
+
+#nav-sidebar-apps a[href*="/vocabulary/"] span.material-symbols-outlined {
+  color: #38bdf8 !important; /* Sky Blue */
+}
+
+#nav-sidebar-apps a[href*="/kanji/"] span.material-symbols-outlined {
+  color: #fbbf24 !important; /* Amber */
+}
+
+#nav-sidebar-apps a[href*="/grammar/"] span.material-symbols-outlined {
+  color: #f472b6 !important; /* Sakura Pink */
+}
+
+#nav-sidebar-apps a[href*="/quiz/"] span.material-symbols-outlined,
+#nav-sidebar-apps a[href*="/question/"] span.material-symbols-outlined,
+#nav-sidebar-apps a[href*="/answer/"] span.material-symbols-outlined,
+#nav-sidebar-apps a[href*="/quizresult/"] span.material-symbols-outlined {
+  color: #a78bfa !important; /* Violet */
+}
+
+#nav-sidebar-apps a[href*="/flashcardreview/"] span.material-symbols-outlined,
+#nav-sidebar-apps a[href*="/userprogress/"] span.material-symbols-outlined,
+#nav-sidebar-apps a[href*="/bookmark/"] span.material-symbols-outlined {
+  color: #fb923c !important; /* Coral Orange */
+}
+
+#nav-sidebar-apps a[href*="/user/"] span.material-symbols-outlined,
+#nav-sidebar-apps a[href*="/group/"] span.material-symbols-outlined {
+  color: #2dd4bf !important; /* Teal */
+}
+
+/* --------------------------------------------------------------------------
+   5. TABLE DATA ENHANCEMENTS (Light & Dark Mode)
+   -------------------------------------------------------------------------- */
+table#result_list {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  width: 100% !important;
+  border-radius: 8px !important;
+}
+
+/* Light Mode Table */
+html:not(.dark) table#result_list {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) table#result_list thead th {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  padding: 14px 16px !important;
+  border-bottom: 2px solid #cbd5e1 !important;
+  white-space: nowrap !important;
+}
+
+html:not(.dark) table#result_list thead th a {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+html:not(.dark) table#result_list tbody tr td,
+html:not(.dark) table#result_list tbody tr th {
+  font-size: 14px !important;
+  color: #1e293b !important;
+  padding: 14px 16px !important;
+  height: auto !important;
+  min-height: 54px !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  vertical-align: middle !important;
+}
+
+html:not(.dark) table#result_list tbody:nth-child(even) tr,
+html:not(.dark) table#result_list tbody:nth-child(even) tr td {
+  background-color: #f8fafc !important;
+}
+
+html:not(.dark) table#result_list tbody:nth-child(odd) tr,
+html:not(.dark) table#result_list tbody:nth-child(odd) tr td {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) table#result_list tbody tr:hover,
+html:not(.dark) table#result_list tbody tr:hover td {
+  background-color: #f1f5f9 !important;
+}
+
+html:not(.dark) table#result_list tbody tr a {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+html:not(.dark) table#result_list tbody tr a:hover {
+  color: #dc2626 !important;
+  text-decoration: underline !important;
+}
+
+/* Dark Mode Table */
+html.dark table#result_list {
+  background-color: #0f172a !important;
+}
+
+html.dark table#result_list thead th {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  padding: 14px 16px !important;
+  border-bottom: 2px solid #334155 !important;
+  white-space: nowrap !important;
+}
+
+html.dark table#result_list thead th a {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+html.dark table#result_list tbody tr td,
+html.dark table#result_list tbody tr th {
+  font-size: 14px !important;
+  color: #f1f5f9 !important;
+  padding: 14px 16px !important;
+  height: auto !important;
+  min-height: 54px !important;
+  border-bottom: 1px solid #1e293b !important;
+  vertical-align: middle !important;
+}
+
+html.dark table#result_list tbody:nth-child(even) tr,
+html.dark table#result_list tbody:nth-child(even) tr td {
+  background-color: #131d31 !important;
+}
+
+html.dark table#result_list tbody:nth-child(odd) tr,
+html.dark table#result_list tbody:nth-child(odd) tr td {
+  background-color: #0f172a !important;
+}
+
+html.dark table#result_list tbody tr:hover,
+html.dark table#result_list tbody tr:hover td {
+  background-color: #1e293b !important;
+}
+
+html.dark table#result_list tbody tr a {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+html.dark table#result_list tbody tr a:hover {
+  color: #f87171 !important;
+  text-decoration: underline !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. KANJI CHARACTER DISPLAY
+   -------------------------------------------------------------------------- */
+.kanji-character-cell,
+td.field-character_display,
+td.field-character {
+  font-size: 1.85rem !important; /* ~30px */
+  font-weight: 700 !important;
+  font-family: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+  min-width: 80px !important;
+}
+
+html:not(.dark) .kanji-character-cell,
+html:not(.dark) td.field-character_display,
+html:not(.dark) td.field-character {
+  color: #0f172a !important;
+}
+
+html.dark .kanji-character-cell,
+html.dark td.field-character_display,
+html.dark td.field-character {
+  color: #ffffff !important;
+}
+
+th.column-character_display,
+th.column-character {
+  text-align: center !important;
+}
+
+th.column-character_display .text,
+th.column-character .text {
+  justify-content: center !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. HIGH-CONTRAST JLPT BADGES
+   -------------------------------------------------------------------------- */
+span[class*="text-[11px]"],
+span[class*="rounded-default"][class*="uppercase"] {
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.04em !important;
+  padding: 3px 10px !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* N1 - Red (Danger) */
+.bg-red-100,
+span[class*="bg-red-100"] {
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+  border: 1.5px solid #f87171 !important;
+}
+
+/* N2 - Orange (Warning) */
+.bg-orange-100,
+span[class*="bg-orange-100"] {
+  background-color: #ffedd5 !important;
+  color: #9a3412 !important;
+  border: 1.5px solid #fb923c !important;
+}
+
+/* N3 - Purple / Crimson (Primary) */
+.bg-primary-100,
+span[class*="bg-primary-100"] {
+  background-color: #f3e8ff !important;
+  color: #6b21a8 !important;
+  border: 1.5px solid #c084fc !important;
+}
+
+/* N4 - Blue (Info) */
+.bg-blue-100,
+span[class*="bg-blue-100"] {
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
+  border: 1.5px solid #60a5fa !important;
+}
+
+/* N5 - Green (Success) */
+.bg-green-100,
+span[class*="bg-green-100"] {
+  background-color: #dcfce7 !important;
+  color: #166534 !important;
+  border: 1.5px solid #4ade80 !important;
+}
+
+/* Dark mode adjustments for badges */
+html.dark .bg-red-100 {
+  background-color: rgba(239, 68, 68, 0.25) !important;
+  color: #fca5a5 !important;
+  border-color: #ef4444 !important;
+}
+
+html.dark .bg-orange-100 {
+  background-color: rgba(249, 115, 22, 0.25) !important;
+  color: #fdba74 !important;
+  border-color: #f97316 !important;
+}
+
+html.dark .bg-primary-100 {
+  background-color: rgba(168, 85, 247, 0.25) !important;
+  color: #d8b4fe !important;
+  border-color: #a855f7 !important;
+}
+
+html.dark .bg-blue-100 {
+  background-color: rgba(59, 130, 246, 0.25) !important;
+  color: #93c5fd !important;
+  border-color: #3b82f6 !important;
+}
+
+html.dark .bg-green-100 {
+  background-color: rgba(34, 197, 94, 0.25) !important;
+  color: #86efac !important;
+  border-color: #22c55e !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. FOOTER & PAGINATION (Light & Dark Mode)
+   -------------------------------------------------------------------------- */
+#content-main,
+#changelist-form {
+  margin-bottom: 24px !important;
+}
+
+/* Light Mode Pagination */
+html:not(.dark) div[class*="scrollable-top"],
+html:not(.dark) div:has(> .flex.flex-row.grow.items-center.container) {
+  position: relative !important;
+  bottom: 0 !important;
+  background-color: #ffffff !important;
+  border-top: 2px solid #e2e8f0 !important;
+  border-radius: 0 0 10px 10px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  margin-top: 16px !important;
+  padding: 12px 24px !important;
+  color: #1e293b !important;
+  z-index: 25 !important;
+}
+
+html:not(.dark) div[class*="scrollable-top"] a,
+html:not(.dark) div:has(> .flex.flex-row.grow.items-center.container) a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 34px !important;
+  height: 34px !important;
+  padding: 0 10px !important;
+  border-radius: 6px !important;
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: all 0.15s ease !important;
+}
+
+html:not(.dark) div[class*="scrollable-top"] a:hover {
+  background-color: #e2e8f0 !important;
+  color: #dc2626 !important;
+}
+
+/* Dark Mode Pagination */
+html.dark div[class*="scrollable-top"],
+html.dark div:has(> .flex.flex-row.grow.items-center.container) {
+  position: relative !important;
+  bottom: 0 !important;
+  background-color: #1e293b !important; /* Slate-800 */
+  border-top: 2px solid #334155 !important;
+  border-radius: 0 0 10px 10px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  margin-top: 16px !important;
+  padding: 12px 24px !important;
+  color: #f8fafc !important;
+  z-index: 25 !important;
+}
+
+html.dark div[class*="scrollable-top"] a,
+html.dark div:has(> .flex.flex-row.grow.items-center.container) a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 34px !important;
+  height: 34px !important;
+  padding: 0 10px !important;
+  border-radius: 6px !important;
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border: 1px solid #334155 !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: all 0.15s ease !important;
+}
+
+html.dark div[class*="scrollable-top"] a:hover {
+  background-color: #334155 !important;
+  color: #ef4444 !important;
+}
+
+/* Active current page number (Both Modes) */
+div[class*="scrollable-top"] span.text-primary-600,
+div[class*="scrollable-top"] span[class*="text-primary"],
+div:has(> .flex.flex-row.grow.items-center.container) span.text-primary-600,
+div:has(> .flex.flex-row.grow.items-center.container) span[class*="text-primary"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 34px !important;
+  height: 34px !important;
+  padding: 0 10px !important;
+  border-radius: 6px !important;
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+  border: 1px solid #dc2626 !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.25) !important;
+}
+
+/* Total count text */
+html:not(.dark) div[class*="scrollable-top"] div[class*="py-4"] {
+  color: #334155 !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  margin-left: 16px !important;
+}
+
+html.dark div[class*="scrollable-top"] div[class*="py-4"] {
+  color: #94a3b8 !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  margin-left: 16px !important;
+}
+
+.showall {
+  color: #dc2626 !important;
+  font-weight: 600 !important;
+  margin-left: 12px !important;
+}
