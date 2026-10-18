@@ -157,3 +157,15 @@ def reviewed_items(pairs):
     """Dựng dữ liệu đầy đủ (kèm đáp án nhiễu) chỉ cho các thẻ của trang hiện tại."""
     picker = DistractorPicker()
     return [_item(card.content_type, obj, picker, card) for card, obj in pairs]
+
+def review_summary(user):
+    """Số từ cần ôn lại hôm nay và số từ mới chưa học."""
+    due_cards = FlashcardReview.objects.filter(
+        user=user, next_review_date__lte=date.today()
+    )
+    due = len(_usable_cards(list(due_cards), LEVEL_ORDER))
+    new = sum(
+        _new_words(user, content_type, model).count()
+        for content_type, (model, _field) in CARD_SOURCES.items()
+    )
+    return {'due': due, 'new': new}

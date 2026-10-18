@@ -20,6 +20,7 @@ export const endpoints = {
     'assistant-chat': "/api/assistant/chat/",
     'google-login': "/api/auth/google/",
     'facebook-login': "/api/auth/facebook/",
+    'dashboard': "/api/dashboard/",
 }
 
 export const authApi = axios.create({
