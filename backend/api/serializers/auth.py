@@ -22,15 +22,20 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     display_name = serializers.SerializerMethodField()
+    has_password = serializers.SerializerMethodField()
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'display_name', 'first_name',
-                  'email', 'level', 'points', 'streak_count']
-        read_only_fields = ['id', 'username', 'display_name', 'points', 'streak_count']
+        fields = ['id', 'username', 'display_name', 'first_name', 'email',
+                  'level', 'points', 'streak_count', 'has_password']
+        read_only_fields = ['id', 'username', 'display_name', 'points',
+                            'streak_count', 'has_password']
 
     def get_display_name(self, obj):
         return obj.first_name.strip() or obj.username
+
+    def get_has_password(self, obj):
+        return obj.has_usable_password()
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     """Custom JWT Serializer - Trả về Token + User Profile"""
@@ -45,6 +50,10 @@ class ChangePasswordSerializer(serializers.Serializer):
 
     def validate_old_password(self, value):
         user = self.context['request'].user
+        if not user.has_usable_password():
+            raise serializers.ValidationError(
+                'Tài khoản đăng nhập bằng Google hoặc Facebook không có mật khẩu để đổi'
+            )
         if not user.check_password(value):
             raise serializers.ValidationError('Mật khẩu cũ không đúng')
         return value

@@ -255,63 +255,74 @@ export default function Profile() {
       </div>
 
       {/* Change Password Form */}
-      <div className="jp-card p-6 sm:p-8">
-        <h2 className="font-display font-bold text-lg text-text mb-1">
-          Bảo mật và đổi mật khẩu
-        </h2>
-        <p className="text-xs text-text-muted mb-6">
-          Đảm bảo mật khẩu của bạn có độ an toàn cao để bảo vệ tài khoản
-        </p>
+      {user?.has_password === false ? (
+        <div className="jp-card p-6 sm:p-8">
+          <h2 className="font-display font-bold text-lg text-text mb-1">
+            Bảo mật và đổi mật khẩu
+          </h2>
+          <p className="text-sm text-text-muted leading-relaxed mt-4">
+            Bạn đang đăng nhập bằng Google hoặc tài khoản mạng xã hội nên tài khoản này không dùng mật khẩu riêng, không cần phải đổi mật khẩu.
+          </p>
+        </div>
+      ) : (
+        <div className="jp-card p-6 sm:p-8">
+          <h2 className="font-display font-bold text-lg text-text mb-1">
+            Bảo mật và đổi mật khẩu
+          </h2>
+          <p className="text-xs text-text-muted mb-6">
+            Đảm bảo mật khẩu của bạn có độ an toàn cao để bảo vệ tài khoản
+          </p>
 
-        <form onSubmit={handleChangePassword} className="space-y-4">
-          <div>
-            <label className="block text-xs font-semibold text-text-muted mb-1.5">
-              Mật khẩu hiện tại
-            </label>
-            <input
-              type="password"
-              value={oldPassword}
-              onChange={(e) => setOldPassword(e.target.value)}
-              className="w-full border border-border rounded-xl px-4 py-2.5 text-sm bg-surface focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition"
-              required
-            />
-          </div>
+          <form onSubmit={handleChangePassword} className="space-y-4">
+            <div>
+              <label className="block text-xs font-semibold text-text-muted mb-1.5">
+                Mật khẩu hiện tại
+              </label>
+              <input
+                type="password"
+                value={oldPassword}
+                onChange={(e) => setOldPassword(e.target.value)}
+                className="w-full border border-border rounded-xl px-4 py-2.5 text-sm bg-surface focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition"
+                required
+              />
+            </div>
 
-          <div>
-            <label className="block text-xs font-semibold text-text-muted mb-1.5">
-              Mật khẩu mới
-            </label>
-            <input
-              type="password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              className="w-full border border-border rounded-xl px-4 py-2.5 text-sm bg-surface focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition"
-              required
-            />
-          </div>
+            <div>
+              <label className="block text-xs font-semibold text-text-muted mb-1.5">
+                Mật khẩu mới
+              </label>
+              <input
+                type="password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                className="w-full border border-border rounded-xl px-4 py-2.5 text-sm bg-surface focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition"
+                required
+              />
+            </div>
 
-          {pwMsg && (
-            <p className="text-xs text-matcha font-medium flex items-center gap-1.5 bg-matcha-soft p-2.5 rounded-xl">
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              {pwMsg}
-            </p>
-          )}
-          {pwError && (
-            <p className="text-xs text-accent font-medium flex items-center gap-1.5 bg-accent-soft p-2.5 rounded-xl">
-              <AlertCircle className="w-3.5 h-3.5" />
-              {pwError}
-            </p>
-          )}
+            {pwMsg && (
+              <p className="text-xs text-matcha font-medium flex items-center gap-1.5 bg-matcha-soft p-2.5 rounded-xl">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                {pwMsg}
+              </p>
+            )}
+            {pwError && (
+              <p className="text-xs text-accent font-medium flex items-center gap-1.5 bg-accent-soft p-2.5 rounded-xl">
+                <AlertCircle className="w-3.5 h-3.5" />
+                {pwError}
+              </p>
+            )}
 
-          <button
-            type="submit"
-            disabled={savingPw}
-            className="w-full bg-surface text-text border border-border hover:border-accent hover:text-accent py-3 rounded-full text-xs font-semibold transition disabled:opacity-50 cursor-pointer"
-          >
-            {savingPw ? "Đang đổi mật khẩu..." : "Xác nhận đổi mật khẩu"}
-          </button>
-        </form>
-      </div>
+            <button
+              type="submit"
+              disabled={savingPw}
+              className="w-full bg-surface text-text border border-border hover:border-accent hover:text-accent py-3 rounded-full text-xs font-semibold transition disabled:opacity-50 cursor-pointer"
+            >
+              {savingPw ? "Đang đổi mật khẩu..." : "Xác nhận đổi mật khẩu"}
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }
