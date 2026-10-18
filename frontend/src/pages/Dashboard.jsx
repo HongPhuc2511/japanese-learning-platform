@@ -1,25 +1,36 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Brain, Flame, Star, User as UserIcon} from 'lucide-react';
-import { authApi, endpoints } from '../api/api';
-import { useAuth } from '../context/AuthContext';
-import { HankoBadge } from '../components/JapaneseIcons';
-import KanaTables from '../components/KanaTables';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  BookOpen,
+  Brain,
+  Flame,
+  Star,
+  User as UserIcon,
+  Trophy,
+} from "lucide-react";
+import { authApi, endpoints } from "../api/api";
+import { useAuth } from "../context/AuthContext";
+import { HankoBadge } from "../components/JapaneseIcons";
+import KanaTables from "../components/KanaTables";
 
 const SERIF = { fontFamily: "'Noto Serif JP', serif" };
 
 function greeting() {
   const hour = new Date().getHours();
-  if (hour < 11) return { jp: 'おはよう', vi: 'Chào buổi sáng' };
-  if (hour < 18) return { jp: 'こんにちは', vi: 'Chào buổi chiều' };
-  return { jp: 'こんばんは', vi: 'Chào buổi tối' };
+  if (hour < 11) return { jp: "おはよう", vi: "Chào buổi sáng" };
+  if (hour < 18) return { jp: "こんにちは", vi: "Chào buổi chiều" };
+  return { jp: "こんばんは", vi: "Chào buổi tối" };
 }
 
 function ProgressBar({ value, total }) {
   const percent = total > 0 ? Math.round((value / total) * 100) : 0;
   return (
     <div className="h-1.5 overflow-hidden rounded-full bg-border/60">
-      <div className="h-full bg-accent transition-all" style={{ width: `${percent}%` }} />
+      <div
+        className="h-full bg-accent transition-all"
+        style={{ width: `${percent}%` }}
+      />
     </div>
   );
 }
@@ -76,17 +87,20 @@ function Skeleton() {
 export default function Dashboard() {
   const { user } = useAuth();
   const [data, setData] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     let ignore = false;
     authApi
-      .get(endpoints['dashboard'])
+      .get(endpoints["dashboard"])
       .then((res) => {
         if (!ignore) setData(res.data);
       })
       .catch(() => {
-        if (!ignore) setError('Không tải được bảng điều khiển, bạn thử tải lại trang nhé.');
+        if (!ignore)
+          setError(
+            "Không tải được bảng điều khiển, bạn thử tải lại trang nhé.",
+          );
       });
     return () => {
       ignore = true;
@@ -102,7 +116,13 @@ export default function Dashboard() {
   }
   if (!data || !user) return <Skeleton />;
 
-  const { review, next_lesson: nextLesson, courses, levels, recent_quizzes: quizzes } = data;
+  const {
+    review,
+    next_lesson: nextLesson,
+    courses,
+    levels,
+    recent_quizzes: quizzes,
+  } = data;
   const hello = greeting();
   const name = user.display_name || user.username;
   const visibleLevels = levels.filter((l) => l.total > 0);
@@ -119,21 +139,35 @@ export default function Dashboard() {
             {name}
           </h1>
         </div>
-        <Link
-          to="/profile/account"
-          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-accent/90"
-        >
-          <UserIcon className="h-4 w-4" />
-          <span className="hidden sm:inline">Thông tin tài khoản</span>
-          <span className="sm:hidden">Tài khoản</span>
-        </Link>
+        <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
+          <Link
+            to="/leaderboard"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted transition hover:border-accent hover:text-accent"
+          >
+            <Trophy className="h-4 w-4" />
+            <span className="hidden sm:inline">Bảng xếp hạng</span>
+            <span className="sm:hidden">Xếp hạng</span>
+          </Link>
+          <Link
+            to="/profile/account"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted transition hover:border-accent hover:text-accent"
+          >
+            <UserIcon className="h-4 w-4" />
+            <span className="hidden sm:inline">Thông tin tài khoản</span>
+            <span className="sm:hidden">Tài khoản</span>
+          </Link>
+        </div>
       </div>
 
       {/* Chỉ số cá nhân */}
       <div className="grid grid-cols-3 gap-3">
-        <StatCard icon={Flame} value={user.streak_count ?? 0} label="Ngày liên tiếp" />
+        <StatCard
+          icon={Flame}
+          value={user.streak_count ?? 0}
+          label="Ngày liên tiếp"
+        />
         <StatCard icon={Star} value={user.points ?? 0} label="Điểm tích luỹ" />
-        <StatCard icon={BookOpen} value={user.level || '—'} label="Trình độ" />
+        <StatCard icon={BookOpen} value={user.level || "—"} label="Trình độ" />
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -141,15 +175,17 @@ export default function Dashboard() {
         <div className="jp-card p-6 flex flex-col">
           <CardTitle icon={Brain}>Ôn tập hôm nay</CardTitle>
           <p className="font-display font-bold text-2xl text-text mt-3">
-            {review.due > 0 ? `${review.due} từ cần ôn lại` : 'Chưa có từ nào đến hạn ôn lại'}
+            {review.due > 0
+              ? `${review.due} từ cần ôn lại`
+              : "Chưa có từ nào đến hạn ôn lại"}
           </p>
           <p className="text-sm text-text-muted mt-1">
             {review.new > 0
               ? `Và ${review.new} từ mới đang chờ bạn.`
-              : 'Bạn đã học hết toàn bộ từ hiện có.'}
+              : "Bạn đã học hết toàn bộ từ hiện có."}
           </p>
           <ActionLink to="/flashcards">
-            {review.due > 0 ? 'Bắt đầu ôn tập' : 'Học từ mới'}
+            {review.due > 0 ? "Bắt đầu ôn tập" : "Học từ mới"}
           </ActionLink>
         </div>
 
@@ -160,17 +196,25 @@ export default function Dashboard() {
             <>
               <div className="mt-3 flex items-center gap-2">
                 <HankoBadge text={nextLesson.level} />
-                <span className="text-xs text-text-muted">{nextLesson.course_title}</span>
+                <span className="text-xs text-text-muted">
+                  {nextLesson.course_title}
+                </span>
               </div>
-              <p className="font-display font-bold text-xl text-text mt-2">{nextLesson.title}</p>
-              <ActionLink to={`/lessons/${nextLesson.id}`}>Vào bài học</ActionLink>
+              <p className="font-display font-bold text-xl text-text mt-2">
+                {nextLesson.title}
+              </p>
+              <ActionLink to={`/lessons/${nextLesson.id}`}>
+                Vào bài học
+              </ActionLink>
             </>
           ) : (
             <>
               <p className="font-display font-bold text-xl text-text mt-3">
                 Bạn đã hoàn thành mọi bài học hiện có
               </p>
-              <p className="text-sm text-text-muted mt-1">Ôn lại từ vựng để giữ vững kiến thức nhé.</p>
+              <p className="text-sm text-text-muted mt-1">
+                Ôn lại từ vựng để giữ vững kiến thức nhé.
+              </p>
               <ActionLink to="/courses">Xem các khoá học</ActionLink>
             </>
           )}
@@ -179,12 +223,16 @@ export default function Dashboard() {
 
       {/* Tiến độ theo cấp độ */}
       <div className="jp-card p-6">
-        <h2 className="font-display font-bold text-lg text-text">Từ vựng và Kanji đã học</h2>
+        <h2 className="font-display font-bold text-lg text-text">
+          Từ vựng và Kanji đã học
+        </h2>
         <p className="text-xs text-text-muted mt-0.5">
           Tính các từ bạn đã trả lời đúng ít nhất một lần và chưa quên.
         </p>
         {visibleLevels.length === 0 ? (
-          <p className="text-sm text-text-muted mt-4">Chưa có dữ liệu từ vựng.</p>
+          <p className="text-sm text-text-muted mt-4">
+            Chưa có dữ liệu từ vựng.
+          </p>
         ) : (
           <div className="mt-4 space-y-3">
             {visibleLevels.map((l) => (
@@ -205,7 +253,9 @@ export default function Dashboard() {
       {/* Khoá học */}
       <div className="jp-card p-6">
         <div className="flex items-center justify-between">
-          <h2 className="font-display font-bold text-lg text-text">Khoá học của bạn</h2>
+          <h2 className="font-display font-bold text-lg text-text">
+            Khoá học của bạn
+          </h2>
           <Link to="/courses" className="text-sm text-accent hover:underline">
             Xem tất cả
           </Link>
@@ -221,7 +271,9 @@ export default function Dashboard() {
                 className="rounded-xl border border-border/70 bg-surface p-4 transition hover:border-accent"
               >
                 <div className="flex items-center justify-between gap-2">
-                  <p className="min-w-0 truncate text-sm font-semibold text-text">{c.title}</p>
+                  <p className="min-w-0 truncate text-sm font-semibold text-text">
+                    {c.title}
+                  </p>
                   <HankoBadge text={c.level} />
                 </div>
                 <p className="mt-1 mb-2 text-xs text-text-muted">
@@ -237,14 +289,19 @@ export default function Dashboard() {
       {/* Bài kiểm tra gần đây */}
       <div className="jp-card p-6">
         <div className="flex items-center justify-between">
-          <h2 className="font-display font-bold text-lg text-text">Bài kiểm tra gần đây</h2>
-          <Link to="/quiz-history" className="text-sm text-accent hover:underline">
+          <h2 className="font-display font-bold text-lg text-text">
+            Bài kiểm tra gần đây
+          </h2>
+          <Link
+            to="/quiz-history"
+            className="text-sm text-accent hover:underline"
+          >
             Xem lịch sử
           </Link>
         </div>
         {quizzes.length === 0 ? (
           <p className="text-sm text-text-muted mt-4">
-            Bạn chưa làm bài kiểm tra nào.{' '}
+            Bạn chưa làm bài kiểm tra nào.{" "}
             <Link to="/quizzes" className="text-accent hover:underline">
               Làm bài ngay
             </Link>
@@ -258,12 +315,16 @@ export default function Dashboard() {
                 className="flex items-center justify-between gap-3 py-3 transition hover:text-accent"
               >
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-medium text-text">{q.title}</p>
+                  <p className="truncate text-sm font-medium text-text">
+                    {q.title}
+                  </p>
                   <p className="text-xs text-text-faint">
-                    {new Date(q.completed_at).toLocaleDateString('vi-VN')}
+                    {new Date(q.completed_at).toLocaleDateString("vi-VN")}
                   </p>
                 </div>
-                <span className="font-display text-lg font-bold text-accent">{q.score}/10</span>
+                <span className="font-display text-lg font-bold text-accent">
+                  {q.score}/10
+                </span>
               </Link>
             ))}
           </div>

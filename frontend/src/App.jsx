@@ -34,6 +34,7 @@ import AssistantWidget from "./components/AssistantWidget";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import KanaTables from "./components/KanaTables";
 import Dashboard from "./pages/Dashboard";
+import Leaderboard from "./pages/Leaderboard";
 
 function Home() {
   const { user } = useAuth();
@@ -62,7 +63,7 @@ function Home() {
           observer.disconnect(); // Chỉ chạy hiệu ứng 1 lần
         }
       },
-      { threshold: 0.2 } // Kích hoạt khi cuộn thấy 20% khối này
+      { threshold: 0.2 }, // Kích hoạt khi cuộn thấy 20% khối này
     );
 
     if (statsRef.current) {
@@ -539,8 +540,8 @@ function Home() {
 
             {/* Nút Lùi */}
             {courses.length > 3 && (
-              <button 
-                onClick={prevCourses} 
+              <button
+                onClick={prevCourses}
                 className="absolute left-0 sm:-left-3 top-1/2 -translate-y-1/2 z-20 bg-surface border border-border rounded-full p-3 shadow-sm text-text-muted hover:text-accent hover:border-accent transition hidden sm:flex opacity-0 group-hover:opacity-100"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -550,12 +551,15 @@ function Home() {
             {/* Khung cửa sổ hiển thị (Chỉ cho phép nhìn thấy 3 ô) */}
             <div className="overflow-hidden -mx-3 py-2">
               {/* Thanh ray dài chứa CẢ 5 KHÓA HỌC */}
-              <div 
-                className="slider-track" 
-                style={{ '--slide-step': currentIndex }}
+              <div
+                className="slider-track"
+                style={{ "--slide-step": currentIndex }}
               >
                 {courses.map((course) => (
-                  <div key={course.id} className="w-full sm:w-1/3 shrink-0 px-3">
+                  <div
+                    key={course.id}
+                    className="w-full sm:w-1/3 shrink-0 px-3"
+                  >
                     <Link
                       to={`/courses/${course.id}`}
                       className="jp-card p-6 flex flex-col justify-between group h-full bg-surface border border-border rounded-2xl hover:border-accent hover:shadow-sm transition-all"
@@ -586,8 +590,8 @@ function Home() {
 
             {/* Nút Tiến */}
             {courses.length > 3 && (
-              <button 
-                onClick={nextCourses} 
+              <button
+                onClick={nextCourses}
                 className="absolute right-0 sm:-right-3 top-1/2 -translate-y-1/2 z-20 bg-surface border border-border rounded-full p-3 shadow-sm text-text-muted hover:text-accent hover:border-accent transition hidden sm:flex opacity-0 group-hover:opacity-100"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -635,11 +639,14 @@ function Home() {
 
       {/* Stats strip */}
       <div className="bg-bg relative">
-      {/* ... Các section Hero, 4 Pillars, Roadmap, Courses ... */}
+        {/* ... Các section Hero, 4 Pillars, Roadmap, Courses ... */}
 
-      {/* Stats strip - Đã được nâng cấp */}
-      <section ref={statsRef} className="border-t border-border bg-surface overflow-hidden">
-        <style>{`
+        {/* Stats strip - Đã được nâng cấp */}
+        <section
+          ref={statsRef}
+          className="border-t border-border bg-surface overflow-hidden"
+        >
+          <style>{`
           @keyframes slideInFromLeft {
             0% { opacity: 0; transform: translateX(-40px); }
             100% { opacity: 1; transform: translateX(0); }
@@ -652,68 +659,60 @@ function Home() {
           }
         `}</style>
 
-        <div className="max-w-5xl mx-auto px-6 py-10 sm:py-14 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 text-center">
-          
-          {/* Cột 1 */}
-          <div 
-            className={`space-y-1.5 flex flex-col justify-center stat-item ${statsVisible ? 'is-visible' : ''}`}
-            style={{ animationDelay: '100ms' }}
-          >
-            <p
-              className="font-serif text-3xl sm:text-4xl font-extrabold text-accent"
-              style={{ fontFamily: "'Noto Serif JP', serif" }}
+          <div className="max-w-5xl mx-auto px-6 py-10 sm:py-14 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 text-center">
+            {/* Cột 1 */}
+            <div
+              className={`space-y-1.5 flex flex-col justify-center stat-item ${statsVisible ? "is-visible" : ""}`}
+              style={{ animationDelay: "100ms" }}
             >
-              N5–N1
-            </p>
-            <p className="text-text font-medium text-sm">
-              Đầy đủ 5 Cấp độ
-            </p>
-            <p className="text-xs text-text-muted">
-              Theo chuẩn kỳ thi năng lực
-            </p>
-          </div>
+              <p
+                className="font-serif text-3xl sm:text-4xl font-extrabold text-accent"
+                style={{ fontFamily: "'Noto Serif JP', serif" }}
+              >
+                N5–N1
+              </p>
+              <p className="text-text font-medium text-sm">Đầy đủ 5 Cấp độ</p>
+              <p className="text-xs text-text-muted">
+                Theo chuẩn kỳ thi năng lực
+              </p>
+            </div>
 
-          {/* Cột 2 */}
-          <div 
-            className={`space-y-1.5 flex flex-col justify-center py-6 sm:py-0 border-y sm:border-y-0 sm:border-x border-border stat-item ${statsVisible ? 'is-visible' : ''}`}
-            style={{ animationDelay: '250ms' }}
-          >
-            <p
-              className="font-serif text-3xl sm:text-4xl font-extrabold text-matcha"
-              style={{ fontFamily: "'Noto Serif JP', serif" }}
+            {/* Cột 2 */}
+            <div
+              className={`space-y-1.5 flex flex-col justify-center py-6 sm:py-0 border-y sm:border-y-0 sm:border-x border-border stat-item ${statsVisible ? "is-visible" : ""}`}
+              style={{ animationDelay: "250ms" }}
             >
-              SRS
-            </p>
-            <p className="text-text font-medium text-sm">
-              Lặp lại ngắt quãng
-            </p>
-            <p className="text-xs text-text-muted">
-              Khoa học trí nhớ tối ưu
-            </p>
-          </div>
+              <p
+                className="font-serif text-3xl sm:text-4xl font-extrabold text-matcha"
+                style={{ fontFamily: "'Noto Serif JP', serif" }}
+              >
+                SRS
+              </p>
+              <p className="text-text font-medium text-sm">
+                Lặp lại ngắt quãng
+              </p>
+              <p className="text-xs text-text-muted">Khoa học trí nhớ tối ưu</p>
+            </div>
 
-          {/* Cột 3 */}
-          <div 
-            className={`space-y-1.5 flex flex-col justify-center stat-item ${statsVisible ? 'is-visible' : ''}`}
-            style={{ animationDelay: '400ms' }}
-          >
-            <p
-              className="font-serif text-3xl sm:text-4xl font-extrabold text-gold"
-              style={{ fontFamily: "'Noto Serif JP', serif" }}
+            {/* Cột 3 */}
+            <div
+              className={`space-y-1.5 flex flex-col justify-center stat-item ${statsVisible ? "is-visible" : ""}`}
+              style={{ animationDelay: "400ms" }}
             >
-              100%
-            </p>
-            <p className="text-text font-medium text-sm">
-              Miễn phí học tập
-            </p>
-            <p className="text-xs text-text-muted">
-              Không giới hạn tính năng
-            </p>
+              <p
+                className="font-serif text-3xl sm:text-4xl font-extrabold text-gold"
+                style={{ fontFamily: "'Noto Serif JP', serif" }}
+              >
+                100%
+              </p>
+              <p className="text-text font-medium text-sm">Miễn phí học tập</p>
+              <p className="text-xs text-text-muted">
+                Không giới hạn tính năng
+              </p>
+            </div>
           </div>
-
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
     </div>
   );
 }
@@ -765,6 +764,14 @@ export default function App() {
                   element={
                     <ProtectedRoute>
                       <Profile />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/leaderboard"
+                  element={
+                    <ProtectedRoute>
+                      <Leaderboard />
                     </ProtectedRoute>
                   }
                 />
