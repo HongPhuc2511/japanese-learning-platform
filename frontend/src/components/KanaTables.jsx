@@ -80,7 +80,7 @@ function KanaGrid({ rows, columns, header, script, variant }) {
 
   return (
     <div className="overflow-x-auto">
-      <div className={`grid ${template} gap-1.5 sm:gap-2 min-w-[19rem]`}>
+      <div className={`grid ${template} gap-1.5 sm:gap-2 min-w-76`}>
         <div />
         {header.map((h) => (
           <div key={h} className="text-center text-xs font-semibold uppercase text-text-faint">

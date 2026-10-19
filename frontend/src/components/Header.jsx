@@ -52,7 +52,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-border shadow-xs">
       {/* Decorative thin top line (Japanese vermilion Torii accent) */}
-      <div className="h-[3px] bg-linear-to-r from-accent via-accent-hover to-accent" />
+      <div className="h-0.75 bg-linear-to-r from-accent via-accent-hover to-accent" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         {/* Brand Logo */}

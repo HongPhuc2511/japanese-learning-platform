@@ -134,7 +134,7 @@ export default function CourseDetail() {
             </div>
             <div className="h-2.5 bg-surface-subtle border border-border/60 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-accent to-accent-hover transition-all duration-300"
+                className="h-full bg-linear-to-r from-accent to-accent-hover transition-all duration-300"
                 style={{ width: `${percent}%` }}
               />
             </div>
@@ -236,4 +236,4 @@ export default function CourseDetail() {
       </div>
     </div>
   );
-}
+}

@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-surface border-t border-border mt-auto relative overflow-hidden">
       {/* Decorative top wave/seigaiha strip */}
-      <div className="h-1 bg-gradient-to-r from-accent/20 via-accent to-matcha/30" />
+      <div className="h-1 bg-linear-to-r from-accent/20 via-accent to-matcha/30" />
 
       {/* Background Japanese Watermark */}
       <div
@@ -152,4 +152,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+}

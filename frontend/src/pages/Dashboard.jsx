@@ -135,7 +135,7 @@ export default function Dashboard() {
           <p className="text-sm font-bold text-accent" style={SERIF}>
             {hello.jp} • {hello.vi}
           </p>
-          <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-text tracking-tight break-words">
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-text tracking-tight wrap-break-word">
             {name}
           </h1>
         </div>
