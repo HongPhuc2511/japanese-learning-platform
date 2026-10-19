@@ -2,28 +2,53 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api, { endpoints } from '../api/api';
 import { useAuth } from '../context/AuthContext';
-import { HankoBadge } from '../components/JapaneseIcons';
-import { HelpCircle, ChevronRight, History, Award } from 'lucide-react';
+import Pagination from '../components/Pagination';
+import { HelpCircle, ChevronRight, History } from 'lucide-react';
+
+const PAGE_SIZE = 15;
 
 export default function Quizzes() {
   const { user } = useAuth();
   const [quizzes, setQuizzes] = useState([]);
+  const [count, setCount] = useState(0);
+  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchQuizzes = async () => {
+      setLoading(true);
       try {
-        const res = await api.get(endpoints['quizzes']);
-        setQuizzes(res.data);
+        const res = await api.get(endpoints['quizzes'], {
+          params: { page, page_size: PAGE_SIZE },
+        });
+
+        if (res.data && Array.isArray(res.data.results)) {
+          setQuizzes(res.data.results);
+          setCount(res.data.count || 0);
+        } else if (Array.isArray(res.data)) {
+          // Xử lý cắt 15 bài / trang nếu backend chưa phân trang
+          setCount(res.data.length);
+          const startIndex = (page - 1) * PAGE_SIZE;
+          setQuizzes(res.data.slice(startIndex, startIndex + PAGE_SIZE));
+        }
       } catch (err) {
+        if (err.response?.status === 404 && page > 1) {
+          setPage(1);
+          return;
+        }
         setError('Không tải được danh sách bài kiểm tra');
       } finally {
         setLoading(false);
       }
     };
     fetchQuizzes();
-  }, []);
+  }, [page]);
+
+  const goToPage = (newPage) => {
+    setPage(newPage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   if (loading) {
     return (
@@ -44,6 +69,8 @@ export default function Quizzes() {
     );
   }
 
+  const totalPages = Math.max(1, Math.ceil(count / PAGE_SIZE));
+
   return (
     <div className="max-w-4xl mx-auto py-10 px-4 sm:px-6">
       {/* Header section */}
@@ -54,7 +81,7 @@ export default function Quizzes() {
               実戦演習 • JISSEN ENSHU
             </span>
             <span className="text-text-faint">•</span>
-            <span className="text-xs text-text-muted">Tổng cộng {quizzes.length} đề thi</span>
+            <span className="text-xs text-text-muted">Tổng cộng {count} đề thi</span>
           </div>
           <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-text tracking-tight">
             Bài kiểm tra JLPT
@@ -81,31 +108,35 @@ export default function Quizzes() {
           <p className="text-text-muted text-sm">Chưa có bài kiểm tra nào.</p>
         </div>
       ) : (
-        <div className="grid gap-3.5 sm:grid-cols-2">
-          {quizzes.map((quiz) => (
-            <Link
-              key={quiz.id}
-              to={`/quizzes/${quiz.id}`}
-              className="jp-card p-5 flex items-center justify-between group hover:border-accent"
-            >
-              <div className="flex items-center gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-accent-soft text-accent flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <HelpCircle className="w-5 h-5" />
+        <>
+          <div className="grid gap-3.5 sm:grid-cols-2">
+            {quizzes.map((quiz) => (
+              <Link
+                key={quiz.id}
+                to={`/quizzes/${quiz.id}`}
+                className="jp-card p-5 flex items-center justify-between group hover:border-accent"
+              >
+                <div className="flex items-center gap-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-accent-soft text-accent flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <HelpCircle className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h2 className="font-bold text-base text-text group-hover:text-accent transition">
+                      {quiz.title}
+                    </h2>
+                    <span className="text-xs text-text-muted mt-0.5 block">
+                      Đề trắc nghiệm năng lực
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h2 className="font-bold text-base text-text group-hover:text-accent transition">
-                    {quiz.title}
-                  </h2>
-                  <span className="text-xs text-text-muted mt-0.5 block">
-                    Đề trắc nghiệm năng lực
-                  </span>
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-text-faint group-hover:text-accent group-hover:translate-x-1 transition-all" />
-            </Link>
-          ))}
-        </div>
+                <ChevronRight className="w-4 h-4 text-text-faint group-hover:text-accent group-hover:translate-x-1 transition-all" />
+              </Link>
+            ))}
+          </div>
+
+          <Pagination page={page} totalPages={totalPages} onChange={goToPage} />
+        </>
       )}
     </div>
   );
-}
+}
