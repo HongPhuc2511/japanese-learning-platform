@@ -35,6 +35,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import KanaTables from "./components/KanaTables";
 import Dashboard from "./pages/Dashboard";
 import Leaderboard from "./pages/Leaderboard";
+import PwaPrompts from './components/PwaPrompts';
 
 function Home() {
   const { user } = useAuth();
@@ -779,6 +780,7 @@ export default function App() {
             </main>
             <Footer />
             <AssistantWidget />
+            <PwaPrompts />
           </div>
         </BrowserRouter>
       </AuthProvider>
