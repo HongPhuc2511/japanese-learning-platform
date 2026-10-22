@@ -165,26 +165,40 @@ def _quiz_questions(level, limit):
 
 
 PLAN = [
-    ('vocab', _vocab_questions, 0.45),
-    ('kanji', _kanji_questions, 0.20),
-    ('grammar', _grammar_questions, 0.25),
-    ('quiz', _quiz_questions, 0.10),
+    ('vocab', _vocab_questions, 45),
+    ('kanji', _kanji_questions, 20),
+    ('grammar', _grammar_questions, 25),
+    ('quiz', _quiz_questions, 10),
 ]
 
 
+def _quotas(count):
+    """Chia count câu cho các nhóm theo tỉ lệ; tổng luôn đúng bằng count."""
+    quotas = {key: count * pct // 100 for key, _gen, pct in PLAN}
+    remainders = {key: (count * pct) % 100 for key, _gen, pct in PLAN}
+    missing = count - sum(quotas.values())
+    # Phần còn thiếu chia cho các nhóm có phần lẻ lớn nhất
+    for key in sorted(remainders, key=remainders.get, reverse=True)[:missing]:
+        quotas[key] += 1
+    return quotas
+
+
 def generate_questions(level, count):
-    pools = {key: generate(level, count) for key, generate, _share in PLAN}
+    quotas = _quotas(count)
+    pools = {key: generate(level, count) for key, generate, _pct in PLAN}
 
     chosen = []
-    for key, _generate, share in PLAN:
-        take = min(len(pools[key]), round(count * share))
+    for key, _generate, _pct in PLAN:
+        take = min(len(pools[key]), quotas[key])
         chosen += [{**q, 'section': key} for q in pools[key][:take]]
         pools[key] = pools[key][take:]
 
     # Nhóm nào thiếu câu thì lấy bù từ phần còn lại của các nhóm khác
+    need = max(0, count - len(chosen))
     leftovers = [{**q, 'section': key} for key, qs in pools.items() for q in qs]
     random.shuffle(leftovers)
-    chosen += leftovers[: count - len(chosen)]
+    chosen += leftovers[:need]
+    chosen = chosen[:count]
 
     if len(chosen) < MIN_QUESTIONS:
         raise NotEnoughQuestions()
