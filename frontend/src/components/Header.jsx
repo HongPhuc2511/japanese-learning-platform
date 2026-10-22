@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { authApi, endpoints } from '../api/api';
-import { ToriiIcon, DarumaIcon } from './JapaneseIcons';
-import { Menu, X, User as UserIcon, LogOut } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { authApi, endpoints } from "../api/api";
+import { ToriiIcon, DarumaIcon } from "./JapaneseIcons";
+import { Menu, X, User as UserIcon, LogOut } from "lucide-react";
 
 export default function Header() {
   const { user, logout, refreshUser } = useAuth();
@@ -22,10 +22,10 @@ export default function Header() {
 
     const fetchDueCount = async () => {
       try {
-        const res = await authApi.get(`${endpoints['flashcards']}due/`);
+        const res = await authApi.get(`${endpoints["flashcards"]}due/`);
         setDueCount(res.data.length);
       } catch (err) {
-        console.error('Không đếm được thẻ cần ôn', err);
+        console.error("Không đếm được thẻ cần ôn", err);
       }
     };
     fetchDueCount();
@@ -38,20 +38,22 @@ export default function Header() {
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate("/login");
   };
 
+  // Đã thêm "Thi thử" vào đây để hiện trên Desktop
   const navLinks = [
-    { to: '/courses', label: 'Khoá học', kanji: '講座' },
-    { to: '/vocabulary', label: 'Từ vựng', kanji: '語彙' },
-    { to: '/kanji', label: 'Kanji', kanji: '漢字' },
-    { to: '/grammar', label: 'Ngữ pháp', kanji: '文法' },
-    { to: '/quizzes', label: 'Kiểm tra', kanji: '演習' },
+    { to: "/courses", label: "Khoá học", kanji: "講座" },
+    { to: "/vocabulary", label: "Từ vựng", kanji: "語彙" },
+    { to: "/kanji", label: "Kanji", kanji: "漢字" },
+    { to: "/grammar", label: "Ngữ pháp", kanji: "文法" },
+    { to: "/quizzes", label: "Kiểm tra", kanji: "演習" },
+    { to: "/exam", label: "Thi thử", kanji: "試験" },
   ];
 
   return (
     <header className="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-border shadow-xs">
-      {/* Decorative thin top line (Japanese vermilion Torii accent) */}
+      {/* Decorative thin top line */}
       <div className="h-0.75 bg-linear-to-r from-accent via-accent-hover to-accent" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
@@ -78,7 +80,7 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation (Hiện trên máy tính) */}
         <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navLinks.map((item) => {
             const isActive = location.pathname.startsWith(item.to);
@@ -88,8 +90,8 @@ export default function Header() {
                 to={item.to}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 ${
                   isActive
-                    ? 'text-accent bg-accent-soft font-semibold shadow-xs'
-                    : 'text-text-muted hover:text-text hover:bg-surface-subtle'
+                    ? "text-accent bg-accent-soft font-semibold shadow-xs"
+                    : "text-text-muted hover:text-text hover:bg-surface-subtle"
                 }`}
               >
                 <span>{item.label}</span>
@@ -108,9 +110,9 @@ export default function Header() {
               <Link
                 to="/flashcards"
                 className={`relative px-3 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 ${
-                  location.pathname === '/flashcards'
-                    ? 'text-accent bg-accent-soft font-semibold shadow-xs'
-                    : 'text-text-muted hover:text-text hover:bg-surface-subtle'
+                  location.pathname === "/flashcards"
+                    ? "text-accent bg-accent-soft font-semibold shadow-xs"
+                    : "text-text-muted hover:text-text hover:bg-surface-subtle"
                 }`}
               >
                 <span>Ôn tập SRS</span>
@@ -122,7 +124,7 @@ export default function Header() {
                 </span>
                 {dueCount > 0 && (
                   <span className="bg-accent text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full leading-tight animate-pulse">
-                    {dueCount > 9 ? '9+' : dueCount}
+                    {dueCount > 9 ? "9+" : dueCount}
                   </span>
                 )}
               </Link>
@@ -130,9 +132,9 @@ export default function Header() {
               <Link
                 to="/saved"
                 className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 ${
-                  location.pathname === '/saved'
-                    ? 'text-accent bg-accent-soft font-semibold shadow-xs'
-                    : 'text-text-muted hover:text-text hover:bg-surface-subtle'
+                  location.pathname === "/saved"
+                    ? "text-accent bg-accent-soft font-semibold shadow-xs"
+                    : "text-text-muted hover:text-text hover:bg-surface-subtle"
                 }`}
               >
                 <span>Đã lưu</span>
@@ -147,11 +149,10 @@ export default function Header() {
           )}
         </nav>
 
-        {/* User Actions */}
+        {/* User Actions (Desktop) */}
         <div className="hidden lg:flex items-center gap-3">
           {user ? (
             <div className="flex items-center gap-2.5">
-              {/* Streak badge */}
               <div
                 className="flex items-center gap-1.5 bg-accent-soft/70 border border-accent/20 px-2.5 py-1 rounded-full text-xs text-accent font-medium"
                 title={`Chuỗi ${user.streak_count} ngày liên tiếp · ${user.points} điểm tích luỹ`}
@@ -162,7 +163,6 @@ export default function Header() {
                 <span className="font-semibold">{user.points}pt</span>
               </div>
 
-              {/* Profile Pill */}
               <Link
                 to="/profile"
                 className="flex items-center gap-1.5 text-xs text-text bg-surface-subtle border border-border hover:border-accent/50 px-3 py-1 rounded-full transition"
@@ -170,7 +170,9 @@ export default function Header() {
                 <div className="w-5 h-5 rounded-full bg-accent text-white text-[10px] font-bold flex items-center justify-center font-serif">
                   {user.username.charAt(0).toUpperCase()}
                 </div>
-                <span className="font-medium max-w-25 truncate">{user.display_name || user.username}</span>
+                <span className="font-medium max-w-25 truncate">
+                  {user.display_name || user.username}
+                </span>
               </Link>
 
               <button
@@ -209,7 +211,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile dropdown (Hiện trên điện thoại) */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-border bg-surface px-4 py-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="grid grid-cols-2 gap-2 text-sm">
@@ -234,7 +236,9 @@ export default function Header() {
             <div className="pt-2 border-t border-border/60 space-y-2">
               <div className="flex items-center justify-between bg-accent-soft/40 p-2.5 rounded-xl text-xs">
                 <span className="text-text-muted">Tiến độ hôm nay:</span>
-                <span className="font-semibold text-accent">🔥 {user.streak_count} ngày · {user.points} pt</span>
+                <span className="font-semibold text-accent">
+                  🔥 {user.streak_count} ngày · {user.points} pt
+                </span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <Link
@@ -256,7 +260,10 @@ export default function Header() {
                 </Link>
               </div>
               <div className="flex items-center justify-between pt-2">
-                <Link to="/profile" className="text-xs font-medium text-text flex items-center gap-1.5">
+                <Link
+                  to="/profile"
+                  className="text-xs font-medium text-text flex items-center gap-1.5"
+                >
                   <UserIcon className="w-3.5 h-3.5 text-accent" />
                   {user.username}
                 </Link>

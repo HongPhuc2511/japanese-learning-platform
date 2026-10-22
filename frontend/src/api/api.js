@@ -22,6 +22,7 @@ export const endpoints = {
     'facebook-login': "/api/auth/facebook/",
     'dashboard': "/api/dashboard/",
     'leaderboard': "/api/leaderboard/",
+    'exams': "/api/exams/",
 }
 
 export const authApi = axios.create({
