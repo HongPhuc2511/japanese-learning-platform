@@ -52,7 +52,7 @@ authApi.interceptors.response.use(
             }
 
             try {
-                const res = await axios.post(BASE_URL + endpoints['refresh'], {
+                const res = await axios.post(BASE_URL.replace(/\/+$/, '') + endpoints['refresh'], {
                     refresh: refreshToken,
                 });
                 localStorage.setItem('access', res.data.access);
