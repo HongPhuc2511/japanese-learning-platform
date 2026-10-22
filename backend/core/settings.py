@@ -343,4 +343,63 @@ UNFOLD = {
     },
 }
 
+# =====================================================================
+# Cấu hình theo môi trường (Docker / máy chủ thật). ĐẶT Ở CUỐI FILE.
+# =====================================================================
+def _env_list(name):
+    return [item.strip() for item in os.environ.get(name, '').split(',') if item.strip()]
 
+
+if os.environ.get('SECRET_KEY'):
+    SECRET_KEY = os.environ['SECRET_KEY']
+
+if 'DEBUG' in os.environ:
+    DEBUG = os.environ['DEBUG'].lower() == 'true'
+
+if os.environ.get('TIME_ZONE'):
+    TIME_ZONE = os.environ['TIME_ZONE']
+
+if _env_list('ALLOWED_HOSTS'):
+    ALLOWED_HOSTS = _env_list('ALLOWED_HOSTS')
+
+if _env_list('CSRF_TRUSTED_ORIGINS'):
+    CSRF_TRUSTED_ORIGINS = _env_list('CSRF_TRUSTED_ORIGINS')
+
+if not globals().get('ASSISTANT_MODEL'):  # biến để trống thì dùng giá trị mặc định
+    ASSISTANT_MODEL = 'gemini-3-flash-preview'
+
+if os.environ.get('DB_HOST'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['DB_NAME'],
+            'USER': os.environ['DB_USER'],
+            'PASSWORD': os.environ['DB_PASSWORD'],
+            'HOST': os.environ['DB_HOST'],
+            'PORT': os.environ.get('DB_PORT', '3306'),
+            'OPTIONS': {'charset': 'utf8mb4'},
+        }
+    }
+
+# File tĩnh (admin, Swagger...) do WhiteNoise phục vụ; file người dùng tải lên nằm ở MEDIA_ROOT
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = Path(os.environ.get('MEDIA_ROOT', BASE_DIR / 'media'))
+
+if 'whitenoise.middleware.WhiteNoiseMiddleware' not in MIDDLEWARE:
+    MIDDLEWARE.insert(
+        MIDDLEWARE.index('django.middleware.security.SecurityMiddleware') + 1,
+        'whitenoise.middleware.WhiteNoiseMiddleware',
+    )
+
+STORAGES = {
+    'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+    'staticfiles': {'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage'},
+}
+
+# Phía trước có Caddy giữ HTTPS, Django chỉ cần tin header này
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+if os.environ.get('HTTPS_ONLY', 'False').lower() == 'true':
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
