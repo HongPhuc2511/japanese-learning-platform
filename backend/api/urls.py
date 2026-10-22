@@ -5,7 +5,7 @@ from .views import (RegisterView, LoginView, RefreshTokenView, MeView, CourseVie
                     LessonViewSet, VocabularyViewSet, KanjiViewSet, GrammarViewSet, QuizViewSet,
                     UserProgressViewSet, BookmarkViewSet, FlashcardReviewViewSet, ChangePasswordView,
                     QuizResultViewSet, AssistantChatView, GoogleLoginView, FacebookLoginView,
-                    DashboardView, LeaderboardView)
+                    DashboardView, LeaderboardView,ExamViewSet)
 
 router = DefaultRouter()
 router.register('courses', CourseViewSet)
@@ -18,6 +18,7 @@ router.register('progress', UserProgressViewSet, basename='progress')
 router.register('bookmarks', BookmarkViewSet, basename='bookmarks')
 router.register('flashcards', FlashcardReviewViewSet, basename='flashcards')
 router.register('quiz-results', QuizResultViewSet, basename='quiz-results')
+router.register('exams', ExamViewSet, basename='exams')
 
 urlpatterns = [
     path('auth/register/', RegisterView.as_view(), name='register'),

@@ -35,7 +35,9 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import KanaTables from "./components/KanaTables";
 import Dashboard from "./pages/Dashboard";
 import Leaderboard from "./pages/Leaderboard";
-import PwaPrompts from './components/PwaPrompts';
+import PwaPrompts from "./components/PwaPrompts";
+import ExamHome from "./pages/ExamHome";
+import ExamRun from "./pages/ExamRun";
 
 function Home() {
   const { user } = useAuth();
@@ -773,6 +775,22 @@ export default function App() {
                   element={
                     <ProtectedRoute>
                       <Leaderboard />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/exam"
+                  element={
+                    <ProtectedRoute>
+                      <ExamHome />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/exam/:id"
+                  element={
+                    <ProtectedRoute>
+                      <ExamRun />
                     </ProtectedRoute>
                   }
                 />
