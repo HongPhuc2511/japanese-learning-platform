@@ -37,8 +37,8 @@ Dự án gồm REST API viết bằng Django REST Framework, giao diện React d
 
 | Dashboard | Flashcard SRS |
 |---|---|
-| ![Dashboard](<img width="1917" height="902" alt="image" src="https://github.com/user-attachments/assets/3dbb0c39-7c01-4287-8eb7-857f25bfaf56" />
-) | ![Flashcard](docs/screenshots/flashcards.png) |
+|<img width="1917" height="902" alt="image" src="https://github.com/user-attachments/assets/3dbb0c39-7c01-4287-8eb7-857f25bfaf56" /> |<img width="1848" height="906" alt="image" src="https://github.com/user-attachments/assets/5a9f7e3e-68c1-4cc1-84f7-59352fc9fec9" />
+|
 
 | Thứ tự nét Kanji | Thi thử có bấm giờ |
 |---|---|
