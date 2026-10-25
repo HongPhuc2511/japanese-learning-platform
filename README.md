@@ -33,23 +33,15 @@ Dự án gồm REST API viết bằng Django REST Framework, giao diện React d
 **Demo trực tuyến:** https://ten-mien-cua-ban.com
 -->
 
-### Ảnh chụp màn hình
 
-| Dashboard | Flashcard SRS |
-|---|---|
-|<img width="1917" height="902" alt="image" src="https://github.com/user-attachments/assets/3dbb0c39-7c01-4287-8eb7-857f25bfaf56" /> |<img width="1848" height="906" alt="image" src="https://github.com/user-attachments/assets/5a9f7e3e-68c1-4cc1-84f7-59352fc9fec9" />
-|
 
-| Thứ tự nét Kanji | Thi thử có bấm giờ |
+| Dashboard |
 |---|---|
-| <img width="1638" height="898" alt="image" src="https://github.com/user-attachments/assets/8d15e8ee-b9e5-49e8-9037-e000088e020f" />
- |<img width="1892" height="905" alt="image" src="https://github.com/user-attachments/assets/8d78dd2a-232e-4a4e-94b1-f3dbc36e7135" />
-|
+|<img width="1917" height="902" alt="image" src="https://github.com/user-attachments/assets/3dbb0c39-7c01-4287-8eb7-857f25bfaf56" /> |<img width="1205" height="891" alt="image" src="https://github.com/user-attachments/assets/07710792-cf9c-4387-9aca-ae393bc8c4e5" />|
 
-| Trợ lý AI | Tài liệu API (Swagger) |
-|---|---|
-|<img width="478" height="672" alt="image" src="https://github.com/user-attachments/assets/9b5f469a-656b-477d-830c-5e44e3025243" />
-| [[![Swagger](docs/screenshots/api-docs.png)](http://127.0.0.1/api/docs/) ](http://127.0.0.1/api/docs/)|
+
+
+Vào http://127.0.0.1:80/api/docs/ để xem tài liệu api của dự án
 
 ## Tính năng
 
