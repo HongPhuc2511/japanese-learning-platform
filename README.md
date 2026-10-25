@@ -35,9 +35,8 @@ Dự án gồm REST API viết bằng Django REST Framework, giao diện React d
 
 
 
-| Dashboard |
-|---|---|
-|<img width="1917" height="902" alt="image" src="https://github.com/user-attachments/assets/3dbb0c39-7c01-4287-8eb7-857f25bfaf56" /> |<img width="1205" height="891" alt="image" src="https://github.com/user-attachments/assets/07710792-cf9c-4387-9aca-ae393bc8c4e5" />|
+
+|<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/3dbb0c39-7c01-4287-8eb7-857f25bfaf56" /> |<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/07710792-cf9c-4387-9aca-ae393bc8c4e5" />|
 
 
 
