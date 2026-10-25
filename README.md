@@ -42,11 +42,14 @@ Dự án gồm REST API viết bằng Django REST Framework, giao diện React d
 
 | Thứ tự nét Kanji | Thi thử có bấm giờ |
 |---|---|
-| ![Thứ tự nét](docs/screenshots/kanji-stroke-order.png) | ![Thi thử](docs/screenshots/mock-exam.png) |
+| <img width="1638" height="898" alt="image" src="https://github.com/user-attachments/assets/8d15e8ee-b9e5-49e8-9037-e000088e020f" />
+ |<img width="1892" height="905" alt="image" src="https://github.com/user-attachments/assets/8d78dd2a-232e-4a4e-94b1-f3dbc36e7135" />
+|
 
 | Trợ lý AI | Tài liệu API (Swagger) |
 |---|---|
-| ![Trợ lý AI](docs/screenshots/ai-assistant.png) | ![Swagger](docs/screenshots/api-docs.png) |
+|<img width="478" height="672" alt="image" src="https://github.com/user-attachments/assets/9b5f469a-656b-477d-830c-5e44e3025243" />
+| [[![Swagger](docs/screenshots/api-docs.png)](http://127.0.0.1/api/docs/) ](http://127.0.0.1/api/docs/)|
 
 ## Tính năng
 
