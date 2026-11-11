@@ -68,7 +68,7 @@ Vào http://127.0.0.1:80/api/docs/ để xem tài liệu api của dự án
 - Chat hỏi đáp tiếng Nhật (ngữ pháp, từ vựng, sửa câu) dùng **Google Gemini**, hiển thị dạng nút nổi ở mọi trang.
 - Khoá API chỉ nằm ở server, có giới hạn tần suất theo người dùng, giới hạn độ dài và số tin nhắn.
 
-### Tài khoản & bảo mật
+### Tài khoản và bảo mật
 - Đăng ký / đăng nhập bằng **JWT** (access + refresh, tự động làm mới token khi hết hạn).
 - Đăng nhập bằng **Google** và **Facebook** (server xác minh token trước khi cấp phiên).
 - Đổi thông tin tài khoản, đổi mật khẩu (ẩn với tài khoản mạng xã hội không có mật khẩu).
