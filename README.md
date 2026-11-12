@@ -49,7 +49,7 @@ Vào http://127.0.0.1:80/api/docs/ để xem tài liệu api của dự án
 
 ### Nội dung học
 - **Lộ trình N5 → N1:** khoá học → bài học; mỗi bài gồm từ vựng, ngữ pháp và bài kiểm tra. Đánh dấu hoàn thành bài và xem % tiến độ từng khoá.
-- **Kho từ vựng & Kanji:** tìm kiếm theo Kanji / Kana / Romaji / nghĩa, lọc theo cấp độ, phân trang phía server, lưu từ yêu thích.
+- **Kho từ vựng và Kanji:** tìm kiếm theo Kanji / Kana / Romaji / nghĩa, lọc theo cấp độ, phân trang phía server, lưu từ yêu thích.
 - **Hoạt hình thứ tự nét Kanji:** vẽ từng nét, tạm dừng, lùi/tiến từng nét, đổi tốc độ, hiện số nét (dữ liệu KanjiVG).
 - **Ngữ pháp JLPT:** mẫu câu, giải thích, câu ví dụ có phát âm.
 - **Bảng chữ cái:** Hiragana, Katakana, âm ghép, trường âm, âm ngắt; bấm để nghe.
