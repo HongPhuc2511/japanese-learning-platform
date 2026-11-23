@@ -25,7 +25,7 @@ Từ vựng · Kanji · Ngữ pháp · Flashcard lặp lại ngắt quãng (SRS)
 
 ## Giới thiệu
 
-**Hikari** là ứng dụng web giúp người Việt học tiếng Nhật có hệ thống, từ bảng chữ cái đến luyện thi JLPT. Nội dung được tổ chức theo cấp độ **N5 → N1**, kết hợp học lý thuyết (khoá học, bài học, ngữ pháp), tra cứu (từ vựng, Kanji có hoạt hình thứ tự nét) và ôn tập bằng thuật toán **lặp lại ngắt quãng SM-2** để ghi nhớ lâu dài.
+**Hikari** là ứng dụng web giúp người Việt học tiếng Nhật có hệ thống, từ bảng chữ cái đến luyện thi JLPT. Nội dung được tổ chức theo cấp độ **N5 - N1**, kết hợp học lý thuyết (khoá học, bài học, ngữ pháp), tra cứu (từ vựng, Kanji có hoạt hình thứ tự nét) và ôn tập bằng thuật toán **lặp lại ngắt quãng SM-2** để ghi nhớ lâu dài.
 
 Dự án gồm REST API viết bằng Django REST Framework, giao diện React dạng SPA có thể cài như ứng dụng (PWA), được đóng gói bằng Docker và kiểm tra tự động bằng GitHub Actions.
 
